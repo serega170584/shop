@@ -13,8 +13,6 @@ class IndexController extends AbstractController
      */
     public function index(): Response
     {
-        var_dump(file_get_contents('http://127.0.0.1:8080'));
-        die('asd');
         return $this->render('index/index.html.twig', [
             'controller_name' => 'IndexController',
         ]);
