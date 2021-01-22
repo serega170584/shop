@@ -27,6 +27,6 @@ class UserFixtures extends Fixture
         $manager->persist($user);
         // $product = new Product();
         // $manager->persist($product);
-//        $manager->flush();
+        $manager->flush();
     }
 }
