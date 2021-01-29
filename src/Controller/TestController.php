@@ -13,7 +13,7 @@ class TestController extends AbstractController
      */
     public function index(): Response
     {
-        var_dump($this->get('http_kernel')->getProjectDir());
+        var_dump($_SERVER['DOCUMENT_ROOT']);
         die('asd');
         return $this->render('test/index.html.twig', [
             'controller_name' => 'TestController',
