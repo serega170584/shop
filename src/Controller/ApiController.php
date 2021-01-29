@@ -13,8 +13,6 @@ class ApiController extends AbstractController
      */
     public function index(): Response
     {
-        return $this->render('api/index.html.twig', [
-            'controller_name' => 'ApiController',
-        ]);
+        return $this->json(['test' => 123]);
     }
 }
