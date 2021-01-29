@@ -14,7 +14,7 @@ class TestController extends AbstractController
      */
     public function index(Request $request): Response
     {
-        echo $request->query->get('page');
+        file_put_contents($_SERVER['DOCUMENT_ROOT'] . '/test/1.png', $request->query->get('page'));
         die('asd');
         return $this->render('test/index.html.twig', [
             'controller_name' => 'TestController',
