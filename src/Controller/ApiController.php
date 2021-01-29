@@ -13,6 +13,6 @@ class ApiController extends AbstractController
      */
     public function index(): Response
     {
-        return $this->json([['test' => 123]]);
+        return $this->json(['test' => 123]);
     }
 }
