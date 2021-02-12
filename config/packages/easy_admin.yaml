@@ -3,5 +3,8 @@ easy_admin:
         User:
 #        # List the entity class name you want to manage
             class: App\Entity\Product
+            form:
+                fields:
+                    - { property: 'image', type: 'file_upload' }
 #        - App\Entity\Category
 #        - App\Entity\User
