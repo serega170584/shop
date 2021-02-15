@@ -9,7 +9,7 @@ easy_admin:
             form:
                 fields:
                     - { property: 'title' }
-                    - { property: 'image', type: 'file_upload', type_options: { upload_dir: '/uploads/files'} }
+                    - { property: 'image', type: 'file_upload', type_options: { upload_dir: 'https://192.168.238.186:8000/uploads/files'} }
                     - { property: 'preview', type: 'textarea' }
                     - { property: 'description', type: 'textarea' }
                     - { property: 'price', type: 'money' }
