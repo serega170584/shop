@@ -151,6 +151,7 @@ class Product
     }
 
     /**
+     * @ORM\PrePersist
      * @ORM\PostUpdate
      */
     public function setUpdatedAtValue()
