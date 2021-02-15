@@ -6,8 +6,8 @@ easy_admin:
             form:
                 fields:
                     - { propery: 'title', type_options: { required: true } }
-                    - { propery: 'preview', type: 'text' }
-                    - { propery: 'description', type: 'text' }
+                    - { propery: 'preview', type: 'file_upload' }
+                    - { propery: 'description', type: 'file_upload' }
                     - { property: 'image', type: 'file_upload' }
 #        - App\Entity\Category
 #        - App\Entity\User
