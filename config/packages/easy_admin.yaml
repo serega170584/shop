@@ -8,6 +8,6 @@ easy_admin:
                     - { property: 'title' }
                     - { property: 'image', type: 'file_upload', type_options: { required: false } }
                     - { property: 'preview', type: 'textarea' }
-                    - { property: 'description', type: 'textarea', type_options: { required: false } }
+                    - { property: 'description', type: 'textarea' }
 #        - App\Entity\Category
 #        - App\Entity\User
