@@ -165,7 +165,6 @@ class Product
      */
     public function setImageVal()
     {
-        var_dump($this->image);
-        die('asd');
+        $this->image = basename($this->image);
     }
 }
