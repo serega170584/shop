@@ -5,7 +5,7 @@ easy_admin:
             class: App\Entity\Product
             list:
                 fields:
-                    - { property: 'image', type: 'image' }
+                    - { property: 'image', type: 'image', base_path: '/uploads/files' }
             form:
                 fields:
                     - { property: 'title' }
