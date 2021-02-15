@@ -134,6 +134,7 @@ class Product
      */
     public function setCreatedAtValue()
     {
+        die('asd');
         $this->createdAt = new \DateTime();
     }
 
