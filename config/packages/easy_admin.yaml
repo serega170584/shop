@@ -9,6 +9,6 @@ easy_admin:
                     - { property: 'image', type: 'file_upload' }
                     - { property: 'preview', type: 'textarea' }
                     - { property: 'description', type: 'textarea' }
-                    - { property: 'price' }
+                    - { property: 'price', type: 'money' }
 #        - App\Entity\Category
 #        - App\Entity\User
