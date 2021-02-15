@@ -9,7 +9,7 @@ easy_admin:
             form:
                 fields:
                     - { property: 'title' }
-                    - { property: 'image', type: 'file_upload' }
+                    - { property: 'image', type: 'file_upload', base_path: '/uploads/files' }
                     - { property: 'preview', type: 'textarea' }
                     - { property: 'description', type: 'textarea' }
                     - { property: 'price', type: 'money' }
