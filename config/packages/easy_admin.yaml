@@ -5,7 +5,7 @@ easy_admin:
             class: App\Entity\Product
             form:
                 fields:
-                    - { propery: 'title', type_options: { required: true } }
+                    - { propery: 'title' }
                     - { propery: 'preview', type: 'file_upload' }
                     - { propery: 'description', type: 'file_upload' }
                     - { property: 'image', type: 'file_upload' }
