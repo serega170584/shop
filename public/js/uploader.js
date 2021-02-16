@@ -38,7 +38,7 @@ $(function () {
         }
     }
 
-    jQuery('.custom-file-label').bind('classChanged', function(){
+    $('.custom-file-label').bind('classChanged', function(){
         console.log('class changed');
     });
 });
