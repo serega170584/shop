@@ -31,7 +31,8 @@ $(function () {
     });
 
     $('#product_image_file').change(function (e) {
-        openFile(e)
+        openFile(e);
+        alert('123456');
     })
 
     function openFile(file) {
