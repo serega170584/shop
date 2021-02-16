@@ -28,6 +28,7 @@ $(function () {
             }
             reader.readAsDataURL(file);
         } else {
+            console.log(customFileContainer);
             customFileContainer.find('.custom-file-label').html('');
             alert('File size 2kB is exceeded!');
         }
