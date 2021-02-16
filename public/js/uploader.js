@@ -1,22 +1,16 @@
-document.querySelector('#product_image_file').addEventListener('change', function () {
-    alert('123');
-});
+// var originalAddClassMethod = $.fn.addClass;
+// var originalRemoveClassMethod = $.fn.removeClass;
+// $.fn.addClass = function () {
+//     var result = originalAddClassMethod.apply(this, arguments);
+//     $(this).trigger('changea');
+//     return result;
+// }
+// $.fn.removeClass = function () {
+//     var result = originalRemoveClassMethod.apply(this, arguments);
+//     $(this).trigger('changea');
+//     return result;
+// }
 
-var originalAddClassMethod = $.fn.addClass;
-var originalRemoveClassMethod = $.fn.removeClass;
-$.fn.addClass = function () {
-    var result = originalAddClassMethod.apply(this, arguments);
-    alert('789');
-    $(this).trigger('changea');
-    return result;
-}
-$.fn.removeClass = function () {
-    var result = originalRemoveClassMethod.apply(this, arguments);
-    $(this).trigger('changea');
-    return result;
-}
-
-$('.custom-file-label').trigger('changea');
 $('.custom-file-label').bind('changea', function () {
     console.log('class changed');
 });
@@ -40,6 +34,7 @@ $(function () {
     })
 
     function openFile(file) {
+        $('.custom-file-label').trigger('changea');
         let reader = new FileReader();
         let input = file.target;
         file = input.files[0];
@@ -51,7 +46,6 @@ $(function () {
             }
             reader.readAsDataURL(file);
         } else {
-            console.log(customFileContainer.find('.custom-file-label').html());
             customFileContainer.find('.custom-file-label').html('');
             alert('File size 2kB is exceeded!');
         }
