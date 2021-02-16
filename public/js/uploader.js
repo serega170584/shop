@@ -2,6 +2,7 @@ var originalAddClassMethod = $.fn.addClass;
 // var originalRemoveClassMethod = $.fn.removeClass;
 $.fn.addClass = function () {
     var result = originalAddClassMethod.apply(this, arguments);
+    console.log($(this));
     $('.custom-file-label').trigger('changea');
     return result;
 }
