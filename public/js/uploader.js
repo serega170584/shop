@@ -1,10 +1,10 @@
-// var originalAddClassMethod = $.fn.addClass;
+var originalAddClassMethod = $.fn.addClass;
 // var originalRemoveClassMethod = $.fn.removeClass;
-// $.fn.addClass = function () {
-//     var result = originalAddClassMethod.apply(this, arguments);
-//     $(this).trigger('changea');
-//     return result;
-// }
+$.fn.addClass = function () {
+    var result = originalAddClassMethod.apply(this, arguments);
+    $('.custom-file-label').trigger('changea');
+    return result;
+}
 // $.fn.removeClass = function () {
 //     var result = originalRemoveClassMethod.apply(this, arguments);
 //     $(this).trigger('changea');
@@ -32,8 +32,6 @@ $(function () {
     $('#product_image_file').change(function (e) {
         openFile(e)
     })
-
-    $('.custom-file-label').trigger('changea');
 
     function openFile(file) {
         let reader = new FileReader();
