@@ -1,3 +1,8 @@
+document.querySelector('#product_image_file').addEventListener('change', function () {
+    alert('123');
+});
+
+
 $(function () {
     let filename, customFileContainer, fileUploadContainer;
     customFileContainer = $('#product_image_file').closest('.custom-file');
