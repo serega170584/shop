@@ -2,6 +2,7 @@ document.querySelector('#product_image_file').addEventListener('change', functio
     alert('123');
 });
 
+console.log(getEventListeners('#product_image_file'));
 
 $(function () {
     let filename, customFileContainer, fileUploadContainer;
