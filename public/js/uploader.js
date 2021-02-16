@@ -3,8 +3,7 @@ var originalHtmlClassMethod = $.fn.html;
 // var originalRemoveClassMethod = $.fn.removeClass;
 $.fn.html = function () {
     var result = originalHtmlClassMethod.apply(this, arguments);
-    console.log($(this));
-    // $('.custom-file-label').trigger('changea');
+    $(this).trigger('changea');
     return result;
 }
 
