@@ -1,11 +1,19 @@
-var originalAddClassMethod = $.fn.addClass;
+// var originalAddClassMethod = $.fn.addClass;
+var originalHtmlClassMethod = $.fn.html;
 // var originalRemoveClassMethod = $.fn.removeClass;
-$.fn.addClass = function () {
-    var result = originalAddClassMethod.apply(this, arguments);
+$.fn.html = function () {
+    var result = originalHtmlClassMethod.apply(this, arguments);
     console.log($(this));
-    $('.custom-file-label').trigger('changea');
+    // $('.custom-file-label').trigger('changea');
     return result;
 }
+
+// $.fn.addClass = function () {
+//     var result = originalAddClassMethod.apply(this, arguments);
+//     console.log($(this));
+//     $('.custom-file-label').trigger('changea');
+//     return result;
+// }
 // $.fn.removeClass = function () {
 //     var result = originalRemoveClassMethod.apply(this, arguments);
 //     $(this).trigger('changea');
