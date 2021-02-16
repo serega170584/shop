@@ -5,7 +5,6 @@ $(function () {
     if (filename != '') {
         filename = '/uploads/files/' + filename;
     }
-    console.log(filename);
     fileUploadContainer = $('#product_image_file').closest('.easyadmin-fileupload');
     fileUploadContainer.append('<img id="image-file" src="' + filename + '" />');
 
