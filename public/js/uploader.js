@@ -20,8 +20,7 @@ $(function () {
         let reader = new FileReader();
         let input = file.target;
         file = input.files[0];
-        if (file.size > 2000) {
-            console.log(file);
+        if (file.size < 2000) {
             reader.onload = function () {
                 let dataURL = reader.result;
                 let imageFile = $('#image-file');
