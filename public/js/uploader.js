@@ -33,8 +33,9 @@ $(function () {
         openFile(e)
     })
 
+    $('.custom-file-label').trigger('changea');
+
     function openFile(file) {
-        $('.custom-file-label').trigger('changea');
         let reader = new FileReader();
         let input = file.target;
         file = input.files[0];
