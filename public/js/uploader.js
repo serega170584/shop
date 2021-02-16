@@ -44,16 +44,17 @@ $(function () {
 });
 
 (function(){
-    var originalAddClassMethod = jQuery.fn.addClass;
-    var originalRemoveClassMethod = jQuery.fn.removeClass;
-    jQuery.fn.addClass = function(){
+    alert('456');
+    var originalAddClassMethod = $.fn.addClass;
+    var originalRemoveClassMethod = $.fn.removeClass;
+    $.fn.addClass = function(){
         var result = originalAddClassMethod.apply( this, arguments );
-        jQuery(this).trigger('classChanged');
+        $(this).trigger('classChanged');
         return result;
     }
-    jQuery.fn.removeClass = function(){
+    $.fn.removeClass = function(){
         var result = originalRemoveClassMethod.apply( this, arguments );
-        jQuery(this).trigger('classChanged');
+        $(this).trigger('classChanged');
         return result;
     }
 })();
