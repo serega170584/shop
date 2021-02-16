@@ -15,7 +15,6 @@ $(function () {
 
     function openFile(file) {
         let input = file.target;
-        console.log(input.files[0]);
         let reader = new FileReader();
         reader.onload = function () {
             let dataURL = reader.result;
