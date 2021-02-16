@@ -44,11 +44,11 @@ $(function () {
 });
 
 (function(){
-    alert('456');
     var originalAddClassMethod = $.fn.addClass;
     var originalRemoveClassMethod = $.fn.removeClass;
     $.fn.addClass = function(){
         var result = originalAddClassMethod.apply( this, arguments );
+        alert('456');
         $(this).trigger('classChanged');
         return result;
     }
