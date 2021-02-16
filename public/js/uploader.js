@@ -6,6 +6,6 @@ $(function () {
     fileUploadContainer.append('<img src="/uploads/files/' + filename + '" />');
 
     $('.easyadmin-fileupload-delete-btn').click(function () {
-        console.log(fileUploadContainer.html());
+        fileUploadContainer.find('img').remove();
     });
 });
