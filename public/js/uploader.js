@@ -2,8 +2,6 @@ document.querySelector('#product_image_file').addEventListener('change', functio
     alert('123');
 });
 
-console.log(getEventListeners('#product_image_file'));
-
 $(function () {
     let filename, customFileContainer, fileUploadContainer;
     customFileContainer = $('#product_image_file').closest('.custom-file');
@@ -39,4 +37,24 @@ $(function () {
             alert('File size 2kB is exceeded!');
         }
     }
+
+    jQuery('.custom-file-label').bind('classChanged', function(){
+        console.log('class changed');
+    });
 });
+
+(function(){
+    var originalAddClassMethod = jQuery.fn.addClass;
+    var originalRemoveClassMethod = jQuery.fn.removeClass;
+    jQuery.fn.addClass = function(){
+        var result = originalAddClassMethod.apply( this, arguments );
+        jQuery(this).trigger('classChanged');
+        return result;
+    }
+    jQuery.fn.removeClass = function(){
+        var result = originalRemoveClassMethod.apply( this, arguments );
+        jQuery(this).trigger('classChanged');
+        return result;
+    }
+})();
+
