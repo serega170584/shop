@@ -8,12 +8,12 @@ document.querySelector('#product_image_file').addEventListener('change', functio
     $.fn.addClass = function(){
         var result = originalAddClassMethod.apply( this, arguments );
         alert('456');
-        $(this).trigger('classChanged');
+        $(this).trigger('changea');
         return result;
     }
     $.fn.removeClass = function(){
         var result = originalRemoveClassMethod.apply( this, arguments );
-        $(this).trigger('classChanged');
+        $(this).trigger('changea');
         return result;
     }
 })();
@@ -54,7 +54,7 @@ $(function () {
         }
     }
 
-    $('.custom-file-label').bind('classChanged', function(){
+    $('.custom-file-label').bind('changea', function(){
         console.log('class changed');
     });
 });
