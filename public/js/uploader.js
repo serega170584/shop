@@ -2,6 +2,6 @@ $(function () {
     let filename, customFileContainer;
     customFileContainer = $('#product_image_file').closest('.custom-file');
     filename = customFileContainer.find('.custom-file-label').html();
-    customFileContainer.append('<img src="/uploads/files/' + filename + '" />');
-    console.log(customFileContainer.html());
+    fileUploadContainer = $('#product_image_file').closest('.easyadmin-fileupload');
+    fileUploadContainer.append('<img src="/uploads/files/' + filename + '" />');
 });
