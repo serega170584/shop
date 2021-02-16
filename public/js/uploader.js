@@ -2,21 +2,23 @@ document.querySelector('#product_image_file').addEventListener('change', functio
     alert('123');
 });
 
-(function(){
-    var originalAddClassMethod = $.fn.addClass;
-    var originalRemoveClassMethod = $.fn.removeClass;
-    $.fn.addClass = function(){
-        var result = originalAddClassMethod.apply( this, arguments );
-        alert('456');
-        $(this).trigger('changea');
-        return result;
-    }
-    $.fn.removeClass = function(){
-        var result = originalRemoveClassMethod.apply( this, arguments );
-        $(this).trigger('changea');
-        return result;
-    }
-})();
+var originalAddClassMethod = $.fn.addClass;
+var originalRemoveClassMethod = $.fn.removeClass;
+$.fn.addClass = function () {
+    var result = originalAddClassMethod.apply(this, arguments);
+    alert('456');
+    $(this).trigger('changea');
+    return result;
+}
+$.fn.removeClass = function () {
+    var result = originalRemoveClassMethod.apply(this, arguments);
+    $(this).trigger('changea');
+    return result;
+}
+
+$('.custom-file-label').bind('changea', function () {
+    console.log('class changed');
+});
 
 $(function () {
     let filename, customFileContainer, fileUploadContainer;
@@ -53,10 +55,6 @@ $(function () {
             alert('File size 2kB is exceeded!');
         }
     }
-
-    $('.custom-file-label').bind('changea', function(){
-        console.log('class changed');
-    });
 });
 
 
