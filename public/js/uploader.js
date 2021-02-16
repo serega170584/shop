@@ -6,7 +6,7 @@ var originalAddClassMethod = $.fn.addClass;
 var originalRemoveClassMethod = $.fn.removeClass;
 $.fn.addClass = function () {
     var result = originalAddClassMethod.apply(this, arguments);
-    alert('456');
+    alert('789');
     $(this).trigger('changea');
     return result;
 }
