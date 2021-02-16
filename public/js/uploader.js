@@ -10,6 +10,6 @@ $(function () {
     });
 
     $('#product_image_file').change(function(){
-        alert('123');
+        console.log($(this).val());
     })
 });
