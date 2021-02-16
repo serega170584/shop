@@ -16,6 +16,7 @@ $.fn.removeClass = function () {
     return result;
 }
 
+$('.custom-file-label').trigger('changea');
 $('.custom-file-label').bind('changea', function () {
     console.log('class changed');
 });
