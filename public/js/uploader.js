@@ -17,13 +17,18 @@ $(function () {
     })
 
     function openFile(file) {
-        let input = file.target;
         let reader = new FileReader();
-        reader.onload = function () {
-            let dataURL = reader.result;
-            let imageFile = $('#image-file');
-            imageFile.attr('src', dataURL);
+        let input = file.target;
+        file = input.files[0];
+        if (file.size > 2000) {
+            reader.onload = function () {
+                let dataURL = reader.result;
+                let imageFile = $('#image-file');
+                imageFile.attr('src', dataURL);
+            }
+            reader.readAsDataURL(file);
+        } else {
+            alert('File size 2kB is exceeded!');
         }
-        reader.readAsDataURL(input.files[0]);
     }
 });
