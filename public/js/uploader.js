@@ -1,3 +1,4 @@
+alert('8888');
 let filename, customFileContainer, fileUploadContainer;
 customFileContainer = $('#product_image_file').closest('.custom-file');
 filename = customFileContainer.find('.custom-file-label').html();
