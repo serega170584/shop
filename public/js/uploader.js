@@ -8,4 +8,8 @@ $(function () {
     $('.easyadmin-fileupload-delete-btn').click(function () {
         fileUploadContainer.find('img').remove();
     });
+
+    $('#product_image_file').change(function(){
+        alert('123');
+    })
 });
