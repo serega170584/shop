@@ -50,7 +50,7 @@ $(function () {
             }
             reader.readAsDataURL(file);
         } else {
-            customFileContainer.find('.custom-file-label').html('');
+            // customFileContainer.find('.custom-file-label').html('');
             alert('File size 2kB is exceeded!');
         }
     }
