@@ -16,6 +16,7 @@ $(function () {
     $('.custom-file-label').bind('customChange', function () {
         console.log(htmlArgumentsCount);
         if (htmlArgumentsCount > 0) {
+            console.log('123');
             $(this).customHtml('123456789');
         }
     });
