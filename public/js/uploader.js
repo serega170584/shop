@@ -9,6 +9,7 @@ $.fn.customHtml = function () {
 $.fn.html = function () {
     let result = originalHtmlClassMethod.apply(this, arguments);
     htmlArgumentsCount = arguments.length;
+    console.log('123');
     if (!isHtmlTriggered) {
         $(this).trigger('customChange');
         isHtmlTriggered = true;
