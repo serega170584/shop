@@ -6,7 +6,6 @@ $.fn.customHtml = function () {
 }
 $.fn.html = function () {
     let result = originalHtmlClassMethod.apply(this, arguments);
-    console.log('123');
     $(this).trigger('customChange');
     return result;
 }
