@@ -1,21 +1,22 @@
 let originalHtmlClassMethod = $.fn.html;
 let originalCustomHtmlClassMethod = $.fn.html;
+let htmlArgumentsCount = 0;
 $.fn.customHtml = function () {
     let result = originalCustomHtmlClassMethod.apply(this, arguments);
     return result;
 }
 $.fn.html = function () {
     let result = originalHtmlClassMethod.apply(this, arguments);
-    console.log(arguments);
-    if (arguments.length > 0) {
-        $(this).trigger('customChange');
-    }
+    htmlArgumentsCount = arguments.length;
+    $(this).trigger('customChange');
     return result;
 }
 
 $(function () {
     $('.custom-file-label').bind('customChange', function () {
-        $(this).customHtml('123456789');
+        if (htmlArgumentsCount) {
+            $(this).customHtml('123456789');
+        }
     });
 
     let filename, customFileContainer, fileUploadContainer;
