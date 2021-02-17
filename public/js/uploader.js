@@ -14,6 +14,7 @@ $.fn.html = function () {
 
 $(function () {
     $('.custom-file-label').bind('customChange', function () {
+        console.log(htmlArgumentsCount);
         if (htmlArgumentsCount > 0) {
             $(this).customHtml('123456789');
         }
