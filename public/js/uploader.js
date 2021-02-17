@@ -9,12 +9,12 @@ $.fn.html = function () {
     $(this).trigger('customChange');
     return result;
 }
-// $('.custom-file-label').customHtml('123');
-$('.custom-file-label').bind('customChange', function () {
-    console.log('class changed');
-});
 
 $(function () {
+    $('.custom-file-label').bind('customChange', function () {
+        $(this).customHtml('123456789');
+    });
+
     let filename, customFileContainer, fileUploadContainer;
     customFileContainer = $('#product_image_file').closest('.custom-file');
     filename = customFileContainer.find('.custom-file-label').html();
