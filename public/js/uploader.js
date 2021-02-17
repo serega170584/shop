@@ -38,6 +38,7 @@ $(function () {
     });
 
     $('#product_image_file').change(function (e) {
+        console.log('123');
         openFile(e);
     })
 
