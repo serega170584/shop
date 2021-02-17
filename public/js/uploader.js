@@ -10,7 +10,7 @@ $.fn.html = function () {
     $(this).trigger('customChange');
     return result;
 }
-$('.custom-file-label').customHtml('123');
+// $('.custom-file-label').customHtml('123');
 $('.custom-file-label').bind('customChange', function () {
     console.log('class changed');
 });
