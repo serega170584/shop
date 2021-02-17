@@ -1,25 +1,17 @@
-// var originalAddClassMethod = $.fn.addClass;
-var originalHtmlClassMethod = $.fn.html;
-// var originalRemoveClassMethod = $.fn.removeClass;
-$.fn.html = function () {
-    var result = originalHtmlClassMethod.apply(this, arguments);
-    $(this).trigger('changea');
+let originalHtmlClassMethod = $.fn.html;
+let originalCustomHtmlClassMethod = $.fn.html;
+$.fn.customHtml = function () {
+    let result = originalCustomHtmlClassMethod.apply(this, arguments);
     return result;
 }
-
-// $.fn.addClass = function () {
-//     var result = originalAddClassMethod.apply(this, arguments);
-//     console.log($(this));
-//     $('.custom-file-label').trigger('changea');
-//     return result;
-// }
-// $.fn.removeClass = function () {
-//     var result = originalRemoveClassMethod.apply(this, arguments);
-//     $(this).trigger('changea');
-//     return result;
-// }
-
-$('.custom-file-label').bind('changea', function () {
+$.fn.html = function () {
+    let result = originalHtmlClassMethod.apply(this, arguments);
+    console.log('123');
+    $(this).trigger('customChange');
+    return result;
+}
+$('.custom-file-label').customHtml('123');
+$('.custom-file-label').bind('customChange', function () {
     console.log('class changed');
 });
 
@@ -38,7 +30,6 @@ $(function () {
     });
 
     $('#product_image_file').change(function (e) {
-        console.log('123');
         openFile(e);
     })
 
