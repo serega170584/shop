@@ -9,7 +9,6 @@ $.fn.customHtml = function () {
 $.fn.html = function () {
     let result = originalHtmlClassMethod.apply(this, arguments);
     htmlArgumentsCount = arguments.length;
-    console.log('123');
     if (!isHtmlTriggered) {
         $(this).trigger('customChange');
         isHtmlTriggered = true;
@@ -18,10 +17,10 @@ $.fn.html = function () {
 }
 
 $(function () {
+    $('.custom-file-label').hide();
+
     $('.custom-file-label').bind('customChange', function () {
-        console.log(htmlArgumentsCount);
         if (htmlArgumentsCount > 0) {
-            console.log('123');
             $(this).customHtml('123456789');
         }
     });
