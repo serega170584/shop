@@ -17,8 +17,8 @@ $.fn.html = function () {
 }
 
 $(function () {
-    $('.custom-file-label').hide();
-    $('#product_image_file').closest('.custom-file').append('<label for="product_image_file" lang="en" class="user-custom-file-label"></label>');
+    //$('.custom-file-label').hide();
+    //$('#product_image_file').closest('.custom-file').append('<label for="product_image_file" lang="en" class="user-custom-file-label"></label>');
 
     $('.custom-file-label').bind('customChange', function () {
         if (htmlArgumentsCount > 0) {
