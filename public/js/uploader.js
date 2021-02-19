@@ -4,7 +4,7 @@ $(function () {
     $('.input-group-append').hide();
     let inputGroupAppendHtml = '';
     inputGroupAppendHtml += '<div class="custom-input-group-append">';
-    inputGroupAppendHtml += '<span class="input-group-text" id="image-size" style=""></span>';
+    inputGroupAppendHtml += '<span class="input-group-text" id="image-size" style="">asdasdasd</span>';
     inputGroupAppendHtml += '<label class="btn easyadmin-fileupload-delete-btn" style="" for="product_image_delete">';
     inputGroupAppendHtml += '<i class="fa fa-trash-o"></i>';
     inputGroupAppendHtml += '</label>';
