@@ -2,7 +2,6 @@ $(function () {
     $('.custom-file-label').hide();
     $('#product_image_file').closest('.custom-file').append('<label for="product_image_file" lang="en" class="user-custom-file-label"></label>');
     $('.input-group-append').hide();
-    $('#image-size').html('88888');
     let inputGroupAppendHtml = '';
     inputGroupAppendHtml += '<div class="custom-input-group-append">';
     inputGroupAppendHtml += '<span class="input-group-text" id="image-size" style="">asdasdasd</span>';
@@ -14,7 +13,7 @@ $(function () {
     inputGroupAppendHtml += '</label>';
     inputGroupAppendHtml += '</div>';
     $('#product_image_file').closest('.input-group').append(inputGroupAppendHtml);
-
+    $('#image-size').html('88888');
     let filename, customFileContainer, fileUploadContainer;
     customFileContainer = $('#product_image_file').closest('.custom-file');
     filename = customFileContainer.find('.custom-file-label').html();
