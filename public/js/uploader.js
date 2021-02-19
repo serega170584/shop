@@ -31,7 +31,8 @@ $(function () {
     });
 
     $('.custom-easyadmin-fileupload-delete-btn').click(function () {
-        alert('123');
+        $('#product_image_file').remove();
+        customFileContainer.prepend('<input type="file" id="product_image_file" name="product[image][file]" required="required" placeholder="" title="" data-files-label="files" class="custom-file-input">');
     });
 
     function openFile(file) {
