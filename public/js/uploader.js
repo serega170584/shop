@@ -38,16 +38,15 @@ $(function () {
         let reader = new FileReader();
         let input = file.target;
         file = input.files[0];
+        console.log(file);
         if (file.size < 4000) {
             reader.onload = function () {
                 let dataURL = reader.result;
                 let imageFile = $('#image-file');
-                console.log('123');
                 imageFile.attr('src', dataURL);
             }
             reader.readAsDataURL(file);
         } else {
-            $('#image-size').html('88888');
             $('#image-file').attr('src', '');
             alert('File size 2kB is exceeded!');
             $('#product_image_file').remove();
