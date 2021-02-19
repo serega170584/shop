@@ -1,8 +1,11 @@
 $(function () {
-    $('.custom-file-label').hide();
-    $('#product_image_file').closest('.custom-file').append('<label for="product_image_file" lang="en" class="user-custom-file-label"></label>');
-    $('.input-group-append').hide();
     let inputGroupAppendHtml = '';
+    let filename, customFileContainer, fileUploadContainer;
+    customFileContainer = $('#product_image_file').closest('.custom-file');
+    filename = customFileContainer.find('.custom-file-label').html();
+    $('.custom-file-label').hide();
+    $('#product_image_file').closest('.custom-file').append('<label for="product_image_file" lang="en" class="user-custom-file-label">' + filename + '</label>');
+    $('.input-group-append').hide();
     inputGroupAppendHtml += '<div class="custom-input-group-append">';
     inputGroupAppendHtml += '<span class="custom-input-group-text" id="image-size" style=""></span>';
     inputGroupAppendHtml += '<label class="btn custom-easyadmin-fileupload-delete-btn" style="" for="product_image_delete">';
@@ -13,9 +16,6 @@ $(function () {
     inputGroupAppendHtml += '</label>';
     inputGroupAppendHtml += '</div>';
     $('#product_image_file').closest('.input-group').append(inputGroupAppendHtml);
-    let filename, customFileContainer, fileUploadContainer;
-    customFileContainer = $('#product_image_file').closest('.custom-file');
-    filename = customFileContainer.find('.custom-file-label').html();
     if (filename != '') {
         filename = '/uploads/files/' + filename;
     }
