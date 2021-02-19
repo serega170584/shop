@@ -1,0 +1,23 @@
+.user-custom-file-label {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    height: 30px;
+    margin: 0 !important;
+    text-align: left !important;
+    padding: 3px 40px 3px 7px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    transition: none;
+    left: 0;
+    z-index: 1;
+    background-color: var(--white);
+    border: 1px solid #ced4da;
+}
+
+.user-custom-file-label:after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    line-height: 1.5;
+}
