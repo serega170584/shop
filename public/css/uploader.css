@@ -13,7 +13,7 @@
     z-index: 1;
     background-color: var(--white);
     border: 1px solid #ced4da;
-    flex: 30% 0 0;
+    width: 100%;
 }
 
 .user-custom-file-label:after {
