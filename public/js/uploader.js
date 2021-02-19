@@ -30,8 +30,8 @@ $(function () {
         openFile(e);
     });
 
-    $('.custom-easyadmin-fileupload-delete-btn').click(function(){
-       alert('123');
+    $('.custom-easyadmin-fileupload-delete-btn').click(function () {
+        alert('123');
     });
 
     function openFile(file) {
@@ -46,10 +46,9 @@ $(function () {
             }
             reader.readAsDataURL(file);
         } else {
-            console.log($('#image-size').html());
+            input.files.splice(0);
             $('#image-size').html('88888');
             alert('File size 2kB is exceeded!');
-            console.log($('#image-size').html());
         }
     }
 });
