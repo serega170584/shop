@@ -38,8 +38,8 @@ $(function () {
         let reader = new FileReader();
         let input = file.target;
         file = input.files[0];
-        console.log(file);
         if (file.size < 4000) {
+            $('.user-custom-file-label').html(file.name);
             reader.onload = function () {
                 let dataURL = reader.result;
                 let imageFile = $('#image-file');
