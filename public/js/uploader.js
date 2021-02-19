@@ -26,7 +26,7 @@ $(function () {
         fileUploadContainer.find('img').remove();
     });
 
-    $('#product_image_file').change(function (e) {
+    $(document).on('change', '#product_image_file', function (e) {
         openFile(e);
     });
 
