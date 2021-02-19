@@ -5,7 +5,7 @@ $(function () {
     let inputGroupAppendHtml = '';
     inputGroupAppendHtml += '<div class="custom-input-group-append">';
     inputGroupAppendHtml += '<span class="custom-input-group-text" id="image-size" style="">asdasdasd</span>';
-    inputGroupAppendHtml += '<label class="btn easyadmin-fileupload-delete-btn" style="" for="product_image_delete">';
+    inputGroupAppendHtml += '<label class="btn custom-easyadmin-fileupload-delete-btn" style="" for="product_image_delete">';
     inputGroupAppendHtml += '<i class="fa fa-trash-o"></i>';
     inputGroupAppendHtml += '</label>';
     inputGroupAppendHtml += '<label class="btn" for="product_image_file">';
