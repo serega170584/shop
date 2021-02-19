@@ -3,7 +3,7 @@ $(function () {
     $('#product_image_file').closest('.custom-file').append('<label for="product_image_file" lang="en" class="user-custom-file-label"></label>');
     $('.input-group-append').hide();
     let inputGroupAppendHtml = '';
-    inputGroupAppendHtml += '<div class="input-group-append">';
+    inputGroupAppendHtml += '<div class="custom-input-group-append">';
     inputGroupAppendHtml += '<span class="input-group-text" style="">153K</span>';
     inputGroupAppendHtml += '<label class="btn easyadmin-fileupload-delete-btn" style="" for="product_image_delete">';
     inputGroupAppendHtml += '<i class="fa fa-trash-o"></i>';
