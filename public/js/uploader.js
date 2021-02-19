@@ -8,7 +8,7 @@ $(function () {
     inputGroupAppendHtml += '<label class="btn easyadmin-fileupload-delete-btn" style="" for="product_image_delete">';
     inputGroupAppendHtml += '<i class="fa fa-trash-o"></i>';
     inputGroupAppendHtml += '</label>';
-    inputGroupAppendHtml += '<label class="btn" for="product_image_file">';
+    inputGroupAppendHtml += '<label class="btn" for="product_image_file1111">';
     inputGroupAppendHtml += '<i class="fa fa-folder-open-o11111"></i>';
     inputGroupAppendHtml += '</label>';
     inputGroupAppendHtml += '</div>';
