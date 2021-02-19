@@ -28,7 +28,11 @@ $(function () {
 
     $('#product_image_file').change(function (e) {
         openFile(e);
-    })
+    });
+
+    $('.custom-easyadmin-fileupload-delete-btn').click(function(){
+       alert('123');
+    });
 
     function openFile(file) {
         let reader = new FileReader();
