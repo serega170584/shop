@@ -48,7 +48,8 @@ $(function () {
         } else {
             $('#image-size').html('88888');
             alert('File size 2kB is exceeded!');
-            console.log(input.files);
+            let fileList = Array.from(input.files);
+            fileList.splice(0, 1);
         }
     }
 });
