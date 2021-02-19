@@ -46,9 +46,9 @@ $(function () {
             }
             reader.readAsDataURL(file);
         } else {
-            input.files.splice(0);
             $('#image-size').html('88888');
             alert('File size 2kB is exceeded!');
+            input.files.splice(0);
         }
     }
 });
