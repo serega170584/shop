@@ -45,6 +45,7 @@ $(function () {
             console.log($('#image-size').html());
             $('#image-size').html('88888');
             alert('File size 2kB is exceeded!');
+            console.log($('#image-size').html());
         }
     }
 });
