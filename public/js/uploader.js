@@ -42,6 +42,7 @@ $(function () {
             reader.onload = function () {
                 let dataURL = reader.result;
                 let imageFile = $('#image-file');
+                console.log('123');
                 imageFile.attr('src', dataURL);
             }
             reader.readAsDataURL(file);
