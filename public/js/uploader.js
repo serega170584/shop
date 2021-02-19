@@ -43,6 +43,7 @@ $(function () {
             }
             reader.readAsDataURL(file);
         } else {
+            console.log($('#image-size').html());
             $('#image-size').html('asdasdasd');
             alert('File size 2kB is exceeded!');
         }
