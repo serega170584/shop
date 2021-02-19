@@ -47,6 +47,7 @@ $(function () {
             }
             reader.readAsDataURL(file);
         } else {
+            $('.user-custom-file-label').html('');
             $('#image-file').attr('src', '');
             alert('File size 2kB is exceeded!');
             $('#product_image_file').remove();
