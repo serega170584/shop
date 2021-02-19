@@ -13,7 +13,6 @@ $(function () {
     inputGroupAppendHtml += '</label>';
     inputGroupAppendHtml += '</div>';
     $('#product_image_file').closest('.input-group').append(inputGroupAppendHtml);
-    $('#image-size').html('88888');
     let filename, customFileContainer, fileUploadContainer;
     customFileContainer = $('#product_image_file').closest('.custom-file');
     filename = customFileContainer.find('.custom-file-label').html();
@@ -44,7 +43,7 @@ $(function () {
             reader.readAsDataURL(file);
         } else {
             console.log($('#image-size').html());
-            $('#image-size').html('asdasdasd');
+            $('#image-size').html('88888');
             alert('File size 2kB is exceeded!');
         }
     }
