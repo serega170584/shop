@@ -1,30 +1,6 @@
-let originalHtmlClassMethod = $.fn.html;
-let originalCustomHtmlClassMethod = $.fn.html;
-let htmlArgumentsCount = 0;
-let isHtmlTriggered = false;
-$.fn.customHtml = function () {
-    let result = originalCustomHtmlClassMethod.apply(this, arguments);
-    return result;
-}
-$.fn.html = function () {
-    let result = originalHtmlClassMethod.apply(this, arguments);
-    htmlArgumentsCount = arguments.length;
-    if (!isHtmlTriggered) {
-        $(this).trigger('customChange');
-        isHtmlTriggered = true;
-    }
-    return result;
-}
-
 $(function () {
     $('.custom-file-label').hide();
     $('#product_image_file').closest('.custom-file').append('<label for="product_image_file" lang="en" class="user-custom-file-label"></label>');
-
-    $('.custom-file-label').bind('customChange', function () {
-        if (htmlArgumentsCount > 0) {
-            $(this).customHtml('123456789');
-        }
-    });
 
     let filename, customFileContainer, fileUploadContainer;
     customFileContainer = $('#product_image_file').closest('.custom-file');
@@ -55,7 +31,7 @@ $(function () {
             }
             reader.readAsDataURL(file);
         } else {
-            // customFileContainer.find('.custom-file-label').html('');
+            customFileContainer.find('.user-custom-file-label').html('');
             alert('File size 2kB is exceeded!');
         }
     }
