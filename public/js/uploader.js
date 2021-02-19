@@ -48,7 +48,7 @@ $(function () {
         } else {
             $('#image-size').html('88888');
             alert('File size 2kB is exceeded!');
-            input.files.splice(0);
+            console.log(input.files);
         }
     }
 });
