@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\ProductRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Validator\Constraints as Assert;
 
 
@@ -62,6 +63,25 @@ class Product
      * @ORM\Column(type="datetime")
      */
     private $updatedAt;
+
+    /**
+     * @Assert\File(
+     *     maxSize = "1024k",
+     *     mimeTypes = {"application/pdf", "application/x-pdf"},
+     *     mimeTypesMessage = "Please upload a valid PDF"
+     * )
+     */
+    protected $bioFile;
+
+    public function setBioFile(File $file = null)
+    {
+        $this->bioFile = $file;
+    }
+
+    public function getBioFile()
+    {
+        return $this->bioFile;
+    }
 
     public function getId(): ?int
     {
