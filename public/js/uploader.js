@@ -32,6 +32,7 @@ $(function () {
     });
 
     $('.custom-easyadmin-fileupload-delete-btn').click(function () {
+        $('#product_image_file').attr('required', true);
         $('.user-custom-file-label').html('');
         $('#image-file').attr('src', '');
         $('#product_image_file').remove();
@@ -42,6 +43,7 @@ $(function () {
         let reader = new FileReader();
         let input = file.target;
         file = input.files[0];
+        $('#product_image_file').attr('required', true);
         if (file.size < 4000) {
             $('.user-custom-file-label').html(file.name);
             reader.onload = function () {
