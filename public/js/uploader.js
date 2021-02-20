@@ -15,10 +15,11 @@ $(function () {
     inputGroupAppendHtml += '<i class="fa fa-folder-open-o"></i>';
     inputGroupAppendHtml += '</label>';
     inputGroupAppendHtml += '</div>';
-    $('#product_image_file').closest('.input-group').append(inputGroupAppendHtml);
     if (filename != '') {
+        inputGroupAppendHtml += '<input type="hidden" name="product[image]" value="' + filename + '" />';
         filename = '/uploads/files/' + filename;
     }
+    $('#product_image_file').closest('.input-group').append(inputGroupAppendHtml);
     fileUploadContainer = $('#product_image_file').closest('.easyadmin-fileupload');
     fileUploadContainer.append('<img id="image-file" src="' + filename + '" />');
 
