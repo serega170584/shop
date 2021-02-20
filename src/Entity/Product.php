@@ -66,9 +66,7 @@ class Product
 
     /**
      * @Assert\File(
-     *     maxSize = "1024k",
-     *     mimeTypes = {"application/pdf", "application/x-pdf"},
-     *     mimeTypesMessage = "Please upload a valid PDF"
+     *     maxSize = "1024k"
      * )
      */
     protected $bioFile;
