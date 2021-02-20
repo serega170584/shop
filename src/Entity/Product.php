@@ -42,12 +42,16 @@ class Product
 
     /**
      * @ORM\Column(type="string", length=255)
+     */
+    private $image;
+
+    /**
      * @Assert\File(
      *     maxSize = "100k",
      *     mimeTypesMessage = "Please upload a valid PDF"
      * )
      */
-    private $image;
+    private $upload;
 
     /**
      * @ORM\Column(type="datetime")
