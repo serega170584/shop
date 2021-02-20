@@ -158,4 +158,12 @@ class Product
     {
         $this->updatedAt = new \DateTime();
     }
+
+    /**
+     * @ORM\PostPersist
+     */
+    public function setImageVal()
+    {
+        $this->image = basename($this->image);
+    }
 }
