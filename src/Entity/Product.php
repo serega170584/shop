@@ -5,7 +5,6 @@ namespace App\Entity;
 use App\Repository\ProductRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Constraints as Assert;
 
 
@@ -74,8 +73,10 @@ class Product
      */
     protected $bioFile;
 
-    public function setBioFile(UploadedFile $file = null)
+    public function setBioFile(string $file = null)
     {
+        var_dump($_FILES);
+        die('asd');
         $this->bioFile = $file;
     }
 
