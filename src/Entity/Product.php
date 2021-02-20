@@ -65,24 +65,6 @@ class Product
      */
     private $updatedAt;
 
-    /**
-     * @Assert\File(
-     *     maxSize = "6000000"
-     * )
-     */
-    protected $bioFile;
-
-    public function setBioFile(string $file = null)
-    {
-        $this->getBioFile()->
-        $this->bioFile = $file;
-    }
-
-    public function getBioFile()
-    {
-        return $this->bioFile;
-    }
-
     public function getId(): ?int
     {
         return $this->id;
