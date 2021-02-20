@@ -63,7 +63,10 @@ $(function () {
     }
 
     $('td.image img').each(function () {
-        console.log($(this).attr('src'));
+        let src = $(this).attr('src');
+        let parts = src.split('/');
+        let filename = parts[parts.length - 1];
+        $(this).attr('src', '/uploads/files/' + filename);
     });
 });
 
