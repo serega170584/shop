@@ -4,7 +4,6 @@ namespace App\Entity;
 
 use App\Repository\ProductRepository;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Constraints as Assert;
 
 
@@ -124,7 +123,7 @@ class Product
 
     public function setImage(string $image): self
     {
-        $this->image = '123';
+        $this->image = $image;
 
         return $this;
     }
@@ -175,10 +174,8 @@ class Product
         return $this->upload;
     }
 
-    public function setUpload($entity): self
+    public function setUpload(string $upload): self
     {
-        var_dump($entity);
-        die('asd');
         $this->upload = $upload;
 
         return $this;
