@@ -16,7 +16,6 @@ $(function () {
     inputGroupAppendHtml += '</label>';
     inputGroupAppendHtml += '</div>';
     if (filename != '') {
-        inputGroupAppendHtml += '<input type="hidden" name="product[image]" value="' + filename + '" />';
         $('#product_image_file').removeAttr('required');
         filename = '/uploads/files/' + filename;
     }
