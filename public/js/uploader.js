@@ -61,6 +61,10 @@ $(function () {
             customFileContainer.prepend('<input type="file" id="product_image_file" name="product[image][file]" required="required" placeholder="" title="" data-files-label="files" class="custom-file-input">');
         }
     }
+
+    $('td.image img').each(function () {
+        console.log($(this).attr('src'));
+    });
 });
 
 
