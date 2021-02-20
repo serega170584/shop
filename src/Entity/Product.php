@@ -75,8 +75,6 @@ class Product
 
     public function setBioFile(string $file = null)
     {
-        var_dump($_FILES);
-        die('asd');
         $this->bioFile = $file;
     }
 
