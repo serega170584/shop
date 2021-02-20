@@ -1,10 +1,4 @@
 easy_admin:
-    design:
-        assets:
-            js:
-                - '/js/uploader.js'
-            css:
-                - '/css/uploader.css'
     entities:
         Product:
 #        # List the entity class name you want to manage
