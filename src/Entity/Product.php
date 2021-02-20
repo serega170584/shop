@@ -44,6 +44,7 @@ class Product
      * @ORM\Column(type="string", length=255)
      * @Assert\File(
      *     maxSize = "1k"
+     *     mimeTypesMessage = "Please upload a valid PDF"
      * )
      */
     private $image;
