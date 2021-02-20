@@ -74,6 +74,7 @@ class Product
 
     public function setBioFile(string $file = null)
     {
+        $this->getBioFile()->
         $this->bioFile = $file;
     }
 
