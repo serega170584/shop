@@ -10,7 +10,7 @@ easy_admin:
                 fields:
                     - { property: 'title' }
                     - { property: 'image' }
-                    - { property: 'bioFile' }
+                    - { property: 'bioFile', type: 'file_upload' }
                     - { property: 'preview', type: 'textarea' }
                     - { property: 'description', type: 'textarea' }
                     - { property: 'price', type: 'money' }

@@ -67,12 +67,12 @@ class Product
 
     /**
      * @Assert\File(
-     *     maxSize = "1024k"
+     *     maxSize = "6000000"
      * )
      */
     protected $bioFile;
 
-    public function setBioFile(UploadedFile $file = null)
+    public function setBioFile(string $file = null)
     {
         $this->bioFile = $file;
     }
