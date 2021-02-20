@@ -20,7 +20,7 @@ class ProductCrudController extends AbstractCrudController
             // (each CRUD controller can override this value if needed)
             ->setPaginatorPageSize(30);
     }
-    /*
+
     public function configureFields(string $pageName): iterable
     {
         return [
@@ -29,5 +29,5 @@ class ProductCrudController extends AbstractCrudController
             TextEditorField::new('description'),
         ];
     }
-    */
+
 }
