@@ -168,4 +168,16 @@ class Product
     {
         $this->updatedAt = new \DateTime();
     }
+
+    public function getUpload(): ?string
+    {
+        return $this->upload;
+    }
+
+    public function setUpload(string $upload): self
+    {
+        $this->upload = $upload;
+
+        return $this;
+    }
 }
