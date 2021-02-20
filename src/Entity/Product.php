@@ -174,8 +174,10 @@ class Product
         return $this->upload;
     }
 
-    public function setUpload(string $upload): self
+    public function setUpload($entity): self
     {
+        var_dump($entity);
+        die('asd');
         $this->upload = $upload;
 
         return $this;
