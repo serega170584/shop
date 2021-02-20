@@ -17,7 +17,6 @@ $(function () {
     inputGroupAppendHtml += '</div>';
     if (filename != '') {
         inputGroupAppendHtml += '<input type="hidden" name="product[image]" value="' + filename + '" />';
-        console.log(inputGroupAppendHtml);
         filename = '/uploads/files/' + filename;
     }
     $('#product_image_file').closest('.input-group').append(inputGroupAppendHtml);
