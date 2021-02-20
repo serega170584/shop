@@ -73,7 +73,7 @@ class Product
      */
     protected $bioFile;
 
-    public function setBioFile(File $file = null)
+    public function setBioFile(string $file = null)
     {
         $this->bioFile = $file;
     }
