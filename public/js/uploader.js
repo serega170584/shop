@@ -1,6 +1,8 @@
 $(function () {
     let inputGroupAppendHtml = '';
     let filename, customFileContainer, fileUploadContainer;
+    const fileSizeLimit = 4000;
+    const fileSizeLimitText = '4K';
     customFileContainer = $('#product_image_file').closest('.custom-file');
     filename = customFileContainer.find('.custom-file-label').html();
     $('.custom-file-label').hide();
@@ -43,7 +45,7 @@ $(function () {
         let input = file.target;
         file = input.files[0];
         $('#product_image_file').attr('required', true);
-        if (file.size < 4000) {
+        if (file.size < fileSizeLimit) {
             $('.user-custom-file-label').html(file.name);
             reader.onload = function () {
                 let dataURL = reader.result;
@@ -54,7 +56,7 @@ $(function () {
         } else {
             $('.user-custom-file-label').html('');
             $('#image-file').attr('src', '');
-            alert('File size 2kB is exceeded!');
+            alert('File size ' + fileSizeLimitText + ' is exceeded!');
             $('#product_image_file').remove();
             customFileContainer.prepend('<input type="file" id="product_image_file" name="product[image][file]" required="required" placeholder="" title="" data-files-label="files" class="custom-file-input">');
         }
