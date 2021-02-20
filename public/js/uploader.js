@@ -32,7 +32,6 @@ $(function () {
     });
 
     $('.custom-easyadmin-fileupload-delete-btn').click(function () {
-        $('#product_image_file').attr('required', true);
         $('.user-custom-file-label').html('');
         $('#image-file').attr('src', '');
         $('#product_image_file').remove();
