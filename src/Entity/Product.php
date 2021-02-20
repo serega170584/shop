@@ -160,7 +160,7 @@ class Product
     }
 
     /**
-     * @ORM\PostPersist
+     * @ORM\PrePersist
      */
     public function setImageVal()
     {
