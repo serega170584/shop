@@ -27,9 +27,6 @@ class ProductCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
-        var_dump(ImageField::OPTION_BASE_PATH);
-        var_dump(ImageField::OPTION_UPLOAD_DIR);
-        die('asd');
         return [
 //            IdField::new('id'),
             TextField::new('title'),
@@ -37,7 +34,8 @@ class ProductCrudController extends AbstractCrudController
             TextareaField::new('description'),
             TextField::new('price'),
             ImageField::new('image')
-                ->setUploadDir('public/uploads/files'),
+                ->setBasePath('/home/krivobokov/shop/public')
+                ->setUploadDir('uploads/files'),
 //            TextEditorField::new('description'),
         ];
     }
