@@ -7,6 +7,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class ProductCrudController extends AbstractCrudController
@@ -28,7 +29,12 @@ class ProductCrudController extends AbstractCrudController
     {
         return [
 //            IdField::new('id'),
-            ImageField::new('image')->setUploadDir('public/uploads/files')
+            TextField::new('title'),
+            TextField::new('preview'),
+            TextareaField::new('description'),
+            TextField::new('price'),
+            ImageField::new('image')
+                ->setUploadDir('public/uploads/files')
 //            TextEditorField::new('description'),
         ];
     }
