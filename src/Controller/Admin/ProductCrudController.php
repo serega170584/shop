@@ -6,6 +6,7 @@ use App\Entity\Product;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class ProductCrudController extends AbstractCrudController
@@ -17,7 +18,7 @@ class ProductCrudController extends AbstractCrudController
 
     public function configureCrud(Crud $crud): Crud
     {
-        return  Crud::new()
+        return Crud::new()
             // this defines the pagination size for all CRUD controllers
             // (each CRUD controller can override this value if needed)
             ->setPaginatorPageSize(30);
@@ -27,7 +28,7 @@ class ProductCrudController extends AbstractCrudController
     {
         return [
 //            IdField::new('id'),
-            TextField::new('title')->setRequired(false),
+            ImageField::new()
 //            TextEditorField::new('description'),
         ];
     }
