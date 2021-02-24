@@ -28,7 +28,7 @@ class ProductCrudController extends AbstractCrudController
     {
         return [
 //            IdField::new('id'),
-            ImageField::new('image')->setUploadDir('')
+            ImageField::new('image')->setUploadDir('uploads/files')
 //            TextEditorField::new('description'),
         ];
     }
