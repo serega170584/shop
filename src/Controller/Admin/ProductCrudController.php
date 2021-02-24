@@ -27,14 +27,16 @@ class ProductCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
+        var_dump(ImageField::OPTION_BASE_PATH);
+        var_dump(ImageField::OPTION_UPLOAD_DIR);
         return [
 //            IdField::new('id'),
             TextField::new('title'),
             TextField::new('preview'),
             TextareaField::new('description'),
             TextField::new('price'),
-//            ImageField::new('image')
-//                ->setUploadDir('public/uploads/files')
+            ImageField::new('image')
+                ->setUploadDir('public/uploads/files'),
 //            TextEditorField::new('description'),
         ];
     }
