@@ -34,7 +34,7 @@ class ProductCrudController extends AbstractCrudController
             TextareaField::new('description'),
             TextField::new('price'),
             ImageField::new('image')
-                ->setBasePath('/home/krivobokov/shop/public')
+                ->setBasePath('')
                 ->setUploadDir('uploads/files'),
 //            TextEditorField::new('description'),
         ];
