@@ -29,6 +29,7 @@ class ProductCrudController extends AbstractCrudController
     {
         var_dump(ImageField::OPTION_BASE_PATH);
         var_dump(ImageField::OPTION_UPLOAD_DIR);
+        die('asd');
         return [
 //            IdField::new('id'),
             TextField::new('title'),
