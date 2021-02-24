@@ -56,6 +56,15 @@ class Product
     private $upload;
 
     /**
+     * @Assert\File(
+     *     maxSize = "1024k",
+     *     mimeTypes = {"application/pdf", "application/x-pdf"},
+     *     mimeTypesMessage = "Please upload a valid PDF"
+     * )
+     */
+    protected $bioFile;
+
+    /**
      * @ORM\Column(type="datetime")
      */
     private $createdAt;
@@ -64,6 +73,16 @@ class Product
      * @ORM\Column(type="datetime")
      */
     private $updatedAt;
+
+    public function setBioFile(File $file = null)
+    {
+        $this->bioFile = $file;
+    }
+
+    public function getBioFile()
+    {
+        return $this->bioFile;
+    }
 
     public function getId(): ?int
     {
