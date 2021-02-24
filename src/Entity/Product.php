@@ -195,7 +195,7 @@ class Product
         return $this->upload;
     }
 
-    public function setUpload(string $upload): self
+    public function setUpload(File $upload): self
     {
         $this->upload = $upload;
 
