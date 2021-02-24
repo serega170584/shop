@@ -144,6 +144,7 @@ class Product
 
     public function setImage(string $image): self
     {
+        die('asd');
         $this->image = basename($image);
 
         return $this;
