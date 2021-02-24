@@ -33,7 +33,7 @@ class ProductCrudController extends AbstractCrudController
             TextField::new('preview'),
             TextareaField::new('description'),
             TextField::new('price'),
-            TextField::new('image')->onlyOnIndex()
+            ImageField::new('image')->onlyOnIndex()
 //            TextEditorField::new('description'),
         ];
     }
