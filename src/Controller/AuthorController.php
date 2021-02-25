@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Author;
+use App\Form\Type\AuthorType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,7 +17,7 @@ class AuthorController extends AbstractController
     public function new(Request $request): Response
     {
         $author = new Author();
-        $form = $this->createForm(Author::class, $author);
+        $form = $this->createForm(AuthorType::class, $author);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $author = $form->getData();
