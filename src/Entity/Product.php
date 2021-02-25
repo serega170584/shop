@@ -139,9 +139,7 @@ class Product
 
     public function getImage(): ?string
     {
-        var_dump($this->image);
-        return '123.png';
-        return $this->image;
+        return basename($this->image);
     }
 
     public function setImage(string $image): self
