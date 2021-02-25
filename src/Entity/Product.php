@@ -139,6 +139,7 @@ class Product
 
     public function getImage(): ?string
     {
+        var_dump($this->image);
         return '123.png';
         return $this->image;
     }
