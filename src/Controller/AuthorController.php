@@ -9,6 +9,9 @@ use Symfony\Component\HttpFoundation\Response;
 
 class AuthorController extends AbstractController
 {
+    /**
+     * @Route("/author", name="author")
+     */
     public function new(Request $request): Response
     {
         $author = new Author();
