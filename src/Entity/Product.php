@@ -139,8 +139,7 @@ class Product
 
     public function getImage(): ?string
     {
-        return $this->image;
-        return basename($this->image);
+        return is_file($this->image) ? basename($this->image) : $this->image;
     }
 
     public function setImage(string $image): self
