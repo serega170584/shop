@@ -23,6 +23,8 @@ class AuthorController extends AbstractController
             $author = $form->getData();
             var_dump($author);
         }
+        var_dump($form->createView());
+        die('asd');
         return $this->render('author/new.html.twig', [
             'form' => $form->createView(),
         ]);
