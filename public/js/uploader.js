@@ -6,7 +6,7 @@ $(function () {
     inputGroupAppend.find('.input-group-text').remove();
     inputGroupAppend.find('.btn').remove();
     inputGroupAppend.append('<label class="btn ea-fileupload-delete-btn">\n' +
-        '                    <i class="fa fa-folder-open-o"></i>\n' +
+        '                    <i class="fa fa-trash-o"></i>\n' +
         '                </label>');
     inputGroupAppend.append('<label class="btn">\n' +
         '                    <i class="fa fa-folder-open-o"></i>\n' +
