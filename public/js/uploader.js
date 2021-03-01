@@ -11,8 +11,8 @@ $(function () {
     inputGroupAppend.append('<label class="btn">\n' +
         '                    <i class="fa fa-folder-open-o"></i>\n' +
         '                </label>');
-    // $('#Product_image_file').remove();
-    // customFile.append('<input type="text" ' +
-    //     'id="Product_image" name="Product[image]" required="required"' +
-    //     ' align="center" placeholder="" title="" data-files-label="files" class="custom-file-input">');
+    $('#Product_image_file').remove();
+    customFile.append('<input type="text" ' +
+        'id="Product_image" name="Product[image]" required="required"' +
+        ' align="center" placeholder="" title="" data-files-label="files" class="custom-file-input">');
 });
