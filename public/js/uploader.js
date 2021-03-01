@@ -1,6 +1,6 @@
 $(function () {
     let customFile = $('#Product_image_file').closest('.custom-file');
-    let inputGroup = customFile.find('.input-group');
+    let inputGroup = customFile.closest('.input-group');
     inputGroup.find('.input-group-append').remove();
     $('#Product_image_file').remove();
     customFile.append('<input type="text" ' +
