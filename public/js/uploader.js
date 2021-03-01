@@ -1,8 +1,7 @@
 $(function () {
     let customFile = $('#Product_image_file').closest('.custom-file');
-    let inputGroupAppend = customFile.find('.input-group-append');
-    console.log(inputGroupAppend.html());
-    inputGroupAppend.hide();
+    let inputGroup = customFile.find('.input-group');
+    inputGroup.find('.input-group-append').remove();
     $('#Product_image_file').remove();
     customFile.append('<input type="text" ' +
         'id="Product_image" name="Product[image]" required="required"' +
