@@ -5,7 +5,7 @@ $(function () {
     // inputGroup.closest('.ea-fileupload').find('.form-check').parent().remove();
     inputGroupAppend.find('.input-group-text').remove();
     // inputGroupAppend.find('.ea-fileupload-delete-btn').remove();
-    inputGroupAppend.find('.btn').remove();
+        inputGroupAppend.find('.btn').remove();
     inputGroupAppend.append('<label class="btn">\n' +
         '                    <i class="fa fa-folder-open-o"></i>\n' +
         '                </label>');
