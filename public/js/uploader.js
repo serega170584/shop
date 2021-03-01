@@ -12,6 +12,9 @@ $(function () {
         '                    <i class="fa fa-folder-open-o"></i>\n' +
         '                </label>');
     $('#Product_image_file').remove();
+    let label = $('.custom-file-label').html();
+    $('.custom-file-label').remove();
+    customFile.append(`<label for="Product_image" lang="en" class="custom-file-label">${label}</label>`);
     customFile.append('<input type="text" ' +
         'id="Product_image" name="Product[image]" required="required"' +
         ' align="center" placeholder="" title="" data-files-label="files" class="custom-file-input">');
