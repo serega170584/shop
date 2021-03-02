@@ -1,3 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-    alert("DOM готов!");
+    const imageFile = document.getElementById('product_upload_imageFile');
+    imageFile.addEventListener('change', handleFiles, false);
+    function handleFiles(){
+        alert('123');
+    }
 });
