@@ -57,7 +57,7 @@ class ProductCrudController extends AbstractCrudController
             $product = $form->getData();
             var_dump($product);
         }
-        return $this->render('author/new.html.twig', [
+        return $this->render('product/upload.html.twig', [
             'form' => $form->createView(),
         ]);
     }
