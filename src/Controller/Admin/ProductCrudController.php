@@ -10,6 +10,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -60,7 +61,18 @@ class ProductCrudController extends AbstractCrudController
             /**
              * @var UploadedFile $imageFile
              */
-            var_dump($imageFile->getClientOriginalName());
+            $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+            $safeFilename = $slugger->slug($originalFilename);
+            $newFilename = $safeFilename . '-' . uniqid() . '.' . $imageFile->guessExtension();
+
+            try {
+                $imageFile->move(
+                    $this->getParameter('product_images_directory'),
+                    $newFilename
+                );
+            } catch (FileException $e) {
+                print 'File upload error!';
+            }
         }
         return $this->render('product/upload.html.twig', [
             'form' => $form->createView(),
