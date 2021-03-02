@@ -1,3 +1,3 @@
-$(function(){
-    alert('123');
-})
+document.addEventListener("DOMContentLoaded", () => {
+    alert("DOM готов!");
+});
