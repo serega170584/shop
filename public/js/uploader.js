@@ -19,7 +19,7 @@ $(function () {
     customFile.append('<input type="text" ' +
         'id="Product_image" name="Product[image]" required="required"' +
         ' align="center" placeholder="" title="" data-files-label="files" class="custom-file-input">');
-    $('.ea-fileupload').append('<iframe src="/" style="height:80px" name="win" id="iframe"></iframe>');
+    $('.ea-fileupload').append('<iframe src="/" style="height:300px" name="win" id="iframe"></iframe>');
 
     $('#product_upload').click(function(){
        window.open('/');
