@@ -45,7 +45,7 @@ class ProductCrudController extends AbstractCrudController
     }
 
     /**
-     * @Route("/product/upload", name=productUpload")
+     * @Route("/product/upload", name=upload")
      */
     public function upload(Request $request): Response
     {
