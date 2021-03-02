@@ -6,7 +6,7 @@ $(function () {
     inputGroup.closest('.ea-fileupload').find('.form-check').parent().remove();
     inputGroupAppend.find('.input-group-text').remove();
     inputGroupAppend.find('.btn').remove();
-    inputGroupAppend.append(`<label class="btn" style="${deleteDisplay}" >\n` +
+    inputGroupAppend.append(`<label class="btn" style="display: ${deleteDisplay}" >\n` +
         `                    <i class="fa fa-trash-o"></i>\n` +
         `                </label>`);
     inputGroupAppend.append('<label class="btn">\n' +
