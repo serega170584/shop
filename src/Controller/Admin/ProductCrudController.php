@@ -60,7 +60,7 @@ class ProductCrudController extends AbstractCrudController
             /**
              * @var UploadedFile $imageFile
              */
-            var_dump($imageFile->getPath());
+            var_dump($imageFile->getClientOriginalName());
         }
         return $this->render('product/upload.html.twig', [
             'form' => $form->createView(),
