@@ -2,6 +2,7 @@ $(function () {
     let customFile = $('#Product_image_file').closest('.custom-file');
     let inputGroup = customFile.closest('.input-group');
     let inputGroupAppend = inputGroup.find('.input-group-append');
+    console.log($('.ea-fileupload-delete-btn').html());
     // inputGroup.closest('.ea-fileupload').find('.form-check').parent().remove();
     // inputGroupAppend.find('.input-group-text').remove();
     // inputGroupAppend.find('.btn').remove();
