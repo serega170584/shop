@@ -9,6 +9,8 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class ProductCrudController extends AbstractCrudController
 {
@@ -39,6 +41,24 @@ class ProductCrudController extends AbstractCrudController
                 ->addJsFiles('/js/uploader.js')
 //            TextEditorField::new('description'),
         ];
+    }
+
+    /**
+     * @Route("/product/upload", name=productUpload")
+     */
+    public function upload(Request $request): Response
+    {
+        die('asd');
+//        $author = new Author();
+//        $form = $this->createForm(AuthorType::class, $author);
+//        $form->handleRequest($request);
+//        if ($form->isSubmitted() && $form->isValid()) {
+//            $author = $form->getData();
+//            var_dump($author);
+//        }
+//        return $this->render('author/new.html.twig', [
+//            'form' => $form->createView(),
+//        ]);
     }
 
 }
