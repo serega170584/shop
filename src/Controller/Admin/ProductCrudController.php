@@ -10,9 +10,11 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 class ProductCrudController extends AbstractCrudController
 {
@@ -48,13 +50,17 @@ class ProductCrudController extends AbstractCrudController
     /**
      * @Route("/product/upload")
      */
-    public function upload(Request $request): Response
+    public function upload(Request $request, SluggerInterface $slugger): Response
     {
         $product = new Product();
         $form = $this->createForm(ProductUploadType::class, $product);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            var_dump($form->get('imageFile')->getData());
+            $imageFile = $form->get('imageFile')->getData();
+            /**
+             * @var UploadedFile $imageFile
+             */
+            var_dump($imageFile->getPath());
         }
         return $this->render('product/upload.html.twig', [
             'form' => $form->createView(),
