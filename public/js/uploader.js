@@ -9,7 +9,7 @@ $(function () {
     inputGroupAppend.append(`<label class="btn" style="display: ${deleteDisplay}" >\n` +
         `                    <i class="fa fa-trash-o"></i>\n` +
         `                </label>`);
-    inputGroupAppend.append('<label class="btn">\n' +
+    inputGroupAppend.append('<label id="product_upload" class="btn">\n' +
         '                    <i class="fa fa-folder-open-o"></i>\n' +
         '                </label>');
     $('#Product_image_file').remove();
@@ -19,4 +19,8 @@ $(function () {
     customFile.append('<input type="text" ' +
         'id="Product_image" name="Product[image]" required="required"' +
         ' align="center" placeholder="" title="" data-files-label="files" class="custom-file-input">');
+
+    $('#product_upload').click(function(){
+       window.open('/');
+    });
 });
