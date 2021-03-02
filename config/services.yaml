@@ -10,8 +10,6 @@ services:
     _defaults:
         autowire: true      # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
-        bind:
-            product_images_directory: '%kernel.project_dir%/public/uploads/files'
 
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
@@ -22,6 +20,8 @@ services:
             - '../src/Entity/'
             - '../src/Kernel.php'
             - '../src/Tests/'
+        parameters:
+            product_images_directory: '%kernel.project_dir%/public/uploads/files'
 
     # controllers are imported separately to make sure services can be injected
     # as action arguments even if you don't extend any base controller class
