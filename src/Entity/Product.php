@@ -49,20 +49,12 @@ class Product
 
     /**
      * @Assert\File(
-     *     maxSize = "100k",
-     *     mimeTypesMessage = "Please upload a valid PDF"
-     * )
-     */
-    private $upload;
-
-    /**
-     * @Assert\File(
      *     maxSize = "1024k",
-     *     mimeTypes = {"application/pdf", "application/x-pdf"},
-     *     mimeTypesMessage = "Please upload a valid PDF"
+     *     mimeTypes = {"image/jpeg", "image/png", "image/gif"},
+     *     mimeTypesMessage = "Please upload a valid file(.png, .jpg, .gif)"
      * )
      */
-    protected $bioFile;
+    private $imageFile;
 
     /**
      * @ORM\Column(type="datetime")
@@ -74,14 +66,14 @@ class Product
      */
     private $updatedAt;
 
-    public function setBioFile(File $file = null)
+    public function setImageFile(File $file = null)
     {
-        $this->bioFile = $file;
+        $this->imageFile = $file;
     }
 
-    public function getBioFile()
+    public function getImageFile()
     {
-        return $this->bioFile;
+        return $this->imageFile;
     }
 
     public function getId(): ?int
@@ -188,17 +180,5 @@ class Product
     public function setUpdatedAtValue()
     {
         $this->updatedAt = new \DateTime();
-    }
-
-    public function getUpload(): ?string
-    {
-        return $this->upload;
-    }
-
-    public function setUpload(File $upload): self
-    {
-        $this->upload = $upload;
-
-        return $this;
     }
 }

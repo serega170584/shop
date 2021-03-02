@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Product;
+use App\Form\Type\ProductUploadType;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
@@ -49,17 +50,16 @@ class ProductCrudController extends AbstractCrudController
      */
     public function upload(Request $request): Response
     {
-        die('asd');
-//        $author = new Author();
-//        $form = $this->createForm(AuthorType::class, $author);
-//        $form->handleRequest($request);
-//        if ($form->isSubmitted() && $form->isValid()) {
-//            $author = $form->getData();
-//            var_dump($author);
-//        }
-//        return $this->render('author/new.html.twig', [
-//            'form' => $form->createView(),
-//        ]);
+        $product = new Product();
+        $form = $this->createForm(ProductUploadType::class, $product);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $product = $form->getData();
+            var_dump($product);
+        }
+        return $this->render('author/new.html.twig', [
+            'form' => $form->createView(),
+        ]);
     }
 
 }
