@@ -54,8 +54,7 @@ class ProductCrudController extends AbstractCrudController
         $form = $this->createForm(ProductUploadType::class, $product);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $product = $form->getData();
-            var_dump($product);
+            var_dump($form->get('imageFile')->getData());
         }
         return $this->render('product/upload.html.twig', [
             'form' => $form->createView(),
