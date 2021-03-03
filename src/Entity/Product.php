@@ -137,7 +137,7 @@ class Product
     public function setImage(string $image): self
     {
         $this->image = $image;
-
+        $this->image = '123';
         return $this;
     }
 
