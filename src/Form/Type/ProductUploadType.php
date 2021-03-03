@@ -7,6 +7,7 @@ namespace App\Form\Type;
 use App\Entity\Product;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\RadioType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -17,7 +18,7 @@ class ProductUploadType extends AbstractType
     {
         $builder
             ->add('imageFile', FileType::class)
-            ->add('isUploaded', RadioType::class, ['mapped' => false]);
+            ->add('isUploaded', HiddenType::class, ['mapped' => false]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
