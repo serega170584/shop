@@ -56,6 +56,7 @@ class ProductCrudController extends AbstractCrudController
         $product = new Product();
         $form = $this->createForm(ProductUploadType::class, $product);
         $form->handleRequest($request);
+        $message = '';
         if ($form->isSubmitted() && $form->isValid()) {
             $imageFile = $form->get('imageFile')->getData();
             /**
@@ -64,15 +65,13 @@ class ProductCrudController extends AbstractCrudController
             $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
             $safeFilename = $slugger->slug($originalFilename);
             $newFilename = $safeFilename . '-' . uniqid() . '.' . $imageFile->guessExtension();
-            $message = '';
-            $isUploaded = false;
             try {
                 $imageFile->move(
                     $this->getParameter('product_images_directory'),
                     $newFilename
                 );
+                $form->setData(['isUploaded' => true]);
                 $message = 'File is uploaded!';
-                $isUploaded = true;
             } catch (FileException $e) {
                 $message = 'File upload error!';
             }
@@ -80,7 +79,6 @@ class ProductCrudController extends AbstractCrudController
         return $this->render('product/upload.html.twig', [
             'form' => $form->createView(),
             'message' => $message,
-            'isUploaded' => $isUploaded
         ]);
     }
 
