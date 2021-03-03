@@ -21,7 +21,11 @@ $(function () {
         ' align="center" placeholder="" title="" data-files-label="files" class="custom-file-input">');
     $('.ea-fileupload').append('<iframe src="/product/upload" style="height:300px; display: none" name="win" id="upload_iframe"></iframe>');
 
-    $('#product_upload').click(function(){
-       $('#upload_iframe').show();
+    $('#product_upload').click(function () {
+        $('#upload_iframe').show();
+    });
+
+    window.addEventListener("message", function (event) {
+        alert("received: " + event.data);
     });
 });
