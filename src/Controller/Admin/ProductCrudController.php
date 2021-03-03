@@ -64,19 +64,20 @@ class ProductCrudController extends AbstractCrudController
             $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
             $safeFilename = $slugger->slug($originalFilename);
             $newFilename = $safeFilename . '-' . uniqid() . '.' . $imageFile->guessExtension();
-
+            $message = '';
             try {
                 $imageFile->move(
                     $this->getParameter('product_images_directory'),
                     $newFilename
                 );
-                print 'File is uploaded!';
+                $message = 'File is uploaded!';
             } catch (FileException $e) {
-                print 'File upload error!';
+                $message = 'File upload error!';
             }
         }
         return $this->render('product/upload.html.twig', [
             'form' => $form->createView(),
+            'message' => $message
         ]);
     }
 

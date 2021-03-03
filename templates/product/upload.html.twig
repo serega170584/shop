@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-<h1>Upload a product</h1>
-{{ form(form) }}
-<script src="{{ asset('js/upload-change.js') }}"></script>
+    <h1>Upload a product</h1>
+    <p><b>{{ message }}</b></p>
+    {{ form(form) }}
+    <script src="{{ asset('js/upload-change.js') }}"></script>
 {% endblock %}
