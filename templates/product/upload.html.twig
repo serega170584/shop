@@ -8,6 +8,7 @@
     {% if path %}
         <script>
             $(function () {
+                console.log('{{ path }}');
                 window.parent.document.getElementById('Product_image').value = '{{ path }}';
             })
         </script>
