@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function handleFiles() {
         const form = document.forms.product_upload;
-        console.log(form.elements['isUploaded']);
+        console.log(form.elements);
         // form.submit();
     }
 });
