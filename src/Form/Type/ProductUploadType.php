@@ -17,7 +17,7 @@ class ProductUploadType extends AbstractType
     {
         $builder
             ->add('imageFile', FileType::class)
-            ->add('isUploaded', RadioType::class);
+            ->add('isUploaded', RadioType::class, ['mapped' => false]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
