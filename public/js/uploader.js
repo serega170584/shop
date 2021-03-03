@@ -26,7 +26,7 @@ $(function () {
     });
 
     window.addEventListener("message", function (event) {
-        alert(event);
+        console.log(event);
         document.getElementById('Product_image').value = event.data;
     });
 });
