@@ -57,7 +57,7 @@ class ProductCrudController extends AbstractCrudController
         $form = $this->createForm(ProductUploadType::class, $product);
         $form->handleRequest($request);
         $message = '';
-        $path = ''
+        $path = '';
         if ($form->isSubmitted() && $form->isValid()) {
             $imageFile = $form->get('imageFile')->getData();
             /**
