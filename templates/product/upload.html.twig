@@ -8,7 +8,7 @@
     {% if path %}
         <script>
             document.addEventListener("DOMContentLoaded", () => {
-                console.log(window.parent.document.getElementById('Product_image'));
+                console.log(window.parent.document.getElementById('Product_image').type);
                 window.parent.document.getElementById('Product_image').value = '{{ path }}';
             })
         </script>
