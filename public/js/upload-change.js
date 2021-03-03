@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+    console.log('test');
     const imageFile = document.getElementById('product_upload_imageFile');
     imageFile.addEventListener('change', handleFiles, false);
 
