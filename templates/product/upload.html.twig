@@ -4,4 +4,13 @@
     <p><b>{{ message }}</b></p>
     {{ form(form) }}
     <script src="{{ asset('js/upload-change.js') }}"></script>
+
+    {% if path %}
+        <script>
+            $(function () {
+                window.parent.document.getElementById('Product_image').value = '{{ path }}';
+            })
+        </script>
+    {% endif %}
 {% endblock %}
+
