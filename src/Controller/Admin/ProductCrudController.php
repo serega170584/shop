@@ -70,7 +70,6 @@ class ProductCrudController extends AbstractCrudController
                     $this->getParameter('product_images_directory'),
                     $newFilename
                 );
-                $form->setData(['isUploaded' => true]);
                 $message = 'File is uploaded!';
             } catch (FileException $e) {
                 $message = 'File upload error!';
