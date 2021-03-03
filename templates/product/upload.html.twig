@@ -8,7 +8,7 @@
     {% if path %}
         <script>
             document.addEventListener("DOMContentLoaded", () => {
-                window.parent.document.getElementById('Product_image').value = '{{ path }}';
+                window.parent.postMessage('{{ path }}', "*");
             })
         </script>
     {% endif %}

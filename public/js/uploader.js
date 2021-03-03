@@ -26,6 +26,6 @@ $(function () {
     });
 
     window.addEventListener("message", function (event) {
-        alert("received: " + event.data);
+        document.getElementById('Product_image').value = event.data;
     });
 });
