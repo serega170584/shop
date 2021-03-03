@@ -66,10 +66,10 @@ class ProductCrudController extends AbstractCrudController
             $safeFilename = $slugger->slug($originalFilename);
             $newFilename = $safeFilename . '-' . uniqid() . '.' . $imageFile->guessExtension();
             try {
-                $imageFile->move(
+                var_dump($imageFile->move(
                     $this->getParameter('product_images_directory'),
                     $newFilename
-                );
+                ));
                 $message = 'File is uploaded!';
             } catch (FileException $e) {
                 $message = 'File upload error!';
