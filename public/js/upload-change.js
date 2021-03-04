@@ -3,8 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
     imageFile.addEventListener('change', handleFiles, false);
 
     function handleFiles() {
-        if (document.getElementById('product_upload_imageFile').files[0].size > 2000) {
-            alert('Size 2KB is exceeded!')
+        if (document.getElementById('product_upload_imageFile').files[0].size > 1024 * 1024) {
+            alert('Size 1MB is exceeded!')
         } else {
             const form = document.forms.product_upload;
             form.elements['product_upload[isUploaded]'].value = '1';
