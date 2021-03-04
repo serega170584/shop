@@ -3,6 +3,7 @@
     <h1>Upload a product</h1>
     <p><b>{{ message }}</b></p>
     {{ form(form) }}
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/upload-change.js') }}"></script>
 
     {% if path %}
@@ -11,6 +12,9 @@
                 window.parent.document.getElementById('Product_image').setAttribute('value', '{{ path }}');
                 let parts = '{{ path }}'.split('/');
                 window.parent.document.getElementById('file_label').innerHTML = parts[parts.length - 1];
+            });
+            $(function(){
+                alert('123456');
             })
         </script>
     {% endif %}
