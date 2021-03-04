@@ -17,8 +17,7 @@ class ProductUploadType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('imageFile', FileType::class)
-            ->add('isUploaded', HiddenType::class, ['mapped' => false]);
+            ->add('imageFile', FileType::class);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
