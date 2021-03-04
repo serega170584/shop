@@ -9,7 +9,8 @@
         <script>
             document.addEventListener("DOMContentLoaded", () => {
                 window.parent.document.getElementById('Product_image').setAttribute('value', '{{ path }}');
-                window.parent.document.getElementById('file_label').innerHTML = '{{ path }}'.split('/')[1];
+                let parts = '{{ path }}'.split('/');
+                window.parent.document.getElementById('file_label').innerHTML = parts[parts.length - 1];
             })
         </script>
     {% endif %}
