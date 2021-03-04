@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function handleFiles() {
         let reader = new FileReader();
+        console.log(document.getElementById('product_upload_imageFile').files[0].size);
         reader.readAsText(document.getElementById('product_upload_imageFile').files[0]);
         reader.onload = () => console.log(reader.result);
         reader.onerror = () => console.log(reader.error);
