@@ -24,8 +24,4 @@ $(function () {
     $('#product_upload').click(function () {
         $('#upload_iframe').show();
     });
-
-    window.addEventListener("message", function (event) {
-        document.getElementById('Product_image').setAttribute('value', event.data);
-    });
 });
