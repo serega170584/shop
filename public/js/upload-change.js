@@ -3,13 +3,12 @@ document.addEventListener("DOMContentLoaded", () => {
     imageFile.addEventListener('change', handleFiles, false);
 
     function handleFiles() {
-        let reader = new FileReader();
-        console.log(document.getElementById('product_upload_imageFile').files[0].size);
-        reader.readAsText(document.getElementById('product_upload_imageFile').files[0]);
-        reader.onload = () => console.log(reader.result);
-        reader.onerror = () => console.log(reader.error);
-        const form = document.forms.product_upload;
-        // form.elements['product_upload[isUploaded]'].value = '1';
-        // form.submit();
+        if (document.getElementById('product_upload_imageFile').files[0].size > 2000) {
+            alert('Size 2KB is exceeded!')
+        } else {
+            const form = document.forms.product_upload;
+            form.elements['product_upload[isUploaded]'].value = '1';
+            form.submit();
+        }
     }
 });
