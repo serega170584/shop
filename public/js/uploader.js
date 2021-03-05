@@ -2,7 +2,7 @@ $(function () {
     $('#Product_image').closest('.form-widget').html('<div class="ea-fileupload">\n' +
         '        <div class="input-group">\n' +
         '                                                            <div class="custom-file">\n' +
-        '    <label for="Product_image" lang="en" class="custom-file-label" id="file_label"></label><input type="text" id="Product_image" name="Product[image]" required="required" align="center" placeholder="" title="" data-files-label="files" class="custom-file-input"></div>\n' +
+        '    <label for="Product_image" lang="en" class="custom-file-label" id="file_label">11111</label><input type="text" id="Product_image" name="Product[image]" required="required" align="center" placeholder="" title="" data-files-label="files" class="custom-file-input"></div>\n' +
         '            <div class="input-group-append">\n' +
         '                \n' +
         '                                    \n' +
