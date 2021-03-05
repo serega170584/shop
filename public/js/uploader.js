@@ -14,7 +14,7 @@ $(function () {
             `                \n` +
             `                                    \n` +
             `                                \n` +
-            `            <label class="btn" style="display: ${display}">\n` +
+            `            <label class="btn" id="image_trash" style="display: ${display}">\n` +
             `                    <i class="fa fa-trash-o"></i>\n` +
             `                </label><label id="product_upload" class="btn">\n` +
             `                    <i class="fa fa-folder-open-o"></i>\n` +
