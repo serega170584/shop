@@ -12,7 +12,9 @@
                 let parts = '{{ path }}'.split('/');
                 window.parent.document.getElementById('file_label').innerHTML = parts[parts.length - 1];
                 let inputGroup = window.parent.document.getElementById('Product_image').closest('.input-group');
-                inputGroup.after(window.parent.document.createElement('img'));
+                let img = window.parent.document.createElement('img');
+                img.setAttribute('src', '/uploads/files/{{ path }}');
+                inputGroup.after(img);
             });
         </script>
     {% endif %}
