@@ -4,7 +4,7 @@ $(function () {
         let img = '';
         if (productImage) {
             display = 'block';
-            img = `<img src="/uploads/files/${productImage}" />`
+            img = `<img src="/uploads/files/${productImage}" id="product_image" />`
         }
         $('#Product_image').closest('.form-widget').html(`<div class="ea-fileupload">\n` +
             `        <div class="input-group">\n` +
