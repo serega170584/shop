@@ -10,10 +10,11 @@
             document.addEventListener("DOMContentLoaded", () => {
                 window.parent.document.getElementById('Product_image').setAttribute('value', '{{ path }}');
                 let parts = '{{ path }}'.split('/');
-                window.parent.document.getElementById('file_label').innerHTML = parts[parts.length - 1];
+                let filename = parts[parts.length - 1];
+                window.parent.document.getElementById('file_label').innerHTML = filename;
                 let inputGroup = window.parent.document.getElementById('Product_image').closest('.input-group');
                 let img = window.parent.document.createElement('img');
-                img.setAttribute('src', '/uploads/files/{{ path }}');
+                img.setAttribute('src', `/uploads/files/${filename}`);
                 inputGroup.after(img);
             });
         </script>
