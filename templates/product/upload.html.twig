@@ -15,6 +15,7 @@
                 let inputGroup = window.parent.document.getElementById('Product_image').closest('.input-group');
                 let img = window.parent.document.createElement('img');
                 img.setAttribute('src', `/uploads/files/${filename}`);
+                img.setAttribute('id', 'product_image');
                 inputGroup.after(img);
             });
         </script>
