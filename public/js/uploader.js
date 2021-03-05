@@ -28,7 +28,7 @@ $(function () {
             $('#upload_iframe').show();
         });
 
-        $('.image_trash').click(function () {
+        $('#image_trash').click(function () {
             $(this).hide();
             $('#product_image').remove();
             $('#Product_image').remove();
