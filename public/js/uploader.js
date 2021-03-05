@@ -36,8 +36,6 @@ $(function () {
         });
 
         $('#new-Product-form').submit(function (e) {
-            e.preventDefault();
-            console.log('asdasdasd' + $('#Product_image').val().trim() + 'asdasdasd');
             if (!$('#Product_image').val().trim()) {
                 e.preventDefault();
                 alert('Upload image please!');
