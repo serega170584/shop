@@ -34,5 +34,13 @@ $(function () {
             $('#Product_image').val('');
             $('#file_label').html('');
         });
+
+        $('#new-Product-form').submit(function (e))
+        {
+            if (!trim($('#Product_image').val())) {
+                e.preventDefault();
+                alert('Upload image please!');
+            }
+        }
     }
 );
