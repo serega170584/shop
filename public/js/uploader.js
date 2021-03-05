@@ -1,8 +1,10 @@
 $(function () {
         let display = 'none';
         let productImage = $('#Product_image').val();
+        let img = '';
         if (productImage) {
             display = 'block';
+            img = `<img src="/uploads/files/${productImage}" />`
         }
         $('#Product_image').closest('.form-widget').html(`<div class="ea-fileupload">\n` +
             `        <div class="input-group">\n` +
@@ -18,6 +20,7 @@ $(function () {
             `                    <i class="fa fa-folder-open-o"></i>\n` +
             `                </label></div>\n` +
             `        </div>\n` +
+            img +
             `                            \n` +
             `            <iframe src="/product/upload" style="height:300px; display: none" name="win" id="upload_iframe"></iframe></div>`);
 
