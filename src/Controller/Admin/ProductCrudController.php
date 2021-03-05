@@ -40,7 +40,11 @@ class ProductCrudController extends AbstractCrudController
             TextField::new('preview'),
             TextareaField::new('description'),
             TextField::new('price'),
+            TextField::new('image')
+                ->onlyOnForms()
+                ->addJsFiles('/js/uploader.js'),
             ImageField::new('image')
+                ->onlyOnIndex()
                 ->setUploadDir('public/uploads/files')
                 ->setBasePath('uploads/files')
                 ->addJsFiles('/js/uploader.js')
