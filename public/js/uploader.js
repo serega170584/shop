@@ -27,5 +27,12 @@ $(function () {
         $('#product_upload').click(function () {
             $('#upload_iframe').show();
         });
+
+        $('.image_trash').click(function () {
+            $(this).hide();
+            $('#product_image').remove();
+            $('#Product_image').remove();
+            $('#file_label').remove();
+        });
     }
 );
