@@ -35,12 +35,11 @@ $(function () {
             $('#file_label').html('');
         });
 
-        $('#new-Product-form').submit(function (e))
-        {
+        $('#new-Product-form').submit(function (e) {
             if (!trim($('#Product_image').val())) {
                 e.preventDefault();
                 alert('Upload image please!');
             }
-        }
+        });
     }
 );
