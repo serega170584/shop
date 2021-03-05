@@ -11,6 +11,8 @@
                 window.parent.document.getElementById('Product_image').setAttribute('value', '{{ path }}');
                 let parts = '{{ path }}'.split('/');
                 window.parent.document.getElementById('file_label').innerHTML = parts[parts.length - 1];
+                let inputGroup = window.parent.document.getElementById('Product_image').closest('.input-group');
+                inputGroup.after('<p></p>');
             });
         </script>
     {% endif %}
