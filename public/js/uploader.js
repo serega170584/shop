@@ -6,6 +6,10 @@ $(function () {
             display = 'block';
             img = `<img src="/uploads/files/${productImage}" id="product_image" />`
         }
+        let invalidFeedback = '';
+        if ((invalidFeedback = $('#Product_image').closest('.form-widget').find('.invalid-feedback').html()) !== undefined) {
+            invalidFeedback =
+        }
         console.log($('#Product_image').closest('.form-widget').find('.invalid-feedback').html());
         $('#Product_image').closest('.form-widget').html(`<div class="ea-fileupload">\n` +
             `        <div class="input-group">\n` +
