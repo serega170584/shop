@@ -13,7 +13,7 @@ $(function () {
         }
         let isInvalid = '';
         if ($('#Product_image').hasClass('is-invalid')) {
-            isInvalid = ' is-invalid';
+            isInvalid = ' form-control is-invalid';
         }
         $('#Product_image').closest('.form-widget').html(`<div class="ea-fileupload">\n` +
             `        <div class="input-group">\n` +
