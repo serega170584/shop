@@ -6,7 +6,7 @@ $(function () {
             display = 'block';
             img = `<img src="/uploads/files/${productImage}" id="product_image" />`
         }
-        let invalidFeedback = '';
+        let invalidFeedback = '11111';
         if ((invalidFeedback = $('#Product_image').closest('.form-widget').find('.invalid-feedback').html()) !== undefined) {
             console.log(invalidFeedback);
             invalidFeedback = `<span class="invalid-feedback d-block">${invalidFeedback}</span>`;
