@@ -8,9 +8,9 @@ $(function () {
         }
         let invalidFeedback = '';
         if ((invalidFeedback = $('#Product_image').closest('.form-widget').find('.invalid-feedback').html()) !== undefined) {
+            console.log(invalidFeedback);
             invalidFeedback = `<span class="invalid-feedback d-block">${invalidFeedback}</span>`;
         }
-        console.log($('#Product_image').closest('.form-widget').find('.invalid-feedback').html());
         $('#Product_image').closest('.form-widget').html(`<div class="ea-fileupload">\n` +
             `        <div class="input-group">\n` +
             `                                                            <div class="custom-file">\n` +
