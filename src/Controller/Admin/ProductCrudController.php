@@ -6,6 +6,7 @@ use App\Entity\Product;
 use App\Form\Type\ProductUploadType;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
+use EasyCorp\Bundle\EasyAdminBundle\Field\HiddenField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
@@ -34,8 +35,6 @@ class ProductCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
-        var_dump($this->getParameter('product_images_directory'));
-        die('asd');
         return [
 //            IdField::new('id'),
             TextField::new('title'),
@@ -49,8 +48,8 @@ class ProductCrudController extends AbstractCrudController
                 ->onlyOnIndex()
                 ->setUploadDir('public/uploads/files')
                 ->setBasePath('uploads/files')
-                ->addJsFiles('/js/uploader.js')
-//            TextEditorField::new('description'),
+                ->addJsFiles('/js/uploader.js'),
+            HiddenField::new('productImagesDirectory')->setValue($this->getParameter('product_images_directory')),
         ];
     }
 
