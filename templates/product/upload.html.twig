@@ -8,9 +8,8 @@
     {% if path %}
         <script>
             document.addEventListener("DOMContentLoaded", () => {
-                window.parent.document.getElementById('Product_image').setAttribute('value', '{{ path }}');
-                let parts = '{{ path }}'.split('/');
-                let filename = parts[parts.length - 1];
+                let filename = '{{ path }}';
+                window.parent.document.getElementById('Product_image').setAttribute('value', filename);
                 window.parent.document.getElementById('file_label').innerHTML = filename;
                 window.parent.document.getElementById('image_trash').style.display = 'block'
                 let inputGroup = window.parent.document.getElementById('Product_image').closest('.input-group');
