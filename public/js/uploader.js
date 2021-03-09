@@ -7,8 +7,8 @@ $(function () {
             img = `<img src="/uploads/files/${productImage}" id="product_image" />`
         }
         let invalidFeedback = '11111';
+        console.log((invalidFeedback = $('#Product_image').closest('.form-widget').find('.invalid-feedback').html()) !== undefined);
         if ((invalidFeedback = $('#Product_image').closest('.form-widget').find('.invalid-feedback').html()) !== undefined) {
-            console.log(invalidFeedback);
             invalidFeedback = `<span class="invalid-feedback d-block">${invalidFeedback}</span>`;
         }
         $('#Product_image').closest('.form-widget').html(`<div class="ea-fileupload">\n` +
