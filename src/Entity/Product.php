@@ -30,21 +30,25 @@ class Product
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank
      */
     private $preview;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank
      */
     private $description;
 
     /**
      * @ORM\Column(type="decimal", precision=10, scale=3)
+     * @Assert\NotBlank
      */
     private $price;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $image;
 
