@@ -129,6 +129,7 @@ class ProductCrudController extends AbstractCrudController
 
         if ($newForm->isSubmitted() && $newForm->isValid()) {
             var_dump($newForm);
+            die('asd');
             $this->processUploadedFiles($newForm);
 
             $event = new BeforeEntityPersistedEvent($entityInstance);
