@@ -15,7 +15,6 @@ $(function () {
             `        <div class="input-group">\n` +
             `                                                            <div class="custom-file">\n` +
             `    <label for="Product_image" lang="en" class="custom-file-label" id="file_label">${productImage}</label><input type="text" id="Product_image" name="Product[image]" value="${productImage}" align="center" placeholder="" title="" data-files-label="files" class="custom-file-input"></div>\n` +
-            invalidFeedback +
             `            <div class="input-group-append">\n` +
             `                \n` +
             `                                    \n` +
@@ -26,6 +25,7 @@ $(function () {
             `                    <i class="fa fa-folder-open-o"></i>\n` +
             `                </label></div>\n` +
             `        </div>\n` +
+            invalidFeedback +
             img +
             `                            \n` +
             `            <iframe src="/product/upload" style="height:300px; display: none" name="win" id="upload_iframe"></iframe></div>`);
