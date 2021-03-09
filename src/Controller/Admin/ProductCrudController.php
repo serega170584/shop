@@ -34,6 +34,8 @@ class ProductCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
+        var_dump($this->getParameter('product_images_directory'));
+        die('asd');
         return [
 //            IdField::new('id'),
             TextField::new('title'),
