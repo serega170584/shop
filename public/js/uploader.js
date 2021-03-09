@@ -36,10 +36,10 @@ $(function () {
         });
 
         $('#new-Product-form').submit(function (e) {
-            if (!$('#Product_image').val().trim()) {
-                e.preventDefault();
-                alert('Upload image please!');
-            }
+            // if (!$('#Product_image').val().trim()) {
+            //     e.preventDefault();
+            //     alert('Upload image please!');
+            // }
         });
     }
 );
