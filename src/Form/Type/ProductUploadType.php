@@ -7,8 +7,6 @@ namespace App\Form\Type;
 use App\Entity\Product;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
-use Symfony\Component\Form\Extension\Core\Type\HiddenType;
-use Symfony\Component\Form\Extension\Core\Type\RadioType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\File;
@@ -30,7 +28,7 @@ class ProductUploadType extends AbstractType
                             'image/png',
                             'image/gif'
                         ],
-                        'mimeTypesMessage' => 'Please upload a valid image'
+                        'mimeTypesMessage' => 'Please upload a valid file(.png, .jpg, .gif)'
                     ])
                 ]
             ]);

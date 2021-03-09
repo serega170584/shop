@@ -49,15 +49,6 @@ class Product
     private $image;
 
     /**
-     * @Assert\File(
-     *     maxSize = "1024k",
-     *     mimeTypes = {"image/jpeg", "image/png", "image/gif"},
-     *     mimeTypesMessage = "Please upload a valid file(.png, .jpg, .gif)"
-     * )
-     */
-    private $imageFile;
-
-    /**
      * @ORM\Column(type="datetime")
      */
     private $createdAt;
@@ -66,16 +57,6 @@ class Product
      * @ORM\Column(type="datetime")
      */
     private $updatedAt;
-
-    public function setImageFile(File $file = null)
-    {
-        $this->imageFile = $file;
-    }
-
-    public function getImageFile()
-    {
-        return $this->imageFile;
-    }
 
     public function getId(): ?int
     {
