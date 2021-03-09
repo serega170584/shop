@@ -57,8 +57,7 @@ class ProductCrudController extends AbstractCrudController
      */
     public function upload(Request $request, SluggerInterface $slugger): Response
     {
-        $product = new Product();
-        $form = $this->createForm(ProductUploadType::class, $product);
+        $form = $this->createForm(ProductUploadType::class);
         $form->handleRequest($request);
         $message = '';
         $path = '';
