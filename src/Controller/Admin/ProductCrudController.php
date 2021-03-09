@@ -48,8 +48,7 @@ class ProductCrudController extends AbstractCrudController
                 ->onlyOnIndex()
                 ->setUploadDir('public/uploads/files')
                 ->setBasePath('uploads/files')
-                ->addJsFiles('/js/uploader.js'),
-            HiddenField::new('productImagesDirectory')->setValue($this->getParameter('product_images_directory')),
+                ->addJsFiles('/js/uploader.js')
         ];
     }
 
