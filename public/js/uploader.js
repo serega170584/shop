@@ -41,6 +41,7 @@ $(function () {
             $('#product_image').remove();
             $('#Product_image').val('');
             $('#file_label').html('');
+            alert($('#Product_image').val());
         });
 
         $('#new-Product-form').submit(function (e) {
