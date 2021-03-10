@@ -37,7 +37,8 @@ $(function () {
         $('#image_trash').click(function () {
             $(this).hide();
             $('#product_image').remove();
-            $('#Product_image').val('');
+            document.getElementById('Product_image').setAttribute('value', '');
+            // $('#Product_image').val('');
             $('#file_label').html('');
         });
 
