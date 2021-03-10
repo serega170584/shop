@@ -37,7 +37,7 @@ $(function () {
         $('#image_trash').click(function () {
             $(this).hide();
             $('#product_image').remove();
-            $('#Product_image').val('qweqweqwe');
+            $('#Product_image').val('');
             $('#file_label').html('');
         });
 
