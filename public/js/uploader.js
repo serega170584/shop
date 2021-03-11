@@ -40,12 +40,5 @@ $(function () {
             document.getElementById('Product_image').setAttribute('value', '');
             $('#file_label').html('');
         });
-
-        $('#new-Product-form').submit(function (e) {
-            if (!$('#Product_image').val().trim()) {
-                e.preventDefault();
-                alert('Upload image please!');
-            }
-        });
     }
 );
