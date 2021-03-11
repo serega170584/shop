@@ -8,6 +8,7 @@
     {% if path %}
         <script>
             document.addEventListener("DOMContentLoaded", () => {
+                alert('123');
                 let filename = '{{ path }}';
                 window.parent.document.getElementById('Product_image').setAttribute('value', filename);
                 window.parent.document.getElementById('file_label').innerHTML = filename;
