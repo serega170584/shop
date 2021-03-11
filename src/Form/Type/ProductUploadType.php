@@ -22,7 +22,7 @@ class ProductUploadType extends AbstractType
                 'required' => true,
                 'constraints' => [
                     new File([
-                        'maxSize' => '1k',
+                        'maxSize' => '1024k',
                         'mimeTypes' => [
                             'image/jpeg',
                             'image/png',
