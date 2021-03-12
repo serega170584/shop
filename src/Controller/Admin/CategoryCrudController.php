@@ -1,28 +1,26 @@
 <?php
 
+
 namespace App\Controller\Admin;
 
-use App\Entity\Product;
-use App\Form\Type\ProductUploadType;
-use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+
+use App\Entity\Category;
+use App\Form\Type\CategoryUploadType;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
-use EasyCorp\Bundle\EasyAdminBundle\Field\HiddenField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
+use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
-class ProductCrudController extends AbstractCrudController
+class CategoryCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
-        return Product::class;
+        return Category::class;
     }
 
     public function configureCrud(Crud $crud): Crud
@@ -36,27 +34,24 @@ class ProductCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-//            IdField::new('id'),
             TextField::new('title'),
-            TextField::new('preview'),
-            TextareaField::new('description'),
-            TextField::new('price'),
             TextField::new('image')
                 ->onlyOnForms()
-                ->addJsFiles('/js/uploader.js'),
+                ->addJsFiles('/js/category-uploader.js'),
             ImageField::new('image')
                 ->onlyOnIndex()
-                ->setUploadDir('public/uploads/files')
-                ->setBasePath('uploads/files')
+                ->setUploadDir('public/uploads/category')
+                ->setBasePath('uploads/category')
+                ->setRequired(false)
         ];
     }
 
     /**
-     * @Route("/product/upload")
+     * @Route("/category/upload")
      */
     public function upload(Request $request, SluggerInterface $slugger): Response
     {
-        $form = $this->createForm(ProductUploadType::class);
+        $form = $this->createForm(CategoryUploadType::class);
         $form->handleRequest($request);
         $message = '';
         $newFilename = '';
@@ -70,7 +65,7 @@ class ProductCrudController extends AbstractCrudController
             $newFilename = $safeFilename . '-' . uniqid() . '.' . $imageFile->guessExtension();
             try {
                 $imageFile->move(
-                    $this->getParameter('product_images_directory'),
+                    $this->getParameter('category_images_directory'),
                     $newFilename
                 );
                 $message = 'File is uploaded!';
@@ -78,11 +73,10 @@ class ProductCrudController extends AbstractCrudController
                 $message = 'File upload error!';
             }
         }
-        return $this->render('product/upload.html.twig', [
+        return $this->render('category/upload.html.twig', [
             'form' => $form->createView(),
             'message' => $message,
             'path' => $newFilename
         ]);
     }
-
 }
