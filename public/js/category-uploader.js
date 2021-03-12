@@ -28,7 +28,7 @@ $(function () {
             invalidFeedback +
             img +
             `                            \n` +
-            `            <iframe src="/product/upload" style="height:300px; display: none" name="win" id="upload_iframe"></iframe></div>`);
+            `            <iframe src="/category/upload" style="height:300px; display: none" name="win" id="upload_iframe"></iframe></div>`);
 
         $('#product_upload').click(function () {
             $('#upload_iframe').show();
