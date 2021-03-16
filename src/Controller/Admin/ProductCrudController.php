@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Category;
 use App\Entity\Product;
 use App\Form\Type\ProductUploadType;
 use EasyCorp\Bundle\EasyAdminBundle\Config\KeyValueStore;
@@ -98,7 +99,10 @@ class ProductCrudController extends AbstractCrudController
     public function createNewFormBuilder(EntityDto $entityDto, KeyValueStore $formOptions, AdminContext $context): FormBuilderInterface
     {
         $formBuilder = parent::get(FormFactory::class)->createNewFormBuilder($entityDto, $formOptions, $context);
-        $formBuilder->add('category', EntityType::class);
+        $formBuilder->add('category', EntityType::class, [
+            'class' => Category::class,
+            'choice_label' => 'category'
+        ]);
         return $formBuilder;
     }
 
