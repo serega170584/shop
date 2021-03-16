@@ -99,7 +99,9 @@ class ProductCrudController extends AbstractCrudController
     public function createNewFormBuilder(EntityDto $entityDto, KeyValueStore $formOptions, AdminContext $context): FormBuilderInterface
     {
         $formBuilder = parent::get(FormFactory::class)->createNewFormBuilder($entityDto, $formOptions, $context);
-        $formBuilder->add('category', EntityType::class);
+        $formBuilder->add('category', EntityType::class, [
+            'class' => Product::class
+        ]);
         return $formBuilder;
     }
 
