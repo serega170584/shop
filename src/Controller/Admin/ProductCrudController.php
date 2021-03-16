@@ -10,6 +10,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Dto\EntityDto;
+use EasyCorp\Bundle\EasyAdminBundle\Dto\FieldDto;
 use EasyCorp\Bundle\EasyAdminBundle\Factory\FormFactory;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
@@ -58,8 +59,8 @@ class ProductCrudController extends AbstractCrudController
                 ->onlyOnIndex()
                 ->setUploadDir('public/uploads/files')
                 ->setBasePath('uploads/files'),
-            ChoiceField::new('category')->setChoices(function (?Category $cat) {
-                return $cat->getTitle();
+            ChoiceField::new('category')->setChoices(function (?Product $product, FieldDto $fieldDto) {
+                return $fieldDto->getProperty();
             })
         ];
     }
