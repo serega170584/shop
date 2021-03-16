@@ -60,8 +60,7 @@ class ProductCrudController extends AbstractCrudController
                 ->setUploadDir('public/uploads/files')
                 ->setBasePath('uploads/files'),
             ChoiceField::new('category')->setChoices(function () {
-                die('asd');
-                return ['3' => '2'];
+                return ['3' => 2];
             })
         ];
     }
