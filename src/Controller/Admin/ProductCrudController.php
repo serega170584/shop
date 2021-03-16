@@ -101,7 +101,8 @@ class ProductCrudController extends AbstractCrudController
         $formBuilder = parent::get(FormFactory::class)->createNewFormBuilder($entityDto, $formOptions, $context);
         $formBuilder->add('title', EntityType::class, [
             'class' => Category::class,
-            'choice_label' => 'title'
+            'choice_label' => 'title',
+            'multiple' => true
         ]);
         return $formBuilder;
     }
