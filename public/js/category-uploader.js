@@ -4,7 +4,7 @@ $(function () {
         let img = '';
         if (image) {
             display = 'block';
-            img = `<img src="/uploads/files/${image}" id="category_image" />`
+            img = `<img src="/uploads/category/${image}" id="category_image" />`
         }
         let invalidFeedback = '';
         if ($('#Category_image').closest('.form-widget').find('.invalid-feedback').html() !== undefined) {
