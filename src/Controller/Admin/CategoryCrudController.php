@@ -88,7 +88,7 @@ class CategoryCrudController extends AbstractCrudController
     public function detail(AdminContext $context)
     {
         return $this->redirect($this->get(AdminUrlGenerator::class)
-            ->setController(self::getEntityFqcn())
+            ->setController(self::class)
             ->setAction(Action::EDIT)
             ->setEntityId($context->getEntity()->getPrimaryKeyValue())
             ->unset(EA::MENU_INDEX)
