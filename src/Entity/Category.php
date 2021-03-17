@@ -153,6 +153,6 @@ class Category
 
     public function __toString()
     {
-        return 'asdasdasd';
+        return 'asdasd';
     }
 }
