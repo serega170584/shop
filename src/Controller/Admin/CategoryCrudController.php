@@ -84,7 +84,7 @@ class CategoryCrudController extends AbstractCrudController
 
     public function detail(AdminContext $context)
     {
-        var_dump($context->getEntity()->getFqcn());
+        var_dump($context->getEntity()->getInstance());
         die('asd');
         $this->redirect($this->generateUrl());
     }
