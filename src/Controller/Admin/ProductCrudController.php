@@ -59,12 +59,12 @@ class ProductCrudController extends AbstractCrudController
                 ->onlyOnIndex()
                 ->setUploadDir('public/uploads/files')
                 ->setBasePath('uploads/files'),
-            AssociationField::new('category')->formatValue(function(string $a, Product $b){
-                return $b->getCategory()->getTitle();
+            AssociationField::new('category')->formatValue(function(string $s, Product $product){
+                return $product->getCategory()->getTitle();
             })->onlyOnIndex(),
-            ChoiceField::new('category')->setChoices(function (?Product $foo, FieldDto $field) {
+            ChoiceField::new('category')->setChoices(function () {
                 return ['asdasd' => 2, 'asdasdsdfsdf' => 3];
-            })->onlyOnForms()
+            })->onlyOnForms()->setValue(2)
         ];
     }
 
