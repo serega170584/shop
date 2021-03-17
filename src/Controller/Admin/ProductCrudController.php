@@ -62,7 +62,7 @@ class ProductCrudController extends AbstractCrudController
             AssociationField::new('category')->formatValue(function(string $a, Product $b){
                 return $b->getCategory()->getTitle();
             })->onlyOnIndex(),
-            ChoiceField::new('category')->setChoices(function () {
+            ChoiceField::new('category')->setChoices(function (?Product $foo, FieldDto $field) {
                 return ['asdasd' => 2, 'asdasd' => 3];
             })->onlyOnForms()
         ];
