@@ -7,6 +7,7 @@ namespace App\Controller\Admin;
 use App\Entity\Category;
 use App\Form\Type\CategoryUploadType;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
+use EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
@@ -79,5 +80,12 @@ class CategoryCrudController extends AbstractCrudController
             'message' => $message,
             'path' => $newFilename
         ]);
+    }
+
+    public function detail(AdminContext $context)
+    {
+        var_dump($context->getEntity());
+        die('asd');
+        $this->redirect($this->generateUrl());
     }
 }
