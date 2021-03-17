@@ -67,7 +67,7 @@ class ProductCrudController extends AbstractCrudController
                 var_dump($field->getValue()->getId());
                 die('asd');
                 return [3 => 2, 2 => 3];
-            })
+            })->onlyOnForms()
         ];
     }
 
