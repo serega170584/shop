@@ -46,7 +46,7 @@ class ProductCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
-        var_dump(AssociationField::new('category')->getAsDto());
+        var_dump(AssociationField::new('category')->getAsDto()->getTemplatePath());
         die('asd');
         return [
 //            IdField::new('id'),
