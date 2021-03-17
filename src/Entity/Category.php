@@ -152,6 +152,6 @@ class Category
     }
 
     public function __toString(){
-        return 'asdasdasd';
+        return $this->title;
     }
 }
