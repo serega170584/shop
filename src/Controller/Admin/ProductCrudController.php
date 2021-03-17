@@ -60,9 +60,7 @@ class ProductCrudController extends AbstractCrudController
                 ->setUploadDir('public/uploads/files')
                 ->setBasePath('uploads/files'),
             AssociationField::new('category')->formatValue(function($a, $b){
-                var_dump($a);
-                var_dump($b->getCategory()->getTitle());
-                die('asd');
+                return $b->getCategory()->getTitle();
             }),
 //            ChoiceField::new('category')->setChoices(function (?Product $product, FieldDto $field) {
 //                var_dump($field->getProperty());
