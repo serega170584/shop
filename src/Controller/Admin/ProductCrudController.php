@@ -61,6 +61,7 @@ class ProductCrudController extends AbstractCrudController
                 ->setBasePath('uploads/files'),
             ChoiceField::new('category')->setChoices(function (?Product $product, FieldDto $field) {
                 var_dump($field->getProperty());
+                var_dump($field->getValue());
                 die('asd');
                 return [3 => 2, 2 => 3];
             })
