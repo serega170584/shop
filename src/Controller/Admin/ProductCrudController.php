@@ -64,11 +64,7 @@ class ProductCrudController extends AbstractCrudController
             })->onlyOnIndex(),
             ChoiceField::new('category')->setChoices(function () {
                 return ['asdasd' => 2, 'asdasdsdfsdf' => 3];
-            })->setValue(function(){
-                die('asd');
-            })->setFormattedValue(function(){
-                die('asd');
-            })->onlyOnForms()
+            })->setValue(2)->onlyOnForms()
         ];
     }
 
