@@ -7,6 +7,7 @@ namespace App\Controller\Admin;
 use App\Entity\Category;
 use App\Form\Type\CategoryUploadType;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Option\EA;
 use EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext;
@@ -34,6 +35,14 @@ class CategoryCrudController extends AbstractCrudController
             // this defines the pagination size for all CRUD controllers
             // (each CRUD controller can override this value if needed)
             ->setPaginatorPageSize(30);
+    }
+
+    public function configureActions(Actions $actions): Actions
+    {
+        $delete = Action::new(Action::DELETE)->displayIf(static function ($entity) {
+            return 1 == 0;
+        });
+        return $actions->add(Crud::PAGE_INDEX, $delete);
     }
 
     public function configureFields(string $pageName): iterable
