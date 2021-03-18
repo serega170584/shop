@@ -42,6 +42,7 @@ class CategoryCrudController extends AbstractCrudController
         $delete = Action::new(Action::DELETE)->displayIf(static function ($entity) {
             return 1 == 0;
         });
+        $actions->remove(Crud::PAGE_INDEX, $delete);
         return $actions->add(Crud::PAGE_INDEX, $delete);
     }
 
