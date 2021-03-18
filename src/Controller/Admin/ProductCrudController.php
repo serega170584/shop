@@ -59,7 +59,7 @@ class ProductCrudController extends AbstractCrudController
                 ->onlyOnIndex()
                 ->setUploadDir('public/uploads/files')
                 ->setBasePath('uploads/files'),
-            AssociationField::new('category')
+            AssociationField::new('category')->setRequired(true)
         ];
     }
 
