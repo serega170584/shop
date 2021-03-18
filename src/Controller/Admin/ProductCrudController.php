@@ -48,10 +48,10 @@ class ProductCrudController extends AbstractCrudController
     {
         return [
 //            IdField::new('id'),
-            TextField::new('title'),
-            TextField::new('preview'),
-            TextareaField::new('description'),
-            TextField::new('price'),
+            TextField::new('title')->setRequired(false),
+            TextField::new('preview')->setRequired(false),
+            TextareaField::new('description')->setRequired(false),
+            TextField::new('price')->setRequired(false),
             TextField::new('image')
                 ->onlyOnForms()
                 ->addJsFiles('/js/uploader.js'),

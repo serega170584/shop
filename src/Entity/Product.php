@@ -77,7 +77,7 @@ class Product
         return $this->title;
     }
 
-    public function setTitle(string $title): self
+    public function setTitle(?string $title): self
     {
         $this->title = $title;
 
@@ -89,7 +89,7 @@ class Product
         return $this->preview;
     }
 
-    public function setPreview(string $preview): self
+    public function setPreview(?string $preview): self
     {
         $this->preview = $preview;
 
@@ -113,7 +113,7 @@ class Product
         return $this->price;
     }
 
-    public function setPrice(string $price): self
+    public function setPrice(?string $price): self
     {
         $this->price = $price;
 
