@@ -35,6 +35,7 @@ class Product
     /**
      * @ORM\Column(type="text")
      * @Assert\NotBlank
+     * @Assert\NotNull
      */
     private $description;
 
