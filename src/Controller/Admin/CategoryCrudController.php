@@ -39,7 +39,7 @@ class CategoryCrudController extends AbstractCrudController
 
     public function configureActions(Actions $actions): Actions
     {
-        $delete = Action::new('new')->displayIf(static function ($entity) {
+        $delete = Action::new('newnew')->displayIf(static function ($entity) {
             return 1 == 0;
         });
         $actions->disable(Action::DELETE);
