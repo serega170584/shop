@@ -50,7 +50,7 @@ class ProductCrudController extends AbstractCrudController
 //            IdField::new('id'),
             TextField::new('title'),
             TextField::new('preview'),
-            TextareaField::new('description')->setRequired(false),
+            TextareaField::new('description'),
             TextField::new('price'),
             TextField::new('image')
                 ->onlyOnForms()
