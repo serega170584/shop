@@ -41,7 +41,7 @@ class CategoryCrudController extends AbstractCrudController
     {
         $delete = Action::new('newnew', 'fas fa-file-invoice')->displayIf(static function ($entity) {
             return 1 == 0;
-        });
+        })->linkToUrl('/');
         $actions->disable(Action::DELETE);
         return $actions->add(Crud::PAGE_INDEX, $delete);
     }
