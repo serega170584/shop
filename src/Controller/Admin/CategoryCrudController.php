@@ -39,13 +39,17 @@ class CategoryCrudController extends AbstractCrudController
 
     public function configureActions(Actions $actions): Actions
     {
-        return $actions->remove(Crud::PAGE_INDEX, Action::DELETE);
-//        $delete = Action::new(Action::DELETE, false, 'fas fa-file-invoice')->displayIf(static function ($entity) {
-//            return 1 == 1;
-//        })->linkToRoute('new', function (Category $cat): array {
-//            return ['id' => $cat->getId()];
-//        });
-//        return $actions->add(Crud::PAGE_INDEX, $delete);
+        $actions->remove(Crud::PAGE_INDEX, Action::DELETE);
+        $url = $this->get(AdminUrlGenerator::class)
+            ->setAction(Action::DELETE)
+            ->includeReferrer()
+            ->generateUrl();
+        $delete = Action::new(Action::DELETE, false, 'fas fa-file-invoice')->displayIf(static function ($entity) {
+            return 1 == 1;
+        })->linkToRoute($url, function (Category $cat): array {
+            return ['entityId' => $cat->getId()];
+        });
+        return $actions->add(Crud::PAGE_INDEX, $delete);
     }
 
     public function configureFields(string $pageName): iterable
