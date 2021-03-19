@@ -67,6 +67,11 @@ class Product
      */
     private $category;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $isPopular;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -180,6 +185,18 @@ class Product
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function getIsPopular(): ?bool
+    {
+        return $this->isPopular;
+    }
+
+    public function setIsPopular(?bool $isPopular): self
+    {
+        $this->isPopular = $isPopular;
 
         return $this;
     }
