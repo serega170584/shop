@@ -44,7 +44,7 @@ class CategoryCrudController extends AbstractCrudController
             ->setAction(Action::DELETE)
             ->includeReferrer()
             ->generateUrl();
-        $delete = Action::new(Action::DELETE, false, 'fas fa-file-invoice')->displayIf(static function ($entity) {
+        $delete = Action::new(Action::DELETE)->displayIf(static function ($entity) {
             return 1 == 1;
         })->linkToRoute($url, function (Category $cat): array {
             return ['entityId' => $cat->getId()];
