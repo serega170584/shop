@@ -37,16 +37,16 @@ class CategoryCrudController extends AbstractCrudController
             ->setPaginatorPageSize(30);
     }
 
-    public function configureActions(Actions $actions): Actions
-    {
-        $actions->remove(Crud::PAGE_INDEX, Action::DELETE);
-        $delete = Action::new(Action::DELETE, false, 'fas fa-file-invoice')->displayIf(static function ($entity) {
-            return 1 == 1;
-        })->linkToRoute('new', function (Category $cat): array {
-            return ['id' => $cat->getId()];
-        });
-        return $actions->add(Crud::PAGE_INDEX, $delete);
-    }
+//    public function configureActions(Actions $actions): Actions
+//    {
+//        $actions->remove(Crud::PAGE_INDEX, Action::DELETE);
+//        $delete = Action::new(Action::DELETE, false, 'fas fa-file-invoice')->displayIf(static function ($entity) {
+//            return 1 == 1;
+//        })->linkToRoute('new', function (Category $cat): array {
+//            return ['id' => $cat->getId()];
+//        });
+//        return $actions->add(Crud::PAGE_INDEX, $delete);
+//    }
 
     public function configureFields(string $pageName): iterable
     {
