@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Category;
+use App\Repository\CategoryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -14,12 +15,16 @@ class IndexController extends AbstractController
      */
     public function index(): Response
     {
-        $categories = $this->getDoctrine()->getManager()
+        /**
+         * @var CategoryRepository $repository
+         */
+        $repository = $this->getDoctrine()->getManager()
             ->getRepository(Category::class);
-        var_dump(get_class($categories));
+        $categories = $repository->findLastRows(5);
+
         return $this->render('index/index.html.twig', [
             'controller_name' => 'IndexController',
-            'category'
+            'categories' => $categories
         ]);
     }
 }
