@@ -17,7 +17,7 @@
                         <div class="col-lg-6 col-md-12">
                             <div class="collection-post">
                                 <div class="inner-collection">
-                                    <img src="{{ category.getImage() ?: 'upload/collection/web-development.jpg' }}"
+                                    <img src="{{ category.getImage() ? ['uploads/category/', category.getImage()]|join(''): 'upload/collection/web-development.jpg' }}"
                                          alt="">
                                     <a href="#" class="hover-post">
                                         <span class="title">{{ category.getTitle() }}</span>
@@ -31,7 +31,7 @@
                         <div class="col-lg-3 col-md-6">
                         <div class="collection-post">
                             <div class="inner-collection">
-                                <img src="{{ category.getImage() ? 'uploads/category/#{category.getImage()}': 'upload/collection/web-development.jpg' }}"
+                                <img src="{{ category.getImage() ? ['uploads/category/', category.getImage()]|join(''): 'upload/collection/web-development.jpg' }}"
                                      alt="">
                                 <a href="#" class="hover-post">
                                     <span class="title">{{ category.getTitle() }}</span>
