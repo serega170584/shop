@@ -66,7 +66,6 @@ class CategoryCrudController extends AbstractCrudController
                 ->setUploadDir('public/uploads/category')
                 ->setBasePath('uploads/category')
                 ->setRequired(false),
-            BooleanField::new('isPopular')->setRequired(false)
         ];
     }
 
