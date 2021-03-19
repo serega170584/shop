@@ -194,7 +194,7 @@ class Product
         return $this->isPopular;
     }
 
-    public function setIsPopular(?bool $isPopular): self
+    public function setIsPopular(bool $isPopular): self
     {
         $this->isPopular = $isPopular;
 
