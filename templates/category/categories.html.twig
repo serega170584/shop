@@ -46,7 +46,7 @@
                     {% if (loop.index == 3 or loop.index==5) %}
                     <div class="collection-post">
                         <div class="inner-collection">
-                            <img src="{{ category.getImage() ? 'uploads/category/#{category.getImage()}': 'upload/collection/web-development.jpg' }}"
+                            <img src="{{ category.getImage() ? ['uploads/category/', category.getImage()]|join(''): 'upload/collection/web-development.jpg' }}"
                                  alt="">
                             <a href="#" class="hover-post">
                                 <span class="title">{{ category.getTitle() }}</span>
