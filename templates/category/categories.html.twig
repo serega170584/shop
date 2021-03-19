@@ -1,18 +1,18 @@
 {% block categories %}
-<section class="collection-section">
-    <div class="container">
-        <div class="title-section">
-            <div class="left-part">
-                <span>Categories</span>
-                <h1>Trending Collection</h1>
+    <section class="collection-section">
+        <div class="container">
+            <div class="title-section">
+                <div class="left-part">
+                    <span>Categories</span>
+                    <h1>Trending Collection</h1>
+                </div>
+                <div class="right-part">
+                    <a class="button-one" href="#">View All Courses</a>
+                </div>
             </div>
-            <div class="right-part">
-                <a class="button-one" href="#">View All Courses</a>
-            </div>
-        </div>
-        <div class="collection-box">
-            <div class="row">
-                {% for category in categories %}
+            <div class="collection-box">
+                <div class="row">
+                    {% for category in categories %}
                     {% if loop.index == 1 %}
                         <div class="col-lg-6 col-md-12">
                             <div class="collection-post">
@@ -28,31 +28,34 @@
                     {% endif %}
                     {% if loop.index == 2 %}
                         <div class="col-lg-3 col-md-6">
-                            <div class="collection-post">
-                                <div class="inner-collection">
-                                    <img src="upload/collection/web-design.jpg" alt="">
-                                    <a href="#" class="hover-post">
-                                        <span class="title">Web Design</span>
-                                        <span class="numb-courses">2 Courses</span>
-                                    </a>
-                                </div>
-                            </div>
-                    {% endif %}
-                    {% if loop.index == 3 %}
-                            <div class="collection-post">
-                                <div class="inner-collection">
-                                    <img src="upload/collection/web-design.jpg" alt="">
-                                    <a href="#" class="hover-post">
-                                        <span class="title">Web Design</span>
-                                        <span class="numb-courses">2 Courses</span>
-                                    </a>
-                                </div>
+                        <div class="collection-post">
+                            <div class="inner-collection">
+                                <img src="upload/collection/web-design.jpg" alt="">
+                                <a href="#" class="hover-post">
+                                    <span class="title">Web Design</span>
+                                    <span class="numb-courses">2 Courses</span>
+                                </a>
                             </div>
                         </div>
+                        {% if loop.length == 2 %}
+                            </div>
+                        {% endif %}
+                    {% endif %}
+                    {% if loop.index == 3 %}
+                    <div class="collection-post">
+                        <div class="inner-collection">
+                            <img src="upload/collection/web-design.jpg" alt="">
+                            <a href="#" class="hover-post">
+                                <span class="title">Web Design</span>
+                                <span class="numb-courses">2 Courses</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
                     {% endif %}
                 {% endfor %}
             </div>
         </div>
-    </div>
-</section>
+        </div>
+    </section>
 {% endblock %}
