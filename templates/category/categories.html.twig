@@ -37,11 +37,11 @@
                                 </a>
                             </div>
                         </div>
-                        {% if loop.length == 2 %}
+                        {% if (loop.length == 2 or loop.length == 4) %}
                             </div>
                         {% endif %}
                     {% endif %}
-                    {% if loop.index == 3 %}
+                    {% if (loop.index == 3 or loop.index==5) %}
                     <div class="collection-post">
                         <div class="inner-collection">
                             <img src="upload/collection/web-design.jpg" alt="">
@@ -52,7 +52,7 @@
                         </div>
                     </div>
                 </div>
-                    {% endif %}
+                {% endif %}
                 {% endfor %}
             </div>
         </div>
