@@ -17,7 +17,8 @@
                         <div class="col-lg-6 col-md-12">
                             <div class="collection-post">
                                 <div class="inner-collection">
-                                    <img src="upload/collection/web-development.jpg" alt="">
+                                    <img src="{{ category.getImage() ?: 'upload/collection/web-development.jpg' }}"
+                                         alt="">
                                     <a href="#" class="hover-post">
                                         <span class="title">{{ category.getTitle() }}</span>
                                         <span class="numb-courses">{{ category.getProducts().count() }} Courses</span>
