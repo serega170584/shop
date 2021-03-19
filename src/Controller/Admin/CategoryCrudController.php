@@ -44,8 +44,8 @@ class CategoryCrudController extends AbstractCrudController
             ->setAction(Action::DELETE)
             ->includeReferrer()
             ->generateUrl();
-        $delete = Action::new(Action::DELETE)->displayIf(static function ($entity) {
-            return 1 == 1;
+        $delete = Action::new(Action::DELETE)->displayIf(static function (Category $entity) {
+            return !$entity->getProducts()->count();
         })->linkToRoute($url, function (Category $cat): array {
             return ['entityId' => $cat->getId()];
         });
