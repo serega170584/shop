@@ -21,7 +21,8 @@ class IndexController extends AbstractController
         $repository = $this->getDoctrine()->getManager()
             ->getRepository(Category::class);
         $categories = $repository->findLastRows(5);
-
+        var_dump($categories);
+        die('asdasd');
         return $this->render('index/index.html.twig', [
             'controller_name' => 'IndexController',
             'categories' => $categories
