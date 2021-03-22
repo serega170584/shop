@@ -181,7 +181,7 @@ class Category
 
     public function computeSlug(SluggerInterface $slugger)
     {
-        var_dump((new AsciiSlugger('ru'))->slug('фывфывфыв'));
+        var_dump(\Transliterator::create('Russian-Latin'));
         die('asd');
         if (!$this->slug || '-' === $this->slug) {
             $this->slug = (string)$slugger->slug((string)$this, '-', 'ru')->lower();
