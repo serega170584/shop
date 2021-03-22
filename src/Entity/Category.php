@@ -182,6 +182,7 @@ class Category
     public function computeSlug(SluggerInterface $slugger)
     {
         $rule=new ArrayCollection();
+        setlocale(LC_ALL, 'ru_RU.UTF8');
         var_dump(iconv('UTF-8', 'ASCII//TRANSLIT', 'фывфывфывфывфывф'));
         var_dump(\strlen('ыфвфывфывфыв'));
         die('asd');
