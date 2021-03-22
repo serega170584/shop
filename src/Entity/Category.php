@@ -179,7 +179,7 @@ class Category
 
     public function computeSlug(SluggerInterface $slugger)
     {
-        var_dump((string)$slugger->slug('ыфвфывфыв', '-', 'ru')->lower());
+        var_dump((string)$slugger->slug('ыфвфывфыв')->lower());
         die('asd');
         if (!$this->slug || '-' === $this->slug) {
             $this->slug = (string)$slugger->slug((string)$this, '-', 'ru')->lower();
