@@ -24,6 +24,7 @@ class CategoryEntityListener
 
     public function preUpdate(Category $category, LifecycleEventArgs $event)
     {
+        die('asd');
         $category->computeSlug($this->slugger);
     }
 }
