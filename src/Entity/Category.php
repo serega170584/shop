@@ -6,6 +6,7 @@ use App\Repository\CategoryRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\String\Slugger\AsciiSlugger;
 use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Component\String\UnicodeString;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -180,7 +181,7 @@ class Category
 
     public function computeSlug(SluggerInterface $slugger)
     {
-        var_dump((new UnicodeString('фывфывфыв'))->toUnicodeString());
+        var_dump((new AsciiSlugger('ru'))->slug('фывфывфыв'));
         die('asd');
         if (!$this->slug || '-' === $this->slug) {
             $this->slug = (string)$slugger->slug((string)$this, '-', 'ru')->lower();
