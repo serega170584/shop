@@ -21,13 +21,11 @@ final class Version20210322064332 extends AbstractMigration
     {
         // this up() migration is auto-generated, please modify it to your needs
         $this->addSql('ALTER TABLE category ADD slug VARCHAR(255) NOT NULL');
-        $this->addSql('ALTER TABLE product CHANGE is_popular is_popular TINYINT(1) DEFAULT NULL');
     }
 
     public function down(Schema $schema) : void
     {
         // this down() migration is auto-generated, please modify it to your needs
         $this->addSql('ALTER TABLE category DROP slug');
-        $this->addSql('ALTER TABLE product CHANGE is_popular is_popular TINYINT(1) DEFAULT \'0\' NOT NULL');
     }
 }
