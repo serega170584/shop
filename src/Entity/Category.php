@@ -179,8 +179,6 @@ class Category
     public function computeSlug(SluggerInterface $slugger)
     {
         if (!$this->slug || '-' === $this->slug) {
-            var_dump(b((string)$this)->isUtf8());
-            die('asd');
             $this->slug = (string)$slugger->slug((string)$this)->lower();
         }
     }
