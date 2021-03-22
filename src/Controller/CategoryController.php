@@ -8,6 +8,7 @@ use App\Entity\Category;
 use App\Repository\ProductRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Twig\Environment;
+use Symfony\Component\Routing\Annotation\Route;
 
 class CategoryController
 {
