@@ -181,10 +181,10 @@ class Category
 
     public function computeSlug(SluggerInterface $slugger)
     {
-        $rule=new ArrayCollection();
+        $rule = new ArrayCollection();
         setlocale(LC_CTYPE, 'ru_RU.utf8');
         var_dump(iconv('UTF-8', 'ASCII//TRANSLIT', 'фывфывфывфывфывф'));
-        var_dump(\strlen('ыфвфывфывфыв'));
+        var_dump((string)$slugger->slug((string)$this));
         die('asd');
         if (!$this->slug || '-' === $this->slug) {
             $this->slug = (string)$slugger->slug((string)$this, '-', 'ru')->lower();
