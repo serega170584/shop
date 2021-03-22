@@ -182,7 +182,7 @@ class Category
     public function computeSlug(SluggerInterface $slugger)
     {
         $rule=new ArrayCollection();
-        var_dump($rule instanceof \Transliterator);
+        var_dump(iconv('UTF-8', 'ASCII//TRANSLIT', 'фывфывфывфывфывф'));
         var_dump(\strlen('ыфвфывфывфыв'));
         die('asd');
         if (!$this->slug || '-' === $this->slug) {
