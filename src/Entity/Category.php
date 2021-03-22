@@ -181,7 +181,7 @@ class Category
 
     public function computeSlug(SluggerInterface $slugger)
     {
-        var_dump(\function_exists('transliterator_transliterate'));
+        var_dump((string)$slugger->slug((string)$this));
         die('asd');
         if (!$this->slug || '-' === $this->slug) {
             $this->slug = (string)$slugger->slug((string)$this, '-', 'ru')->lower();
