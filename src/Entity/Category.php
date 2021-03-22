@@ -183,7 +183,7 @@ class Category
     {
         $rule = new ArrayCollection();
         setlocale(LC_CTYPE, 'ru_RU.utf8');
-        var_dump(iconv('UTF-8', 'ASCII//TRANSLIT', 'фывфывфывфывфывф'));
+        var_dump(\function_exists('transliterator_transliterate'));
         var_dump($slugger->slug((string)$this));
         die('asd');
         if (!$this->slug || '-' === $this->slug) {
