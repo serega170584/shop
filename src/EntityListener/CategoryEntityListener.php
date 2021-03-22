@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\EntityListerner;
+namespace App\EntityListener;
 
 
 use App\Entity\Category;
