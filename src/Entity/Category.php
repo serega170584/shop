@@ -24,6 +24,7 @@ class Category
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Unique
      */
     private $title;
 
