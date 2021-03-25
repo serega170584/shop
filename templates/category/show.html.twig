@@ -1,7 +1,7 @@
 {% extends 'frontend/page.html.twig' %}
 {% block breadcrumbs %}
     <ul class="page-depth">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="courses.html">Courses</a></li>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="courses.html">{{ title ?? '' }}</a></li>
     </ul>
 {% endblock %}
