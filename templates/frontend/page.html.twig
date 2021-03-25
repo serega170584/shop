@@ -1,0 +1,16 @@
+{% extends 'frontend/layout.html.twig' %}
+
+{% block content %}
+    <!-- page-banner-section
+			================================================== -->
+    <section class="page-banner-section">
+        <div class="container">
+            <h1>{{ title ?? '' }}</h1>
+            <ul class="page-depth">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="courses.html">Courses</a></li>
+            </ul>
+        </div>
+    </section>
+    <!-- End page-banner-section -->
+{% endblock %}
