@@ -19,6 +19,7 @@ class ProductEntityListener
 
     public function prePersist(Product $product, LifecycleEventArgs $event)
     {
+        die('123');
         $product->computeSlug($this->slugger);
     }
 
