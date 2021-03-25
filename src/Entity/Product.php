@@ -73,6 +73,11 @@ class Product
      */
     private $isPopular;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $slug;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -207,5 +212,17 @@ class Product
         if (!$this->slug || '-' === $this->slug) {
             $this->slug = (string)$slugger->slug((string)$this)->lower();
         }
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
+
+        return $this;
     }
 }
