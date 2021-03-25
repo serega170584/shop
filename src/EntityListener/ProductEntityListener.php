@@ -23,9 +23,7 @@ class ProductEntityListener
         $product->computeSlug($this->slugger);
     }
 
-    /**
-     * @ORM\PreUpdate
-     */
+    /** @PreUpdate */
     public function preUpdate(Product $product, LifecycleEventArgs $event)
     {
         die('asd');
