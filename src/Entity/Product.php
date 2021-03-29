@@ -80,7 +80,7 @@ class Product
 
     /**
      * @ORM\ManyToOne(targetEntity=Author::class, inversedBy="products")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $author;
 
