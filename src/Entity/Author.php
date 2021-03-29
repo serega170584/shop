@@ -32,6 +32,11 @@ class Author
      */
     private $created_at;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $updatedAt;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,6 +74,18 @@ class Author
     public function setCreatedAt(\DateTimeInterface $created_at): self
     {
         $this->created_at = $created_at;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }
