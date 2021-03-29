@@ -48,10 +48,10 @@ class AuthorCrudController extends AbstractCrudController
             ->setAction(Action::DELETE)
             ->includeReferrer()
             ->generateUrl();
-        $delete = Action::new(Action::DELETE)->displayIf(static function (Category $entity) {
+        $delete = Action::new(Action::DELETE)->displayIf(static function (Author $entity) {
             return !$entity->getProducts()->count();
-        })->linkToRoute($url, function (Category $cat): array {
-            return ['entityId' => $cat->getId()];
+        })->linkToRoute($url, function (Author $author): array {
+            return ['entityId' => $author->getId()];
         });
         return $actions->add(Crud::PAGE_INDEX, $delete);
     }
@@ -72,7 +72,7 @@ class AuthorCrudController extends AbstractCrudController
     }
 
     /**
-     * @Route("/category/upload")
+     * @Route("/author/upload")
      */
     public function upload(Request $request, SluggerInterface $slugger): Response
     {

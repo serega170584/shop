@@ -135,4 +135,10 @@ class Author
             $this->slug = (string)$slugger->slug((string)$this)->lower();
         }
     }
+
+    public function __toString()
+    {
+        return $this->title;
+    }
+
 }
