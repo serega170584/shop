@@ -36,7 +36,7 @@
                                 <div class="course-post">
                                     <div class="course-thumbnail-holder">
                                         <a href="{{ path('product', { slug: product.getSlug() }) }}">
-                                            <img src="{{ product.getImage() }}" alt="">
+                                            <img src="{{ product.getImage() ? ['/uploads/files/', product.getImage()]|join('') : '/upload/courses/1.jpg' }}" alt="">
                                         </a>
                                     </div>
                                     <div class="course-content-holder">
