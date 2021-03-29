@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h1>Upload a author</h1>
+    <p><b>{{ message }}</b></p>
+    {{ form(form) }}
+    <script src="{{ asset('js/author-upload-change.js') }}"></script>
+
+    {% if path %}
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                let filename = '{{ path }}';
+                window.parent.document.getElementById('Author_image').setAttribute('value', filename);
+                window.parent.document.getElementById('file_label').innerHTML = filename;
+                window.parent.document.getElementById('image_trash').style.display = 'block'
+                let inputGroup = window.parent.document.getElementById('Author_image').closest('.input-group');
+                let image = window.parent.document.getElementById('author_image');
+                if (image == undefined) {
+                    let img = window.parent.document.createElement('img');
+                    img.setAttribute('src', `/uploads/author/${filename}`);
+                    img.setAttribute('id', 'author_image');
+                    inputGroup.after(img);
+                } else {
+                    image.setAttribute('src', `/uploads/author/${filename}`);
+                }
+            });
+        </script>
+    {% endif %}
+{% endblock %}
+
