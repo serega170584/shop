@@ -19,6 +19,20 @@ class ProductRepository extends ServiceEntityRepository
         parent::__construct($registry, Product::class);
     }
 
+    /**
+     * @return Product[]
+     */
+    public function findPopular()
+    {
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.isPopular = :val')
+            ->setParameter('val', true)
+            ->orderBy('p.id', 'DESC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult();
+    }
+
     // /**
     //  * @return Product[] Returns an array of Product objects
     //  */
