@@ -26,6 +26,7 @@ class AuthorController
     {
         return new Response($twig->render('author/show.html.twig', [
             'title' => $author->getTitle(),
+            'entity' => $author,
             'author' => $author,
             'products' => $productRepository->findBy(['author' => $author], ['createdAt' => 'DESC']),
         ]));

@@ -27,6 +27,7 @@ class CategoryController
         return new Response($twig->render('category/show.html.twig', [
             'title' => $category->getTitle(),
             'category' => $category,
+            'entity' => $category,
             'products' => $productRepository->findBy(['category' => $category], ['createdAt' => 'DESC']),
         ]));
     }
