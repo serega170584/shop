@@ -1,0 +1,28 @@
+<div class="course-post list-style">
+    <div class="course-thumbnail-holder">
+        <a href="{{ path('product', { slug: product.getSlug() }) }}">
+            <img src="{{ ['/uploads/files/', product.getImage()]|join('') }}" alt="">
+        </a>
+    </div>
+    <div class="course-content-holder">
+        <div class="course-content-main">
+            <h2 class="course-title">
+                <a href="{{ path('product', { slug: product.getSlug() }) }}">{{ product.getTitle() }}</a>
+            </h2>
+            <div class="course-rating-teacher">
+                <div class="star-rating has-ratings" title="Rated 5.00 out of 5">
+											<span style="width:100%">
+												<span class="rating">Нет голосов</span>
+											</span>
+                </div>
+                <a href="{{ path('author', { slug: product.getAuthor().getSlug() }) }}" class="course-loop-teacher">{{ product.getAuthor().getTitle() }}</a>
+            </div>
+            <p>{{ product.getPreview() }}</p>
+        </div>
+        <div class="course-content-bottom">
+            <div class="course-price">
+                <span>££{{ product.getPrice()|number_format(0) }}</span>
+            </div>
+        </div>
+    </div>
+</div>

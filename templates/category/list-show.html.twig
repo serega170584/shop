@@ -2,7 +2,7 @@
 {% block breadcrumbs %}
     <ul class="page-depth">
         <li><a href="{{ path('index') }}">Главная</a></li>
-        <li><a href="{{ path('category', { slug: category.getSlug() }) }}">{{ category.getTitle() }}</a></li>
+        <li><a href="{{ path('category-list', { slug: category.getSlug() }) }}">{{ category.getTitle() }}</a></li>
     </ul>
 {% endblock %}
 {% block page_content %}
@@ -30,11 +30,9 @@
                         </form>
                     </div>
 
-                    <div class="row">
-                        {% for product in products %}
-                            {{ block("item", "product/item.html.twig") }}
-                        {% endfor %}
-                    </div>
+                    {% for product in products %}
+                        {{ block("item", "product/list-item.html.twig") }}
+                    {% endfor %}
                 </div>
 
                 <div class="col-lg-4">

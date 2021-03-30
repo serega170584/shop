@@ -31,4 +31,24 @@ class CategoryController
             'products' => $productRepository->findBy(['category' => $category], ['createdAt' => 'DESC']),
         ]));
     }
+
+    /**
+     * @Route("/category/list/{slug}", name="category-list")
+     * @param Environment $twig
+     * @param Category $category
+     * @param ProductRepository $productRepository
+     * @return Response
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
+     */
+    public function listShow(Environment $twig, Category $category, ProductRepository $productRepository): Response
+    {
+        return new Response($twig->render('category/list-show.html.twig', [
+            'title' => $category->getTitle(),
+            'category' => $category,
+            'entity' => $category,
+            'products' => $productRepository->findBy(['category' => $category], ['createdAt' => 'DESC']),
+        ]));
+    }
 }
