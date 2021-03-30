@@ -51,7 +51,7 @@
 														<span class="votes-number">1 Votes</span>
 													</span>
                                                 </div>
-                                                <a href="#" class="course-loop-teacher">Duha Samra</a>
+                                                <a href="{{ path('author', { slug: product.getAuthor().getSlug() }) }}" class="course-loop-teacher">{{ product.getAuthor().getTitle() }}</a>
                                             </div>
                                         </div>
                                         <div class="course-content-bottom">
