@@ -1,20 +1,20 @@
 $(function () {
         let display = 'none';
-        let image = $('#Category_image').val();
+        let image = $('#Author_image').val();
         let img = '';
         if (image) {
             display = 'block';
             img = `<img src="/uploads/author/${image}" id="author_image" />`
         }
         let invalidFeedback = '';
-        if ($('#Category_image').closest('.form-widget').find('.invalid-feedback').html() !== undefined) {
-            invalidFeedback = $('#Category_image').closest('.form-widget').find('.invalid-feedback').html();
+        if ($('#Author_image').closest('.form-widget').find('.invalid-feedback').html() !== undefined) {
+            invalidFeedback = $('#Author_image').closest('.form-widget').find('.invalid-feedback').html();
             invalidFeedback = `<span class="invalid-feedback d-block">${invalidFeedback}</span>`;
         }
-        $('#Category_image').closest('.form-widget').html(`<div class="ea-fileupload">\n` +
+        $('#Author_image').closest('.form-widget').html(`<div class="ea-fileupload">\n` +
             `        <div class="input-group">\n` +
             `                                                            <div class="custom-file">\n` +
-            `    <label for="Category_image" lang="en" class="custom-file-label" id="file_label">${image}</label><input type="text" id="Category_image" name="Category[image]" value="${image}" align="center" placeholder="" title="" data-files-label="files" class="custom-file-input"></div>\n` +
+            `    <label for="Author_image" lang="en" class="custom-file-label" id="file_label">${image}</label><input type="text" id="Author_image" name="Author[image]" value="${image}" align="center" placeholder="" title="" data-files-label="files" class="custom-file-input"></div>\n` +
             `            <div class="input-group-append">\n` +
             `                \n` +
             `                                    \n` +
@@ -37,7 +37,7 @@ $(function () {
         $('#image_trash').click(function () {
             $(this).hide();
             $('#author_image').remove();
-            document.getElementById('Category_image').setAttribute('value', '');
+            document.getElementById('Author_image').setAttribute('value', '');
             $('#file_label').html('');
         });
     }
