@@ -31,4 +31,25 @@ class AuthorController
             'products' => $productRepository->findBy(['author' => $author], ['createdAt' => 'DESC']),
         ]));
     }
+
+    /**
+     * @Route("/author/list/{slug}", name="author-list")
+     * @param Environment $twig
+     * @param Author $author
+     * @param ProductRepository $productRepository
+     * @return Response
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
+     */
+    public function listShow(Environment $twig, Author $author, ProductRepository $productRepository): Response
+    {
+        return new Response($twig->render('author/list-show.html.twig', [
+            'title' => $author->getTitle(),
+            'entity' => $author,
+            'author' => $author,
+            'products' => $productRepository->findBy(['author' => $author], ['createdAt' => 'DESC']),
+        ]));
+    }
+
 }
