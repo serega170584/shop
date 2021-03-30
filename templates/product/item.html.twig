@@ -1,0 +1,34 @@
+<div class="col-lg-4 col-md-6 col-sm-6">
+    <div class="course-post">
+        <div class="course-thumbnail-holder">
+            <a href="{{ path('product', { slug: product.getSlug() }) }}">
+                <img src="{{ ['/uploads/files/', product.getImage()]|join('') }}" alt="">
+            </a>
+        </div>
+        <div class="course-content-holder">
+            <div class="course-content-main">
+                <h2 class="course-title">
+                    <a href="{{ path('product', { slug: product.getSlug() }) }}">{{ product.getTitle() }}</a>
+                </h2>
+                <div class="course-rating-teacher">
+                    <div class="star-rating has-ratings" title="Rated 5.00 out of 5">
+													<span style="width:100%">
+														<span class="rating">5.00</span>
+														<span class="votes-number">1 Votes</span>
+													</span>
+                    </div>
+                    <a href="{{ path('author', { slug: product.getAuthor().getSlug() }) }}" class="course-loop-teacher">{{ product.getAuthor().getTitle() }}</a>
+                </div>
+            </div>
+            <div class="course-content-bottom">
+                <div class="course-students">
+                    <i class="material-icons">group</i>
+                    <span>64</span>
+                </div>
+                <div class="course-price">
+                    <span>£244</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
