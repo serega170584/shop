@@ -55,7 +55,7 @@ class IndexController extends AbstractController
     }
 
     /**
-     * @Route("/popular", name="popular-products-list")
+     * @Route("/popular/list", name="popular-products-list")
      */
     public function popularList(): Response
     {
