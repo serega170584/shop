@@ -53,4 +53,22 @@ class IndexController extends AbstractController
             'products' => $products
         ]);
     }
+
+    /**
+     * @Route("/popular", name="popular-products-list")
+     */
+    public function popularList(): Response
+    {
+        /**
+         * @var ProductRepository $repository
+         */
+        $repository = $this->getDoctrine()->getManager()
+            ->getRepository(Product::class);
+        $products = $repository->findPopular();
+        return $this->render('popular-products/show.html.twig', [
+            'title' => 'Популярные курсы',
+            'controller_name' => 'IndexController',
+            'products' => $products
+        ]);
+    }
 }
