@@ -7,7 +7,7 @@
                     <h1>{{ categories[0].getTitle }}</h1>
                 </div>
                 <div class="right-part">
-                    <a class="button-one" href="#">View All Courses</a>
+                    <a class="button-one" href="{{ path('category', { slug: categories[0].getSlug() }) }}">View All Courses</a>
                 </div>
             </div>
             <div class="collection-box">
