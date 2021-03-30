@@ -23,9 +23,16 @@ class IndexController extends AbstractController
         $repository = $this->getDoctrine()->getManager()
             ->getRepository(Category::class);
         $categories = $repository->findLastRows(5);
+        /**
+         * @var ProductRepository $repository
+         */
+        $repository = $this->getDoctrine()->getManager()
+            ->getRepository(Product::class);
+        $products = $repository->findPopular();
         return $this->render('index/index.html.twig', [
             'controller_name' => 'IndexController',
-            'categories' => $categories
+            'categories' => $categories,
+            'products' => $products
         ]);
     }
 
