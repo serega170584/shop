@@ -40,7 +40,7 @@ class IndexController extends AbstractController
         $repository = $this->getDoctrine()->getManager()
             ->getRepository(Product::class);
         $products = $repository->findPopular();
-        return $this->render('product/popular.html.twig', [
+        return $this->render('popular-products/show.html.twig', [
             'controller_name' => 'IndexController',
             'products' => $products
         ]);

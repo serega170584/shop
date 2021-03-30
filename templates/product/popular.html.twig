@@ -12,145 +12,38 @@
             </div>
             <div class="popular-courses-box">
                 <div class="row">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="course-post">
-                            <div class="course-thumbnail-holder">
-                                <a href="single-course.html">
-                                    <img src="upload/courses/1.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="course-content-holder">
-                                <div class="course-content-main">
-                                    <h2 class="course-title">
-                                        <a href="single-course.html">Introduction Web Design with HTML</a>
-                                    </h2>
-                                    <div class="course-rating-teacher">
-                                        <div class="star-rating has-ratings" title="Rated 5.00 out of 5">
-												<span style="width:100%">
-													<span class="rating">5.00</span>
-													<span class="votes-number">1 Votes</span>
-												</span>
-                                        </div>
-                                        <a href="#" class="course-loop-teacher">Duha Samra</a>
-                                    </div>
+                    {% for product in products %}
+                        <div class="col-lg-3 col-md-6">
+                            <div class="course-post">
+                                <div class="course-thumbnail-holder">
+                                    <a href="{{ path('product', { slug: product.getSlug() }) }}">
+                                        <img src="{{ ['/uploads/files/', product.getImage()]|join('') }}" alt="">
+                                    </a>
                                 </div>
-                                <div class="course-content-bottom">
-                                    <div class="course-students">
-                                        <i class="material-icons">group</i>
-                                        <span>64</span>
+                                <div class="course-content-holder">
+                                    <div class="course-content-main">
+                                        <h2 class="course-title">
+                                            <a href="{{ path('product', { slug: product.getSlug() }) }}">{{ product.getTitle() }}</a>
+                                        </h2>
+                                        <div class="course-rating-teacher">
+                                            <div class="star-rating has-ratings" title="Rated 5.00 out of 5">
+												<span style="width:100%">
+													<span class="rating">Нет голосов</span>
+												</span>
+                                            </div>
+                                            <a href="{{ path('author', { slug: product.getAuthor().getSlug() }) }}"
+                                               class="course-loop-teacher">{{ product.getAuthor().getTitle() }}</a>
+                                        </div>
                                     </div>
-                                    <div class="course-price">
-                                        <span>£244</span>
+                                    <div class="course-content-bottom">
+                                        <div class="course-price">
+                                            <span>£{{ product.getPrice()|number_format(0) }}</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="course-post">
-                            <div class="course-thumbnail-holder">
-                                <a href="single-course.html">
-                                    <img src="upload/courses/2.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="course-content-holder">
-                                <div class="course-content-main">
-                                    <h2 class="course-title">
-                                        <a href="single-course.html">Special Education Needs Teaching</a>
-                                    </h2>
-                                    <div class="course-rating-teacher">
-                                        <div class="star-rating has-ratings" title="Rated 5.00 out of 5">
-												<span style="width:100%">
-													<span class="rating">3.50</span>
-													<span class="votes-number">2 Votes</span>
-												</span>
-                                        </div>
-                                        <a href="#" class="course-loop-teacher">Leon Redding</a>
-                                    </div>
-                                </div>
-                                <div class="course-content-bottom">
-                                    <div class="course-students">
-                                        <i class="material-icons">group</i>
-                                        <span>134</span>
-                                    </div>
-                                    <div class="course-price">
-                                        <span>£74.99</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="course-post">
-                            <div class="course-thumbnail-holder">
-                                <a href="single-course.html">
-                                    <img src="upload/courses/3.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="course-content-holder">
-                                <div class="course-content-main">
-                                    <h2 class="course-title">
-                                        <a href="single-course.html">Environmental Science BTEC Course</a>
-                                    </h2>
-                                    <div class="course-rating-teacher">
-                                        <div class="star-rating has-ratings" title="Rated 5.00 out of 5">
-												<span style="width:100%">
-													<span class="rating">No Votes</span>
-												</span>
-                                        </div>
-                                        <a href="#" class="course-loop-teacher">Linda Castello</a>
-                                    </div>
-                                </div>
-                                <div class="course-content-bottom">
-                                    <div class="course-students">
-                                        <i class="material-icons">group</i>
-                                        <span>0</span>
-                                    </div>
-                                    <div class="course-price">
-                                        <span>£18.99</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="course-post">
-                            <div class="course-thumbnail-holder">
-                                <a href="single-course.html">
-                                    <img src="upload/courses/4.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="course-content-holder">
-                                <div class="course-content-main">
-                                    <h2 class="course-title">
-                                        <a href="single-course.html">Distance Learning MBA Management</a>
-                                    </h2>
-                                    <div class="course-rating-teacher">
-                                        <div class="star-rating has-ratings" title="Rated 5.00 out of 5">
-												<span style="width:100%">
-													<span class="rating">4.50</span>
-													<span class="votes-number">2 Votes</span>
-												</span>
-                                        </div>
-                                        <a href="#" class="course-loop-teacher">Michael Arnett</a>
-                                    </div>
-                                </div>
-                                <div class="course-content-bottom">
-                                    <div class="course-students">
-                                        <i class="material-icons">group</i>
-                                        <span>263</span>
-                                    </div>
-                                    <div class="course-price">
-                                        <span>£29.99</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+                    {% endfor %}
                 </div>
             </div>
         </div>
