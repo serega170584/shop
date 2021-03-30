@@ -31,68 +31,68 @@
                     </div>
 
                     {% for product in products %}
-                    {{ block("listItem", "product/list-item.html.twig") }}
+                        {{ block("listItem", "product/list-item.html.twig") }}
+                    {% endfor %}
                 </div>
-            </div>
 
-            <div class="col-lg-4">
-                <div class="sidebar">
+                <div class="col-lg-4">
+                    <div class="sidebar">
 
-                    <div class="category-widget widget">
-                        <h2>Product categories</h2>
-                        <ul class="category-list">
-                            <li><a href="#">Design</a></li>
-                            <li><a href="#">Photography</a></li>
-                            <li><a href="#">Technology</a></li>
-                            <li><a href="#">Web Design</a></li>
-                            <li><a href="#">Web Development</a></li>
-                        </ul>
+                        <div class="category-widget widget">
+                            <h2>Product categories</h2>
+                            <ul class="category-list">
+                                <li><a href="#">Design</a></li>
+                                <li><a href="#">Photography</a></li>
+                                <li><a href="#">Technology</a></li>
+                                <li><a href="#">Web Design</a></li>
+                                <li><a href="#">Web Development</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="products-widget widget">
+                            <h2>Products</h2>
+                            <ul class="products-list">
+                                <li>
+                                    <a href="single-course.html"><img src="upload/courses/thumb1.jpg" alt=""></a>
+                                    <div class="list-content">
+                                        <h3><a href="single-course.html">Introduction Web Design with HTML</a></h3>
+                                        <span>$244</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="single-course.html"><img src="upload/courses/thumb2.jpg" alt=""></a>
+                                    <div class="list-content">
+                                        <h3><a href="single-course.html">Special Education Needs Teaching</a></h3>
+                                        <span>$74.99</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="single-course.html"><img src="upload/courses/thumb3.jpg" alt=""></a>
+                                    <div class="list-content">
+                                        <h3><a href="single-course.html">Environmental Science BTEC Course</a></h3>
+                                        <span>$59.99</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="single-course.html"><img src="upload/courses/thumb4.jpg" alt=""></a>
+                                    <div class="list-content">
+                                        <h3><a href="single-course.html">Distance Learning MBA Management</a></h3>
+                                        <span>$17.88</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="ads-widget widget">
+                            <a href="#">
+                                <img src="upload/blog/ad-banner.jpg" alt="">
+                            </a>
+                        </div>
+
                     </div>
-
-                    <div class="products-widget widget">
-                        <h2>Products</h2>
-                        <ul class="products-list">
-                            <li>
-                                <a href="single-course.html"><img src="upload/courses/thumb1.jpg" alt=""></a>
-                                <div class="list-content">
-                                    <h3><a href="single-course.html">Introduction Web Design with HTML</a></h3>
-                                    <span>$244</span>
-                                </div>
-                            </li>
-                            <li>
-                                <a href="single-course.html"><img src="upload/courses/thumb2.jpg" alt=""></a>
-                                <div class="list-content">
-                                    <h3><a href="single-course.html">Special Education Needs Teaching</a></h3>
-                                    <span>$74.99</span>
-                                </div>
-                            </li>
-                            <li>
-                                <a href="single-course.html"><img src="upload/courses/thumb3.jpg" alt=""></a>
-                                <div class="list-content">
-                                    <h3><a href="single-course.html">Environmental Science BTEC Course</a></h3>
-                                    <span>$59.99</span>
-                                </div>
-                            </li>
-                            <li>
-                                <a href="single-course.html"><img src="upload/courses/thumb4.jpg" alt=""></a>
-                                <div class="list-content">
-                                    <h3><a href="single-course.html">Distance Learning MBA Management</a></h3>
-                                    <span>$17.88</span>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="ads-widget widget">
-                        <a href="#">
-                            <img src="upload/blog/ad-banner.jpg" alt="">
-                        </a>
-                    </div>
-
                 </div>
-            </div>
 
-        </div>
+            </div>
 
         </div>
     </section>
