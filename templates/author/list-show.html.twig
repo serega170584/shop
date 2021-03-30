@@ -14,10 +14,10 @@
                 <div class="col-lg-8">
                     <div class="courses-top-bar">
                         <div class="courses-view">
-                            <a href="courses.html" class="grid-btn">
+                            <a href="{{ path('author', { slug: author.getSlug() }) }}" class="grid-btn">
                                 <i class="fa fa-th-large" aria-hidden="true"></i>
                             </a>
-                            <a href="courses-list.html" class="grid-btn active">
+                            <a href="{{ path('author-list', { slug: author.getSlug() }) }}" class="grid-btn active">
                                 <i class="fa fa-bars" aria-hidden="true"></i>
                             </a>
                             <span>Showing all {{ products|length }} results</span>
