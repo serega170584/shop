@@ -48,6 +48,7 @@ class IndexController extends AbstractController
             ->getRepository(Product::class);
         $products = $repository->findPopular();
         return $this->render('popular-products/show.html.twig', [
+            'title' => 'Популярные курсы',
             'controller_name' => 'IndexController',
             'products' => $products
         ]);
