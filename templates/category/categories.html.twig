@@ -7,7 +7,7 @@
                     <h1>{{ categories[0].getTitle }}</h1>
                 </div>
                 <div class="right-part">
-                    <a class="button-one" href="{{ path('category', { slug: categories[0].getSlug() }) }}">View All Courses</a>
+                    <a class="button-one" href="{{ path('category', { slug: categories[0].getSlug() }) }}">Все</a>
                 </div>
             </div>
             <div class="collection-box">
@@ -21,7 +21,7 @@
                                          alt="">
                                     <a href="{{ path('category', { slug: category.slug }) }}" class="hover-post">
                                         <span class="title">{{ category.getTitle() }}</span>
-                                        <span class="numb-courses">{{ category.getProducts().count() }} Courses</span>
+                                        <span class="numb-courses">{{ category.getProducts().count() }} курсов</span>
                                     </a>
                                 </div>
                             </div>
@@ -35,7 +35,7 @@
                                      alt="">
                                 <a href="{{ path('category', { slug: category.slug }) }}" class="hover-post">
                                     <span class="title">{{ category.getTitle() }}</span>
-                                    <span class="numb-courses">{{ category.getProducts().count() }} Courses</span>
+                                    <span class="numb-courses">{{ category.getProducts().count() }} курсов</span>
                                 </a>
                             </div>
                         </div>
@@ -50,7 +50,7 @@
                                  alt="">
                             <a href="{{ path('category', { slug: category.slug }) }}" class="hover-post">
                                 <span class="title">{{ category.getTitle() }}</span>
-                                <span class="numb-courses">{{ category.getProducts().count() }} Courses</span>
+                                <span class="numb-courses">{{ category.getProducts().count() }} курсов</span>
                             </a>
                         </div>
                     </div>
