@@ -42,7 +42,7 @@ class IndexController extends AbstractController
         $products = $repository->findPopular();
         return $this->render('index/index.html.twig', [
             'controller_name' => 'IndexController',
-            'categories' => $categories
+            'products' => $products
         ]);
     }
 }
