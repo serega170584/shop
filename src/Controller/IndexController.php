@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Category;
+use App\Entity\Event;
 use App\Entity\Product;
 use App\Repository\CategoryRepository;
+use App\Repository\EventRepository;
 use App\Repository\ProductRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -24,6 +26,12 @@ class IndexController extends AbstractController
             ->getRepository(Category::class);
         $categories = $repository->findLastRows(5);
         /**
+         * @var EventRepository $repository
+         */
+        $repository = $this->getDoctrine()->getManager()
+            ->getRepository(Event::class);
+        $events = $repository->findLastRows(3);
+        /**
          * @var ProductRepository $repository
          */
         $repository = $this->getDoctrine()->getManager()
@@ -32,7 +40,8 @@ class IndexController extends AbstractController
         return $this->render('index/index.html.twig', [
             'controller_name' => 'IndexController',
             'categories' => $categories,
-            'products' => $products
+            'products' => $products,
+            'events' => $events
         ]);
     }
 
