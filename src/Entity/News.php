@@ -141,7 +141,6 @@ class News
         return $this;
     }
 
-<<<<<<< HEAD
     public function getImage(): ?string
     {
         return $this->image;
@@ -177,7 +176,7 @@ class News
 
         return $this;
     }
-=======
+
     public function computeSlug(SluggerInterface $slugger)
     {
         if (!$this->slug || '-' === $this->slug) {
@@ -185,5 +184,4 @@ class News
         }
     }
 
->>>>>>> 045d53db679d03e9c47f7f6348b2fc0c7dda219e
 }
