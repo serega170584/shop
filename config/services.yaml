@@ -8,6 +8,7 @@ parameters:
     category_images_directory: '%kernel.project_dir%/public/uploads/category'
     author_images_directory: '%kernel.project_dir%/public/uploads/author'
     news_images_directory: '%kernel.project_dir%/public/uploads/news'
+    event_images_directory: '%kernel.project_dir%/public/uploads/event'
 services:
     # default configuration for services in *this* file
     _defaults:
@@ -48,3 +49,7 @@ services:
         tags:
             - { name: 'doctrine.orm.entity_listener', event: 'prePersist', entity: 'App\Entity\News'}
             - { name: 'doctrine.orm.entity_listener', event: 'preUpdate', entity: 'App\Entity\News'}
+    App\EntityListener\EventEntityListener:
+        tags:
+            - { name: 'doctrine.orm.entity_listener', event: 'prePersist', entity: 'App\Entity\Event'}
+            - { name: 'doctrine.orm.entity_listener', event: 'preUpdate', entity: 'App\Entity\Event'}
