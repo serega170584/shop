@@ -22,6 +22,7 @@ class News
 
     /**
      * @ORM\Column(type="datetime")
+     * @Assert\NotBlank
      */
     private $startsAt;
 
@@ -37,6 +38,7 @@ class News
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $title;
 
@@ -53,11 +55,13 @@ class News
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $preview;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank
      */
     private $description;
 

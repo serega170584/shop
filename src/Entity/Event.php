@@ -4,9 +4,11 @@ namespace App\Entity;
 
 use App\Repository\EventRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 /**
  * @ORM\Entity(repositoryClass=EventRepository::class)
+ * @ORM\HasLifecycleCallbacks()
  */
 class Event
 {
@@ -19,21 +21,25 @@ class Event
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $title;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $description;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Assert\NotBlank
      */
     private $startsAt;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Assert\NotBlank
      */
     private $finishedAt;
 
@@ -117,6 +123,14 @@ class Event
         return $this;
     }
 
+    /**
+     * @ORM\PrePersist
+     */
+    public function setCreatedAtValue()
+    {
+        $this->createdAt = new \DateTime();
+    }
+
     public function getUpdatedAt(): ?\DateTimeInterface
     {
         return $this->updatedAt;
@@ -129,6 +143,15 @@ class Event
         return $this;
     }
 
+    /**
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+    public function setUpdatedAtValue()
+    {
+        $this->updatedAt = new \DateTime();
+    }
+
     public function getSlug(): ?string
     {
         return $this->slug;
@@ -139,5 +162,17 @@ class Event
         $this->slug = $slug;
 
         return $this;
+    }
+
+    public function computeSlug(SluggerInterface $slugger)
+    {
+        if (!$this->slug || '-' === $this->slug) {
+            $this->slug = (string)$slugger->slug((string)$this)->lower();
+        }
+    }
+
+    public function __toString()
+    {
+        return $this->title;
     }
 }
