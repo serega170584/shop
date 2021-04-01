@@ -12,6 +12,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Dto\EntityDto;
 use EasyCorp\Bundle\EasyAdminBundle\Dto\FieldDto;
 use EasyCorp\Bundle\EasyAdminBundle\Factory\FormFactory;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
@@ -46,7 +47,8 @@ class EventCrudController extends AbstractCrudController
             TextField::new('title'),
             TextField::new('preview'),
             TextareaField::new('description'),
-            DateField::new('startsAt'),
+            DateTimeField::new('startsAt'),
+            DateTimeField::new('finishesAt'),
             TextField::new('image')
                 ->onlyOnForms()
                 ->addJsFiles('/js/event-uploader.js'),

@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Author;
 use App\Entity\Category;
+use App\Entity\Event;
 use App\Entity\News;
 use App\Entity\Product;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -35,6 +36,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Categories', 'fa fa-home', Category::class);
         yield MenuItem::linkToCrud('Authors', 'fa fa-home', Author::class);
         yield MenuItem::linkToCrud('News', 'fa fa-home', News::class);
+        yield MenuItem::linkToCrud('Events', 'fa fa-home', Event::class);
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
     }
 }
