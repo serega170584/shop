@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h1>Upload a news</h1>
+    <p><b>{{ message }}</b></p>
+    {{ form(form) }}
+    <script src="{{ asset('js/news-upload-change.js') }}"></script>
+
+    {% if path %}
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                let filename = '{{ path }}';
+                window.parent.document.getElementById('News_image').setAttribute('value', filename);
+                window.parent.document.getElementById('file_label').innerHTML = filename;
+                window.parent.document.getElementById('image_trash').style.display = 'block'
+                let inputGroup = window.parent.document.getElementById('News_image').closest('.input-group');
+                let image = window.parent.document.getElementById('news_image');
+                if (image == undefined) {
+                    let img = window.parent.document.createElement('img');
+                    img.setAttribute('src', `/uploads/news/${filename}`);
+                    img.setAttribute('id', 'news_image');
+                    inputGroup.after(img);
+                } else {
+                    image.setAttribute('src', `/uploads/news/${filename}`);
+                }
+            });
+        </script>
+    {% endif %}
+{% endblock %}
+

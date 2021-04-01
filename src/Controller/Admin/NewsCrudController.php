@@ -3,8 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\News;
-use App\Entity\Product;
-use App\Form\Type\ProductUploadType;
+use App\Form\Type\NewsUploadType;
 use EasyCorp\Bundle\EasyAdminBundle\Config\KeyValueStore;
 use EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
@@ -12,11 +11,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Dto\EntityDto;
 use EasyCorp\Bundle\EasyAdminBundle\Dto\FieldDto;
 use EasyCorp\Bundle\EasyAdminBundle\Factory\FormFactory;
-use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\HiddenField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
@@ -48,30 +43,26 @@ class NewsCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-//            IdField::new('id'),
             TextField::new('title'),
             TextField::new('preview'),
             TextareaField::new('description'),
-            TextField::new('price'),
+            DateField::new('startsAt'),
             TextField::new('image')
                 ->onlyOnForms()
-                ->addJsFiles('/js/uploader.js'),
+                ->addJsFiles('/js/news-uploader.js'),
             ImageField::new('image')
                 ->onlyOnIndex()
-                ->setUploadDir('public/uploads/files')
-                ->setBasePath('uploads/files'),
-            AssociationField::new('category')->setRequired(true),
-            AssociationField::new('author')->setRequired(true),
-            BooleanField::new('isPopular')->setRequired(false)
+                ->setUploadDir('public/uploads/news')
+                ->setBasePath('uploads/news'),
         ];
     }
 
     /**
-     * @Route("/product/upload")
+     * @Route("/news/upload")
      */
     public function upload(Request $request, SluggerInterface $slugger): Response
     {
-        $form = $this->createForm(ProductUploadType::class);
+        $form = $this->createForm(NewsUploadType::class);
         $form->handleRequest($request);
         $message = '';
         $newFilename = '';
@@ -85,7 +76,7 @@ class NewsCrudController extends AbstractCrudController
             $newFilename = $safeFilename . '-' . uniqid() . '.' . $imageFile->guessExtension();
             try {
                 $imageFile->move(
-                    $this->getParameter('product_images_directory'),
+                    $this->getParameter('news_images_directory'),
                     $newFilename
                 );
                 $message = 'File is uploaded!';
@@ -93,7 +84,7 @@ class NewsCrudController extends AbstractCrudController
                 $message = 'File upload error!';
             }
         }
-        return $this->render('product/upload.html.twig', [
+        return $this->render('news/upload.html.twig', [
             'form' => $form->createView(),
             'message' => $message,
             'path' => $newFilename

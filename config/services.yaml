@@ -7,6 +7,7 @@ parameters:
     product_images_directory: '%kernel.project_dir%/public/uploads/files'
     category_images_directory: '%kernel.project_dir%/public/uploads/category'
     author_images_directory: '%kernel.project_dir%/public/uploads/author'
+    news_images_directory: '%kernel.project_dir%/public/uploads/news'
 services:
     # default configuration for services in *this* file
     _defaults:
