@@ -33,40 +33,26 @@
                                 {% endfor %}
                             </ul>
                         </div>
-
-                        <div class="products-widget widget">
-                            <h2>Products</h2>
-                            <ul class="products-list">
-                                <li>
-                                    <a href="single-course.html"><img src="upload/courses/thumb1.jpg" alt=""></a>
-                                    <div class="list-content">
-                                        <h3><a href="single-course.html">Introduction Web Design with HTML</a></h3>
-                                        <span>$244</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <a href="single-course.html"><img src="upload/courses/thumb2.jpg" alt=""></a>
-                                    <div class="list-content">
-                                        <h3><a href="single-course.html">Special Education Needs Teaching</a></h3>
-                                        <span>$74.99</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <a href="single-course.html"><img src="upload/courses/thumb3.jpg" alt=""></a>
-                                    <div class="list-content">
-                                        <h3><a href="single-course.html">Environmental Science BTEC Course</a></h3>
-                                        <span>$59.99</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <a href="single-course.html"><img src="upload/courses/thumb4.jpg" alt=""></a>
-                                    <div class="list-content">
-                                        <h3><a href="single-course.html">Distance Learning MBA Management</a></h3>
-                                        <span>$17.88</span>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+                        {% if (popularProducts) %}
+                            <div class="products-widget widget">
+                                <h2>Популярные курсы</h2>
+                                <ul class="products-list">
+                                    {% for product in popularProducts %}
+                                        <li>
+                                            <a href="{{ path('product', { slug: product.getSlug() }) }}"><img
+                                                        src="{{ ['/uploads/files/', product.getImage()]|join('') }}"
+                                                        alt=""></a>
+                                            <div class="list-content">
+                                                <h3>
+                                                    <a href="{{ path('product', { slug: product.getSlug() }) }}">{{ product.getTitle() }}</a>
+                                                </h3>
+                                                <span>£{{ product.getPrice()|number_format(0) }}</span>
+                                            </div>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        {% endif %}
 
                         <div class="ads-widget widget">
                             <a href="#">
