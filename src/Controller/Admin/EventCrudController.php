@@ -48,7 +48,7 @@ class EventCrudController extends AbstractCrudController
             TextField::new('preview'),
             TextareaField::new('description'),
             DateTimeField::new('startsAt'),
-            DateTimeField::new('finishesAt'),
+            DateTimeField::new('finishedAt'),
             TextField::new('image')
                 ->onlyOnForms()
                 ->addJsFiles('/js/event-uploader.js'),
