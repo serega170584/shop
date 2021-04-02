@@ -20,7 +20,7 @@
                                     <h2><a href="{{ path('news', { slug: item.getSlug() }) }}">{{ item.getTitle() }}</a>
                                     </h2>
                                     <div class="post-meta date">
-                                        <i class="material-icons">access_time</i> {{ event.getStartsAt()|date("F d, Y") }}
+                                        <i class="material-icons">access_time</i> {{ item.getStartsAt()|date("F d, Y") }}
                                     </div>
                                 </div>
                             </div>
