@@ -64,7 +64,7 @@ class AuthorController extends AbstractController
     }
 
     /**
-     * @Route("/authors", name="authors")
+     * @Route("/author", name="authors")
      * @param AuthorRepository $authorRepository
      * @return Response
      */
