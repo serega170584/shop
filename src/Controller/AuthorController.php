@@ -64,14 +64,12 @@ class AuthorController extends AbstractController
     }
 
     /**
-     * @Route("/authors", name="authors")
+     * @Route("/author", name="authors")
      * @param AuthorRepository $authorRepository
      * @return Response
      */
     public function authors(AuthorRepository $authorRepository)
     {
-        var_dump($authorRepository->findAll());
-        die('asd');
         return $this->render('author/list.html.twig', [
             'authors' => $authorRepository->findAll()
         ]);
