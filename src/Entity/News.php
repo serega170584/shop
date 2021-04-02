@@ -6,6 +6,8 @@ use App\Repository\NewsRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+
 
 /**
  * @ORM\Entity(repositoryClass=NewsRepository::class)
