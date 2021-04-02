@@ -50,6 +50,11 @@ class Video
      */
     private $image;
 
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $preview;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -140,6 +145,18 @@ class Video
     public function setImage(?string $image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    public function getPreview(): ?string
+    {
+        return $this->preview;
+    }
+
+    public function setPreview(string $preview): self
+    {
+        $this->preview = $preview;
 
         return $this;
     }
