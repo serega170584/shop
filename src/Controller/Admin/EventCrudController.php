@@ -16,6 +16,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -45,8 +46,8 @@ class EventCrudController extends AbstractCrudController
     {
         return [
             TextField::new('title'),
-            TextField::new('preview'),
-            TextareaField::new('description'),
+            TextEditorField::new('preview'),
+            TextEditorField::new('description'),
             DateTimeField::new('startsAt'),
             DateTimeField::new('finishedAt'),
             TextField::new('image')

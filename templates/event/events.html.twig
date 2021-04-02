@@ -26,7 +26,9 @@
 													<i class="material-icons">access_time</i> {{ event.getStartsAt()|date("H:i") }} - {{ event.getFinishedAt()|date("H:i") }}
 												</span>
                                             </div>
-                                            <h2 class="title"><a href="#">{{ event.getTitle() }}</a></h2>
+                                            <h2 class="title"><a
+                                                        href="{{ path('event', { slug: event.getSlug() }) }}">{{ event.getTitle() }}</a>
+                                            </h2>
                                         </div>
                                     </div>
                                 </div>

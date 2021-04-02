@@ -1,0 +1,110 @@
+{% extends 'frontend/layout.html.twig' %}
+
+{% block content %}
+    <!-- page-banner-section
+			================================================== -->
+    <section class="page-banner-section">
+        <div class="container">
+            <h1>{{ product.getTitle() }}</h1>
+            <ul class="page-depth">
+                <li><a href="{{ path('index') }}">Главная</a></li>
+                <li><a href="{{ path('product', { slug: product.getSlug() }) }}">{{ product.getTitle() }}</a></li>
+            </ul>
+        </div>
+    </section>
+    <!-- End page-banner-section -->
+    <!-- single-event-section
+			================================================== -->
+    <section class="single-event-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+
+                    <div class="single-event-box">
+
+                        <img src="{{ ['/uploads/event/', event.getImage()]|join('') }}" alt="">
+
+                        <div class="event-meta-info">
+                            <div class="box-content start-time">
+                                <div class="inner">
+                                    <div class="text">
+                                        <span class="label">Время начала</span>
+                                        <p>{{ event.getStartsAt()|date("d") }}</p>
+                                        <p>{{ event.getStartsAt()|date("l, F d, Y") }}</p>
+                                    </div>
+                                    <div class="icon">
+                                        <i class="material-icons">access_time</i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="box-content end-time">
+                                <div class="inner">
+                                    <div class="text">
+                                        <span class="label">Время окончания</span>
+                                        <p>{{ event.getFinishedAt()|date("d") }}</p>
+                                        <p>{{ event.getStartsAt()|date("l, F d, Y") }}</p>
+                                    </div>
+                                    <div class="icon">
+                                        <i class="material-icons">access_time</i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="event-content">
+                            <h1>{{ event.getTitle() }}</h1>
+                            <p>{{ event.getDescription()|raw }}</p>
+                            <ul class="share-list">
+                                <li><span>Share:</span></li>
+                                <li><a href="#" class="facebook"><i class="fa fa-facebook-f"></i></a></li>
+                                <li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#" class="google"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="sidebar">
+                        <div class="widget buy-widget">
+                            <h2>Купить билеты</h2>
+                            <table>
+                                <tbody>
+                                <tr>
+                                    <th>Общее количество мест:</th>
+                                    <td>200</td>
+                                </tr>
+                                <tr>
+                                    <th>Забронировано мест:</th>
+                                    <td>87</td>
+                                </tr>
+                                <tr>
+                                    <th>Стоимость:</th>
+                                    <td><span>£40.00/Место</span></td>
+                                </tr>
+                                <tr>
+                                    <th>Количество:</th>
+                                    <td><input type="number" name="number_slots" id="number_slots" placeholder="0"></td>
+                                </tr>
+                                <tr>
+                                    <th>Купить с помощью:</th>
+                                    <td><img src="images/paypal.png" alt=""></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <a class="button-one" href="#">
+                                Забронировать сейчас
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <!-- End single-event section -->
+{% endblock %}
