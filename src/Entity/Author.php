@@ -54,6 +54,11 @@ class Author
      */
     private $products;
 
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $preview;
+
     public function __construct()
     {
         $this->products = new ArrayCollection();
@@ -179,6 +184,18 @@ class Author
                 $product->setAuthor(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPreview(): ?string
+    {
+        return $this->preview;
+    }
+
+    public function setPreview(string $preview): self
+    {
+        $this->preview = $preview;
 
         return $this;
     }
