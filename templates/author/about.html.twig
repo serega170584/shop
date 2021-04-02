@@ -23,7 +23,7 @@
                     <div class="col-lg-6">
                         <div class="profile-image">
                             <div class="image-holder">
-                                <img src="/upload/teachers/teacher4.jpg" alt="">
+                                <img src="{{ ['/uploads/author/', author.getImage()]|join('') }}" alt="">
                             </div>
 
                             <ul class="social-links">
@@ -36,120 +36,15 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="profile-details">
-                            <h1>My details</h1>
-                            <p>Ullamcorper hendrerit odio. Nunc nec orci porttitor, suscipit nisi sed, rhoncus nisi. Maecenas laoreet enim sit amet elementum dapibus.</p>
-
-                            <div class="line-details">
-                                <div class="detail-item">
-                                    <div class="icon-holder">
-                                        <i class="fa fa-map-marker"></i>
-                                    </div>
-                                    <div class="detail-content">
-                                        <h2>Postal Address:</h2>
-                                        <span>127 Elizabeth St 10013 NY New York USA</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="line-details">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="detail-item">
-                                            <div class="icon-holder">
-                                                <i class="fa fa-external-link"></i>
-                                            </div>
-                                            <div class="detail-content">
-                                                <h2>Website:</h2>
-                                                <a href="#">codebean.co</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="detail-item">
-                                            <div class="icon-holder">
-                                                <i class="fa fa-envelope-o"></i>
-                                            </div>
-                                            <div class="detail-content">
-                                                <h2>Email:</h2>
-                                                <a href="#">michael@studiare.com</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="line-details">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="detail-item">
-                                            <div class="icon-holder">
-                                                <i class="fa fa-skype"></i>
-                                            </div>
-                                            <div class="detail-content">
-                                                <h2>Skype:</h2>
-                                                <span>michael.studiare</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="detail-item">
-                                            <div class="icon-holder">
-                                                <i class="fa fa-mobile"></i>
-                                            </div>
-                                            <div class="detail-content">
-                                                <h2>Phone:</h2>
-                                                <span>+52 1 55 8421 8283</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
+                            <h1>Краткое описание</h1>
+                            <p>{{ author.getPreview() }}</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="teacher-content">
-                    <h1>Mission &amp; Biography</h1>
-                    <p>Michael Main holds an QE in Theatre Practice and a PhD in Trafalgar Studios Theatre from London University. He is a Certified Teacher of stage combat with the BASSC, a fight examiner for Stage Combat and holds a black belt in Aikido. Michael has worked for many theatre companies including: the Orange Tree, Stephen Joseph Theatre, Royal &amp; Derngate, Crucible Theatre, Graeae.</p>
-                    <p>He has directed several shows for East 15 – including a Martin Lynch premier and has also directed numerous productions for the Royal Armouries at the Tower of London. He was the fight arranger for the feature film The Roundabout and Assistant Fight Arranger on the feature, Faintheart. In what feels like a past life, he performed in Conquest, a series for the History Channel.</p>
-                    <div class="row">
-                        <div class="col-lg-7">
-                            <div class="skills-box">
-                                <h1>Skills</h1>
-                                <div class="skill-line">
-                                    <span class="fill-text">Development 90%</span>
-                                    <span class="fill-box" style="width: 90%"></span>
-                                </div>
-                                <div class="skill-line">
-                                    <span class="fill-text">Design 80%</span>
-                                    <span class="fill-box" style="width: 80%"></span>
-                                </div>
-                                <div class="skill-line">
-                                    <span class="fill-text">Marketing 70%</span>
-                                    <span class="fill-box" style="width: 70%"></span>
-                                </div>
-                                <div class="skill-line">
-                                    <span class="fill-text">WordPress &amp; PHP 54%</span>
-                                    <span class="fill-box" style="width: 54%"></span>
-                                </div>
-                                <div class="skill-line">
-                                    <span class="fill-text">After Effects 94%</span>
-                                    <span class="fill-box" style="width: 94%"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-5">
-                            <form class="contact-form">
-                                <h1>Send a message</h1>
-
-                                <input name="name" id="name" type="text" placeholder="Name*">
-                                <input name="mail" id="mail" type="text" placeholder="E-mail*">
-                                <textarea name="comment" id="comment" placeholder="Message"></textarea>
-                                <button type="submit" id="submit_contact">Submit Message</button>
-                            </form>
-                        </div>
-                    </div>
+                    <h1>Биография</h1>
+                    {{ author.getDescription() }}
                 </div>
 
             </div>
