@@ -52,6 +52,7 @@ class Video
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank
      */
     private $preview;
 
