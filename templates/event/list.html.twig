@@ -1,0 +1,68 @@
+{% extends 'frontend/layout.html.twig' %}
+
+{% block content %}
+    <!-- page-banner-section
+			================================================== -->
+    <section class="page-banner-section">
+        <div class="container">
+            <h1>{{ title }}</h1>
+            <ul class="page-depth">
+                <li><a href="{{ path('index') }}">Главная</a></li>
+                <li><a href="{{ path('events') }}">{{ title }}</a></li>
+            </ul>
+        </div>
+    </section>
+    <!-- End page-banner-section -->
+    <!-- events-section
+             ================================================== -->
+    <section class="events-section events-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="events-box">
+                        {% for event in events %}
+                            <div class="events-post">
+                                <div class="event-inner-content">
+                                    <div class="top-part">
+                                        <div class="date-holder">
+                                            <div class="date">
+                                                <span class="date-day">{{ event.getStartsAt()|date("d") }}</span>
+                                                <span class="date-month">{{ event.getStartsAt()|date("M") }}</span>
+                                            </div>
+                                        </div>
+                                        <div class="content">
+                                            <div class="event-meta">
+												<span class="event-meta-piece start-time">
+													<i class="material-icons">access_time</i> {{ event.getStartsAt()|date("H:i") }} - {{ event.getFinishedAt()|date("H:i") }}
+												</span>
+                                            </div>
+                                            <h2 class="title"><a
+                                                        href="{{ path('event', { slug: event.getSlug() }) }}">{{ event.getTitle() }}</a>
+                                            </h2>
+                                        </div>
+                                        <a href="{{ path('event', { slug: event.getSlug() }) }}" class="events-image"><img
+                                                    src="{{ ['/uploads/event/', event.getImage()]|join('') }}" alt=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="sidebar">
+
+                        <div class="ads-widget widget">
+                            <a href="#">
+                                <img src="/upload/blog/ad-banner.jpg" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <!-- End events section -->
+{% endblock %}

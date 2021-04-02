@@ -8,6 +8,7 @@
             <h1>{{ event.getTitle() }}</h1>
             <ul class="page-depth">
                 <li><a href="{{ path('index') }}">Главная</a></li>
+                <li><a href="{{ path('events') }}">События</a></li>
                 <li><a href="{{ path('event', { slug: event.getSlug() }) }}">{{ event.getTitle() }}</a></li>
             </ul>
         </div>
@@ -42,7 +43,7 @@
                                     <div class="text">
                                         <span class="label">Время окончания</span>
                                         <p>{{ event.getFinishedAt()|date("H:i") }}</p>
-                                        <p>{{ event.getStartsAt()|date("l, F d, Y") }}</p>
+                                        <p>{{ event.getFinishedAt()|date("l, F d, Y") }}</p>
                                     </div>
                                     <div class="icon">
                                         <i class="material-icons">access_time</i>
