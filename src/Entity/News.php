@@ -10,6 +10,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity(repositoryClass=NewsRepository::class)
  * @ORM\HasLifecycleCallbacks()
+ * @UniqueEntity("title")
  */
 class News
 {
@@ -37,7 +38,7 @@ class News
     private $updatedAt;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, unique=true)
      * @Assert\NotBlank
      */
     private $title;

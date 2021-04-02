@@ -10,6 +10,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity(repositoryClass=VideoRepository::class)
  * @ORM\HasLifecycleCallbacks()
+ * @UniqueEntity("title")
  */
 class Video
 {
@@ -21,7 +22,7 @@ class Video
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, unique=true)
      * @Assert\NotBlank
      */
     private $title;

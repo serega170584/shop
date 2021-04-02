@@ -11,6 +11,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity(repositoryClass=EventRepository::class)
  * @ORM\HasLifecycleCallbacks()
+ * @UniqueEntity("title")
  */
 class Event
 {
@@ -22,7 +23,7 @@ class Event
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, unique=true)
      * @Assert\NotBlank
      */
     private $title;
