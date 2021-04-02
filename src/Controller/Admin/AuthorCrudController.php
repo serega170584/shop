@@ -71,7 +71,7 @@ class AuthorCrudController extends AbstractCrudController
                 ->setRequired(false),
             TextEditorField::new('preview'),
             TextEditorField::new('description'),
-            TextEditorField::new('subject')
+            TextField::new('subject')
         ];
     }
 
