@@ -32,7 +32,7 @@
                                     <div class="info">
                                         <span class="label">Teacher</span>
                                         <div class="value">
-                                            <a href="single-teacher.html">Michael Arnett</a>
+                                            <a href="{{ path('author', { slug: product.getAuthor().getSlug() }) }}">{{ product.getAuthor().getTitle() }}</a>
                                         </div>
                                     </div>
                                 </div>
@@ -41,17 +41,16 @@
                                         <i class="material-icons">bookmark_border</i>
                                     </div>
                                     <div class="info">
-                                        <span class="label">Category</span>
+                                        <span class="label">Раздел</span>
                                         <div class="value">
-                                            <a href="#">Design <span>/</span></a>
-                                            <a href="#">Web Design</a>
+                                            <a href="{{ path('category', { slug: product.getCategory().getSlug() }) }}">{{ product.getCategory().getTitle() }}
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="course-rating before-gallery-unit">
                                     <div class="star-rating has-ratings">
-                                        <span class="rating">4.50</span>
-                                        <span class="votes-number">2 Votes</span>
+                                        <span class="rating">Нет голосов</span>
                                     </div>
                                 </div>
                             </div>
@@ -64,7 +63,14 @@
                         <!-- single course content -->
                         <div class="single-course-content">
                             <h2>What Will I Learn?</h2>
-                            <p>Improve your productivity, get things done, and find more time for what’s most important with Time Management Tips. This weekly series provides actionable time management techniques to help people better manage their time and ultimately become more productive. Time management expert Dave Crenshaw provides a new tip every Monday, touching on a wide variety of topics. Tune in to learn about everything from managing emails and calendars to setting priorities, collaborating with coworkers, reducing interruptions, crafting a “productivity mindset,” and creating a more comfortable and effective work environment.</p>
+                            <p>Improve your productivity, get things done, and find more time for what’s most important
+                                with Time Management Tips. This weekly series provides actionable time management
+                                techniques to help people better manage their time and ultimately become more
+                                productive. Time management expert Dave Crenshaw provides a new tip every Monday,
+                                touching on a wide variety of topics. Tune in to learn about everything from managing
+                                emails and calendars to setting priorities, collaborating with coworkers, reducing
+                                interruptions, crafting a “productivity mindset,” and creating a more comfortable and
+                                effective work environment.</p>
                             <h2>Learning Objectives</h2>
                             <div class="row">
                                 <div class="col-md-6">
@@ -84,7 +90,11 @@
                                 </div>
                             </div>
                             <h2>Prior Knowledge</h2>
-                            <p>Improve your productivity, get things done, and find more time for what’s most important with Time Management Tips. This weekly series provides actionable time management techniques to help people better manage their time and ultimately become more productive. Time management expert Dave Crenshaw provides a new tip every Monday, touching on a wide variety of topics.</p>
+                            <p>Improve your productivity, get things done, and find more time for what’s most important
+                                with Time Management Tips. This weekly series provides actionable time management
+                                techniques to help people better manage their time and ultimately become more
+                                productive. Time management expert Dave Crenshaw provides a new tip every Monday,
+                                touching on a wide variety of topics.</p>
 
                             <!-- course section -->
                             <div class="course-section">
@@ -102,14 +112,18 @@
                                             </div>
                                         </div>
                                         <div class="panel-heading-right">
-                                            <a class="video-lesson-preview preview-button" href="https://www.youtube.com/watch?v=4BJY-bgHqtI">
+                                            <a class="video-lesson-preview preview-button"
+                                               href="https://www.youtube.com/watch?v=4BJY-bgHqtI">
                                                 <i class="fa fa-play-circle"></i>Preview
                                             </a>
                                         </div>
                                     </div>
                                     <div class="panel-content">
                                         <div class="panel-content-inner">
-                                            Welcome to How to Customize a Logo Sting! In this course you’ll learn how to take a basic After Effects sting logo treatment and customise it to work for your brand. Are you new to After Effects? No worries! This course is designed for people who are new to After Effects or have never used it!
+                                            Welcome to How to Customize a Logo Sting! In this course you’ll learn how to
+                                            take a basic After Effects sting logo treatment and customise it to work for
+                                            your brand. Are you new to After Effects? No worries! This course is
+                                            designed for people who are new to After Effects or have never used it!
                                         </div>
                                     </div>
                                     <div class="course-panel-heading">
@@ -131,7 +145,8 @@
                                     </div>
                                     <div class="panel-content">
                                         <div class="panel-content-inner">
-                                            This lesson is private, for full access to all lessons you need to buy this course.
+                                            This lesson is private, for full access to all lessons you need to buy this
+                                            course.
                                         </div>
                                     </div>
                                 </div>
@@ -148,13 +163,19 @@
                                                 <i class="fa fa-play-circle-o"></i>
                                             </div>
                                             <div class="title">
-                                                <h4>2.1 After Effects Tour <span class="badge-item free">free</span></h4>
+                                                <h4>2.1 After Effects Tour <span class="badge-item free">free</span>
+                                                </h4>
                                                 <p class="subtitle">Quick tour of the After Effects interface</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="panel-content">
-                                        <div class="panel-content-inner"> In this lesson you are going to open up the project, get a quick tour of the After Effects interface, and learn how the project is organized. After Effects is a massive application, but this lesson is only going to focus on what you need to know to work with this logo sting project!</div>
+                                        <div class="panel-content-inner"> In this lesson you are going to open up the
+                                            project, get a quick tour of the After Effects interface, and learn how the
+                                            project is organized. After Effects is a massive application, but this
+                                            lesson is only going to focus on what you need to know to work with this
+                                            logo sting project!
+                                        </div>
                                     </div>
                                     <div class="course-panel-heading">
                                         <div class="panel-heading-left">
@@ -173,7 +194,9 @@
                                         </div>
                                     </div>
                                     <div class="panel-content">
-                                        <div class="panel-content-inner"> This lesson is private, for full access to all lessons you need to buy this course.</div>
+                                        <div class="panel-content-inner"> This lesson is private, for full access to all
+                                            lessons you need to buy this course.
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -189,7 +212,8 @@
                                                 <i class="fa fa-download"></i>
                                             </div>
                                             <div class="title">
-                                                <h4>3.1 Logo Replacement <span class="badge-item lecture">lecture</span></h4>
+                                                <h4>3.1 Logo Replacement <span class="badge-item lecture">lecture</span>
+                                                </h4>
                                                 <p class="subtitle">14:40</p>
                                             </div>
                                         </div>
@@ -201,7 +225,9 @@
                                         </div>
                                     </div>
                                     <div class="panel-content">
-                                        <div class="panel-content-inner"> This lesson is private, for full access to all lessons you need to buy this course.</div>
+                                        <div class="panel-content-inner"> This lesson is private, for full access to all
+                                            lessons you need to buy this course.
+                                        </div>
                                     </div>
                                     <div class="course-panel-heading">
                                         <div class="panel-heading-left">
@@ -214,7 +240,8 @@
                                             </div>
                                         </div>
                                         <div class="panel-heading-right">
-                                            <a class="video-lesson-preview preview-button" href="https://www.youtube.com/watch?v=4BJY-bgHqtI">
+                                            <a class="video-lesson-preview preview-button"
+                                               href="https://www.youtube.com/watch?v=4BJY-bgHqtI">
                                                 <i class="fa fa-play-circle"></i>Preview
                                             </a>
                                             <div class="private-lesson">
@@ -224,7 +251,9 @@
                                         </div>
                                     </div>
                                     <div class="panel-content">
-                                        <div class="panel-content-inner"> This lesson is private, for full access to all lessons you need to buy this course.</div>
+                                        <div class="panel-content-inner"> This lesson is private, for full access to all
+                                            lessons you need to buy this course.
+                                        </div>
                                     </div>
                                     <div class="course-panel-heading">
                                         <div class="panel-heading-left">
@@ -244,7 +273,9 @@
                                         </div>
                                     </div>
                                     <div class="panel-content">
-                                        <div class="panel-content-inner"> This lesson is private, for full access to all lessons you need to buy this course.</div>
+                                        <div class="panel-content-inner"> This lesson is private, for full access to all
+                                            lessons you need to buy this course.
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -260,13 +291,18 @@
                                                 <i class="fa fa-question-circle"></i>
                                             </div>
                                             <div class="title">
-                                                <h4>4.1 Export &amp; Practice <span class="badge-item quiz">quiz</span></h4>
+                                                <h4>4.1 Export &amp; Practice <span class="badge-item quiz">quiz</span>
+                                                </h4>
                                                 <p class="subtitle">Course quiz</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="panel-content">
-                                        <div class="panel-content-inner"> Now you have your logo sting modified with your logo and a short musical sting, you need to get it out of After Effects so you can use it in other projects. In this lesson you’ll learn how to setup a render and export your video!</div>
+                                        <div class="panel-content-inner"> Now you have your logo sting modified with
+                                            your logo and a short musical sting, you need to get it out of After Effects
+                                            so you can use it in other projects. In this lesson you’ll learn how to
+                                            setup a render and export your video!
+                                        </div>
                                     </div>
                                     <div class="course-panel-heading">
                                         <div class="panel-heading-left">
@@ -280,7 +316,10 @@
                                         </div>
                                     </div>
                                     <div class="panel-content">
-                                        <div class="panel-content-inner"> Congratulations on customizing this logo sting and exporting it out of After Effects! In this last lesson I will share some tips and ideas for even more customization!</div>
+                                        <div class="panel-content-inner"> Congratulations on customizing this logo sting
+                                            and exporting it out of After Effects! In this last lesson I will share some
+                                            tips and ideas for even more customization!
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -475,7 +514,8 @@
                                 </div>
                             </div>
                             <div class="content">
-                                <p>Donec tortor massa, dapibus sit amet massa ut, tincidunt dapibus neque. Morbi ac mauris lorem.</p>
+                                <p>Donec tortor massa, dapibus sit amet massa ut, tincidunt dapibus neque. Morbi ac
+                                    mauris lorem.</p>
                                 <a href="single-teacher.html" class="text-link">View full profile</a>
                             </div>
                         </div>
