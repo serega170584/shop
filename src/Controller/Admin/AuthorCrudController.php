@@ -70,7 +70,8 @@ class AuthorCrudController extends AbstractCrudController
                 ->setBasePath('uploads/author')
                 ->setRequired(false),
             TextEditorField::new('preview'),
-            TextEditorField::new('description')
+            TextEditorField::new('description'),
+            TextEditorField::new('subject')
         ];
     }
 

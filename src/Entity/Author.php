@@ -26,11 +26,13 @@ class Author
 
     /**
      * @ORM\Column(type="string", length=255, unique=true)
+     * @Assert\NotBlank
      */
     private $title;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\NotBlank
      */
     private $image;
 
@@ -46,6 +48,7 @@ class Author
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $slug;
 
@@ -56,16 +59,19 @@ class Author
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank
      */
     private $preview;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank
      */
     private $description;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $subject;
 
