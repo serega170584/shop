@@ -32,13 +32,14 @@ class IndexController extends AbstractController
          */
         $repository = $this->getDoctrine()->getManager()
             ->getRepository(Event::class);
-        $events = $repository-> findLastRows(3);
+        $events = $repository->findLastRows(3);
         /**
          * @var VideoRepository $repository
          */
         $repository = $this->getDoctrine()->getManager()
             ->getRepository(Video::class);
-        $videos = $repository-> findLastRows(3);
+        $videos = $repository->findLastRows(3);
+        $firstVideo = array_shift($videos);
         /**
          * @var ProductRepository $repository
          */
@@ -50,6 +51,7 @@ class IndexController extends AbstractController
             'categories' => $categories,
             'products' => $products,
             'events' => $events,
+            'firstVideo' => $firstVideo,
             'videos' => $videos
         ]);
     }

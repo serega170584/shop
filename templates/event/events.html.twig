@@ -1,83 +1,77 @@
 {% block events %}
-    <section class="events-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="title-section">
-                        <div class="left-part">
-                            <h1>События</h1>
-                        </div>
+<section class="events-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="title-section">
+                    <div class="left-part">
+                        <h1>События</h1>
                     </div>
+                </div>
 
-                    <div class="events-box">
-                        {% for event in events %}
-                            <div class="events-post">
-                                <div class="event-inner-content">
-                                    <div class="top-part">
-                                        <div class="date-holder">
-                                            <div class="date">
-                                                <span class="date-day">{{ event.getStartsAt()|date("d") }}</span>
-                                                <span class="date-month">{{ event.getStartsAt()|date("M") }}</span>
-                                            </div>
+                <div class="events-box">
+                    {% for event in events %}
+                        <div class="events-post">
+                            <div class="event-inner-content">
+                                <div class="top-part">
+                                    <div class="date-holder">
+                                        <div class="date">
+                                            <span class="date-day">{{ event.getStartsAt()|date("d") }}</span>
+                                            <span class="date-month">{{ event.getStartsAt()|date("M") }}</span>
                                         </div>
-                                        <div class="content">
-                                            <div class="event-meta">
+                                    </div>
+                                    <div class="content">
+                                        <div class="event-meta">
 												<span class="event-meta-piece start-time">
 													<i class="material-icons">access_time</i> {{ event.getStartsAt()|date("H:i") }} - {{ event.getFinishedAt()|date("H:i") }}
 												</span>
-                                            </div>
-                                            <h2 class="title"><a href="#">{{ event.getTitle() }}</a></h2>
                                         </div>
+                                        <h2 class="title"><a href="#">{{ event.getTitle() }}</a></h2>
                                     </div>
                                 </div>
                             </div>
-                        {% endfor %}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="title-section">
+                    <div class="left-part">
+                        <h1>Видео</h1>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="title-section">
-                        <div class="left-part">
-                            <h1>Видео</h1>
+
+                <div class="video-box">
+                    {% if (firstVideo) %}
+                    <div class="video-post">
+                        <img src="upload/video/video-poster-1.jpg" alt="">
+                        <div class="hover-post">
+                            <h2>Marketing, Media and Advertising</h2>
+                            <p>About Studioare</p>
                         </div>
+                        <a class="video-link iframe" href="https://vimeo.com/97447862"><span><i
+                                        class="fa fa-play"></i></span></a>
                     </div>
+                    {% endif; %}
 
-                    <div class="video-box">
-                        <div class="video-post">
-                            <img src="upload/video/video-poster-1.jpg" alt="">
-                            <div class="hover-post">
-                                <h2>Marketing, Media and Advertising</h2>
-                                <p>About Studioare</p>
-                            </div>
-                            <a class="video-link iframe" href="https://vimeo.com/97447862"><span><i
-                                            class="fa fa-play"></i></span></a>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="video-post small-post">
-                                    <img src="upload/video/video-poster-2.jpg" alt="">
-                                    <div class="hover-post">
-                                        <h2>Limitless learning</h2>
-                                    </div>
-                                    <a class="video-link iframe" href="https://vimeo.com/97447862"><span><i
-                                                    class="fa fa-play"></i></span></a>
+                    <div class="row">
+                        {% for video in videos %}
+                        <div class="col-md-6">
+                            <div class="video-post small-post">
+                                <img src="upload/video/video-poster-2.jpg" alt="">
+                                <div class="hover-post">
+                                    <h2>Limitless learning</h2>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="video-post small-post">
-                                    <img src="upload/video/video-poster-3.jpg" alt="">
-                                    <div class="hover-post">
-                                        <h2>Learn by Doing</h2>
-                                    </div>
-                                    <a class="video-link iframe" href="https://vimeo.com/97447862"><span><i
-                                                    class="fa fa-play"></i></span></a>
-                                </div>
+                                <a class="video-link iframe" href="https://vimeo.com/97447862"><span><i
+                                                class="fa fa-play"></i></span></a>
                             </div>
                         </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>
-
         </div>
-    </section>
+
+    </div>
+</section>
 {% endblock %}
