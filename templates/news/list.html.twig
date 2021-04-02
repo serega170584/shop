@@ -21,18 +21,7 @@
                 <div class="col-lg-8">
 
                     <div class="blog-box">
-                        {% for item in newsList %}
-                        <div class="blog-post list-style">
-                            <a href="{{ path('news', { slug: item.getSlug() }) }}"><img src="{{ ['/uploads/news/', item.getImage()]|join('') }}" alt=""></a>
-                            <div class="post-content">
-                                <h2><a href="{{ path('news', { slug: item.getSlug() }) }}">{{ item.getTitle() }}</a></h2>
-                                {{ item.getPreview()|raw }}
-                                <div class="post-meta date">
-                                    <i class="material-icons">access_time</i> {{ item.getStartsAt()|date("F d, Y") }}
-                                </div>
-                            </div>
-                        </div>
-                        {% endfor %}
+
                     </div>
                 </div>
 
