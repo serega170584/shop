@@ -7,7 +7,7 @@
 
     {% if path %}
         <script>
-            document.addVideoListener("DOMContentLoaded", () => {
+            document.addEventListener("DOMContentLoaded", () => {
                 let filename = '{{ path }}';
                 window.parent.document.getElementById('Video_image').setAttribute('value', filename);
                 window.parent.document.getElementById('file_label').innerHTML = filename;
