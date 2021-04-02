@@ -9,6 +9,7 @@ parameters:
     author_images_directory: '%kernel.project_dir%/public/uploads/author'
     news_images_directory: '%kernel.project_dir%/public/uploads/news'
     event_images_directory: '%kernel.project_dir%/public/uploads/event'
+    video_images_directory: '%kernel.project_dir%/public/uploads/video'
 services:
     # default configuration for services in *this* file
     _defaults:

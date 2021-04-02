@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h1>Upload a video</h1>
+    <p><b>{{ message }}</b></p>
+    {{ form(form) }}
+    <script src="{{ asset('js/video-upload-change.js') }}"></script>
+
+    {% if path %}
+        <script>
+            document.addVideoListener("DOMContentLoaded", () => {
+                let filename = '{{ path }}';
+                window.parent.document.getElementById('Video_image').setAttribute('value', filename);
+                window.parent.document.getElementById('file_label').innerHTML = filename;
+                window.parent.document.getElementById('image_trash').style.display = 'block'
+                let inputGroup = window.parent.document.getElementById('Video_image').closest('.input-group');
+                let image = window.parent.document.getElementById('video_image');
+                if (image == undefined) {
+                    let img = window.parent.document.createElement('img');
+                    img.setAttribute('src', `/uploads/video/${filename}`);
+                    img.setAttribute('id', 'video_image');
+                    inputGroup.after(img);
+                } else {
+                    image.setAttribute('src', `/uploads/video/${filename}`);
+                }
+            });
+        </script>
+    {% endif %}
+{% endblock %}
+
