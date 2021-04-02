@@ -24,11 +24,12 @@
                     {% endif %}
                     <div class="col-lg-3 col-md-6">
                         <div class="teacher-post">
-                            <a href="single-teacher.html">
-                                <img src="upload/teachers/teacher6.jpg" alt="">
+                            <a href="{{ path('author', { slug: author.getSlug() }) }}">
+                                <img src="{{ author.getImage() ? ['uploads/author/', author.getImage()]|join(''): '/upload/teachers/teacher6.jpg' }}"
+                                     alt="">
                                 <div class="hover-post">
-                                    <h2>Michael Arnet</h2>
-                                    <span>Photographer</span>
+                                    <h2>{{ author.getTitle() }}</h2>
+                                    <span>{{ author.getSubject() }}</span>
                                 </div>
                             </a>
                         </div>
