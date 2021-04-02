@@ -6,6 +6,10 @@
     <section class="page-banner-section">
         <div class="container">
             <h1>{{ product.getTitle() }}</h1>
+            <ul class="page-depth">
+                <li><a href="{{ path('index') }}">Главная</a></li>
+                <li><a href="{{ path('product', { slug: product.getSlug() }) }}">{{ product.getTitle() }}</a></li>
+            </ul>
         </div>
     </section>
     <!-- End page-banner-section -->
