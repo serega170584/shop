@@ -26,11 +26,11 @@
                             <div class="post-content">
                                 <h1>{{ news.getTitle() }}</h1>
                                 <div class="post-meta date">
-                                    <i class="material-icons">access_time</i>{{ item.getStartsAt()|date("F d, Y") }}
+                                    <i class="material-icons">access_time</i>{{ news.getStartsAt()|date("F d, Y") }}
                                 </div>
                             </div>
-                            <a href="{{ path('news', { slug: item.getSlug() }) }}"><img
-                                        src="{{ ['/uploads/news/', item.getImage()]|join('') }}" alt=""></a>
+                            <a href="{{ path('news', { slug: news.getSlug() }) }}"><img
+                                        src="{{ ['/uploads/news/', news.getImage()]|join('') }}" alt=""></a>
                             <div class="post-content">
                                 {{ news.getDescription()|raw }}
                             </div>
