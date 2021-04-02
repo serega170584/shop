@@ -37,14 +37,14 @@
                     <div class="col-lg-6">
                         <div class="profile-details">
                             <h1>Краткое описание</h1>
-                            <p>{{ author.getPreview() }}</p>
+                            <p>{{ author.getPreview()|raw }}</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="teacher-content">
                     <h1>Биография</h1>
-                    {{ author.getDescription() }}
+                    {{ author.getDescription()|raw }}
                 </div>
 
             </div>
