@@ -195,7 +195,7 @@ class Author
 
     public function getPreview(): ?string
     {
-        return htmlspecialchars_decode($this->preview);
+        return html_entity_decode($this->preview);
     }
 
     public function setPreview(string $preview): self
@@ -207,7 +207,7 @@ class Author
 
     public function getDescription(): ?string
     {
-        return htmlspecialchars_decode($this->description);
+        return html_entity_decode($this->description);
     }
 
     public function setDescription(string $description): self
