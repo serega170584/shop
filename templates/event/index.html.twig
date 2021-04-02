@@ -29,7 +29,7 @@
                                 <div class="inner">
                                     <div class="text">
                                         <span class="label">Время начала</span>
-                                        <p>{{ event.getStartsAt()|date("d") }}</p>
+                                        <p>{{ event.getStartsAt()|date("H:i") }}</p>
                                         <p>{{ event.getStartsAt()|date("l, F d, Y") }}</p>
                                     </div>
                                     <div class="icon">
@@ -41,7 +41,7 @@
                                 <div class="inner">
                                     <div class="text">
                                         <span class="label">Время окончания</span>
-                                        <p>{{ event.getFinishedAt()|date("d") }}</p>
+                                        <p>{{ event.getFinishedAt()|date("H:i") }}</p>
                                         <p>{{ event.getStartsAt()|date("l, F d, Y") }}</p>
                                     </div>
                                     <div class="icon">
