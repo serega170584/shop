@@ -57,7 +57,7 @@ class News
     private $image;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="text")
      * @Assert\NotBlank
      */
     private $preview;
