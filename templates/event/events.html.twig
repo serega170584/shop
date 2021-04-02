@@ -46,9 +46,9 @@
                     <div class="video-box">
                         {% if (firstVideo) %}
                             <div class="video-post">
-                                <img src="upload/video/video-poster-1.jpg" alt="">
+                                <img src="{{ ['/uploads/video/', firstVideo.getImage()]|join('') }}" alt="">
                                 <div class="hover-post">
-                                    <h2>Marketing, Media and Advertising</h2>
+                                    <h2>{{ firstVideo.getTitle() }}</h2>
                                     <p>About Studioare</p>
                                 </div>
                                 <a class="video-link iframe" href="https://vimeo.com/97447862"><span><i
