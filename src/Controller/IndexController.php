@@ -4,10 +4,12 @@ namespace App\Controller;
 
 use App\Entity\Category;
 use App\Entity\Event;
+use App\Entity\News;
 use App\Entity\Product;
 use App\Entity\Video;
 use App\Repository\CategoryRepository;
 use App\Repository\EventRepository;
+use App\Repository\NewsRepository;
 use App\Repository\ProductRepository;
 use App\Repository\VideoRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -46,13 +48,20 @@ class IndexController extends AbstractController
         $repository = $this->getDoctrine()->getManager()
             ->getRepository(Product::class);
         $products = $repository->findPopular();
+        /**
+         * @var NewsRepository $repository
+         */
+        $repository = $this->getDoctrine()->getManager()
+            ->getRepository(News::class);
+        $news = $repository->findLastRows(4);
         return $this->render('index/index.html.twig', [
             'controller_name' => 'IndexController',
             'categories' => $categories,
             'products' => $products,
             'events' => $events,
             'firstVideo' => $firstVideo,
-            'videos' => $videos
+            'videos' => $videos,
+            'news' => $news
         ]);
     }
 

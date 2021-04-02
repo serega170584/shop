@@ -1,0 +1,34 @@
+{% block news %}
+    <section class="news-section">
+        <div class="container">
+            <div class="title-section">
+                <div class="left-part">
+                    <h1>Новости</h1>
+                </div>
+                <div class="right-part">
+                    <a class="button-one" href="#">Все</a>
+                </div>
+            </div>
+            <div class="news-box">
+                <div class="row">
+                    {% for item in news %}
+                        <div class="col-lg-3 col-md-6">
+                            <div class="blog-post">
+                                <a href="{{ path('news', { slug: item.getSlug() }) }}"><img
+                                            src="{{ ['/uploads/news/', item.getImage()]|join('') }}" alt=""></a>
+                                <div class="post-content">
+                                    <h2><a href="{{ path('news', { slug: item.getSlug() }) }}">{{ item.getTitle() }}</a>
+                                    </h2>
+                                    <div class="post-meta date">
+                                        <i class="material-icons">access_time</i> {{ event.getStartsAt()|date("F d, Y") }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+
+            </div>
+        </div>
+    </section>
+{% endblock %}

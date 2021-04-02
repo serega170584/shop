@@ -671,73 +671,7 @@
 
     <!-- news-section
         ================================================== -->
-    <section class="news-section">
-        <div class="container">
-            <div class="title-section">
-                <div class="left-part">
-                    <span>Blog</span>
-                    <h1>Latest News</h1>
-                </div>
-                <div class="right-part">
-                    <a class="button-one" href="#">View All Posts</a>
-                </div>
-            </div>
-            <div class="news-box">
-                <div class="row">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="blog-post">
-                            <a href="single-post.html"><img src="upload/blog/blog-image-1.jpg" alt=""></a>
-                            <div class="post-content">
-                                <a class="category" href="#">Academics</a>
-                                <h2><a href="single-post.html">Couple Of Happy College Students Graduated</a></h2>
-                                <div class="post-meta date">
-                                    <i class="material-icons">access_time</i> June 13, 2018
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="blog-post">
-                            <a href="single-post.html"><img src="upload/blog/blog-image-2.jpg" alt=""></a>
-                            <div class="post-content">
-                                <a class="category" href="#">Government</a>
-                                <h2><a href="single-post.html">Tips to Developing a Quality Discussion</a></h2>
-                                <div class="post-meta date">
-                                    <i class="material-icons">access_time</i> June 13, 2018
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="blog-post">
-                            <a href="single-post.html"><img src="upload/blog/blog-image-3.jpg" alt=""></a>
-                            <div class="post-content">
-                                <a class="category" href="#">Design</a>
-                                <h2><a href="single-post.html">Reflections for the Season of Advent</a></h2>
-                                <div class="post-meta date">
-                                    <i class="material-icons">access_time</i> June 13, 2018
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="blog-post">
-                            <a href="single-post.html"><img src="upload/blog/blog-image-4.jpg" alt=""></a>
-                            <div class="post-content">
-                                <a class="category" href="#">Business</a>
-                                <h2><a href="single-post.html">It’s Wonderful to see the Friendships that Develop</a>
-                                </h2>
-                                <div class="post-meta date">
-                                    <i class="material-icons">access_time</i> June 13, 2018
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
+    {{ block("news", "news/news.html.twig") }}
     <!-- End news section -->
 
     <!-- testimonial-section
