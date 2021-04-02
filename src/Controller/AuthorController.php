@@ -5,6 +5,7 @@ namespace App\Controller;
 
 
 use App\Entity\Author;
+use App\Repository\AuthorRepository;
 use App\Repository\ProductRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -59,6 +60,20 @@ class AuthorController extends AbstractController
     {
         return $this->render('author/about.html.twig', [
             'author' => $author
+        ]);
+    }
+
+    /**
+     * @Route("/author", name="authors")
+     * @param AuthorRepository $authorRepository
+     * @return Response
+     */
+    public function authors(AuthorRepository $authorRepository)
+    {
+        var_dump($authorRepository->findAll());
+        die('asd');
+        return $this->render('author/list.html.twig', [
+            'authors' => $authorRepository->findAll()
         ]);
     }
 }
