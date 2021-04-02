@@ -16,6 +16,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -45,6 +46,7 @@ class VideoCrudController extends AbstractCrudController
     {
         return [
             TextField::new('title'),
+            TextEditorField::new('preview'),
             TextField::new('image')
                 ->onlyOnForms()
                 ->addJsFiles('/js/video-uploader.js'),
