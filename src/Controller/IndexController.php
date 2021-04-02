@@ -5,9 +5,11 @@ namespace App\Controller;
 use App\Entity\Category;
 use App\Entity\Event;
 use App\Entity\Product;
+use App\Entity\Video;
 use App\Repository\CategoryRepository;
 use App\Repository\EventRepository;
 use App\Repository\ProductRepository;
+use App\Repository\VideoRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -30,7 +32,13 @@ class IndexController extends AbstractController
          */
         $repository = $this->getDoctrine()->getManager()
             ->getRepository(Event::class);
-        $events = $repository->findLastRows(3);
+        $events = $repository-> findLastRows(3);
+        /**
+         * @var VideoRepository $repository
+         */
+        $repository = $this->getDoctrine()->getManager()
+            ->getRepository(Video::class);
+        $videos = $repository-> findLastRows(3);
         /**
          * @var ProductRepository $repository
          */
@@ -41,7 +49,8 @@ class IndexController extends AbstractController
             'controller_name' => 'IndexController',
             'categories' => $categories,
             'products' => $products,
-            'events' => $events
+            'events' => $events,
+            'videos' => $videos
         ]);
     }
 
