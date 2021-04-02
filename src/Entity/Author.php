@@ -64,6 +64,11 @@ class Author
      */
     private $description;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $subject;
+
     public function __construct()
     {
         $this->products = new ArrayCollection();
@@ -213,6 +218,18 @@ class Author
     public function setDescription(string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getSubject(): ?string
+    {
+        return $this->subject;
+    }
+
+    public function setSubject(string $subject): self
+    {
+        $this->subject = $subject;
 
         return $this;
     }
