@@ -21,133 +21,17 @@
                 <div class="col-lg-8">
 
                     <div class="blog-box">
+                        {% for item in newsList %}
                         <div class="blog-post list-style">
-                            <a href="single-post.html"><img src="upload/blog/blog-image-1.jpg" alt=""></a>
+                            <a href="{{ path('news', { slug: item.getSlug() }) }}"><img src="{{ ['/uploads/news/', item.getImage()]|join('') }}" alt=""></a>
                             <div class="post-content">
-                                <a class="category" href="#">Academics</a>
-                                <h2><a href="single-post.html">Couple Of Happy College Students Graduated</a></h2>
-                                <p>CSS. It’s a web designer’s playpen. With so many colors, type settings, layout options, and responsive…</p>
+                                <h2><a href="{{ path('news', { slug: item.getSlug() }) }}">{{ item.getTitle() }}</a></h2>
+                                {{ item.getPreview()|raw }}
                                 <div class="post-meta date">
-                                    <i class="material-icons">access_time</i> June 13, 2018
-                                </div>
-                                <div class="post-meta user">
-                                    <i class="material-icons">perm_identity</i> Posted by <a href="#">codebean</a>
+                                    <i class="material-icons">access_time</i> {{ item.getStartsAt()|date("F d, Y") }}
                                 </div>
                             </div>
                         </div>
-
-                        <div class="blog-post list-style">
-                            <a href="single-post.html"><img src="upload/blog/blog-image-2.jpg" alt=""></a>
-                            <div class="post-content">
-                                <a class="category" href="#">Government</a>
-                                <h2><a href="single-post.html">Tips to Developing a Quality Discussion</a></h2>
-                                <p>CSS. It’s a web designer’s playpen. With so many colors, type settings, layout options, and responsive…</p>
-                                <div class="post-meta date">
-                                    <i class="material-icons">access_time</i> June 13, 2018
-                                </div>
-                                <div class="post-meta user">
-                                    <i class="material-icons">perm_identity</i> Posted by <a href="#">codebean</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="blog-post list-style">
-                            <a href="single-post.html"><img src="upload/blog/blog-image-3.jpg" alt=""></a>
-                            <div class="post-content">
-                                <a class="category" href="#">Design</a>
-                                <h2><a href="single-post.html">Reflections for the Season of Advent</a></h2>
-                                <p>CSS. It’s a web designer’s playpen. With so many colors, type settings, layout options, and responsive…</p>
-                                <div class="post-meta date">
-                                    <i class="material-icons">access_time</i> June 13, 2018
-                                </div>
-                                <div class="post-meta user">
-                                    <i class="material-icons">perm_identity</i> Posted by <a href="#">codebean</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="blog-post list-style">
-                            <a href="single-post.html"><img src="upload/blog/blog-image-4.jpg" alt=""></a>
-                            <div class="post-content">
-                                <a class="category" href="#">Business</a>
-                                <h2><a href="single-post.html">It’s Wonderful to see the Friendships that Develop</a></h2>
-                                <p>CSS. It’s a web designer’s playpen. With so many colors, type settings, layout options, and responsive…</p>
-                                <div class="post-meta date">
-                                    <i class="material-icons">access_time</i> June 13, 2018
-                                </div>
-                                <div class="post-meta user">
-                                    <i class="material-icons">perm_identity</i> Posted by <a href="#">codebean</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="blog-post list-style">
-                            <a href="single-post.html"><img src="upload/blog/blog-image-5.jpg" alt=""></a>
-                            <div class="post-content">
-                                <a class="category" href="#">Academics</a>
-                                <h2><a href="single-post.html">Couple Of Happy College Students Graduated</a></h2>
-                                <p>CSS. It’s a web designer’s playpen. With so many colors, type settings, layout options, and responsive…</p>
-                                <div class="post-meta date">
-                                    <i class="material-icons">access_time</i> June 13, 2018
-                                </div>
-                                <div class="post-meta user">
-                                    <i class="material-icons">perm_identity</i> Posted by <a href="#">codebean</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="blog-post list-style">
-                            <a href="single-post.html"><img src="upload/blog/blog-image-6.jpg" alt=""></a>
-                            <div class="post-content">
-                                <a class="category" href="#">Government</a>
-                                <h2><a href="single-post.html">Tips to Developing a Quality Discussion</a></h2>
-                                <p>CSS. It’s a web designer’s playpen. With so many colors, type settings, layout options, and responsive…</p>
-                                <div class="post-meta date">
-                                    <i class="material-icons">access_time</i> June 13, 2018
-                                </div>
-                                <div class="post-meta user">
-                                    <i class="material-icons">perm_identity</i> Posted by <a href="#">codebean</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="blog-post list-style">
-                            <a href="single-post.html"><img src="upload/blog/blog-image-7.jpg" alt=""></a>
-                            <div class="post-content">
-                                <a class="category" href="#">Design</a>
-                                <h2><a href="single-post.html">Reflections for the Season of Advent</a></h2>
-                                <p>CSS. It’s a web designer’s playpen. With so many colors, type settings, layout options, and responsive…</p>
-                                <div class="post-meta date">
-                                    <i class="material-icons">access_time</i> June 13, 2018
-                                </div>
-                                <div class="post-meta user">
-                                    <i class="material-icons">perm_identity</i> Posted by <a href="#">codebean</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="blog-post list-style">
-                            <a href="single-post.html"><img src="upload/blog/blog-image-8.jpg" alt=""></a>
-                            <div class="post-content">
-                                <a class="category" href="#">Business</a>
-                                <h2><a href="single-post.html">It’s Wonderful to see the Friendships that Develop</a></h2>
-                                <p>CSS. It’s a web designer’s playpen. With so many colors, type settings, layout options, and responsive…</p>
-                                <div class="post-meta date">
-                                    <i class="material-icons">access_time</i> June 13, 2018
-                                </div>
-                                <div class="post-meta user">
-                                    <i class="material-icons">perm_identity</i> Posted by <a href="#">codebean</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <ul class="page-pagination">
-                            <li><a href="#"><i class="fa fa-angle-left"></i></a></li>
-                            <li><a href="#" class="active">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-                        </ul>
-
                     </div>
                 </div>
 
@@ -163,36 +47,8 @@
                         </div>
                         <div class="ads-widget widget">
                             <a href="#">
-                                <img src="upload/blog/ad-banner.jpg" alt="">
+                                <img src="/upload/blog/ad-banner.jpg" alt="">
                             </a>
-                        </div>
-
-                        <div class="category-widget widget">
-                            <h2>Categories</h2>
-                            <ul class="category-list">
-                                <li><a href="#">Academics</a></li>
-                                <li><a href="#">Advertisement</a></li>
-                                <li><a href="#">Business</a></li>
-                                <li><a href="#">Campus Life</a></li>
-                                <li><a href="#">Design</a></li>
-                                <li><a href="#">Government</a></li>
-                                <li><a href="#">Schools</a></li>
-                                <li><a href="#">Uncategorized</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="tags-widget widget">
-                            <h2>Tags</h2>
-                            <ul class="tags-list">
-                                <li><a href="#">codebean</a></li>
-                                <li><a href="#">course</a></li>
-                                <li><a href="#">parents</a></li>
-                                <li><a href="#">schools</a></li>
-                                <li><a href="#">students</a></li>
-                                <li><a href="#">teacher</a></li>
-                                <li><a href="#">theme</a></li>
-                                <li><a href="#">wordpress</a></li>
-                            </ul>
                         </div>
                     </div>
                 </div>
