@@ -49,7 +49,7 @@
                                 <img src="{{ ['/uploads/video/', firstVideo.getImage()]|join('') }}" alt="">
                                 <div class="hover-post">
                                     <h2>{{ firstVideo.getTitle() }}</h2>
-                                    {{ firstVideo.getTitle() }}
+                                    {{ firstVideo.getPreview()|raw }}
                                 </div>
                                 <a class="video-link iframe" href="https://vimeo.com/97447862"><span><i
                                                 class="fa fa-play"></i></span></a>
@@ -60,9 +60,9 @@
                             {% for video in videos %}
                                 <div class="col-md-6">
                                     <div class="video-post small-post">
-                                        <img src="upload/video/video-poster-2.jpg" alt="">
+                                        <img src="{{ ['/uploads/video/', video.getImage()]|join('') }}" alt="">
                                         <div class="hover-post">
-                                            <h2>Limitless learning</h2>
+                                            <h2>{{ video.getTitle() }}</h2>
                                         </div>
                                         <a class="video-link iframe" href="https://vimeo.com/97447862"><span><i
                                                         class="fa fa-play"></i></span></a>
