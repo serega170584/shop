@@ -55,7 +55,7 @@
                                 </div>
                             </div>
                             <div class="course-single-gallery">
-                                <img src="{{ product.getImage() }}" alt="">
+                                <img src="{{ ['/uploads/files/', product.getImage()]|join('') }}" alt="">
                             </div>
 
                         </div>
