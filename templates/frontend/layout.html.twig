@@ -29,16 +29,15 @@
                         <div class="col-md-6">
                             <div class="right-top-line">
                                 <ul class="top-menu">
-                                    <li><a href="#">Purchase Now</a></li>
-                                    <li><a href="about.html">About</a></li>
-                                    <li><a href="blog.html">News</a></li>
+                                    <li><a href="about.html">О нас</a></li>
+                                    <li><a href="{{ path('newsList') }}">Новости</a></li>
                                 </ul>
                                 <button class="search-icon">
-                                    <i class="material-icons open-search">search</i>
-                                    <i class="material-icons close-search">close</i>
+                                    <i class="material-icons open-search">поиск</i>
+                                    <i class="material-icons close-search">закрыть</i>
                                 </button>
                                 <button class="shop-icon">
-                                    <i class="material-icons">shopping_cart</i>
+                                    <i class="material-icons">корзина</i>
                                     <span class="studiare-cart-number">0</span>
                                 </button>
                             </div>
@@ -49,7 +48,7 @@
 
             <form class="search_bar">
                 <div class="container">
-                    <input type="search" class="search-input" placeholder="What are you looking for...">
+                    <input type="search" class="search-input" placeholder="Что Вы ищете...">
                     <button type="submit" class="submit">
                         <i class="material-icons">search</i>
                     </button>
@@ -73,64 +72,22 @@
                                 <a class="active" href="{{ path('index') }}">Главная</a>
                             </li>
                             <li class="drop-link">
-                                <a href="about.html">Pages <i class="fa fa-angle-down"></i></a>
+                                <a href="about.html">О нас <i class="fa fa-angle-down"></i></a>
                                 <ul class="dropdown">
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li><a href="pricing.html">Pricing Packages</a></li>
-                                    <li><a href="portfolio.html">Portfolio</a></li>
-                                    <li><a href="single-project.html">Portfolio Single</a></li>
-                                    <li><a href="teachers.html">Teachers</a></li>
-                                    <li><a href="single-teacher.html">Teacher Single</a></li>
-                                    <li class="drop-link">
-                                        <a href="#">Submenu Level 1</a>
-                                        <ul class="dropdown level2">
-                                            <li><a href="#">Submenu Level 2</a></li>
-                                            <li class="drop-link">
-                                                <a href="#">Submenu Level 2</a>
-                                                <ul class="dropdown level2">
-                                                    <li><a href="#">Submenu Level 3</a></li>
-                                                    <li><a href="#">Submenu Level 3</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="#">Submenu Level 2</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="cart.html">Shopping Cart</a></li>
+                                    <li><a href="about.html">О нас</a></li>
+                                    <li><a href="{{ path('authors') }}">Преподаватели</a></li>
+                                    <li><a href="cart.html">Корзина</a></li>
                                     <li><a href="checkout.html">Checkout</a></li>
                                 </ul>
                             </li>
-                            <li class="drop-link">
-                                <a href="blog.html">Blog <i class="fa fa-angle-down"></i></a>
-                                <ul class="dropdown">
-                                    <li class="drop-link">
-                                        <a href="blog-list.html">Blog List</a>
-                                        <ul class="dropdown level2">
-                                            <li><a href="blog-list-leftsidebar.html">Blog List - Sidebar Left</a></li>
-                                            <li><a href="blog-list-rightsidebar.html">Blog List - Sidebar Right</a></li>
-                                            <li><a href="blog-list.html">No Sidebar</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="drop-link">
-                                        <a href="blog-grid-3.html">Blog Grid</a>
-                                        <ul class="dropdown level2">
-                                            <li><a href="blog-grid-3.html">3 Column</a></li>
-                                            <li><a href="blog-grid-4.html">4 Column</a></li>
-                                            <li><a href="blog-grid-leftsidebar.html">Sidebar Left</a></li>
-                                            <li><a href="blog-grid-rightsidebar.html">Sidebar Right</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="blog.html">Blog Classic</a></li>
-                                    <li><a href="single-post.html">Post Single</a></li>
-                                </ul>
+                            <li>
+                                <a href="{{ path('newsList') }}">Новости</a>
                             </li>
-                            <li class="drop-link">
-                                <a href="courses.html">Courses</a>
+                            <li><a href="courses.html">Курсы</a>
                             </li>
-                            <li><a href="events.html">Events</a></li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="{{ path('events') }}">События</a></li>
+                            <li><a href="contact.html">Контакты</a></li>
                         </ul>
-                        <a href="#" class="register-modal-opener login-button"><i
-                                    class="material-icons">perm_identity</i> Get Started</a>
                     </div>
                 </div>
             </nav>
@@ -138,7 +95,7 @@
             <div class="mobile-menu">
                 <div class="search-form-box">
                     <form class="search-form">
-                        <input type="search" class="search-field" placeholder="Enter keyword...">
+                        <input type="search" class="search-field" placeholder="Введите ключевое слово...">
                         <button type="submit" class="search-submit">
                             <i class="material-icons open-search">search</i>
                         </button>
@@ -154,68 +111,28 @@
                 <nav class="mobile-nav">
                     <ul class="mobile-menu-list">
                         <li>
-                            <a href="index.html">Home</a>
+                            <a href="{{ path('index') }}">Главная</a>
                         </li>
                         <li class="drop-link">
-                            <a href="#">Pages</a>
+                            <a href="#">О нас</a>
                             <ul class="drop-level">
-                                <li><a href="about.html">About Us</a></li>
-                                <li><a href="pricing.html">Pricing Packages</a></li>
-                                <li><a href="portfolio.html">Portfolio</a></li>
-                                <li><a href="single-project.html">Portfolio Single</a></li>
-                                <li><a href="teachers.html">Teachers</a></li>
-                                <li><a href="single-teacher.html">Teacher Single</a></li>
-                                <li><a href="cart.html">Shopping Cart</a></li>
-                                <li><a href="checkout.html">Checkout</a></li>
-                                <li><a href="single-teacher.html">Teacher Single</a></li>
-                                <li class="drop-link">
-                                    <a href="#">Submenu Level 1</a>
-                                    <ul class="drop-level">
-                                        <li><a href="#">Submenu Level 2</a></li>
-                                        <li class="drop-link">
-                                            <a href="#">Submenu Level 2</a>
-                                            <ul class="drop-level">
-                                                <li><a href="#">Submenu Level 3</a></li>
-                                                <li><a href="#">Submenu Level 3</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Submenu Level 2</a></li>
-                                    </ul>
-                                </li>
+                                <li><a href="about.html">О нас</a></li>
+                                <li><a href="{{ path('authors') }}">Преподаватели</a></li>
+                                <li><a href="cart.html">Корзина</a></li>
+                                <li><a href="checkout.html">Заказ</a></li>
                             </ul>
                         </li>
                         <li class="drop-link">
-                            <a href="blog.html">Blog</a>
-                            <ul class="drop-level">
-                                <li class="drop-link">
-                                    <a href="blog-list.html">Blog List</a>
-                                    <ul class="drop-level">
-                                        <li><a href="blog-list-leftsidebar.html">Blog List - Sidebar Left</a></li>
-                                        <li><a href="blog-list-rightsidebar.html">Blog List - Sidebar Right</a></li>
-                                        <li><a href="blog-list.html">No Sidebar</a></li>
-                                    </ul>
-                                </li>
-                                <li class="drop-link">
-                                    <a href="blog-grid-3.html">Blog Grid</a>
-                                    <ul class="drop-level">
-                                        <li><a href="blog-grid-3.html">3 Column</a></li>
-                                        <li><a href="blog-grid-4.html">4 Column</a></li>
-                                        <li><a href="blog-grid-leftsidebar.html">Sidebar Left</a></li>
-                                        <li><a href="blog-grid-rightsidebar.html">Sidebar Right</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="blog.html">Blog Classic</a></li>
-                                <li><a href="single-post.html">Post Single</a></li>
-                            </ul>
+                            <a href="{{ path('newsList') }}">Новости</a>
                         </li>
                         <li>
-                            <a href="courses.html">Courses</a>
+                            <a href="courses.html">Курсы</a>
                         </li>
                         <li>
-                            <a href="events.html">Events</a>
+                            <a href="{{ path('events') }}">События</a>
                         </li>
                         <li>
-                            <a href="contact.html">Contact</a>
+                            <a href="contact.html">Контакты</a>
                         </li>
                     </ul>
                 </nav>
@@ -234,16 +151,9 @@
 
                         <div class="col-lg-4 col-md-6">
                             <div class="footer-widget text-widget">
-                                <a href="index.html" class="footer-logo"><img src="images/logo_light.svg" alt=""></a>
-                                <p>We named our theme Studiare because to us,<br> the best brands are simple ones.
-                                    Brands thrive<br> on their ability to be understood.</p>
+                                <a href="{{ path('index') }}" class="footer-logo"><img src="/images/logo_light.svg" alt=""></a>
+                                <p>Лучшие курсы для быстрого и глубкого обучения представлены на нашем сайте.</p>
                                 <ul>
-                                    <li>
-                                        <div class="contact-info-icon">
-                                            <i class="material-icons">location_on</i>
-                                        </div>
-                                        <div class="contact-info-value">127 Elizabeth Street, NY New York</div>
-                                    </li>
                                     <li>
                                         <div class="contact-info-icon">
                                             <i class="material-icons">phone_android</i>
@@ -256,29 +166,18 @@
 
                         <div class="col-lg-4 col-md-6">
                             <div class="footer-widget quick-widget">
-                                <h2>Quick Links</h2>
                                 <ul class="quick-list">
-                                    <li><a href="contact.html">Contact</a></li>
-                                    <li><a href="pricing.html">Pricing Packages</a></li>
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li><a href="courses.html">Courses</a></li>
-                                    <li><a href="blog.html">News</a></li>
-                                    <li><a href="index.html">Home</a></li>
-                                    <li><a href="#">Sample Page</a></li>
+                                    <li><a href="contact.html">Контакты</a></li>
+                                    <li><a href="about.html">О нас</a></li>
+                                    <li><a href="courses.html">Курсы</a></li>
+                                    <li><a href="{{ path('newsList') }}">Новости</a></li>
+                                    <li><a href="{{ path('index') }}">Главная</a></li>
                                 </ul>
                             </div>
                         </div>
 
                         <div class="col-lg-4 col-md-6">
-                            <div class="footer-widget subscribe-widget">
-                                <h2>Newsletter</h2>
-                                <p>Don’t miss anything, sign up now and keep informed about our company.</p>
-                                <div class="newsletter-form">
-                                    <input class="form-control" type="email" name="EMAIL"
-                                           placeholder="Enter Your E-mail" required="">
-                                    <input type="submit" value="Subscribe">
-                                </div>
-                            </div>
+
                         </div>
 
                     </div>
@@ -289,8 +188,7 @@
             <div class="footer-copyright copyrights-layout-default">
                 <div class="container">
                     <div class="copyright-inner">
-                        <div class="copyright-cell"> &copy; 2019 <span class="highlight">Studiare</span>. Created by
-                            CodeBean Team.
+                        <div class="copyright-cell"> &copy; 2019 <span class="highlight">Serjstudio</span>. Создано командой Serjstudio.
                         </div>
                         <div class="copyright-cell">
                             <ul class="studiare-social-links">
