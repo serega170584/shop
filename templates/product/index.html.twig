@@ -87,16 +87,15 @@
                         </div>
                         <div class="widget profile-widget">
                             <div class="top-part">
-                                <img src="upload/teachers/teacher4-thumb.jpg" alt="Leslie Williams">
+                                <img src="{{ ['/uploads/author/', product.getAuthor().getImage()]|join('') }}"
+                                     alt="{{ product.getAuthor().getTitle() }}">
                                 <div class="name">
-                                    <h3>Leslie Williams</h3>
-                                    <span class="job-title">Math</span>
+                                    <h3>{{ product.getAuthor().getTitle() }}</h3>
                                 </div>
                             </div>
                             <div class="content">
-                                <p>Donec tortor massa, dapibus sit amet massa ut, tincidunt dapibus neque. Morbi ac
-                                    mauris lorem.</p>
-                                <a href="single-teacher.html" class="text-link">View full profile</a>
+                                <p>{{ product.getAuthor().getPreview() }}</p>
+                                <a href="{{ path('author', { slug: product.getAuthor().getSlug() }) }}" class="text-link">Просмотреть</a>
                             </div>
                         </div>
                     </div>
