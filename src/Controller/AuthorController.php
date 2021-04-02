@@ -6,11 +6,12 @@ namespace App\Controller;
 
 use App\Entity\Author;
 use App\Repository\ProductRepository;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Twig\Environment;
 use Symfony\Component\Routing\Annotation\Route;
 
-class AuthorController
+class AuthorController extends AbstractController
 {
     /**
      * @Route("/author/{slug}", name="author")
@@ -50,4 +51,14 @@ class AuthorController
         ]));
     }
 
+    /**
+     * @Route("/author/about/{slug}", name="about-author")
+     * @param Author $author
+     */
+    public function aboutAuthor(Author $author)
+    {
+        return $this->render('author/about.html.twig', [
+            'author' => $author
+        ]);
+    }
 }
