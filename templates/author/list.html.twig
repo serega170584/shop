@@ -5,10 +5,10 @@
 			================================================== -->
     <section class="page-banner-section">
         <div class="container">
-            <h1>{{ author.getTitle() }}</h1>
+            <h1>{{ title }}</h1>
             <ul class="page-depth">
                 <li><a href="{{ path('index') }}">Главная</a></li>
-                <li><a href="{{ path('about-author', { slug: author.getSlug() }) }}">{{ author.getTitle() }}</a></li>
+                <li><a href="{{ path('author') }}">{{ title }}</a></li>
             </ul>
         </div>
     </section>
@@ -18,7 +18,10 @@
     <section class="teachers-section">
         <div class="container">
             <div class="teachers-box">
+                {% for author in authors %}
+                {% if (loop.index % 4 == 1) %}
                 <div class="row">
+                    {% endif %}
                     <div class="col-lg-3 col-md-6">
                         <div class="teacher-post">
                             <a href="single-teacher.html">
@@ -29,89 +32,12 @@
                                 </div>
                             </a>
                         </div>
+                        {% if (loop.index % 4 == 1 and loop.index>1) %}
                     </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="teacher-post">
-                            <a href="single-teacher.html">
-                                <img src="upload/teachers/teacher4.jpg" alt="">
-                                <div class="hover-post">
-                                    <h2>Leslie Williams</h2>
-                                    <span>Math</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="teacher-post">
-                            <a href="single-teacher.html">
-                                <img src="upload/teachers/teacher7.jpg" alt="">
-                                <div class="hover-post">
-                                    <h2>John Maddix</h2>
-                                    <span>Chemical Engineering</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="teacher-post">
-                            <a href="single-teacher.html">
-                                <img src="upload/teachers/teacher5.jpg" alt="">
-                                <div class="hover-post">
-                                    <h2>Linda Castello</h2>
-                                    <span>Teacher Training</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="teacher-post">
-                            <a href="single-teacher.html">
-                                <img src="upload/teachers/teacher1.jpg" alt="">
-                                <div class="hover-post">
-                                    <h2>Dinna Joakimsen</h2>
-                                    <span>Computer Science</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="teacher-post">
-                            <a href="single-teacher.html">
-                                <img src="upload/teachers/teacher3.jpg" alt="">
-                                <div class="hover-post">
-                                    <h2>Leon Redding</h2>
-                                    <span>Web Developer</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="teacher-post">
-                            <a href="single-teacher.html">
-                                <img src="upload/teachers/teacher2.jpg" alt="">
-                                <div class="hover-post">
-                                    <h2>Duha Sampra</h2>
-                                    <span>Physics</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="teacher-post">
-                            <a href="single-teacher.html">
-                                <img src="upload/teachers/teacher8.jpg" alt="">
-                                <div class="hover-post">
-                                    <h2>Olivia Barham</h2>
-                                    <span>Communication</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+                    {% endif %}
+                    {% endfor %}
                 </div>
             </div>
-        </div>
     </section>
     <!-- End teachers section -->
 {% endblock %}
