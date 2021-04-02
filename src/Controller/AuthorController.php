@@ -57,6 +57,8 @@ class AuthorController extends AbstractController
      */
     public function aboutAuthor(Author $author)
     {
+        var_dump($author->getPreview());
+        die('asd');
         return $this->render('author/about.html.twig', [
             'author' => $author
         ]);
