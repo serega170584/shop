@@ -74,7 +74,7 @@
                         <div class="widget course-widget">
                             <p class="price">
                                 <span class="price-label">Цена</span>
-                                <span class="amount">£{{ product.getPrice() }}</span>
+                                <span class="amount">£{{ product.getPrice()|number_format(0) }}</span>
                             </p>
                             <a class="button-one" href="#">Take this course</a>
                             <ul class="share-list">
