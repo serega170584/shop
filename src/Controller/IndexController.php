@@ -14,6 +14,7 @@ use App\Repository\ProductRepository;
 use App\Repository\VideoRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Cookie;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
@@ -22,12 +23,12 @@ class IndexController extends AbstractController
 {
     /**
      * @Route("/", name="index")
-     * @param SessionInterface $session
+     * @param Request $request
      * @return Response
      */
-    public function index(SessionInterface $session): Response
+    public function index(Request $request): Response
     {
-        var_dump($session->all());
+        var_dump($request->cookies->all());
         die('asd');
 //        $cookie = Cookie::create('foo')
 //            ->withValue('bar')
