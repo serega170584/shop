@@ -32,7 +32,7 @@ class IndexController extends AbstractController
     public function index(Request $request): Response
     {
         var_dump($request->getSession()->get('test1122'));
-//        $request->cookies->set('test', 88888888888888888888);
+        $request->cookies->set('test1122', 88888888888888888888);
 //        $request->getSession()->set('test1122', 123123);
 //        $sessionStorage->setOptions()
 //        $request->getSession()->migrate();
