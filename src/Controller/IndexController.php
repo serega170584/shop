@@ -29,7 +29,7 @@ class IndexController extends AbstractController
      */
     public function index(Request $request): Response
     {
-        var_dump($request->getSession()->all());
+        var_dump($request->getSession()->get('_security.last_username.target_path'));
         die('asd');
 //        $request->start();
 //        var_dump($request->get('test'));
