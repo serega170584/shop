@@ -27,7 +27,7 @@ class IndexController extends AbstractController
      * @param MigratingSessionHandler $request
      * @return Response
      */
-    public function index(MigratingSessionHandler $request): Response
+    public function index(\SessionHandlerInterface $request): Response
     {
         var_dump($request->read('abc'));
         $request->write('abc', 'dasdasdasdasdasdsad');
