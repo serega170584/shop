@@ -27,12 +27,12 @@ class IndexController extends AbstractController
     /**
      * @Route("/", name="index")
      * @param Request $request
-     * @param NativeSessionStorage $sessionStorage
      * @return Response
      */
     public function index(Request $request): Response
     {
-        var_dump($request->getSession()->get('test1122'));
+        var_dump($request->cookies->get('test'));
+        $request->cookies->set('test', 88888888888888888888);
 //        $request->getSession()->set('test1122', 123123);
 //        $sessionStorage->setOptions()
 //        $request->getSession()->migrate();
