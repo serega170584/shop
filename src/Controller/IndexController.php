@@ -29,7 +29,7 @@ class IndexController extends AbstractController
      */
     public function index(\Symfony\Component\HttpFoundation\Session\SessionInterface $request): Response
     {
-        $request->start();
+//        $request->start();
         var_dump($request->get('test'));
         $request->set('test', 123123123);
 //        var_dump($request->read('abc'));
