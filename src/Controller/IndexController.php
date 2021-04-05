@@ -13,16 +13,26 @@ use App\Repository\NewsRepository;
 use App\Repository\ProductRepository;
 use App\Repository\VideoRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Cookie;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 class IndexController extends AbstractController
 {
     /**
      * @Route("/", name="index")
+     * @param SessionInterface $session
+     * @return Response
      */
-    public function index(): Response
+    public function index(SessionInterface $session): Response
     {
+        var_dump($session);
+        die('asd');
+//        $cookie = Cookie::create('foo')
+//            ->withValue('bar')
+//            ->withExpires(time() + 15 * 60);
+//        Cookie::
         /**
          * @var CategoryRepository $repository
          */
