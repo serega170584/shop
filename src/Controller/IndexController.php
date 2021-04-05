@@ -27,7 +27,7 @@ class IndexController extends AbstractController
      */
     public function index(SessionInterface $session): Response
     {
-        var_dump($session);
+        var_dump($session->all());
         die('asd');
 //        $cookie = Cookie::create('foo')
 //            ->withValue('bar')
