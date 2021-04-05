@@ -30,11 +30,11 @@ class IndexController extends AbstractController
     public function index(\Symfony\Component\HttpFoundation\Session\SessionInterface $request): Response
     {
 //        $request->start();
-        var_dump($request->get('test'));
-        $request->set('test', 4444);
+//        var_dump($request->get('test'));
+//        $request->set('test', 4444);
 //        var_dump($request->read('abc'));
 //        $request->write('abc', 'dasdasdasdasdasdsad');
-        die('asd');
+//        die('asd');
 //        $cookie = Cookie::create('foo')
 //            ->withValue('bar')
 //            ->withExpires(time() + 15 * 60);
