@@ -17,19 +17,20 @@ use Symfony\Component\HttpFoundation\Cookie;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\HttpFoundation\Session\Storage\Handler\MigratingSessionHandler;
 use Symfony\Component\Routing\Annotation\Route;
 
 class IndexController extends AbstractController
 {
     /**
      * @Route("/", name="index")
-     * @param Request $request
+     * @param MigratingSessionHandler $request
      * @return Response
      */
-    public function index(Request $request): Response
+    public function index(MigratingSessionHandler $request): Response
     {
-        var_dump($request->cookies->all());
-        $request->cookies->set('new', '123');
+        var_dump($request->read('abc'));
+        $request->write('abc', 'dasdasdasdasdasdsad');
         die('asd');
 //        $cookie = Cookie::create('foo')
 //            ->withValue('bar')
