@@ -31,7 +31,7 @@ class IndexController extends AbstractController
     {
 //        $request->start();
         var_dump($request->get('test'));
-        $request->set('test', 123123123);
+        $request->set('test', 4444);
 //        var_dump($request->read('abc'));
 //        $request->write('abc', 'dasdasdasdasdasdsad');
         die('asd');
