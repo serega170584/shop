@@ -48,6 +48,7 @@ class IndexController extends AbstractController
         $repository = $this->getDoctrine()->getManager()
             ->getRepository(Product::class);
         $products = $repository->findPopular();
+        $sliderProducts = $repository->findIsSlider();
         /**
          * @var NewsRepository $repository
          */
@@ -61,7 +62,8 @@ class IndexController extends AbstractController
             'events' => $events,
             'firstVideo' => $firstVideo,
             'videos' => $videos,
-            'news' => $news
+            'news' => $news,
+            'sliderProducts' => $sliderProducts
         ]);
     }
 
