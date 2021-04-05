@@ -27,8 +27,10 @@ class IndexController extends AbstractController
      * @param SessionInterface $request
      * @return Response
      */
-    public function index(\Symfony\Component\HttpFoundation\Session\SessionInterface $request): Response
+    public function index(Request $request): Response
     {
+        var_dump($request->getSession()->all());
+        die('asd');
 //        $request->start();
 //        var_dump($request->get('test'));
 //        $request->set('test', 4444);
