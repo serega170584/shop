@@ -18,18 +18,25 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpFoundation\Session\Storage\Handler\MigratingSessionHandler;
+use Symfony\Component\HttpFoundation\Session\Storage\NativeSessionStorage;
+use Symfony\Component\HttpFoundation\Session\Storage\SessionStorageInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 class IndexController extends AbstractController
 {
     /**
      * @Route("/", name="index")
-     * @param SessionInterface $request
+     * @param Request $request
+     * @param NativeSessionStorage $sessionStorage
      * @return Response
      */
-    public function index(Request $request): Response
+    public function index(Request $request, NativeSessionStorage $sessionStorage): Response
     {
-        var_dump($request->getSession()->get('_security.last_username.target_path'));
+        var_dump($request->getSession()->get('test'));
+        $request->getSession()->set('test', 123123);
+//        $sessionStorage->setOptions()
+//        $request->getSession()->migrate();
+//        var_dump($request->getSession()->get('_security.last_username.target_path'));
         die('asd');
 //        $request->start();
 //        var_dump($request->get('test'));
