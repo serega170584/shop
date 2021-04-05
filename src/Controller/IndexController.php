@@ -30,7 +30,7 @@ class IndexController extends AbstractController
      * @param NativeSessionStorage $sessionStorage
      * @return Response
      */
-    public function index(Request $request, NativeSessionStorage $sessionStorage): Response
+    public function index(Request $request): Response
     {
         var_dump($request->getSession()->get('test'));
         $request->getSession()->set('test', 123123);
