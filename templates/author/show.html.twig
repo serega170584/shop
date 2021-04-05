@@ -1,4 +1,5 @@
 {% extends 'frontend/page.html.twig' %}
+{% block title %}{{ author.getTitle() }}{% endblock %}
 {% block breadcrumbs %}
     <ul class="page-depth">
         <li><a href="{{ path('index') }}">Главная</a></li>
