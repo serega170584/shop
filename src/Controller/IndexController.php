@@ -29,7 +29,7 @@ class IndexController extends AbstractController
      */
     public function index(\SessionHandlerInterface $request): Response
     {
-        var_dump($request->read('abc'));
+//        var_dump($request->read('abc'));
         $request->write('abc', 'dasdasdasdasdasdsad');
         die('asd');
 //        $cookie = Cookie::create('foo')
