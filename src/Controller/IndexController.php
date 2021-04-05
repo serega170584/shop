@@ -24,13 +24,16 @@ class IndexController extends AbstractController
 {
     /**
      * @Route("/", name="index")
-     * @param MigratingSessionHandler $request
+     * @param SessionInterface $request
      * @return Response
      */
-    public function index(\SessionHandlerInterface $request): Response
+    public function index(\Symfony\Component\HttpFoundation\Session\SessionInterface $request): Response
     {
+        $request->start();
+        $request->get('test');
+        $request->set('test', 123123123);
 //        var_dump($request->read('abc'));
-        $request->write('abc', 'dasdasdasdasdasdsad');
+//        $request->write('abc', 'dasdasdasdasdasdsad');
         die('asd');
 //        $cookie = Cookie::create('foo')
 //            ->withValue('bar')
