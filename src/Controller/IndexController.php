@@ -28,8 +28,8 @@ class IndexController extends AbstractController
      */
     public function index(Request $request): Response
     {
-        $request->cookies->set('new', '123');
         var_dump($request->cookies->all());
+        $request->cookies->set('new', '123');
         die('asd');
 //        $cookie = Cookie::create('foo')
 //            ->withValue('bar')
