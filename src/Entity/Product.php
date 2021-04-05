@@ -86,6 +86,11 @@ class Product
      */
     private $author;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isSlider;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -247,6 +252,18 @@ class Product
     public function setAuthor(?Author $author): self
     {
         $this->author = $author;
+
+        return $this;
+    }
+
+    public function getIsSlider(): ?bool
+    {
+        return $this->isSlider;
+    }
+
+    public function setIsSlider(bool $isSlider): self
+    {
+        $this->isSlider = $isSlider;
 
         return $this;
     }
