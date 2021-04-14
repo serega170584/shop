@@ -10,7 +10,7 @@ framework:
         handler_id: session.handler.native_file
         cookie_secure: auto
         cookie_samesite: lax
-        cookie_lifetime: 3600
+        cookie_lifetime: 0
         gc_probability: 1
         gc_divisor: 1
         gc_maxlifetime: 60
