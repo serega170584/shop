@@ -31,6 +31,7 @@ class IndexController extends AbstractController
      */
     public function index(Request $request): Response
     {
+        $request->getSession()->start();
         var_dump($request->getSession()->getId());
 //        $request->getSession()->set('test1122', 88888888888888888888);
 //        $request->getSession()->set('test1122', 123123);
