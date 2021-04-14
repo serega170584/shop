@@ -32,9 +32,8 @@ class IndexController extends AbstractController
     public function index(Request $request): Response
     {
         $request->getSession()->start();
-        $request->getSession()->migrate();
-        var_dump(time() - $request->getSession()->getMetadataBag()->getLastUsed());
-        if ((time() - $request->getSession()->getMetadataBag()->getCreated()) < $request->getSession()->getMetadataBag()->getLifetime()) {
+        var_dump($request->getSession()->getId());
+        if ((time() - $request->getSession()->getMetadataBag()->getLastUsed()) < $request->getSession()->getMetadataBag()->getLifetime()) {
             $request->getSession()->invalidate();
             $request->getSession()->setId($request->getSession()->getId());
         }
