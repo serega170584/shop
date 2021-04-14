@@ -34,7 +34,7 @@ class IndexController extends AbstractController
         $request->getSession()->start();
         var_dump($request->getSession()->getId());
 //        if ((time() - $request->getSession()->getMetadataBag()->getLastUsed()) < $request->getSession()->getMetadataBag()->getLifetime()) {
-            $request->getSession()->invalidate();
+            $request->getSession()->clear();
         $request->getSession()->setId('123456789');
 //        }
 //        $request->getSession()->setId()
