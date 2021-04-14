@@ -33,7 +33,11 @@ class IndexController extends AbstractController
     {
         $request->getSession()->start();
         $request->getSession()->migrate();
-        var_dump($request->getSession()->getMetadataBag()->getLifetime());
+        var_dump($request->getSession()->getMetadataBag()->getCreated());
+        if (time() - $request->getSession()->getMetadataBag()->getCreated() < $request->getSession()->getMetadataBag()->getLifetime()) {
+            $request->getSession()->setId($request->getSession()->getId());
+        }
+//        $request->getSession()->setId()
 //        $request->getSession()->set('test1122', 88888888888888888888);
 //        $request->getSession()->set('test1122', 123123);
 //        $sessionStorage->setOptions()
