@@ -10,7 +10,7 @@ framework:
         handler_id: null
         cookie_secure: auto
         cookie_samesite: lax
-        cookie_lifetime: 100000
+        cookie_lifetime: 60
         gc_probability: 1
         gc_divisor: 1
         gc_maxlifetime: 60
