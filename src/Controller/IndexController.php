@@ -33,6 +33,7 @@ class IndexController extends AbstractController
     {
         $request->getSession()->start();
         var_dump($request->getSession()->getId());
+        $request->getSession()->invalidate();
 //        $request->getSession()->set('test1122', 88888888888888888888);
 //        $request->getSession()->set('test1122', 123123);
 //        $sessionStorage->setOptions()
