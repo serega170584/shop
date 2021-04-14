@@ -11,10 +11,10 @@ framework:
         cookie_secure: auto
         cookie_samesite: lax
         cookie_lifetime: 60
-        gc_probability: 1
-        gc_divisor: 1
-        gc_maxlifetime: 60
-        save_path: "%kernel.cache_dir%/sessions"
+#        gc_probability: 1
+#        gc_divisor: 1
+#        gc_maxlifetime: 60
+#        save_path: "%kernel.cache_dir%/sessions"
     #esi: true
     #fragments: true
     php_errors:
