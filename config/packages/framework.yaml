@@ -12,6 +12,7 @@ framework:
         cookie_samesite: lax
         cookie_lifetime: 100000
         gc_probability: 1
+        gc_divisor: 1
         gc_maxlifetime: 60
     #esi: true
     #fragments: true
