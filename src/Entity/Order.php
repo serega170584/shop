@@ -41,7 +41,7 @@ class Order
     private $sessionOrderItems;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Status::class, inversedBy="productOrders")
+     * @ORM\ManyToOne(targetEntity=OrderStatus::class, inversedBy="productOrders")
      * @ORM\JoinColumn(nullable=false)
      */
     private $orderStatus;
