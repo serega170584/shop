@@ -42,6 +42,12 @@ class OrderItem
      */
     private $count;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Order::class, inversedBy="orderItems")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $productOrder;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -103,6 +109,18 @@ class OrderItem
     public function setCount(int $count): self
     {
         $this->count = $count;
+
+        return $this;
+    }
+
+    public function getProductOrder(): ?Order
+    {
+        return $this->productOrder;
+    }
+
+    public function setProductOrder(?Order $productOrder): self
+    {
+        $this->productOrder = $productOrder;
 
         return $this;
     }

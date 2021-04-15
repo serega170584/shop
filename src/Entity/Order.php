@@ -48,9 +48,15 @@ class Order
      */
     private $orderStatus;
 
+    /**
+     * @ORM\OneToMany(targetEntity=OrderItem::class, mappedBy="productOrder")
+     */
+    private $orderItems;
+
     public function __construct()
     {
         $this->sessionOrderItems = new ArrayCollection();
+        $this->orderItems = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -132,6 +138,36 @@ class Order
     public function setOrderStatus(OrderStatus $orderStatus): self
     {
         $this->orderStatus = $orderStatus;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|OrderItem[]
+     */
+    public function getOrderItems(): Collection
+    {
+        return $this->orderItems;
+    }
+
+    public function addOrderItem(OrderItem $orderItem): self
+    {
+        if (!$this->orderItems->contains($orderItem)) {
+            $this->orderItems[] = $orderItem;
+            $orderItem->setProductOrder($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOrderItem(OrderItem $orderItem): self
+    {
+        if ($this->orderItems->removeElement($orderItem)) {
+            // set the owning side to null (unless already changed)
+            if ($orderItem->getProductOrder() === $this) {
+                $orderItem->setProductOrder(null);
+            }
+        }
 
         return $this;
     }
