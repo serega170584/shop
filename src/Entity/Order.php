@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass=OrderRepository::class)
  * @ORM\Table(name="`order`", uniqueConstraints={
- *      @ORM\UniqueConstraint(name="sessionCreatedAt", columns={"sessionId", "createdAt"})
+ *      @ORM\UniqueConstraint(name="sessionCreatedAt", columns={"session_id", "created_at"})
  * })
  */
 class Order
