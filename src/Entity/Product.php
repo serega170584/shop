@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ProductRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -90,6 +92,16 @@ class Product
      * @ORM\Column(type="boolean")
      */
     private $isSlider;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=SessionOrderItem::class, mappedBy="product")
+     */
+    private $sessionOrderItems;
+
+    public function __construct()
+    {
+        $this->sessionOrderItems = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -264,6 +276,33 @@ class Product
     public function setIsSlider(bool $isSlider): self
     {
         $this->isSlider = $isSlider;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|SessionOrderItem[]
+     */
+    public function getSessionOrderItems(): Collection
+    {
+        return $this->sessionOrderItems;
+    }
+
+    public function addSessionOrderItem(SessionOrderItem $sessionOrderItem): self
+    {
+        if (!$this->sessionOrderItems->contains($sessionOrderItem)) {
+            $this->sessionOrderItems[] = $sessionOrderItem;
+            $sessionOrderItem->addProduct($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSessionOrderItem(SessionOrderItem $sessionOrderItem): self
+    {
+        if ($this->sessionOrderItems->removeElement($sessionOrderItem)) {
+            $sessionOrderItem->removeProduct($this);
+        }
 
         return $this;
     }
