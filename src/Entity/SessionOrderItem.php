@@ -9,6 +9,9 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=SessionOrderItemRepository::class)
+ * @ORM\Table(name="`session_order_item`", uniqueConstraints={
+ *      @ORM\UniqueConstraint(name="productOrder", columns={"product_id", "product_order_id"})
+ * })
  */
 class SessionOrderItem
 {
