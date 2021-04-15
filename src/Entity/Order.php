@@ -6,16 +6,12 @@ use App\Repository\OrderRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass=OrderRepository::class)
- * @ORM\Table(name="`order`")
- * @UniqueEntity(
- *     fields={"sessionId", "createdAt"},
- *     errorPath="sessionId",
- *     message="This session id and date is already in use."
- * )
+ * @ORM\Table(name="`order`", uniqueConstraints={
+ *      @ORM\UniqueConstraint(name="sessionCreatedAt", columns={"sessionId", "createdAt"})
+ * })
  */
 class Order
 {
