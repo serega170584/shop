@@ -31,29 +31,6 @@ class IndexController extends AbstractController
      */
     public function index(Request $request): Response
     {
-        $request->getSession()->start();
-        var_dump($request->getSession()->getId());
-//        if ((time() - $request->getSession()->getMetadataBag()->getLastUsed()) < $request->getSession()->getMetadataBag()->getLifetime()) {
-//            $request->getSession()->clear();
-//        $request->getSession()->setId('123456789');
-//        }
-//        $request->getSession()->setId()
-//        $request->getSession()->set('test1122', 88888888888888888888);
-//        $request->getSession()->set('test1122', 123123);
-//        $sessionStorage->setOptions()
-//        $request->getSession()->migrate();
-//        var_dump($request->getSession()->get('_security.last_username.target_path'));
-        die('asd');
-//        $request->start();
-//        var_dump($request->get('test'));
-//        $request->set('test', 4444);
-//        var_dump($request->read('abc'));
-//        $request->write('abc', 'dasdasdasdasdasdsad');
-//        die('asd');
-//        $cookie = Cookie::create('foo')
-//            ->withValue('bar')
-//            ->withExpires(time() + 15 * 60);
-//        Cookie::
         /**
          * @var CategoryRepository $repository
          */
