@@ -21,14 +21,9 @@ class Order
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, unique=true)
      */
     private $sessionId;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $slug;
 
     /**
      * @ORM\Column(type="datetime")
@@ -46,14 +41,14 @@ class Order
     private $sessionOrderItems;
 
     /**
-     * @ORM\ManyToMany(targetEntity=OrderStatus::class, mappedBy="productOrder")
+     * @ORM\ManyToOne(targetEntity=Status::class, inversedBy="productOrders")
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $orderStatuses;
+    private $orderStatus;
 
     public function __construct()
     {
         $this->sessionOrderItems = new ArrayCollection();
-        $this->orderStatuses = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -73,19 +68,7 @@ class Order
         return $this;
     }
 
-    public function getSlug(): ?string
-    {
-        return $this->slug;
-    }
-
-    public function setSlug(string $slug): self
-    {
-        $this->slug = $slug;
-
-        return $this;
-    }
-
-    public function getCreatedAt(): ?\DateTimeInterface
+   public function getCreatedAt(): ?\DateTimeInterface
     {
         return $this->createdAt;
     }
@@ -139,29 +122,14 @@ class Order
         return $this;
     }
 
-    /**
-     * @return Collection|OrderStatus[]
-     */
-    public function getOrderStatuses(): Collection
+    public function getOrderStatus(): OrderStatus
     {
-        return $this->orderStatuses;
+        return $this->orderStatus;
     }
 
-    public function addOrderStatus(OrderStatus $orderStatus): self
+    public function setOrderStatus(OrderStatus $orderStatus): self
     {
-        if (!$this->orderStatuses->contains($orderStatus)) {
-            $this->orderStatuses[] = $orderStatus;
-            $orderStatus->addProductOrder($this);
-        }
-
-        return $this;
-    }
-
-    public function removeOrderStatus(OrderStatus $orderStatus): self
-    {
-        if ($this->orderStatuses->removeElement($orderStatus)) {
-            $orderStatus->removeProductOrder($this);
-        }
+        $this->orderStatus = $orderStatus;
 
         return $this;
     }

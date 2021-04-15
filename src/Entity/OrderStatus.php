@@ -20,7 +20,7 @@ class OrderStatus
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, unique=true)
      */
     private $title;
 
@@ -35,18 +35,18 @@ class OrderStatus
     private $updatedAt;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, unique=true)
      */
     private $slug;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Order::class, inversedBy="orderStatuses")
+     * @ORM\OneToMany(targetEntity=Order::class, mappedBy="orderStatus")
      */
-    private $productOrder;
+    private $orders;
 
     public function __construct()
     {
-        $this->productOrder = new ArrayCollection();
+        $this->orders = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -105,24 +105,31 @@ class OrderStatus
     /**
      * @return Collection|Order[]
      */
-    public function getProductOrder(): Collection
+    public function getOrders(): Collection
     {
-        return $this->productOrder;
+        return $this->orders;
     }
 
-    public function addProductOrder(Order $productOrder): self
+    public function addOrder(Order $order): self
     {
-        if (!$this->productOrder->contains($productOrder)) {
-            $this->productOrder[] = $productOrder;
+        if (!$this->orders->contains($order)) {
+            $this->orders[] = $order;
+            $order->setOrderStatus($this);
         }
 
         return $this;
     }
 
-    public function removeProductOrder(Order $productOrder): self
+    public function removeOrder(Order $order): self
     {
-        $this->productOrder->removeElement($productOrder);
+        if ($this->orders->removeElement($order)) {
+            // set the owning side to null (unless already changed)
+            if ($order->getOrderStatus() === $this) {
+                $order->setOrderStatus(null);
+            }
+        }
 
         return $this;
     }
+
 }

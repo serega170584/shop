@@ -292,7 +292,7 @@ class Product
     {
         if (!$this->sessionOrderItems->contains($sessionOrderItem)) {
             $this->sessionOrderItems[] = $sessionOrderItem;
-            $sessionOrderItem->addProduct($this);
+            $sessionOrderItem->setProduct($this);
         }
 
         return $this;
@@ -301,7 +301,10 @@ class Product
     public function removeSessionOrderItem(SessionOrderItem $sessionOrderItem): self
     {
         if ($this->sessionOrderItems->removeElement($sessionOrderItem)) {
-            $sessionOrderItem->removeProduct($this);
+            // set the owning side to null (unless already changed)
+            if ($sessionOrderItem->getProductOrder() === $this) {
+                $sessionOrderItem->setProductOrder(null);
+            }
         }
 
         return $this;

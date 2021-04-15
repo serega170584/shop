@@ -28,11 +28,6 @@ class OrderItem
     private $price;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $slug;
-
-    /**
      * @ORM\Column(type="datetime")
      */
     private $createdAt;
@@ -72,18 +67,6 @@ class OrderItem
     public function setPrice(float $price): self
     {
         $this->price = $price;
-
-        return $this;
-    }
-
-    public function getSlug(): ?string
-    {
-        return $this->slug;
-    }
-
-    public function setSlug(string $slug): self
-    {
-        $this->slug = $slug;
 
         return $this;
     }

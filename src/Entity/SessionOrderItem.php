@@ -20,7 +20,8 @@ class SessionOrderItem
     private $id;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Product::class, inversedBy="sessionOrderItems")
+     * @ORM\ManyToOne(targetEntity=Product::class, inversedBy="sessionOrderItems")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $product;
 
@@ -35,36 +36,19 @@ class SessionOrderItem
      */
     private $productOrder;
 
-    public function __construct()
-    {
-        $this->product = new ArrayCollection();
-    }
-
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    /**
-     * @return Collection|Product[]
-     */
-    public function getProduct(): Collection
+    public function getProduct(): ?Product
     {
         return $this->product;
     }
 
-    public function addProduct(Product $product): self
+    public function setProduct(?Product $product): self
     {
-        if (!$this->product->contains($product)) {
-            $this->product[] = $product;
-        }
-
-        return $this;
-    }
-
-    public function removeProduct(Product $product): self
-    {
-        $this->product->removeElement($product);
+        $this->product = $product;
 
         return $this;
     }
