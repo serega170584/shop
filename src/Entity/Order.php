@@ -10,6 +10,11 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass=OrderRepository::class)
  * @ORM\Table(name="`order`")
+ * @UniqueEntity(
+ *     fields={"sessionId", "createdAt"},
+ *     errorPath="sessionId",
+ *     message="This session id and date is already in use."
+ * )
  */
 class Order
 {
@@ -21,7 +26,7 @@ class Order
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255, unique=true)
+     * @ORM\Column(type="string", length=255)
      */
     private $sessionId;
 
