@@ -7,6 +7,7 @@ use App\Entity\Event;
 use App\Entity\News;
 use App\Entity\Product;
 use App\Entity\Video;
+use App\Form\Type\ProductAddFormType;
 use App\Repository\CategoryRepository;
 use App\Repository\EventRepository;
 use App\Repository\NewsRepository;
@@ -63,6 +64,7 @@ class IndexController extends AbstractController
         $repository = $this->getDoctrine()->getManager()
             ->getRepository(News::class);
         $news = $repository->findLastRows(4);
+        $form = $this->createForm(ProductAddFormType::class);
         return $this->render('index/index.html.twig', [
             'controller_name' => 'IndexController',
             'categories' => $categories,
@@ -71,7 +73,8 @@ class IndexController extends AbstractController
             'firstVideo' => $firstVideo,
             'videos' => $videos,
             'news' => $news,
-            'sliderProducts' => $sliderProducts
+            'sliderProducts' => $sliderProducts,
+            'form' => $form
         ]);
     }
 
