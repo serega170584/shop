@@ -28,11 +28,6 @@ class BasketItem
     private $product;
 
     /**
-     * @ORM\Column(type="integer")
-     */
-    private $quantity;
-
-    /**
      * @ORM\ManyToOne(targetEntity=Basket::class, inversedBy="basketItems")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -61,18 +56,6 @@ class BasketItem
     public function setProduct(?Product $product): self
     {
         $this->product = $product;
-
-        return $this;
-    }
-
-    public function getQuantity(): ?int
-    {
-        return $this->quantity;
-    }
-
-    public function setQuantity(int $quantity): self
-    {
-        $this->quantity = $quantity;
 
         return $this;
     }
