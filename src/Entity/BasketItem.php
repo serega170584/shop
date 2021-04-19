@@ -7,6 +7,9 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=BasketItemRepository::class)
+ * @ORM\Table(name="`basket_item`", uniqueConstraints={
+ *      @ORM\UniqueConstraint(name="productBasket", columns={"product_id", "basket_id"})
+ * })
  */
 class BasketItem
 {
