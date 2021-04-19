@@ -64,7 +64,9 @@ class IndexController extends AbstractController
         $repository = $this->getDoctrine()->getManager()
             ->getRepository(News::class);
         $news = $repository->findLastRows(4);
-        $form = $this->createForm(ProductAddFormType::class);
+        $form = $this->createForm(ProductAddFormType::class, null, [
+            'action' => $this->generateUrl('productAdd')
+        ]);
         return $this->render('index/index.html.twig', [
             'controller_name' => 'IndexController',
             'categories' => $categories,
@@ -76,6 +78,14 @@ class IndexController extends AbstractController
             'sliderProducts' => $sliderProducts,
             'form' => $form->createView()
         ]);
+    }
+
+    /**
+     * @Route("/productAdd", name="productAdd")
+     */
+    public function productAdd()
+    {
+
     }
 
     /**
