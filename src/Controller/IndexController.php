@@ -67,6 +67,8 @@ class IndexController extends AbstractController
         $form = $this->createForm(ProductAddFormType::class, null, [
             'action' => $this->generateUrl('productAdd')
         ]);
+        var_dump($form->getData());
+        die('asd');
         return $this->render('index/index.html.twig', [
             'controller_name' => 'IndexController',
             'categories' => $categories,
