@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="`basket_item`", uniqueConstraints={
  *      @ORM\UniqueConstraint(name="productBasket", columns={"product_id", "basket_id"})
  * })
+ * @ORM\HasLifecycleCallbacks()
  */
 class BasketItem
 {
@@ -100,6 +101,14 @@ class BasketItem
         return $this;
     }
 
+    /**
+     * @ORM\PrePersist
+     */
+    public function setCreatedAtValue()
+    {
+        $this->createdAt = new \DateTime();
+    }
+
     public function getUpdatedAt(): ?\DateTimeInterface
     {
         return $this->updatedAt;
@@ -110,5 +119,14 @@ class BasketItem
         $this->updatedAt = $updatedAt;
 
         return $this;
+    }
+
+    /**
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+    public function setUpdatedAtValue()
+    {
+        $this->updatedAt = new \DateTime();
     }
 }
