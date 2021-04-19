@@ -74,7 +74,7 @@ class IndexController extends AbstractController
             'videos' => $videos,
             'news' => $news,
             'sliderProducts' => $sliderProducts,
-            'form' => $form
+            'form' => $form->createView()
         ]);
     }
 
