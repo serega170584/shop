@@ -38,11 +38,6 @@ class Order
     private $updatedAt;
 
     /**
-     * @ORM\OneToMany(targetEntity=SessionOrderItem::class, mappedBy="productOrder")
-     */
-    private $sessionOrderItems;
-
-    /**
      * @ORM\ManyToOne(targetEntity=OrderStatus::class, inversedBy="productOrders")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -55,7 +50,6 @@ class Order
 
     public function __construct()
     {
-        $this->sessionOrderItems = new ArrayCollection();
         $this->orderItems = new ArrayCollection();
     }
 
@@ -76,7 +70,7 @@ class Order
         return $this;
     }
 
-   public function getCreatedAt(): ?\DateTimeInterface
+    public function getCreatedAt(): ?\DateTimeInterface
     {
         return $this->createdAt;
     }
@@ -96,36 +90,6 @@ class Order
     public function setUpdatedAt(\DateTimeInterface $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|SessionOrderItem[]
-     */
-    public function getSessionOrderItems(): Collection
-    {
-        return $this->sessionOrderItems;
-    }
-
-    public function addSessionOrderItem(SessionOrderItem $sessionOrderItem): self
-    {
-        if (!$this->sessionOrderItems->contains($sessionOrderItem)) {
-            $this->sessionOrderItems[] = $sessionOrderItem;
-            $sessionOrderItem->setProductOrder($this);
-        }
-
-        return $this;
-    }
-
-    public function removeSessionOrderItem(SessionOrderItem $sessionOrderItem): self
-    {
-        if ($this->sessionOrderItems->removeElement($sessionOrderItem)) {
-            // set the owning side to null (unless already changed)
-            if ($sessionOrderItem->getProductOrder() === $this) {
-                $sessionOrderItem->setProductOrder(null);
-            }
-        }
 
         return $this;
     }
