@@ -93,16 +93,6 @@ class Product
      */
     private $isSlider;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=SessionOrderItem::class, mappedBy="product")
-     */
-    private $sessionOrderItems;
-
-    public function __construct()
-    {
-        $this->sessionOrderItems = new ArrayCollection();
-    }
-
     public function getId(): ?int
     {
         return $this->id;
@@ -276,36 +266,6 @@ class Product
     public function setIsSlider(bool $isSlider): self
     {
         $this->isSlider = $isSlider;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|SessionOrderItem[]
-     */
-    public function getSessionOrderItems(): Collection
-    {
-        return $this->sessionOrderItems;
-    }
-
-    public function addSessionOrderItem(SessionOrderItem $sessionOrderItem): self
-    {
-        if (!$this->sessionOrderItems->contains($sessionOrderItem)) {
-            $this->sessionOrderItems[] = $sessionOrderItem;
-            $sessionOrderItem->setProduct($this);
-        }
-
-        return $this;
-    }
-
-    public function removeSessionOrderItem(SessionOrderItem $sessionOrderItem): self
-    {
-        if ($this->sessionOrderItems->removeElement($sessionOrderItem)) {
-            // set the owning side to null (unless already changed)
-            if ($sessionOrderItem->getProductOrder() === $this) {
-                $sessionOrderItem->setProductOrder(null);
-            }
-        }
 
         return $this;
     }
