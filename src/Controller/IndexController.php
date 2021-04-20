@@ -81,9 +81,17 @@ class IndexController extends AbstractController
     /**
      * @Route("/productAdd", name="productAdd")
      */
-    public function productAdd()
+    public function productAdd(Request $request)
     {
-
+        $form = $this->createForm(ProductAddFormType::class);
+        $form->handleRequest($request);
+        $count = 0;
+        $text = '';
+        if ($form->isSubmitted() && $form->isValid()) {
+            var_dump($form->get('productId'));
+            die('asd');
+        }
+        return $this->json(['count' => $count, 'text' => $text]);
     }
 
     /**

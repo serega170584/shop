@@ -327,9 +327,17 @@
 {% block pageJavascripts %}
     <script>
         $(function () {
+            let productIdInput = $('#{{ form.productId.vars.id }}');
             $('.button-one').click(function (e) {
                 e.preventDefault();
-                $('#{{ form.productId.vars.id }}').val($(this).data('id'));
+                $(productIdInput).val($(this).data('id'));
+                $(productIdInput).closest('form').submit();
+            });
+            $(productIdInput).closest('form').submit(function (e) {
+                e.preventDefault();
+                $.post($(this).getAttr('action'), $(this).serialize(), function (data) {
+                    console.log(data);
+                });
             });
         });
     </script>
