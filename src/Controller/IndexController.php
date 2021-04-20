@@ -30,7 +30,7 @@ class IndexController extends AbstractController
      * @param Request $request
      * @return Response
      */
-    public function index(Request $request): Response
+    public function index(Request $request, Category $cat): Response
     {
         /**
          * @var CategoryRepository $repository
