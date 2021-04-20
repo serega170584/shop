@@ -7,6 +7,7 @@ use App\Entity\Event;
 use App\Entity\News;
 use App\Entity\Product;
 use App\Entity\Video;
+use App\Factory\CategoryFactory;
 use App\Form\Type\ProductAddFormType;
 use App\Repository\CategoryRepository;
 use App\Repository\EventRepository;
@@ -30,7 +31,7 @@ class IndexController extends AbstractController
      * @param Request $request
      * @return Response
      */
-    public function index(Request $request): Response
+    public function index(Request $request, CategoryFactory $cat): Response
     {
         /**
          * @var CategoryRepository $repository
