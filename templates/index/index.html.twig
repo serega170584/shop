@@ -322,5 +322,11 @@
                 });
             }
         }); /*ready*/
+        $(function () {
+            $('.button-one').click(function (e) {
+                e.preventDefault();
+                console.log('123');
+            });
+        });
     </script>
 {% endblock %}
