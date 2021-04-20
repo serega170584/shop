@@ -329,7 +329,7 @@
         $(function () {
             $('.button-one').click(function (e) {
                 e.preventDefault();
-                $('#{{ form.productId.vars.id }}').val($(this.data('id')));
+                $('#{{ form.productId.vars.id }}').val($(this).data('id'));
             });
         });
     </script>
