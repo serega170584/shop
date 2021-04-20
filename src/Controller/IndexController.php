@@ -13,7 +13,6 @@ use App\Repository\EventRepository;
 use App\Repository\NewsRepository;
 use App\Repository\ProductRepository;
 use App\Repository\VideoRepository;
-use App\Service\MessageGenerator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Cookie;
 use Symfony\Component\HttpFoundation\Request;
@@ -31,9 +30,8 @@ class IndexController extends AbstractController
      * @param Request $request
      * @return Response
      */
-    public function index(Request $request, MessageGenerator $generator): Response
+    public function index(Request $request): Response
     {
-        die('asd');
         /**
          * @var CategoryRepository $repository
          */

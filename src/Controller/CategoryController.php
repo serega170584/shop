@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class CategoryController
 {
     /**
-     * @Route("/category/{slug}", name="category")
+     * @Route("/category111111111/{slug}", name="category")
      * @param Environment $twig
      * @param Category $category
      * @param ProductRepository $productRepository
