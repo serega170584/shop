@@ -33,10 +33,6 @@ class IndexController extends AbstractController
      */
     public function index(Request $request, CategoryFactory $cat): Response
     {
-        $cat1=$cat->getCat();
-        $cat2=$cat->getCat();
-        var_dump($cat1===$cat2);
-        die('asd');
         /**
          * @var CategoryRepository $repository
          */
