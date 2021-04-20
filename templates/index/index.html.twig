@@ -335,10 +335,9 @@
             });
             $(productIdInput).closest('form').submit(function (e) {
                 e.preventDefault();
-                console.log($(this).attr('action'));
-                // $.post($(this).getAttr('action'), $(this).serialize(), function (data) {
-                //     console.log(data);
-                // });
+                $.post($(this).attr('action'), $(this).serialize(), function (data) {
+                    console.log(data);
+                });
             });
         });
     </script>
