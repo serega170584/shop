@@ -64,9 +64,7 @@ class IndexController extends AbstractController
         $repository = $this->getDoctrine()->getManager()
             ->getRepository(News::class);
         $news = $repository->findLastRows(4);
-        $form = $this->createForm(ProductAddFormType::class, null, [
-            'action' => $this->generateUrl('productAdd')
-        ]);
+        $form = $this->createForm(ProductAddFormType::class);
         return $this->render('index/index.html.twig', [
             'controller_name' => 'IndexController',
             'categories' => $categories,
