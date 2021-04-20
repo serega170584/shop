@@ -91,6 +91,7 @@ class IndexController extends AbstractController
             var_dump($form->get('productId')->getData());
             die('asd');
         }
+        var_dump($form->getErrors());
         return $this->json(['count' => $count, 'text' => $text]);
     }
 
