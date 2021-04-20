@@ -30,8 +30,9 @@ class IndexController extends AbstractController
      * @param Request $request
      * @return Response
      */
-    public function index(Request $request): Response
+    public function index(Request $request, Product $product): Response
     {
+        die('asd');
         /**
          * @var CategoryRepository $repository
          */
