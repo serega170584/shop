@@ -3,3 +3,11 @@
     {{ form_row(form.productId) }}
     {{ form_end(form) }}
 {% endblock %}
+<script>
+    $(function(){
+        $('#{{ form.productId.vars.id }}').click(function(e){
+            e.preventDefault();
+            console.log('123');
+        });
+    });
+</script>
