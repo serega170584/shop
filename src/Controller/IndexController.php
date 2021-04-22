@@ -98,9 +98,9 @@ class IndexController extends AbstractController
             if (!($basket = $repository->findOneBy(['session_id' => $sessionId]))) {
                 $basket = $factory->getBasket();
             }
-            $basket->setSessionId($sessionId);
-            $entityManager->persist($basket);
-            $entityManager->flush();
+//            $basket->setSessionId($sessionId);
+//            $entityManager->persist($basket);
+//            $entityManager->flush();
             die('asd');
         }
         var_dump($form->isSubmitted());
