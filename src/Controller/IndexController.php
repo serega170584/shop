@@ -95,7 +95,7 @@ class IndexController extends AbstractController
         $entityManager = $this->getDoctrine()->getManager();
         if ($form->isSubmitted() && $form->isValid()) {
             $sessionId = $request->getSession()->getId();
-            if (!($basket = $repository->findOneBy(['session_id' => $sessionId]))) {
+            if (!($basket = $repository->findOneBy(['sessionId' => $sessionId]))) {
                 $basket = $factory->getBasket();
             }
 //            $basket->setSessionId($sessionId);
