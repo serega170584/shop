@@ -89,7 +89,7 @@ class IndexController extends AbstractController
         $count = 0;
         $text = '';
         if ($form->isSubmitted() && $form->isValid()) {
-            var_dump($form->getNormData());
+            echo $form->getNormData()['productId'];
 //            var_dump($form->get('productId')->getData());
             die('asd');
         }
