@@ -8,7 +8,9 @@ use App\Entity\News;
 use App\Entity\Product;
 use App\Entity\Video;
 use App\Factory\BasketFactory;
+use App\Factory\BasketItemFactory;
 use App\Form\Type\ProductAddFormType;
+use App\Repository\BasketItemRepository;
 use App\Repository\BasketRepository;
 use App\Repository\CategoryRepository;
 use App\Repository\EventRepository;
@@ -85,9 +87,14 @@ class IndexController extends AbstractController
      * @param Request $request
      * @param BasketFactory $factory
      * @param BasketRepository $repository
+     * @param BasketItemFactory $basketItemFactory
+     * @param BasketItemRepository $basketItemRepository
+     * @param ProductRepository $productRepository
      * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
-    public function productAdd(Request $request, BasketFactory $factory, BasketRepository $repository)
+    public function productAdd(Request $request, BasketFactory $factory, BasketRepository $repository,
+                               BasketItemFactory $basketItemFactory, BasketItemRepository $basketItemRepository,
+                               ProductRepository $productRepository)
     {
         $form = $this->createForm(ProductAddFormType::class);
         $form->handleRequest($request);
@@ -101,8 +108,18 @@ class IndexController extends AbstractController
             $basket->setSessionId($sessionId);
             $entityManager->persist($basket);
             $entityManager->flush();
-            var_dump($basket->getId());
-            die('asd');
+            $productId = $form->get('productId')->getData();
+            $product = $productRepository->findOneBy(['id' => $productId]);
+            if (!($basketItem = $basketItemRepository->findOneBy([
+                'basket' => $basket,
+                'product' => $product
+            ]))) {
+                $basketItem = $basketItemFactory->getBasket();
+            }
+            $basketItem->setProduct($product);
+            $basketItem->setBasket($basket);
+            $entityManager->persist($basketItem);
+            $entityManager->flush();
         }
         var_dump($form->isSubmitted());
         var_dump($form->isValid());

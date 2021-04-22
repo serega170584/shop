@@ -27,6 +27,8 @@ services:
             - '../src/Tests/'
     App\Entity\Basket:
         autowire: true
+    App\Entity\BasketItem:
+        autowire: true
 
     # controllers are imported separately to make sure services can be injected
     # as action arguments even if you don't extend any base controller class
