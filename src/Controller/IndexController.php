@@ -89,6 +89,7 @@ class IndexController extends AbstractController
     {
         $form = $this->createForm(ProductAddFormType::class);
         $form->handleRequest($request);
+        var_dump($request->getSession()->start());
         if ($form->isSubmitted() && $form->isValid()) {
             $basket = $factory->getBasket();
             var_dump($request->getSession()->getId());
