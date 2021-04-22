@@ -9,6 +9,7 @@ use App\Entity\Product;
 use App\Entity\Video;
 use App\Factory\BasketFactory;
 use App\Form\Type\ProductAddFormType;
+use App\Repository\BasketRepository;
 use App\Repository\CategoryRepository;
 use App\Repository\EventRepository;
 use App\Repository\NewsRepository;
@@ -83,16 +84,20 @@ class IndexController extends AbstractController
      * @Route("/productAdd", name="productAdd")
      * @param Request $request
      * @param BasketFactory $factory
+     * @param BasketRepository $repository
      * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
-    public function productAdd(Request $request, BasketFactory $factory)
+    public function productAdd(Request $request, BasketFactory $factory, BasketRepository $repository)
     {
         $form = $this->createForm(ProductAddFormType::class);
         $form->handleRequest($request);
         $request->getSession()->start();
         $entityManager = $this->getDoctrine()->getManager();
         if ($form->isSubmitted() && $form->isValid()) {
-            $basket = $factory->getBasket();
+            $sessionId = $request->getSession()->getId();
+            if (!($basket = $repository->findOneBy(['session_id' => $sessionId]))) {
+                $basket = $factory->getBasket();
+            }
             $basket->setSessionId($request->getSession()->getId());
             $entityManager->persist($basket);
             $entityManager->flush();
