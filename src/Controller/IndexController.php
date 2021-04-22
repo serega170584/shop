@@ -101,6 +101,7 @@ class IndexController extends AbstractController
             $basket->setSessionId($sessionId);
             $entityManager->persist($basket);
             $entityManager->flush();
+            var_dump($basket->getId());
             die('asd');
         }
         var_dump($form->isSubmitted());
