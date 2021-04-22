@@ -25,7 +25,7 @@ services:
             - '../src/Entity/'
             - '../src/Kernel.php'
             - '../src/Tests/'
-    App\Entity\Category:
+    App\Entity\Basket:
         autowire: true
 
     # controllers are imported separately to make sure services can be injected

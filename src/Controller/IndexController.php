@@ -7,7 +7,7 @@ use App\Entity\Event;
 use App\Entity\News;
 use App\Entity\Product;
 use App\Entity\Video;
-use App\Factory\CategoryFactory;
+use App\Factory\BasketFactory;
 use App\Form\Type\ProductAddFormType;
 use App\Repository\CategoryRepository;
 use App\Repository\EventRepository;
@@ -31,7 +31,7 @@ class IndexController extends AbstractController
      * @param Request $request
      * @return Response
      */
-    public function index(Request $request, CategoryFactory $cat): Response
+    public function index(Request $request): Response
     {
         /**
          * @var CategoryRepository $repository
@@ -81,21 +81,23 @@ class IndexController extends AbstractController
 
     /**
      * @Route("/productAdd", name="productAdd")
+     * @param Request $request
+     * @param BasketFactory $factory
+     * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
-    public function productAdd(Request $request)
+    public function productAdd(Request $request, BasketFactory $factory)
     {
         $form = $this->createForm(ProductAddFormType::class);
         $form->handleRequest($request);
-        $count = 0;
-        $text = '';
         if ($form->isSubmitted() && $form->isValid()) {
-            echo $form->getNormData()['productId'];
+            $basket = $factory->getBasket();
+            var_dump($request->getSession()->getId());
 //            var_dump($form->get('productId')->getData());
             die('asd');
         }
         var_dump($form->isSubmitted());
         var_dump($form->isValid());
-        return $this->json(['count' => $count, 'text' => $text]);
+        return $this->json([$request->getSession()->getId()]);
     }
 
     /**
