@@ -114,7 +114,7 @@ class IndexController extends AbstractController
                 'basket' => $basket,
                 'product' => $product
             ]))) {
-                $basketItem = $basketItemFactory->getBasket();
+                $basketItem = $basketItemFactory->getBasketItem();
             }
             $basketItem->setProduct($product);
             $basketItem->setBasket($basket);
