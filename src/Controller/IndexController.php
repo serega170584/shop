@@ -81,7 +81,7 @@ class IndexController extends AbstractController
             'news' => $news,
             'sliderProducts' => $sliderProducts,
             'form' => $form->createView(),
-            'productDeleteForm' => $productDeleteForm
+            'productDeleteForm' => $productDeleteForm->createView()
         ]);
     }
 
