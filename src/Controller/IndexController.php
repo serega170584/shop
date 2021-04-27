@@ -117,6 +117,7 @@ class IndexController extends AbstractController
             ]))) {
                 $basketItem = $basketItemFactory->getBasketItem();
             }
+            $basket->addBasketItem($basketItem);
             $basketItem->setProduct($product);
             $basketItem->setBasket($basket);
             $entityManager->persist($basketItem);
