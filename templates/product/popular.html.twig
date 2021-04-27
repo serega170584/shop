@@ -28,6 +28,7 @@
                                             <div class="star-rating has-ratings" title="Rated 5.00 out of 5">
 												<span style="width:100%">
 													<a class="button-one" href="#" data-id="{{ product.getId() }}">Купить</a>
+                                                    <a class="button-delete" href="#" data-id="{{ product.getId() }}" style="display:none">Удалить</a>
 												</span>
                                             </div>
                                             <a href="{{ path('author', { slug: product.getAuthor().getSlug() }) }}"
