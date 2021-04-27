@@ -1,0 +1,5 @@
+{% block productDeleteForm %}
+    {{ form_start(productDeleteForm, {'action': path('productDelete')}) }}
+    {{ form_row(productDeleteForm.productId) }}
+    {{ form_end(productDeleteForm) }}
+{% endblock %}
