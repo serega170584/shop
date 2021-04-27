@@ -338,7 +338,8 @@
             $(productIdInput).closest('form').submit(function (e) {
                 e.preventDefault();
                 $.post($(this).attr('action'), $(this).serialize(), function (data) {
-                    $('.current').html(data.text);
+                    $('.current').hide();
+                    $('.button-delete').show();
                     $('.studiare-cart-number').html(data.count);
                 }, 'json');
             });
