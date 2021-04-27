@@ -99,6 +99,7 @@ class IndexController extends AbstractController
         $form = $this->createForm(ProductAddFormType::class);
         $form->handleRequest($request);
         $request->getSession()->start();
+        $sessionId = $request->getSession()->getId();
         $entityManager = $this->getDoctrine()->getManager();
         if ($form->isSubmitted() && $form->isValid()) {
             $sessionId = $request->getSession()->getId();
@@ -123,7 +124,7 @@ class IndexController extends AbstractController
         }
         var_dump($form->isSubmitted());
         var_dump($form->isValid());
-        return $this->json([$request->getSession()->getId()]);
+        return $this->json([$sessionId]);
     }
 
     /**
