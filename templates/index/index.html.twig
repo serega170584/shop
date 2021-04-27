@@ -328,18 +328,18 @@
     <script>
         $(function () {
             let productIdInput = $('#{{ form.productId.vars.id }}');
-            $('.button-one').click(function (e) {
+            $('.buy').click(function (e) {
                 e.preventDefault();
                 $(productIdInput).val($(this).data('id'));
                 $(productIdInput).closest('form').submit();
-                $('.button-one').removeClass('current');
+                $('.buy').removeClass('current');
                 $(this).addClass('current');
             });
             $(productIdInput).closest('form').submit(function (e) {
                 e.preventDefault();
                 $.post($(this).attr('action'), $(this).serialize(), function (data) {
-                    $('.current').hide();
-                    $('.button-delete').show();
+                    $('.buy').hide();
+                    $('.delete').show();
                     $('.studiare-cart-number').html(data.count);
                 }, 'json');
             });
