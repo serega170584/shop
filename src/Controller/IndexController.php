@@ -96,11 +96,11 @@ class IndexController extends AbstractController
                                BasketItemFactory $basketItemFactory, BasketItemRepository $basketItemRepository,
                                ProductRepository $productRepository)
     {
-        $form = $this->createForm(ProductAddFormType::class);
-        $form->handleRequest($request);
+//        $form = $this->createForm(ProductAddFormType::class);
+//        $form->handleRequest($request);
         $request->getSession()->start();
         $entityManager = $this->getDoctrine()->getManager();
-        if ($form->isSubmitted() && $form->isValid()) {
+//        if ($form->isSubmitted() && $form->isValid()) {
 //            $sessionId = $request->getSession()->getId();
 //            if (!($basket = $repository->findOneBy(['sessionId' => $sessionId]))) {
 //                $basket = $factory->getBasket();
@@ -120,9 +120,9 @@ class IndexController extends AbstractController
 //            $basketItem->setBasket($basket);
 //            $entityManager->persist($basketItem);
 //            $entityManager->flush();
-        }
-        var_dump($form->isSubmitted());
-        var_dump($form->isValid());
+//        }
+//        var_dump($form->isSubmitted());
+//        var_dump($form->isValid());
         return $this->json([$request->getSession()->getId()]);
     }
 
