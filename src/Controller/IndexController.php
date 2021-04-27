@@ -122,8 +122,7 @@ class IndexController extends AbstractController
             $entityManager->flush();
         }
         return $this->json([
-            'count' => $basket->getBasketItems()->count(),
-            'text' => 'Удалить'
+            'count' => $basket->getBasketItems()->count()
         ]);
     }
 

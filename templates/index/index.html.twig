@@ -331,9 +331,9 @@
             $('.buy').click(function (e) {
                 e.preventDefault();
                 $(productIdInput).val($(this).data('id'));
-                $(productIdInput).closest('form').submit();
                 $('.buy').removeClass('current');
                 $(this).addClass('current');
+                $(productIdInput).closest('form').submit();
             });
             $(productIdInput).closest('form').submit(function (e) {
                 e.preventDefault();
