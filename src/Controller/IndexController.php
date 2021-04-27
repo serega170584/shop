@@ -122,8 +122,7 @@ class IndexController extends AbstractController
             $entityManager->persist($basketItem);
             $entityManager->flush();
         } else {
-            echo '123';
-            $this->createNotFoundException();
+            throw $this->createNotFoundException();
         }
         return $this->json([
             'count' => $basket->getBasketItems()->count()
