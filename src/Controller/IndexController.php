@@ -103,6 +103,7 @@ class IndexController extends AbstractController
         if (!($basket = $repository->findOneBy(['sessionId' => $sessionId]))) {
             $basket = $factory->getBasket();
         }
+        $count = 0;
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $basket->setSessionId($sessionId);
@@ -116,13 +117,14 @@ class IndexController extends AbstractController
             ]))) {
                 $basketItem = $basketItemFactory->getBasketItem();
             }
+            $count = $basket->getBasketItems()->count() + 1;
             $basketItem->setProduct($product);
             $basketItem->setBasket($basket);
             $entityManager->persist($basketItem);
             $entityManager->flush();
         }
         return $this->json([
-            'count' => $basket->getBasketItems()->count()
+            'count' => $count
         ]);
     }
 
