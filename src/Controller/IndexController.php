@@ -117,11 +117,11 @@ class IndexController extends AbstractController
             ]))) {
                 $basketItem = $basketItemFactory->getBasketItem();
             }
-            $count = $basket->getBasketItems()->count() + 1;
             $basketItem->setProduct($product);
             $basketItem->setBasket($basket);
             $entityManager->persist($basketItem);
             $entityManager->flush();
+            $count = $basket->getBasketItems()->count() + 1;
         }
         return $this->json([
             'count' => $count
