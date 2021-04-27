@@ -109,6 +109,7 @@ class IndexController extends AbstractController
             $entityManager->persist($basket);
             $entityManager->flush();
             $productId = $form->get('productId')->getData();
+            var_dump($productId);
             $product = $productRepository->findOneBy(['id' => $productId]);
             if (!($basketItem = $basketItemRepository->findOneBy([
                 'basket' => $basket,
