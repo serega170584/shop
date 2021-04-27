@@ -10,6 +10,7 @@ use App\Entity\Video;
 use App\Factory\BasketFactory;
 use App\Factory\BasketItemFactory;
 use App\Form\Type\ProductAddFormType;
+use App\Form\Type\ProductDeleteFormType;
 use App\Repository\BasketItemRepository;
 use App\Repository\BasketRepository;
 use App\Repository\CategoryRepository;
@@ -69,6 +70,7 @@ class IndexController extends AbstractController
             ->getRepository(News::class);
         $news = $repository->findLastRows(4);
         $form = $this->createForm(ProductAddFormType::class);
+        $productDeleteForm = $this->createForm(ProductDeleteFormType::class);
         return $this->render('index/index.html.twig', [
             'controller_name' => 'IndexController',
             'categories' => $categories,
@@ -78,7 +80,8 @@ class IndexController extends AbstractController
             'videos' => $videos,
             'news' => $news,
             'sliderProducts' => $sliderProducts,
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'productDeleteForm' => $productDeleteForm
         ]);
     }
 
@@ -120,6 +123,43 @@ class IndexController extends AbstractController
             $basketItem->setProduct($product);
             $basketItem->setBasket($basket);
             $entityManager->persist($basketItem);
+            $entityManager->flush();
+        } else {
+            throw $this->createNotFoundException();
+        }
+        return $this->json([
+            'count' => $basket->getBasketItems()->count()
+        ]);
+    }
+
+    /**
+     * @Route("/productDelete", name="productDelete")
+     * @param Request $request
+     * @param BasketFactory $factory
+     * @param BasketRepository $repository
+     * @param BasketItemFactory $basketItemFactory
+     * @param BasketItemRepository $basketItemRepository
+     * @param ProductRepository $productRepository
+     * @return \Symfony\Component\HttpFoundation\JsonResponse
+     */
+    public function productDelete(Request $request, BasketFactory $factory, BasketRepository $repository,
+                                  BasketItemFactory $basketItemFactory, BasketItemRepository $basketItemRepository,
+                                  ProductRepository $productRepository)
+    {
+        $form = $this->createForm(ProductDeleteFormType::class);
+        $form->handleRequest($request);
+        $request->getSession()->start();
+        $sessionId = $request->getSession()->getId();
+        $basket = $repository->findOneBy(['sessionId' => $sessionId]);
+        if ($form->isSubmitted() && $form->isValid() && $basket) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $productId = $form->get('productId')->getData();
+            $product = $productRepository->findOneBy(['id' => $productId]);
+            $basketItem = $basketItemRepository->findOneBy([
+                'basket' => $basket,
+                'product' => $product
+            ]);
+            $entityManager->remove($basketItem);
             $entityManager->flush();
         } else {
             throw $this->createNotFoundException();
