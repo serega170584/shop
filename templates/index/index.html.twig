@@ -332,12 +332,14 @@
                 e.preventDefault();
                 $(productIdInput).val($(this).data('id'));
                 $(productIdInput).closest('form').submit();
+                $('.button-one').removeClass('current');
+                $(this).addClass('current');
             });
             $(productIdInput).closest('form').submit(function (e) {
                 e.preventDefault();
                 $.post($(this).attr('action'), $(this).serialize(), function (data) {
-                    console.log(data);
-                });
+                    $('.current').html(data.text);
+                }, 'json');
             });
         });
     </script>
