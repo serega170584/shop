@@ -339,6 +339,7 @@
                 e.preventDefault();
                 $.post($(this).attr('action'), $(this).serialize(), function (data) {
                     $('.current').html(data.text);
+                    $('.studiare-cart-number').html(data.count);
                 }, 'json');
             });
         });
