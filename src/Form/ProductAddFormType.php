@@ -13,7 +13,7 @@ class ProductAddFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('product', HiddenType::class);
+            ->add('product');
     }
 
     public function configureOptions(OptionsResolver $resolver)
