@@ -328,8 +328,8 @@
 {% block pageJavascripts %}
     <script>
         $(function () {
-            let productIdInput = $('#{{ form.productId.vars.id }}');
-            let deleteProductIdInput = $('#{{ productDeleteForm.productId.vars.id }}');
+            let productIdInput = $('#{{ form.product.vars.id }}');
+            let deleteProductIdInput = $('#{{ productDeleteForm.product.vars.id }}');
             $('.buy').click(function (e) {
                 e.preventDefault();
                 $(productIdInput).val($(this).data('id'));
