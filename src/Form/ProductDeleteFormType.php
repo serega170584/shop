@@ -12,11 +12,7 @@ class ProductDeleteFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('createdAt')
-            ->add('updatedAt')
-            ->add('product')
-            ->add('basket')
-        ;
+            ->add('product');
     }
 
     public function configureOptions(OptionsResolver $resolver)
