@@ -11,6 +11,9 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ProductAddFormType extends AbstractType
 {
+    /**
+     * @var HiddenToEntityTransformer
+     */
     private $transformer;
 
     public function __construct(HiddenToEntityTransformer $transformer)
