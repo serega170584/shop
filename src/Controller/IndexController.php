@@ -115,11 +115,11 @@ class IndexController extends AbstractController
             $product = $productRepository->findOneBy([
                 'id' => $basketItem->getProduct()->getId()
             ]);
-            if (!($basketItem = $basketItemRepository->findOneBy([
+            if ($foundBasketItem = $basketItemRepository->findOneBy([
                 'basket' => $basket,
                 'product' => $product
-            ]))) {
-                $basketItem = $basketItemFactory->getBasketItem();
+            ])) {
+                $basketItem = $foundBasketItem;
             }
             $basket->addBasketItem($basketItem);
             $basketItem->setProduct($product);
@@ -137,26 +137,27 @@ class IndexController extends AbstractController
     /**
      * @Route("/productDelete", name="productDelete")
      * @param Request $request
-     * @param BasketFactory $factory
      * @param BasketRepository $repository
      * @param BasketItemFactory $basketItemFactory
      * @param BasketItemRepository $basketItemRepository
      * @param ProductRepository $productRepository
      * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
-    public function productDelete(Request $request, BasketFactory $factory, BasketRepository $repository,
+    public function productDelete(Request $request, BasketRepository $repository,
                                   BasketItemFactory $basketItemFactory, BasketItemRepository $basketItemRepository,
                                   ProductRepository $productRepository)
     {
-        $form = $this->createForm(ProductDeleteFormType::class);
+        $basketItem = $basketItemFactory->getBasketItem();
+        $form = $this->createForm(ProductDeleteFormType::class, $basketItem);
         $form->handleRequest($request);
         $request->getSession()->start();
         $sessionId = $request->getSession()->getId();
         $basket = $repository->findOneBy(['sessionId' => $sessionId]);
         if ($form->isSubmitted() && $form->isValid() && $basket) {
             $entityManager = $this->getDoctrine()->getManager();
-            $productId = $form->get('productId')->getData();
-            $product = $productRepository->findOneBy(['id' => $productId]);
+            $product = $productRepository->findOneBy([
+                'id' => $basketItem->getProduct()->getId()
+            ]);
             $basketItem = $basketItemRepository->findOneBy([
                 'basket' => $basket,
                 'product' => $product
