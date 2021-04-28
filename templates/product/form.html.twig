@@ -1,5 +1,5 @@
 {% block form %}
     {{ form_start(form, {'action': path('productAdd')}) }}
-    {{ form_row(form.product.getId()) }}
+    {{ form_row(form.product) }}
     {{ form_end(form) }}
 {% endblock %}
