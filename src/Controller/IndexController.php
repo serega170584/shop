@@ -108,14 +108,13 @@ class IndexController extends AbstractController
             $basket = $factory->getBasket();
         }
         if ($form->isSubmitted() && $form->isValid()) {
-            var_dump($basketItem->getProduct()->getId());
-            die('asd');
             $entityManager = $this->getDoctrine()->getManager();
             $basket->setSessionId($sessionId);
             $entityManager->persist($basket);
             $entityManager->flush();
-            $productId = $form->get('productId')->getData();
-            $product = $productRepository->findOneBy(['id' => $productId]);
+            $product = $productRepository->findOneBy([
+                'id' => $basketItem->getProduct()->getId()
+            ]);
             if (!($basketItem = $basketItemRepository->findOneBy([
                 'basket' => $basket,
                 'product' => $product
