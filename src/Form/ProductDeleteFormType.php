@@ -13,7 +13,7 @@ class ProductDeleteFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('product');
+            ->add('product', HiddenType::class);
     }
 
     public function configureOptions(OptionsResolver $resolver)
