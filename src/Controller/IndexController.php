@@ -101,8 +101,8 @@ class IndexController extends AbstractController
     {
         $basketItem = $basketItemFactory->getBasketItem();
         $form = $this->createForm(ProductAddFormType::class, $basketItem);
-        die('asd');
         $form->handleRequest($request);
+        die('asd');
         $request->getSession()->start();
         $sessionId = $request->getSession()->getId();
         if (!($basket = $repository->findOneBy(['sessionId' => $sessionId]))) {
