@@ -37,16 +37,16 @@ class HiddenToEntityTransformer implements DataTransformerInterface
 
     /**
      * @param mixed $value
-     * @return BasketItem|null
+     * @return Product|null
      */
-    public function reverseTransform($value): ?BasketItem
+    public function reverseTransform($value): ?Product
     {
         if (!$value) {
             return null;
         }
 
         /**
-         * @var BasketItem $product
+         * @var Product $product
          */
         $product = $this->entityManager
             ->getRepository(Product::class)
