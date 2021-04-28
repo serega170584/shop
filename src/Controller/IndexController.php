@@ -100,7 +100,7 @@ class IndexController extends AbstractController
                                ProductRepository $productRepository)
     {
         $basketItem = $basketItemFactory->getBasketItem();
-        $form = $this->createForm(ProductAddFormType::class, $basketItem);
+        $form = $this->createForm(ProductAddFormType::class);
         $form->handleRequest($request);
         die('asd');
         $request->getSession()->start();
