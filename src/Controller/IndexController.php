@@ -104,10 +104,10 @@ class IndexController extends AbstractController
         $form->handleRequest($request);
         $request->getSession()->start();
         $sessionId = $request->getSession()->getId();
+        die('asd');
         if (!($basket = $repository->findOneBy(['sessionId' => $sessionId]))) {
             $basket = $factory->getBasket();
         }
-        die('asd');
         if ($form->isSubmitted() && $form->isValid()) {
             var_dump($basketItem->getId());
             die('asd');
