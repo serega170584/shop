@@ -24,6 +24,7 @@ class BasketItem
     /**
      * @ORM\ManyToOne(targetEntity=Product::class)
      * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotBlank
      */
     private $product;
 
