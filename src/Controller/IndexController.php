@@ -83,6 +83,8 @@ class IndexController extends AbstractController
         $form = $this->createForm(ProductAddFormType::class);
         $productDeleteForm = $this->createForm(ProductDeleteFormType::class);
         $basket = $basketFactory->getBasket();
+        var_dump($basket->getSessionId());
+        die('asd');
 //        foreach ($products as $val) {
 //            $items = $basket->getBasketItems();
 //            var_dump($items->count());
