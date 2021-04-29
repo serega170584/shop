@@ -31,12 +31,26 @@ use Symfony\Component\Routing\Annotation\Route;
 class IndexController extends AbstractController
 {
     /**
+     * @var BasketFactory
+     */
+    private $factory;
+
+    public function __construct(BasketFactory $factory)
+    {
+        $this->factory = $factory;
+    }
+
+    /**
      * @Route("/", name="index")
      * @param Request $request
      * @return Response
      */
     public function index(Request $request): Response
     {
+        $request->getSession()->start();
+        $sessionId = $request->getSession()->getId();
+        var_dump($sessionId);
+        die('asd');
         /**
          * @var CategoryRepository $repository
          */
