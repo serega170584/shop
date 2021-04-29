@@ -84,7 +84,7 @@ class IndexController extends AbstractController
         $productDeleteForm = $this->createForm(ProductDeleteFormType::class);
         $basket = $basketFactory->getBasket();
         foreach ($products as $val) {
-            $curr = $basket->getBasketItems()->current();
+            $curr = $basket->getBasketItems()->next();
             echo gettype($curr);
             var_dump($basket->getBasketItems()->contains($curr));
         }
