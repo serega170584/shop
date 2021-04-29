@@ -43,9 +43,10 @@ class IndexController extends AbstractController
     /**
      * @Route("/", name="index")
      * @param Request $request
+     * @param BasketFactory $basketFactory
      * @return Response
      */
-    public function index(Request $request): Response
+    public function index(Request $request, BasketFactory $basketFactory): Response
     {
         /**
          * @var CategoryRepository $repository
@@ -72,6 +73,8 @@ class IndexController extends AbstractController
         $repository = $this->getDoctrine()->getManager()
             ->getRepository(Product::class);
         $products = $repository->findPopular();
+        array_intersect($products, $basketFactory->getBasket()->getBasketItems());
+        die('ads');
         $sliderProducts = $repository->findIsSlider();
         /**
          * @var NewsRepository $repository
