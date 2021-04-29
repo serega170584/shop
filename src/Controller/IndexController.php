@@ -85,7 +85,6 @@ class IndexController extends AbstractController
         $basket = $basketFactory->getBasket();
         foreach ($products as $val) {
             $curr = $basket->getBasketItems()->current();
-            $basket->getBasketItems()->add($curr);
             var_dump($basket->getBasketItems()->contains($curr));
         }
         die('asd');
