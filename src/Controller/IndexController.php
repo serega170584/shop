@@ -83,14 +83,14 @@ class IndexController extends AbstractController
         $form = $this->createForm(ProductAddFormType::class);
         $productDeleteForm = $this->createForm(ProductDeleteFormType::class);
         $basket = $basketFactory->getBasket();
-        foreach ($products as $val) {
-            $items = $basket->getBasketItems();
-            var_dump($items->count());
-            $curr = $items->next();
-            echo gettype($curr);
-            var_dump($items->contains($curr));
-        }
-        die('asd');
+//        foreach ($products as $val) {
+//            $items = $basket->getBasketItems();
+//            var_dump($items->count());
+//            $curr = $items->next();
+//            echo gettype($curr);
+//            var_dump($items->contains($curr));
+//        }
+//        die('asd');
         return $this->render('index/index.html.twig', [
             'controller_name' => 'IndexController',
             'categories' => $categories,
