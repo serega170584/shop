@@ -82,6 +82,11 @@ class IndexController extends AbstractController
         $news = $repository->findLastRows(4);
         $form = $this->createForm(ProductAddFormType::class);
         $productDeleteForm = $this->createForm(ProductDeleteFormType::class);
+        $basket = $basketFactory->getBasket();
+        foreach ($products as $val){
+            var_dump($basket->getBasketItems()->contains($val));
+        }
+        die('asd');
         return $this->render('index/index.html.twig', [
             'controller_name' => 'IndexController',
             'categories' => $categories,
