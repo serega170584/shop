@@ -15,6 +15,7 @@ class BasketFactory
 
     public function __construct(Basket $basket)
     {
+        echo '88888';
         $this->basket = $basket;
     }
 
