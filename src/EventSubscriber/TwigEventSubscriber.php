@@ -44,7 +44,7 @@ class TwigEventSubscriber implements EventSubscriberInterface
         if (!($basket = $this->basketRepository->findOneBy([
             'sessionId' => $id
         ]))) {
-//            echo '1111';
+            $basket = $this->basketFactory->getBasket();
             $basket->setSessionId($id);
 //            die('asd');
 //            echo '444';
