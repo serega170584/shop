@@ -43,11 +43,12 @@ class IndexController extends AbstractController
     /**
      * @Route("/", name="index")
      * @param Request $request
+     * @param BasketFactory $basketFactory
      * @return Response
      */
-    public function index(Request $request): Response
+    public function index(Request $request, BasketFactory $basketFactory): Response
     {
-        $sessionId = $request->getSession()->getId();
+        $sessionId = $basketFactory->getBasket()->getSessionId();
         var_dump($sessionId);
         die('asd');
         /**
