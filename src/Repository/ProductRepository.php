@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Product;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -34,9 +35,9 @@ class ProductRepository extends ServiceEntityRepository
     }
 
     /**
-     * @return Product[]
+     * @return Product[]|Collection
      */
-    public function findPopular()
+    public function findPopular(): Collection
     {
         return $this->createQueryBuilder('p')
             ->andWhere('p.isPopular = :val')
