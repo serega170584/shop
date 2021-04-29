@@ -37,8 +37,10 @@ class ProductRepository extends ServiceEntityRepository
     /**
      * @return Product[]|Collection
      */
-    public function findPopular(): Collection
+    public function findPopular()
     {
+        echo $this->findBy(['isPopular' => true]);
+        die('asd');
         return $this->findBy(['isPopular' => true]);
 //        return $this->createQueryBuilder('p')
 //            ->andWhere('p.isPopular = :val')
