@@ -43,10 +43,11 @@ class TwigEventSubscriber implements EventSubscriberInterface
         if (!($basket = $this->basketRepository->findOneBy([
             'sessionId' => $id
         ]))) {
-            die('asd');
             $basket = $this->basketFactory->getBasket();
             $basket->setSessionId($id);
         }
+        var_dump($basket->getBasketItems()->count());
+        die('asd');
         $this->twig->addGlobal('basket', $basket);
     }
 
