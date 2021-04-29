@@ -105,7 +105,7 @@
                     <a class="shop-icon" href="cart.html">
                         <i class="material-icons">shopping_cart</i>
                         Cart
-                        <span class="studiare-cart-number">0</span>
+                        <span class="studiare-cart-number">{{ basket.getBasketItems().count() }}</span>
                     </a>
                 </div>
                 <nav class="mobile-nav">
@@ -151,7 +151,8 @@
 
                         <div class="col-lg-4 col-md-6">
                             <div class="footer-widget text-widget">
-                                <a href="{{ path('index') }}" class="footer-logo"><img src="/images/logo_light.svg" alt=""></a>
+                                <a href="{{ path('index') }}" class="footer-logo"><img src="/images/logo_light.svg"
+                                                                                       alt=""></a>
                                 <p>Лучшие курсы для быстрого и глубкого обучения представлены на нашем сайте.</p>
                                 <ul>
                                     <li>
@@ -188,7 +189,8 @@
             <div class="footer-copyright copyrights-layout-default">
                 <div class="container">
                     <div class="copyright-inner">
-                        <div class="copyright-cell"> &copy; 2019 <span class="highlight">Serjstudio</span>. Создано командой Serjstudio.
+                        <div class="copyright-cell"> &copy; 2019 <span class="highlight">Serjstudio</span>. Создано
+                            командой Serjstudio.
                         </div>
                         <div class="copyright-cell">
                             <ul class="studiare-social-links">
