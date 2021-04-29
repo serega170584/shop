@@ -4,7 +4,6 @@ namespace App\Repository;
 
 use App\Entity\Product;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -35,19 +34,16 @@ class ProductRepository extends ServiceEntityRepository
     }
 
     /**
-     * @return Product[]|Collection
+     * @return Product[]
      */
     public function findPopular()
     {
-        echo gettype($this->findBy(['isPopular' => true]));
-        die('asd');
-        return $this->findBy(['isPopular' => true]);
-//        return $this->createQueryBuilder('p')
-//            ->andWhere('p.isPopular = :val')
-//            ->setParameter('val', true)
-//            ->orderBy('p.id', 'DESC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult();
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.isPopular = :val')
+            ->setParameter('val', true)
+            ->orderBy('p.id', 'DESC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult();
     }
 }
