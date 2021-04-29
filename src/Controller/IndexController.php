@@ -73,7 +73,8 @@ class IndexController extends AbstractController
         $repository = $this->getDoctrine()->getManager()
             ->getRepository(Product::class);
         $products = $repository->findPopular();
-        array_intersect($products, $basketFactory->getBasket()->getBasketItems()->toArray());
+        $arr = array_intersect($products, $basketFactory->getBasket()->getBasketItems()->toArray());
+        var_dump(count($arr));
         $sliderProducts = $repository->findIsSlider();
         /**
          * @var NewsRepository $repository
