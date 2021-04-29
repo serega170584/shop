@@ -74,7 +74,7 @@ class IndexController extends AbstractController
             ->getRepository(Product::class);
         $products = $repository->findPopular();
         var_dump(gettype($products));
-        var_dump(gettype($basketFactory->getBasket()->getBasketItems()));
+        var_dump(gettype($basketFactory->getBasket()->getBasketItems()->toArray()));
 //        array_intersect($products, $basketFactory->getBasket()->getBasketItems());
 //        die('ads');
         $sliderProducts = $repository->findIsSlider();
