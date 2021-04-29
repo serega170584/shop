@@ -47,7 +47,6 @@ class IndexController extends AbstractController
      */
     public function index(Request $request): Response
     {
-        $request->getSession()->start();
         $sessionId = $request->getSession()->getId();
         var_dump($sessionId);
         die('asd');

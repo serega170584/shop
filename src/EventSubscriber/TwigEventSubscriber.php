@@ -30,6 +30,7 @@ class TwigEventSubscriber implements EventSubscriberInterface
 
     public function onKernelController(ControllerEvent $event)
     {
+        $event->getRequest()->getSession()->start();
         $this->twig->addGlobal('categories', $this->categoryRepository->findAll());
         $this->twig->addGlobal('popularProducts', $this->productRepository->findPopular());
         var_dump($event->getRequest()->getSession()->getId());
