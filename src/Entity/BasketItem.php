@@ -32,6 +32,7 @@ class BasketItem
     /**
      * @ORM\ManyToOne(targetEntity=Basket::class, inversedBy="basketItems")
      * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotBlank
      */
     private $basket;
 
