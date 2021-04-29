@@ -40,7 +40,7 @@ class TwigEventSubscriber implements EventSubscriberInterface
         $this->twig->addGlobal('categories', $this->categoryRepository->findAll());
         $this->twig->addGlobal('popularProducts', $this->productRepository->findPopular());
         $id = $event->getRequest()->getSession()->getId();
-        $basket = $this->basketFactory->getBasket();
+        $basket = &$this->basketFactory->getBasket();
         if (!($basket = $this->basketRepository->findOneBy([
             'sessionId' => $id
         ]))) {
