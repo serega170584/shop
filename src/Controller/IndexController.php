@@ -48,9 +48,6 @@ class IndexController extends AbstractController
      */
     public function index(Request $request, BasketFactory $basketFactory): Response
     {
-        $sessionId = $basketFactory->getBasket()->getSessionId();
-        var_dump($sessionId);
-        die('asd');
         /**
          * @var CategoryRepository $repository
          */
@@ -116,7 +113,6 @@ class IndexController extends AbstractController
         $basketItem = $basketItemFactory->getBasketItem();
         $form = $this->createForm(ProductAddFormType::class, $basketItem);
         $form->handleRequest($request);
-        $request->getSession()->start();
         $sessionId = $request->getSession()->getId();
         if (!($basket = $repository->findOneBy(['sessionId' => $sessionId]))) {
             $basket = $factory->getBasket();
@@ -164,7 +160,6 @@ class IndexController extends AbstractController
         $basketItem = $basketItemFactory->getBasketItem();
         $form = $this->createForm(ProductDeleteFormType::class, $basketItem);
         $form->handleRequest($request);
-        $request->getSession()->start();
         $sessionId = $request->getSession()->getId();
         $basket = $repository->findOneBy(['sessionId' => $sessionId]);
         if ($form->isSubmitted() && $form->isValid() && $basket) {
