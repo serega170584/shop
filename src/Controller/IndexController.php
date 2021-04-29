@@ -43,10 +43,9 @@ class IndexController extends AbstractController
     /**
      * @Route("/", name="index")
      * @param Request $request
-     * @param BasketFactory $basketFactory
      * @return Response
      */
-    public function index(Request $request, BasketFactory $basketFactory): Response
+    public function index(Request $request): Response
     {
         /**
          * @var CategoryRepository $repository
