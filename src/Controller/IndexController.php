@@ -72,8 +72,6 @@ class IndexController extends AbstractController
         $repository = $this->getDoctrine()->getManager()
             ->getRepository(Product::class);
         $products = $repository->findPopular();
-        var_dump(gettype($products));
-        die('asd');
         $sliderProducts = $repository->findIsSlider();
         /**
          * @var NewsRepository $repository
