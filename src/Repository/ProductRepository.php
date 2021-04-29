@@ -39,7 +39,7 @@ class ProductRepository extends ServiceEntityRepository
      */
     public function findPopular()
     {
-        echo $this->findBy(['isPopular' => true]);
+        echo gettype($this->findBy(['isPopular' => true]));
         die('asd');
         return $this->findBy(['isPopular' => true]);
 //        return $this->createQueryBuilder('p')
