@@ -85,9 +85,7 @@ class IndexController extends AbstractController
         $basket = $basketFactory->getBasket();
         foreach ($products as $val) {
             $items = $basket->getBasketItems();
-            $curr = $items->next();
-            echo gettype($curr);
-            var_dump($items->contains($curr));
+            var_dump($items->contains($val));
         }
         return $this->render('index/index.html.twig', [
             'controller_name' => 'IndexController',
