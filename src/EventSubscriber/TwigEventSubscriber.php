@@ -25,7 +25,7 @@ class TwigEventSubscriber implements EventSubscriberInterface
      */
     private $basketRepository;
 
-    public function __construct(AbstractController $controller, Environment $twig, CategoryRepository $categoryRepository, ProductRepository $productRepository,
+    public function __construct(Environment $twig, CategoryRepository $categoryRepository, ProductRepository $productRepository,
                                 BasketFactory $basketFactory, BasketRepository $basketRepository)
     {
         $this->twig = $twig;
