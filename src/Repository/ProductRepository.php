@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Product;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\AbstractQuery;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -38,16 +39,15 @@ class ProductRepository extends ServiceEntityRepository
      */
     public function findPopular()
     {
-        $collection = $this->createQueryBuilder('p')
+        $res= $this->createQueryBuilder('p')
             ->andWhere('p.isPopular = :val')
             ->setParameter('val', true)
             ->orderBy('p.id', 'DESC')
             ->setMaxResults(10)
             ->getQuery()
-            ->execute();
-        var_dump(gettype($collection));
+            ->setHydrationMode(AbstractQuery::HYDRATE_OBJECT)
+            ->getResult();
+        var_dump(gettype($res));
         die('asd');
-//            ->getResult();
-
     }
 }
