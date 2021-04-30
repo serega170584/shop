@@ -35,12 +35,14 @@ class BasketFactory
     public function getBasket()
     {
         $id = $this->session->getId();
-        if ($foundBasket = $this->basketRepository->findOneBy([
-            'sessionId' => $id
-        ])) {
-            $this->basket = $foundBasket;
-        } else {
-            $this->basket->setSessionId($id);
+        if (!$this->basket) {
+            if ($foundBasket = $this->basketRepository->findOneBy([
+                'sessionId' => $id
+            ])) {
+                $this->basket = $foundBasket;
+            } else {
+                $this->basket->setSessionId($id);
+            }
         }
         return $this->basket;
     }
