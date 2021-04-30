@@ -20,24 +20,29 @@ class BasketFactory
      * @var BasketRepository
      */
     private $basketRepository;
+    /**
+     * @var SessionInterface
+     */
+    private $session;
 
     public function __construct(Basket $basket, BasketRepository $basketRepository, SessionInterface $session)
     {
         $this->basket = $basket;
         $this->basketRepository = $basketRepository;
+        $this->session = $session;
     }
 
     public function getBasket()
     {
-//        $id = $this->controller->getReqgetSession()->getId();
-//        var_dump($id);
-//        if ($foundBasket = $this->basketRepository->findOneBy([
-//            'sessionId' => $id
-//        ])) {
-//            $this->basket = $foundBasket;
-//        } else {
-//            $this->basket->setSessionId($id);
-//        }
-//        return $this->basket;
+        $id = $this->session->getId();
+        if ($foundBasket = $this->basketRepository->findOneBy([
+            'sessionId' => $id
+        ])) {
+            $this->basket = $foundBasket;
+        } else {
+            $this->basket->setSessionId($id);
+        }
+        var_dump($id);
+        return $this->basket;
     }
 }
