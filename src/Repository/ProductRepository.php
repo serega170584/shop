@@ -39,14 +39,12 @@ class ProductRepository extends ServiceEntityRepository
      */
     public function findPopular()
     {
-        $res= $this->createQueryBuilder('p')
+        return $this->createQueryBuilder('p')
             ->andWhere('p.isPopular = :val')
             ->setParameter('val', true)
             ->orderBy('p.id', 'DESC')
             ->setMaxResults(10)
             ->getQuery()
             ->getResult();
-        var_dump(gettype($res));
-        die('asd');
     }
 }
