@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\BasketItem;
 use App\Entity\Category;
 use App\Entity\Event;
 use App\Entity\News;
@@ -85,7 +86,13 @@ class IndexController extends AbstractController
         $basket = $basketFactory->getBasket();
         foreach ($products as $val) {
             $items = $basket->getBasketItems();
-            var_dump($items->contains($val));
+            foreach ($items as $item) {
+                /**
+                 * @var BasketItem $item
+                 */
+                var_dump($item->getProduct() === $val);
+            }
+//            var_dump($items->contains($val));
         }
         return $this->render('index/index.html.twig', [
             'controller_name' => 'IndexController',
