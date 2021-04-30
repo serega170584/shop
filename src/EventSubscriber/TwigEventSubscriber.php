@@ -50,6 +50,7 @@ class TwigEventSubscriber implements EventSubscriberInterface
         } else {
             $basket->setSessionId($id);
         }
+        var_dump($basket->getSessionId());
         var_dump($this->basketFactory->getBasket()->getSessionId());
         $this->twig->addGlobal('basket', $basket);
     }
