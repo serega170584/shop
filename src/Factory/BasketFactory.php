@@ -6,7 +6,9 @@ namespace App\Factory;
 
 use App\Entity\Basket;
 use App\Repository\BasketRepository;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class BasketFactory
 {
@@ -15,24 +17,19 @@ class BasketFactory
      */
     private $basket;
     /**
-     * @var Request
-     */
-    private $request;
-    /**
      * @var BasketRepository
      */
     private $basketRepository;
 
-    public function __construct(Basket $basket, Request $request, BasketRepository $basketRepository)
+    public function __construct(Basket $basket, BasketRepository $basketRepository, SessionInterface $session)
     {
         $this->basket = $basket;
-        $this->request = $request;
         $this->basketRepository = $basketRepository;
     }
 
     public function getBasket()
     {
-        $id = $this->request->getSession()->getId();
+        $id = $this->controller->getReqgetSession()->getId();
         var_dump($id);
         if ($foundBasket = $this->basketRepository->findOneBy([
             'sessionId' => $id

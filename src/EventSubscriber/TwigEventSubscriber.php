@@ -6,6 +6,7 @@ use App\Factory\BasketFactory;
 use App\Repository\BasketRepository;
 use App\Repository\CategoryRepository;
 use App\Repository\ProductRepository;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\ControllerEvent;
 use Twig\Environment;
@@ -24,7 +25,7 @@ class TwigEventSubscriber implements EventSubscriberInterface
      */
     private $basketRepository;
 
-    public function __construct(Environment $twig, CategoryRepository $categoryRepository, ProductRepository $productRepository,
+    public function __construct(AbstractController $controller, Environment $twig, CategoryRepository $categoryRepository, ProductRepository $productRepository,
                                 BasketFactory $basketFactory, BasketRepository $basketRepository)
     {
         $this->twig = $twig;
