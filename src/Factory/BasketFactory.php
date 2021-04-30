@@ -19,7 +19,7 @@ class BasketFactory
         $this->basket = $basket;
     }
 
-    public function &getBasket()
+    public function getBasket()
     {
         return $this->basket;
     }
