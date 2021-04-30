@@ -42,7 +42,6 @@ class BasketFactory
         } else {
             $this->basket->setSessionId($id);
         }
-        var_dump($id);
         return $this->basket;
     }
 }
