@@ -35,6 +35,7 @@ class BasketFactory
     public function getBasket()
     {
         $id = $this->session->getId();
+        var_dump($id);
         if (!$this->basket) {
             if ($foundBasket = $this->basketRepository->findOneBy([
                 'sessionId' => $id
