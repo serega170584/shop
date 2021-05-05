@@ -183,4 +183,14 @@ class Basket
 
         return $this;
     }
+
+    /**
+     * @return ArrayCollection<Product>
+     */
+    public function getBasketProducts(): ArrayCollection
+    {
+        return $this->basketItems->map(function (BasketItem $basketItem) {
+            return $basketItem->getProduct();
+        });
+    }
 }

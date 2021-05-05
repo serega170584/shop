@@ -43,7 +43,7 @@ class ProductRepository extends ServiceEntityRepository
             ->andWhere('p.isPopular = :val')
             ->setParameter('val', true)
             ->orderBy('p.id', 'DESC')
-            ->setMaxResults(10)
+            ->setMaxResults(5)
             ->getQuery()
             ->getResult();
     }
