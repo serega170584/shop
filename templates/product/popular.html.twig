@@ -28,10 +28,10 @@
                                             <div class="star-rating has-ratings" title="Rated 5.00 out of 5">
 												<span style="width:100%">
 													<a class="button-one buy" href="#" data-id="{{ product.getId() }}"
-                                                       {% if not basketProducts.contains(product) %}style="display:none"{% endif %}>Купить</a>
+                                                       {% if basketProducts.contains(product) %}style="display:none"{% endif %}>Купить</a>
                                                     <a class="button-one delete" href="#"
                                                        data-id="{{ product.getId() }}"
-                                                       {% if basketProducts.contains(product) %}style="display:none"{% endif %}>Удалить</a>
+                                                       {% if not basketProducts.contains(product) %}style="display:none"{% endif %}>Удалить</a>
 												</span>
                                             </div>
                                             <a href="{{ path('author', { slug: product.getAuthor().getSlug() }) }}"
