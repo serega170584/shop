@@ -219,4 +219,12 @@ class IndexController extends AbstractController
             'products' => $products
         ]);
     }
+
+    /**
+     * @Route("/basket", name="basket")
+     */
+    public function basket(): Response
+    {
+        return $this->render('basket.html.twig');
+    }
 }

@@ -1,0 +1,13 @@
+{% extends 'frontend/page.html.twig' %}
+{% block title %}Корзина{% endblock %}
+{% block breadcrumbs %}
+    <ul class="page-depth">
+        <li><a href="{{ path('index') }}">Главная</a></li>
+        <li><a href="{{ path('popular-products') }}">Популярные курсы</a></li>
+    </ul>
+{% endblock %}
+{% block page_content %}
+    {% for product in products %}
+        {{ block("listItem", "product/list-item.html.twig") }}
+    {% endfor %}
+{% endblock %}
