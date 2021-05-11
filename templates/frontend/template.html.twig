@@ -10,26 +10,6 @@
         </div>
     </section>
     <!-- End page-banner-section -->
-    <!-- courses-section
-			================================================== -->
-    <section class="courses-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                    {% block page_content %}
-                    {% endblock %}
-                </div>
-
-                <div class="col-lg-4">
-                    <div class="sidebar">
-                        {% block sidebar_content %}
-                        {% endblock %}
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-    <!-- End courses section -->
+    {% block template_content %}
+    {% endblock %}
 {% endblock %}
