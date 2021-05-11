@@ -1,0 +1,19 @@
+{% extends 'frontend/template.html.twig' %}
+{% block sidebar_content %}
+<div class="widget cart-widget">
+    <h2>Cart Totals</h2>
+    <table>
+        <tbody>
+        <tr class="cart-subtotal">
+            <th>Subtotal</th>
+            <td>273.99</td>
+        </tr>
+        <tr class="order-total">
+            <th>Total</th>
+            <td>273.99</td>
+        </tr>
+        </tbody>
+    </table>
+    <a href="checkout.html" class="checkout-button">Proceed to checkout</a>
+</div>
+{% endblock %}
