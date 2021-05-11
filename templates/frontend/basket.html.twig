@@ -1,12 +1,5 @@
 {% extends 'frontend/template.html.twig' %}
-{% block section_content %}
-<!-- cart-section
-        ================================================== -->
- <section class="cart-section">
-    {{ block("template_content", "frontend/content.html.twig") }}
-</section>
-<!-- End cart section -->
-{% endblock %}
+{{ block("template_content", "frontend/content.html.twig") }}
 {% block sidebar_content %}
     <div class="widget cart-widget">
         <h2>Cart Totals</h2>
