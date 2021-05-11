@@ -1,0 +1,35 @@
+{% extends 'frontend/layout.html.twig' %}
+
+{% block content %}
+    <!-- page-banner-section
+			================================================== -->
+    <section class="page-banner-section">
+        <div class="container">
+            <h1>{{ title }}</h1>
+            {% block breadcrumbs %}{% endblock %}
+        </div>
+    </section>
+    <!-- End page-banner-section -->
+    <!-- courses-section
+			================================================== -->
+    <section class="courses-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    {% block page_content %}
+                    {% endblock %}
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="sidebar">
+                        {% block sidebar_content %}
+                        {% endblock %}
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <!-- End courses section -->
+{% endblock %}

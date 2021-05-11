@@ -1,71 +1,38 @@
-{% extends 'frontend/layout.html.twig' %}
-
-{% block content %}
-    <!-- page-banner-section
-			================================================== -->
-    <section class="page-banner-section">
-        <div class="container">
-            <h1>{{ title }}</h1>
-            {% block breadcrumbs %}{% endblock %}
-        </div>
-    </section>
-    <!-- End page-banner-section -->
-    <!-- courses-section
-			================================================== -->
-    <section class="courses-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                    {% block page_content %}
-                    {% endblock %}
-                </div>
-
-                <div class="col-lg-4">
-                    <div class="sidebar">
-
-                        <div class="category-widget widget">
-                            <h2>Разделы</h2>
-                            <ul class="category-list">
-                                {% for category in categories %}
-                                    <li>
-                                        <a href="{{ path('category', { slug: category.getSlug() }) }}">{{ category.getTitle() }}</a>
-                                    </li>
-                                {% endfor %}
-                            </ul>
+{% block sidebar_content %}
+    <div class="category-widget widget">
+        <h2>Разделы</h2>
+        <ul class="category-list">
+            {% for category in categories %}
+                <li>
+                    <a href="{{ path('category', { slug: category.getSlug() }) }}">{{ category.getTitle() }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% if (popularProducts) %}
+        <div class="products-widget widget">
+            <h2>Популярные курсы</h2>
+            <ul class="products-list">
+                {% for product in popularProducts %}
+                    <li>
+                        <a href="{{ path('product', { slug: product.getSlug() }) }}"><img
+                                    src="{{ ['/uploads/files/', product.getImage()]|join('') }}"
+                                    alt=""></a>
+                        <div class="list-content">
+                            <h3>
+                                <a href="{{ path('product', { slug: product.getSlug() }) }}">{{ product.getTitle() }}</a>
+                            </h3>
+                            <span>£{{ product.getPrice()|number_format(0) }}</span>
                         </div>
-                        {% if (popularProducts) %}
-                            <div class="products-widget widget">
-                                <h2>Популярные курсы</h2>
-                                <ul class="products-list">
-                                    {% for product in popularProducts %}
-                                        <li>
-                                            <a href="{{ path('product', { slug: product.getSlug() }) }}"><img
-                                                        src="{{ ['/uploads/files/', product.getImage()]|join('') }}"
-                                                        alt=""></a>
-                                            <div class="list-content">
-                                                <h3>
-                                                    <a href="{{ path('product', { slug: product.getSlug() }) }}">{{ product.getTitle() }}</a>
-                                                </h3>
-                                                <span>£{{ product.getPrice()|number_format(0) }}</span>
-                                            </div>
-                                        </li>
-                                    {% endfor %}
-                                </ul>
-                            </div>
-                        {% endif %}
-
-                        <div class="ads-widget widget">
-                            <a href="#">
-                                <img src="upload/blog/ad-banner.jpg" alt="">
-                            </a>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-
+                    </li>
+                {% endfor %}
+            </ul>
         </div>
-    </section>
-    <!-- End courses section -->
+    {% endif %}
+
+    <div class="ads-widget widget">
+        <a href="#">
+            <img src="upload/blog/ad-banner.jpg" alt="">
+        </a>
+    </div>
 {% endblock %}
