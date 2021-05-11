@@ -225,7 +225,7 @@ class IndexController extends AbstractController
      */
     public function basket(): Response
     {
-        return $this->render('frontend/basket.html.twig', [
+        return $this->render('basket/basket.html.twig', [
             'title' => 'Корзина'
         ]);
     }
