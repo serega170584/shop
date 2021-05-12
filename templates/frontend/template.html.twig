@@ -12,20 +12,17 @@
     <!-- End page-banner-section -->
 {% endblock %}
 {% block cart_section_header %}{% endblock %}
-{% block template_content %}
-111111111111111111111111111111
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8">
-                {% block page_content %}{% endblock %}
-            </div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8">
+            {% block page_content %}{% endblock %}
+        </div>
 
-            <div class="col-lg-4">
-                <div class="sidebar">
-                    {% block sidebar_content %}{% endblock %}
-                </div>
+        <div class="col-lg-4">
+            <div class="sidebar">
+                {% block sidebar_content %}{% endblock %}
             </div>
         </div>
     </div>
-{% endblock %}
+</div>
 {% block cart_section_footer %}{% endblock %}
