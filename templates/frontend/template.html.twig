@@ -11,5 +11,20 @@
     </section>
     <!-- End page-banner-section -->
 {% endblock %}
-{% block section_content %}
+{% block cart_section_header %}{% endblock %}
+{% block template_content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                {% block page_content %}{% endblock %}
+            </div>
+
+            <div class="col-lg-4">
+                <div class="sidebar">
+                    {% block sidebar_content %}{% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
+{% block cart_section_footer %}{% endblock %}

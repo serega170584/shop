@@ -1,11 +1,12 @@
 {% extends 'frontend/template.html.twig' %}
-{% block template_content %}
+{% block cart_section_header %}
     <!-- courses-section
 			================================================== -->
-    <section class="courses-section">
-        {{ block("content", "frontend/content.html.twig") }}
-    </section>
-    <!-- End courses section -->
+<section class="courses-section">
+    {% endblock %}
+    {% block cart_section_footer %}
+</section>
+<!-- End courses section -->
 {% endblock %}
 {% block sidebar_content %}
     <div class="category-widget widget">
