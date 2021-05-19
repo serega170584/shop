@@ -8,7 +8,7 @@
 {% endblock %}
 {% block page_content %}
     <div class="cart-box">
-        {% if (basketItems) %}
+        {% if (basketItems.count()) %}
             <table class="shop_table table-responsive">
                 <thead>
                 <tr>
