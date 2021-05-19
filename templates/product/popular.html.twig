@@ -1,31 +1,30 @@
 {% block popular %}
-    <section class="popular-courses-section">
-        <div class="container">
-            <div class="title-section">
-                <div class="left-part">
-                    <h1>Популярные курсы</h1>
-                </div>
-                <div class="right-part">
-                    <a class="button-one" href="{{ path('popular-products') }}">Все</a>
-                </div>
+    <div class="container">
+        <div class="title-section">
+            <div class="left-part">
+                <h1>Популярные курсы</h1>
             </div>
-            <div class="popular-courses-box">
-                <div class="row">
-                    {% for product in products %}
-                        <div class="col-lg-3 col-md-6">
-                            <div class="course-post">
-                                <div class="course-thumbnail-holder">
-                                    <a href="{{ path('product', { slug: product.getSlug() }) }}">
-                                        <img src="{{ ['/uploads/files/', product.getImage()]|join('') }}" alt="">
-                                    </a>
-                                </div>
-                                <div class="course-content-holder">
-                                    <div class="course-content-main">
-                                        <h2 class="course-title">
-                                            <a href="{{ path('product', { slug: product.getSlug() }) }}">{{ product.getTitle() }}</a>
-                                        </h2>
-                                        <div class="course-rating-teacher">
-                                            <div class="star-rating has-ratings" title="Rated 5.00 out of 5">
+            <div class="right-part">
+                <a class="button-one" href="{{ path('popular-products') }}">Все</a>
+            </div>
+        </div>
+        <div class="popular-courses-box">
+            <div class="row">
+                {% for product in products %}
+                    <div class="col-lg-3 col-md-6">
+                        <div class="course-post">
+                            <div class="course-thumbnail-holder">
+                                <a href="{{ path('product', { slug: product.getSlug() }) }}">
+                                    <img src="{{ ['/uploads/files/', product.getImage()]|join('') }}" alt="">
+                                </a>
+                            </div>
+                            <div class="course-content-holder">
+                                <div class="course-content-main">
+                                    <h2 class="course-title">
+                                        <a href="{{ path('product', { slug: product.getSlug() }) }}">{{ product.getTitle() }}</a>
+                                    </h2>
+                                    <div class="course-rating-teacher">
+                                        <div class="star-rating has-ratings" title="Rated 5.00 out of 5">
 												<span style="width:100%">
 													<a class="button-one buy" href="#" data-id="{{ product.getId() }}"
                                                        {% if basketProducts.contains(product) %}style="display:none"{% endif %}>Купить</a>
@@ -33,22 +32,21 @@
                                                        data-id="{{ product.getId() }}"
                                                        {% if not basketProducts.contains(product) %}style="display:none"{% endif %}>Удалить</a>
 												</span>
-                                            </div>
-                                            <a href="{{ path('author', { slug: product.getAuthor().getSlug() }) }}"
-                                               class="course-loop-teacher">{{ product.getAuthor().getTitle() }}</a>
                                         </div>
+                                        <a href="{{ path('author', { slug: product.getAuthor().getSlug() }) }}"
+                                           class="course-loop-teacher">{{ product.getAuthor().getTitle() }}</a>
                                     </div>
-                                    <div class="course-content-bottom">
-                                        <div class="course-price">
-                                            <span>£{{ product.getPrice()|number_format(0) }}</span>
-                                        </div>
+                                </div>
+                                <div class="course-content-bottom">
+                                    <div class="course-price">
+                                        <span>£{{ product.getPrice()|number_format(0) }}</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    {% endfor %}
-                </div>
+                    </div>
+                {% endfor %}
             </div>
         </div>
-    </section>
+    </div>
 {% endblock %}
