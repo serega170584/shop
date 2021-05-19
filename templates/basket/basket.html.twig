@@ -7,7 +7,9 @@
     </ul>
 {% endblock %}
 {% block page_content %}
-    {{ block("items", "basket/items.html.twig") }}
+    <div class="cart-box" id="cart-box">
+        {{ block("items", "basket/items.html.twig") }}
+    </div>
 {% endblock %}
 {% block pageJavascripts %}
     <script>

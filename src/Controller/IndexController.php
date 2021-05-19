@@ -179,12 +179,12 @@ class IndexController extends AbstractController
         } else {
             throw $this->createNotFoundException();
         }
-        $content = $this->renderView('basket/basket.html.twig',[
+        $content = $this->renderView('basket/items.html.twig',[
             'basketItems' => $basket->getBasketItems()
         ]);
         return $this->json([
             'count' => $basket->getBasketItems()->count(),
-            'items' => $basket->getBasketItems()->toArray()
+            'content' => $content
         ]);
     }
 
