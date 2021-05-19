@@ -241,7 +241,7 @@ class IndexController extends AbstractController
         return $this->render('basket/basket.html.twig', [
             'title' => 'Корзина',
             'basketItems' => $basket->getBasketItems(),
-            'productDeleteForm' => $productDeleteForm
+            'productDeleteForm' => $productDeleteForm->createView()
         ]);
     }
 }
