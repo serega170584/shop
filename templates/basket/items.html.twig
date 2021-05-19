@@ -13,7 +13,7 @@
             {% for item in basketItems %}
                 <tr>
                     <td class="product-remove">
-                        <a href="#" class="remove">×</a>
+                        <a href="#" class="remove delete" data-id="{{ product.getId() }}">×</a>
                     </td>
                     <td class="product-thumbnail">
                         <a href="{{ path('product', { slug: item.getProduct().getSlug() }) }}"><img

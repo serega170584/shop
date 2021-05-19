@@ -32,6 +32,7 @@ $(function () {
             $(currentButton).closest('span').find('.buy').show();
             $(currentButton).hide();
             $('.studiare-cart-number').html(data.count);
+            $('.cart-box').html(data.content);
         }, 'json');
     });
 });

@@ -179,7 +179,7 @@ class IndexController extends AbstractController
         } else {
             throw $this->createNotFoundException();
         }
-        $content = $this->renderView('basket/items.html.twig',[
+        $content = $this->renderView('basket/items.html.twig', [
             'basketItems' => $basket->getBasketItems()
         ]);
         return $this->json([
@@ -237,9 +237,11 @@ class IndexController extends AbstractController
         if (!($basket = $repository->findOneBy(['sessionId' => $sessionId]))) {
             $basket = $factory->getBasket();
         }
+        $productDeleteForm = $this->createForm(ProductDeleteFormType::class);
         return $this->render('basket/basket.html.twig', [
             'title' => 'Корзина',
-            'basketItems' => $basket->getBasketItems()
+            'basketItems' => $basket->getBasketItems(),
+            'productDeleteForm' => $productDeleteForm
         ]);
     }
 }
