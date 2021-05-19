@@ -222,11 +222,20 @@ class IndexController extends AbstractController
 
     /**
      * @Route("/basket", name="basket")
+     * @param Request $request
+     * @param BasketFactory $factory
+     * @param BasketRepository $repository
+     * @return Response
      */
-    public function basket(): Response
+    public function basket(Request $request, BasketFactory $factory, BasketRepository $repository): Response
     {
+        $sessionId = $request->getSession()->getId();
+        if (!($basket = $repository->findOneBy(['sessionId' => $sessionId]))) {
+            $basket = $factory->getBasket();
+        }
         return $this->render('basket/basket.html.twig', [
-            'title' => 'Корзина'
+            'title' => 'Корзина',
+            'basketItems' => $basket->getBasketItems()
         ]);
     }
 }

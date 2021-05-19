@@ -8,51 +8,37 @@
 {% endblock %}
 {% block page_content %}
     <div class="cart-box">
-        <table class="shop_table table-responsive">
-            <thead>
-            <tr>
-                <th class="product-remove">&nbsp;</th>
-                <th class="product-thumbnail">&nbsp;</th>
-                <th class="product-name">Product</th>
-                <th class="product-price">Price</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td class="product-remove">
-                    <a href="#" class="remove">×</a>
-                </td>
-                <td class="product-thumbnail">
-                    <a href="#"><img src="upload/courses/thumb1.jpg" alt=""></a>
-                </td>
-                <td class="product-name">
-                    <a href="#">Introduction Web Design with HTML</a>
-                </td>
-                <td class="product-price">
-                    $244.00
-                </td>
-            </tr>
-            <tr>
-                <td class="product-remove">
-                    <a href="#" class="remove">×</a>
-                </td>
-                <td class="product-thumbnail">
-                    <a href="#"><img src="upload/courses/thumb2.jpg" alt=""></a>
-                </td>
-                <td class="product-name">
-                    <a href="#">Distance Learning MBA Management</a>
-                </td>
-                <td class="product-price">
-                    $29.99
-                </td>
-            </tr>
-            <tr class="coupon-line">
-                <td colspan="6" class="actions">
-                    <input type="text" name="coupon_code" placeholder="Coupon code">
-                    <button type="submit">Update cart</button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+        {% if (basketItems) %}
+            <table class="shop_table table-responsive">
+                <thead>
+                <tr>
+                    <th class="product-remove">&nbsp;</th>
+                    <th class="product-thumbnail">&nbsp;</th>
+                    <th class="product-name">Product</th>
+                    <th class="product-price">Price</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for item in basketItems %}
+                    <tr>
+                        <td class="product-remove">
+                            <a href="#" class="remove">×</a>
+                        </td>
+                        <td class="product-thumbnail">
+                            <a href="{{ path('product', { slug: item.getProduct().getSlug() }) }}"><img
+                                        src="{{ ['/uploads/files/', item.getProduct().getImage()]|join('') }}"
+                                        alt=""></a>
+                        </td>
+                        <td class="product-name">
+                            <a href="{{ path('product', { slug: item.getProduct().getSlug() }) }}">{{ item.getTitle() }}</a>
+                        </td>
+                        <td class="product-price">
+                            £{{ item.getProduct().getPrice()|number_format(0) }}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
     </div>
 {% endblock %}
