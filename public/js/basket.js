@@ -1,6 +1,7 @@
 $(function () {
-    let productIdInput = $('#{{ form.product.vars.id }}');
-    let deleteProductIdInput = $('#{{ productDeleteForm.product.vars.id }}');
+    let basketContainer = $('#basket-update');
+    let productIdInput = $(basketContainer).data('add-id');
+    let deleteProductIdInput = $(basketContainer).data('delete-id');
     $('.buy').click(function (e) {
         e.preventDefault();
         $(productIdInput).val($(this).data('id'));
