@@ -30,7 +30,7 @@
                                         alt=""></a>
                         </td>
                         <td class="product-name">
-                            <a href="{{ path('product', { slug: item.getProduct().getSlug() }) }}">{{ item.getTitle() }}</a>
+                            <a href="{{ path('product', { slug: item.getProduct().getSlug() }) }}">{{ item.getProduct().getTitle() }}</a>
                         </td>
                         <td class="product-price">
                             £{{ item.getProduct().getPrice()|number_format(0) }}
