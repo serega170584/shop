@@ -1,4 +1,5 @@
 $(function () {
+    alert('123');
     let basketContainer = $('#basket-update');
     let productIdInput = $(basketContainer).data('add-id');
     let deleteProductIdInput = $(basketContainer).data('delete-id');
