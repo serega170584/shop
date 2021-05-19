@@ -1,0 +1,36 @@
+{% block categories %}
+    <div class="cart-box">
+        {% if (basketItems.count()) %}
+            <table class="shop_table table-responsive">
+                <thead>
+                <tr>
+                    <th class="product-remove">&nbsp;</th>
+                    <th class="product-thumbnail">&nbsp;</th>
+                    <th class="product-name">Product</th>
+                    <th class="product-price">Price</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for item in basketItems %}
+                    <tr>
+                        <td class="product-remove">
+                            <a href="#" class="remove">×</a>
+                        </td>
+                        <td class="product-thumbnail">
+                            <a href="{{ path('product', { slug: item.getProduct().getSlug() }) }}"><img
+                                        src="{{ ['/uploads/files/', item.getProduct().getImage()]|join('') }}"
+                                        alt=""></a>
+                        </td>
+                        <td class="product-name">
+                            <a href="{{ path('product', { slug: item.getProduct().getSlug() }) }}">{{ item.getProduct().getTitle() }}</a>
+                        </td>
+                        <td class="product-price">
+                            £{{ item.getProduct().getPrice()|number_format(0) }}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+    </div>
+{% endblock %}
