@@ -9,7 +9,7 @@ $(function () {
         $(this).addClass('current');
         $(productIdInput).closest('form').submit();
     });
-    $('.delete').click(function (e) {
+    $(document).on('click', '.delete', function (e) {
         e.preventDefault();
         $(deleteProductIdInput).val($(this).data('id'));
         $('.current').removeClass('current');
