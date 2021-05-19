@@ -233,6 +233,8 @@ class IndexController extends AbstractController
         if (!($basket = $repository->findOneBy(['sessionId' => $sessionId]))) {
             $basket = $factory->getBasket();
         }
+        var_dump($basket->getBasketItems());
+        die('asd');
         return $this->render('basket/basket.html.twig', [
             'title' => 'Корзина',
             'basketItems' => $basket->getBasketItems()
