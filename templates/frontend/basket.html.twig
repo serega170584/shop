@@ -32,11 +32,11 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    123123123123123123
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    {{ form_start(orderForm, {'action': path('productDelete')}) }}
+                    {{ form_row(orderForm.email) }}
+                    {{ form_row(orderForm.telephone) }}
+                    {{ form_row(orderForm.address) }}
+                    {{ form_end(orderForm) }}
                 </div>
             </div>
         </div>

@@ -10,6 +10,7 @@ use App\Entity\Product;
 use App\Entity\Video;
 use App\Factory\BasketFactory;
 use App\Factory\BasketItemFactory;
+use App\Form\OrderFormType;
 use App\Form\ProductAddFormType;
 use App\Form\ProductDeleteFormType;
 use App\Repository\BasketItemRepository;
@@ -238,11 +239,13 @@ class IndexController extends AbstractController
             $basket = $factory->getBasket();
         }
         $productDeleteForm = $this->createForm(ProductDeleteFormType::class);
+        $orderForm = $this->createForm(OrderFormType::class);
         return $this->render('basket/basket.html.twig', [
             'title' => 'Корзина',
             'basketItems' => $basket->getBasketItems(),
             'productDeleteForm' => $productDeleteForm->createView(),
-            'cost' => $basket->getTotal()
+            'cost' => $basket->getTotal(),
+            'orderForm' => $orderForm->createView()
         ]);
     }
 }
