@@ -1,3 +1,12 @@
+{% extends 'frontend/orderForm.html.twig' %}
+{% block title %}Оформить заказ{% endblock %}
+{% block breadcrumbs %}
+    <ul class="page-depth">
+        <li><a href="{{ path('index') }}">Главная</a></li>
+        <li><a href="{{ path('checkout') }}">Оформить заказ</a></li>
+    </ul>
+{% endblock %}
+{% block page_content %}
 <div class="cart-box">
     <h2>Billing details</h2>
     <form class="billing-details">
@@ -44,3 +53,4 @@
         <textarea id="notes" placeholder="Notes about your order, e.g. special notes for delivery"></textarea>
     </form>
 </div>
+{% endblock %}
