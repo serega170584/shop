@@ -1,13 +1,4 @@
-{% extends 'frontend/template.html.twig' %}
-{% block cart_section_header %}
-    <!-- cart-section
-            ================================================== -->
-<section class="cart-section">
-    {% endblock %}
-    {% block cart_section_footer %}
-</section>
-<!-- End cart section -->
-{% endblock %}
+{% extends 'frontend/order.html.twig' %}
 {% block sidebar_content %}
     <div class="widget cart-widget">
         <h2>Итог</h2>
@@ -19,26 +10,6 @@
             </tr>
             </tbody>
         </table>
-        <a href="#" class="checkout-button" data-toggle="modal" data-target="#orderModal">Оформить заказ</a>
-    </div>
-    <div class="modal fade" id="orderModal" tabindex="-1" role="dialog" aria-labelledby="orderTitle"
-         aria-hidden="true" style="z-index: 1000000">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="orderTitle">Оформить заказ</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    {{ form_start(orderForm, {'action': path('productDelete')}) }}
-                    {{ form_row(orderForm.email) }}
-                    {{ form_row(orderForm.telephone) }}
-                    {{ form_row(orderForm.address) }}
-                    {{ form_end(orderForm) }}
-                </div>
-            </div>
-        </div>
+        <a href="{{ path('checkout') }}" class="checkout-button">Оформить заказ</a>
     </div>
 {% endblock %}

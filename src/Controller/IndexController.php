@@ -248,4 +248,12 @@ class IndexController extends AbstractController
             'orderForm' => $orderForm->createView()
         ]);
     }
+
+    /**
+     * @Route("/checkout", name="checkout")
+     */
+    public function checkout(): Response
+    {
+        return $this->render('basket/checkout.html.twig', ['title' => 'Оформить заказ']);
+    }
 }
