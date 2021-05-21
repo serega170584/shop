@@ -239,13 +239,11 @@ class IndexController extends AbstractController
             $basket = $factory->getBasket();
         }
         $productDeleteForm = $this->createForm(ProductDeleteFormType::class);
-        $orderForm = $this->createForm(OrderFormType::class);
         return $this->render('basket/basket.html.twig', [
             'title' => 'Корзина',
             'basketItems' => $basket->getBasketItems(),
             'productDeleteForm' => $productDeleteForm->createView(),
             'cost' => $basket->getTotal(),
-            'orderForm' => $orderForm->createView()
         ]);
     }
 
@@ -254,6 +252,10 @@ class IndexController extends AbstractController
      */
     public function checkout(): Response
     {
-        return $this->render('basket/checkout.html.twig', ['title' => 'Оформить заказ']);
+        $orderForm = $this->createForm(OrderFormType::class);
+        return $this->render('basket/checkout.html.twig', [
+            'title' => 'Оформить заказ',
+            'orderForm' => $orderForm->createView()
+        ]);
     }
 }
