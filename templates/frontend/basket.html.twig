@@ -10,16 +10,12 @@
 {% endblock %}
 {% block sidebar_content %}
     <div class="widget cart-widget">
-        <h2>Cart Totals</h2>
+        <h2>Итог</h2>
         <table>
             <tbody>
-            <tr class="cart-subtotal">
-                <th>Subtotal</th>
-                <td>273.99</td>
-            </tr>
             <tr class="order-total">
-                <th>Total</th>
-                <td>273.99</td>
+                <th>Итог</th>
+                <td>{{ cost }}</td>
             </tr>
             </tbody>
         </table>
