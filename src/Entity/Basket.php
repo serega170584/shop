@@ -126,6 +126,21 @@ class Basket
         return $this->basketItems;
     }
 
+    /**
+     * @return int|string
+     */
+    public function getTotal()
+    {
+        $total = 0;
+        /**
+         * @var BasketItem $item
+         */
+        foreach ($this->basketItems as $item) {
+            $total += $item->getProduct()->getPrice();
+        }
+        return $total;
+    }
+
     public function addBasketItem(BasketItem $basketItem): self
     {
         if (!$this->basketItems->contains($basketItem)) {

@@ -242,7 +242,7 @@ class IndexController extends AbstractController
             'title' => 'Корзина',
             'basketItems' => $basket->getBasketItems(),
             'productDeleteForm' => $productDeleteForm->createView(),
-            'cost' => '123'
+            'cost' => $basket->getTotal()
         ]);
     }
 }
