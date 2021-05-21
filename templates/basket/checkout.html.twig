@@ -12,6 +12,7 @@
         {{ form_row(orderForm.email) }}
         {{ form_row(orderForm.telephone, {'label': 'Телефон'}) }}
         {{ form_row(orderForm.address, {'label': 'Адрес'}) }}
+        {{ form_row(form.submit, { 'label': 'Оформить' }) }}
         {{ form_end(orderForm) }}
     </div>
 {% endblock %}
