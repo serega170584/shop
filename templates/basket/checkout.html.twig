@@ -8,10 +8,16 @@
 {% endblock %}
 {% block page_content %}
     <div class="cart-box">
-        {{ form_start(orderForm, {'action': path('checkout'), 'attr': {'class': 'billing-details'}}) }}
+        {{ form_start(orderForm, {'action': path('checkout'), 'attr': {'class': 'billing-details', 'id': 'order-form'}}) }}
+        <div>
+            {{ form_errors(orderForm) }}
+        </div>
         {{ form_row(orderForm.email, {'label': 'Email*'}) }}
         {{ form_row(orderForm.telephone, {'label': 'Телефон*'}) }}
         {{ form_row(orderForm.address, {'label': 'Адрес*'}) }}
         {{ form_end(orderForm) }}
     </div>
+{% endblock %}
+{% block pageJavascripts %}
+    <script src="{{ asset('js/checkout.js') }}"></script>
 {% endblock %}
