@@ -16,8 +16,7 @@ class OrderFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('email', EmailType::class)
-            ->setRequired(true);
+            ->add('email', EmailType::class);
 
         $builder
             ->add('telephone', TelType::class);
