@@ -10,8 +10,8 @@
     <div class="cart-box">
         {{ form_start(orderForm, {'action': path('checkout'), 'attr': {'class': 'billing-details'}}) }}
         {{ form_row(orderForm.email, {'label': 'Email*'}) }}
-        {{ form_row(orderForm.telephone, {'label': 'Телефон'}) }}
-        {{ form_row(orderForm.address, {'label': 'Адрес'}) }}
+        {{ form_row(orderForm.telephone, {'label': 'Телефон*'}) }}
+        {{ form_row(orderForm.address, {'label': 'Адрес*'}) }}
         {{ form_row(orderForm.submit, { 'label': 'Оформить' }) }}
         {{ form_end(orderForm) }}
     </div>
