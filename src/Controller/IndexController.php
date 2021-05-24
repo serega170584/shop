@@ -22,6 +22,7 @@ use App\Repository\ProductRepository;
 use App\Repository\VideoRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Cookie;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -44,11 +45,10 @@ class IndexController extends AbstractController
 
     /**
      * @Route("/", name="index")
-     * @param Request $request
      * @param BasketFactory $basketFactory
      * @return Response
      */
-    public function index(Request $request, BasketFactory $basketFactory): Response
+    public function index(BasketFactory $basketFactory): Response
     {
         /**
          * @var CategoryRepository $repository
@@ -104,23 +104,20 @@ class IndexController extends AbstractController
      * @Route("/productAdd", name="productAdd")
      * @param Request $request
      * @param BasketFactory $factory
-     * @param BasketRepository $repository
      * @param BasketItemFactory $basketItemFactory
      * @param BasketItemRepository $basketItemRepository
      * @param ProductRepository $productRepository
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
+     * @return JsonResponse
      */
-    public function productAdd(Request $request, BasketFactory $factory, BasketRepository $repository,
+    public function productAdd(Request $request, BasketFactory $factory,
                                BasketItemFactory $basketItemFactory, BasketItemRepository $basketItemRepository,
-                               ProductRepository $productRepository)
+                               ProductRepository $productRepository): JsonResponse
     {
         $basketItem = $basketItemFactory->getBasketItem();
         $form = $this->createForm(ProductAddFormType::class, $basketItem);
         $form->handleRequest($request);
         $sessionId = $request->getSession()->getId();
-        if (!($basket = $repository->findOneBy(['sessionId' => $sessionId]))) {
-            $basket = $factory->getBasket();
-        }
+        $basket = $factory->getBasket();
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $basket->setSessionId($sessionId);
@@ -155,11 +152,11 @@ class IndexController extends AbstractController
      * @param BasketItemFactory $basketItemFactory
      * @param BasketItemRepository $basketItemRepository
      * @param ProductRepository $productRepository
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
+     * @return JsonResponse
      */
     public function productDelete(Request $request, BasketRepository $repository,
                                   BasketItemFactory $basketItemFactory, BasketItemRepository $basketItemRepository,
-                                  ProductRepository $productRepository)
+                                  ProductRepository $productRepository): JsonResponse
     {
         $basketItem = $basketItemFactory->getBasketItem();
         $form = $this->createForm(ProductDeleteFormType::class, $basketItem);
@@ -227,17 +224,12 @@ class IndexController extends AbstractController
 
     /**
      * @Route("/basket", name="basket")
-     * @param Request $request
      * @param BasketFactory $factory
-     * @param BasketRepository $repository
      * @return Response
      */
-    public function basket(Request $request, BasketFactory $factory, BasketRepository $repository): Response
+    public function basket(BasketFactory $factory): Response
     {
-        $sessionId = $request->getSession()->getId();
-        if (!($basket = $repository->findOneBy(['sessionId' => $sessionId]))) {
-            $basket = $factory->getBasket();
-        }
+        $basket = $factory->getBasket();
         $productDeleteForm = $this->createForm(ProductDeleteFormType::class);
         return $this->render('basket/basket.html.twig', [
             'title' => 'Корзина',
@@ -251,18 +243,50 @@ class IndexController extends AbstractController
      * @Route("/checkout", name="checkout")
      * @param Request $request
      * @param BasketFactory $factory
+     * @return Response
+     */
+    public function checkout(Request $request, BasketFactory $factory): Response
+    {
+        $basket = $factory->getBasket();
+        $orderForm = $this->createForm(OrderFormType::class);
+        return $this->render('basket/checkout.html.twig', [
+            'title' => 'Оформить заказ',
+            'orderForm' => $orderForm->createView(),
+            'basketItems' => $basket->getBasketItems(),
+            'cost' => $basket->getTotal(),
+        ]);
+    }
+
+    /**
+     * @Route("/checkoutSend", name="checkoutSend")
+     * @param Request $request
+     * @param BasketFactory $factory
      * @param BasketRepository $repository
      * @return Response
      */
-    public function checkout(Request $request, BasketFactory $factory, BasketRepository $repository): Response
+    public function checkoutSend(Request $request, BasketFactory $factory, BasketRepository $repository): Response
     {
         $sessionId = $request->getSession()->getId();
         if (!($basket = $repository->findOneBy(['sessionId' => $sessionId]))) {
             $basket = $factory->getBasket();
         }
         $orderForm = $this->createForm(OrderFormType::class);
-        return $this->render('basket/checkout.html.twig', [
-            'title' => 'Оформить заказ',
+        if (!$basket) {
+            throw $this->createNotFoundException();
+        }
+//        if ($orderForm->isSubmitted() && $orderForm->isValid()) {
+//            $entityManager = $this->getDoctrine()->getManager();
+//            $product = $productRepository->findOneBy([
+//                'id' => $basketItem->getProduct()->getId()
+//            ]);
+//            $basketItem = $basketItemRepository->findOneBy([
+//                'basket' => $basket,
+//                'product' => $product
+//            ]);
+//            $entityManager->remove($basketItem);
+//            $entityManager->flush();
+//        }
+        return $this->render('basket/checkoutForm.html.twig', [
             'orderForm' => $orderForm->createView(),
             'basketItems' => $basket->getBasketItems(),
             'cost' => $basket->getTotal(),
