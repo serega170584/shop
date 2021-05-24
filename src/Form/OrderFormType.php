@@ -24,7 +24,5 @@ class OrderFormType extends AbstractType
         $builder
             ->add('address', TextareaType::class);
 
-        $builder
-            ->add('submit', SubmitType::class);
     }
 }

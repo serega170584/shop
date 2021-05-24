@@ -1,31 +1,27 @@
 {% extends 'frontend/order.html.twig' %}
 {% block sidebar_content %}
     <div class="widget cart-widget">
-        <h2>Your order</h2>
+        <h2>Заказ</h2>
         <table>
             <tbody>
             <tr>
-                <td>Product</td>
-                <td>Total</td>
+                <td>Курс</td>
+                <td>Стоимость</td>
             </tr>
-            <tr>
-                <td class="name-pro">Introduction Web Design with HTML × 1</td>
-                <td>$244</td>
-            </tr>
-            <tr>
-                <td class="name-pro">Distance Learning MBA Management × 1</td>
-                <td>$29.99</td>
-            </tr>
+            {% for item in basketItems %}
+                <tr>
+                    <td class="name-pro">
+                        {{ item.getProduct().getTitle() }}
+                    </td>
+                    <td>£{{ item.getProduct().getPrice() }}</td>
+                </tr>
+            {% endfor %}
             <tr class="order-total">
-                <th>Subtotal</th>
-                <td>273.99</td>
-            </tr>
-            <tr class="order-total">
-                <th>Total</th>
-                <td class="total-price">273.99</td>
+                <th>Всего</th>
+                <td class="total-price">{{ cost }}</td>
             </tr>
             </tbody>
         </table>
-        <a href="#" class="checkout-button">Proceed to Paypal</a>
+        <a href="#" class="checkout-button" id="order">Оформить</a>
     </div>
 {% endblock %}

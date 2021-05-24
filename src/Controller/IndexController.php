@@ -249,13 +249,23 @@ class IndexController extends AbstractController
 
     /**
      * @Route("/checkout", name="checkout")
+     * @param Request $request
+     * @param BasketFactory $factory
+     * @param BasketRepository $repository
+     * @return Response
      */
-    public function checkout(): Response
+    public function checkout(Request $request, BasketFactory $factory, BasketRepository $repository): Response
     {
+        $sessionId = $request->getSession()->getId();
+        if (!($basket = $repository->findOneBy(['sessionId' => $sessionId]))) {
+            $basket = $factory->getBasket();
+        }
         $orderForm = $this->createForm(OrderFormType::class);
         return $this->render('basket/checkout.html.twig', [
             'title' => 'Оформить заказ',
-            'orderForm' => $orderForm->createView()
+            'orderForm' => $orderForm->createView(),
+            'basketItems' => $basket->getBasketItems(),
+            'cost' => $basket->getTotal(),
         ]);
     }
 }
