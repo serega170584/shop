@@ -36,10 +36,12 @@
                                     <i class="material-icons open-search">search</i>
                                     <i class="material-icons close-search">close</i>
                                 </button>
-                                <button class="shop-icon" data-url="{{ path('basket') }}">
-                                    <i class="material-icons">shopping_cart</i>
-                                    <span class="studiare-cart-number">{{ basket.getBasketItems().count() }}</span>
-                                </button>
+                                {% if basket.getBasketItems() %}
+                                    <button class="shop-icon" data-url="{{ path('basket') }}">
+                                        <i class="material-icons">shopping_cart</i>
+                                        <span class="studiare-cart-number">{{ basket.getBasketItems().count() }}</span>
+                                    </button>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
