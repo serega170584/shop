@@ -230,7 +230,7 @@ class IndexController extends AbstractController
     public function basket(BasketFactory $factory): Response
     {
         $basket = $factory->getBasket();
-        if (!$basket->getBasketItems()){
+        if (!$basket->getBasketItems()->count()){
             return $this->redirectToRoute('index');
         }
         $productDeleteForm = $this->createForm(ProductDeleteFormType::class);
