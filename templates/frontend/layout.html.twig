@@ -39,7 +39,7 @@
                                 {% if basket.getBasketItems() %}
                                     <button class="shop-icon" data-url="{{ path('basket') }}">
                                         <i class="material-icons">shopping_cart</i>
-                                        <span class="studiare-cart-number">{{ basket.getBasketItems().count() }}1</span>
+                                        <span class="studiare-cart-number">{{ basket.getBasketItems().count() }}</span>
                                     </button>
                                 {% endif %}
                             </div>
@@ -108,7 +108,7 @@
                         <a class="shop-icon" href="{{ path('basket') }}">
                             <i class="material-icons">shopping_cart</i>
                             Cart
-                            <span class="studiare-cart-number">{{ basket.getBasketItems().count() }}1</span>
+                            <span class="studiare-cart-number">{{ basket.getBasketItems().count() }}</span>
                         </a>
                     </div>
                 {% endif %}
