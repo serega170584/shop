@@ -36,12 +36,11 @@
                                     <i class="material-icons open-search">search</i>
                                     <i class="material-icons close-search">close</i>
                                 </button>
-                                {% if basket.getBasketItems().count() %}
-                                    <button class="shop-icon" data-url="{{ path('basket') }}">
-                                        <i class="material-icons">shopping_cart</i>
-                                        <span class="studiare-cart-number">{{ basket.getBasketItems().count() }}</span>
-                                    </button>
-                                {% endif %}
+                                <button class="shop-icon" data-url="{{ path('basket') }}"
+                                        {% if basket.getBasketItems().count() == 0 %}style="display:none"{% endif %}>
+                                    <i class="material-icons">shopping_cart</i>
+                                    <span class="studiare-cart-number">{{ basket.getBasketItems().count() }}</span>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -103,15 +102,14 @@
                         </button>
                     </form>
                 </div>
-                {% if basket.getBasketItems().count() %}
-                    <div class="shopping-cart-box">
-                        <a class="shop-icon" href="{{ path('basket') }}">
-                            <i class="material-icons">shopping_cart</i>
-                            Cart
-                            <span class="studiare-cart-number">{{ basket.getBasketItems().count() }}</span>
-                        </a>
-                    </div>
-                {% endif %}
+                <div class="shopping-cart-box"
+                     {% if basket.getBasketItems().count() == 0 %}style="display:none"{% endif %}>
+                    <a class="shop-icon" href="{{ path('basket') }}">
+                        <i class="material-icons">shopping_cart</i>
+                        Cart
+                        <span class="studiare-cart-number">{{ basket.getBasketItems().count() }}</span>
+                    </a>
+                </div>
                 <nav class="mobile-nav">
                     <ul class="mobile-menu-list">
                         <li>
