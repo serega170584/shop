@@ -103,13 +103,15 @@
                         </button>
                     </form>
                 </div>
-                <div class="shopping-cart-box">
-                    <a class="shop-icon" href="{{ path('basket') }}">
-                        <i class="material-icons">shopping_cart</i>
-                        Cart
-                        <span class="studiare-cart-number">{{ basket.getBasketItems().count() }}</span>
-                    </a>
-                </div>
+                {% if basket.getBasketItems() %}
+                    <div class="shopping-cart-box">
+                        <a class="shop-icon" href="{{ path('basket') }}">
+                            <i class="material-icons">shopping_cart</i>
+                            Cart
+                            <span class="studiare-cart-number">{{ basket.getBasketItems().count() }}</span>
+                        </a>
+                    </div>
+                {% endif %}
                 <nav class="mobile-nav">
                     <ul class="mobile-menu-list">
                         <li>
