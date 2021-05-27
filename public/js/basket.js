@@ -39,8 +39,8 @@ $(function () {
             if (!data.count) {
                 $('.shopping-cart-box').hide();
                 $('.shop-icon').hide();
+                window.location.href = url;
             }
-            window.location.href = url;
         }, 'json');
     });
 });

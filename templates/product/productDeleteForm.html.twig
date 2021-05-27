@@ -1,5 +1,5 @@
 {% block productDeleteForm %}
-    {{ form_start(productDeleteForm, {'action': path('productDelete'), 'attr': {'data-url': path('index')}}) }}
+    {{ form_start(productDeleteForm, {'action': path('productDelete'), 'attr': {'data-url': path('index'), 'data-basket':'1'}}) }}
     {{ form_row(productDeleteForm.product) }}
     {{ form_end(productDeleteForm) }}
 {% endblock %}
