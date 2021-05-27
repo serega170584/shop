@@ -23,6 +23,8 @@ $(function () {
             $(currentButton).closest('span').find('.delete').show();
             $(currentButton).hide();
             $('.studiare-cart-number').html(data.count);
+            $('.shopping-cart-box').show();
+            $('.shop-icon').show();
         }, 'json');
     });
     $(deleteProductIdInput).closest('form').submit(function (e) {
