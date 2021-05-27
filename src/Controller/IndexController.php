@@ -230,6 +230,9 @@ class IndexController extends AbstractController
     public function basket(BasketFactory $factory): Response
     {
         $basket = $factory->getBasket();
+        if (!$basket->getBasketItems()){
+            return $this->redirectToRoute('index');
+        }
         $productDeleteForm = $this->createForm(ProductDeleteFormType::class);
         return $this->render('basket/basket.html.twig', [
             'title' => 'Корзина',
