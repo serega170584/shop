@@ -33,8 +33,9 @@ $(function () {
             $(currentButton).hide();
             $('.studiare-cart-number').html(data.count);
             $('.cart-box').html(data.content);
-            if (!data.count){
-
+            if (!data.count) {
+                $('.shopping-cart-box').hide();
+                $('.shop-icon').hide();
             }
         }, 'json');
     });
