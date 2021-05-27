@@ -29,6 +29,7 @@ $(function () {
     });
     $(deleteProductIdInput).closest('form').submit(function (e) {
         e.preventDefault();
+        let url = $(this).data('url');
         $.post($(this).attr('action'), $(this).serialize(), function (data) {
             let currentButton = $('.current');
             $(currentButton).closest('span').find('.buy').show();
@@ -39,6 +40,7 @@ $(function () {
                 $('.shopping-cart-box').hide();
                 $('.shop-icon').hide();
             }
+            window.location.href = url;
         }, 'json');
     });
 });
