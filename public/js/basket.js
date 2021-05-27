@@ -30,6 +30,7 @@ $(function () {
     $(deleteProductIdInput).closest('form').submit(function (e) {
         e.preventDefault();
         let url = $(this).data('url');
+        let isBasket = $(this).data('basket');
         $.post($(this).attr('action'), $(this).serialize(), function (data) {
             let currentButton = $('.current');
             $(currentButton).closest('span').find('.buy').show();
@@ -39,7 +40,9 @@ $(function () {
             if (!data.count) {
                 $('.shopping-cart-box').hide();
                 $('.shop-icon').hide();
-                window.location.href = url;
+                if (isBasket) {
+                    window.location.href = url;
+                }
             }
         }, 'json');
     });
