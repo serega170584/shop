@@ -35,6 +35,7 @@ class OrderCrudController extends AbstractCrudController
         $actions->remove(Crud::PAGE_INDEX, Action::NEW);
         $actions->remove(Crud::PAGE_INDEX, Action::EDIT);
         $actions->remove(Crud::PAGE_INDEX, Action::DELETE);
+        return $actions;
     }
 
     public function configureFields(string $pageName): iterable
