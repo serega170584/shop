@@ -1,5 +1,9 @@
 {% block productDeleteForm %}
-    {{ form_start(productDeleteForm, {'action': path('productDelete'), 'attr': {'data-url': path('index'), 'data-basket':'1'}}) }}
+    {% set attr = {'data-url': path('index')} %}
+    {% if isReload is defined and isReload == true %}
+        {% set attr['data-reload'] = '1' %}
+    {% endif %}
+    {{ form_start(productDeleteForm, {'action': path('productDelete'), 'attr': attr}) }}
     {{ form_row(productDeleteForm.product) }}
     {{ form_end(productDeleteForm) }}
 {% endblock %}
