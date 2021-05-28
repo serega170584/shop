@@ -7,6 +7,7 @@ namespace App\Controller\Admin;
 use App\Entity\OrderStatus;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class OrderStatusCrudController extends AbstractCrudController
@@ -28,6 +29,7 @@ class OrderStatusCrudController extends AbstractCrudController
     {
         return [
             TextField::new('title'),
+            BooleanField::new('isDefault'),
         ];
     }
 }
