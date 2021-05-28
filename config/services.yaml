@@ -64,3 +64,7 @@ services:
         tags:
             - { name: 'doctrine.orm.entity_listener', event: 'prePersist', entity: 'App\Entity\Video'}
             - { name: 'doctrine.orm.entity_listener', event: 'preUpdate', entity: 'App\Entity\Video'}
+    App\EntityListener\OrderStatusEntityListener:
+        tags:
+            - { name: 'doctrine.orm.entity_listener', event: 'prePersist', entity: 'App\Entity\OrderStatus'}
+            - { name: 'doctrine.orm.entity_listener', event: 'preUpdate', entity: 'App\Entity\OrderStatus'}

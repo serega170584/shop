@@ -6,6 +6,7 @@ use App\Entity\Author;
 use App\Entity\Category;
 use App\Entity\Event;
 use App\Entity\News;
+use App\Entity\OrderStatus;
 use App\Entity\Product;
 use App\Entity\Video;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -39,6 +40,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('News', 'fa fa-home', News::class);
         yield MenuItem::linkToCrud('Events', 'fa fa-home', Event::class);
         yield MenuItem::linkToCrud('Video', 'fa fa-home', Video::class);
+        yield MenuItem::linkToCrud('Order statuses', 'fa fa-home', OrderStatus::class);
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
     }
 }

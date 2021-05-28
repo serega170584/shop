@@ -4,17 +4,15 @@
 namespace App\Controller\Admin;
 
 
-use App\Entity\Order;
+use App\Entity\OrderStatus;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
-use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class OrderStatusCrudController
 {
     public static function getEntityFqcn(): string
     {
-        return Order::class;
+        return OrderStatus::class;
     }
 
     public function configureCrud(Crud $crud): Crud
