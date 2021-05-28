@@ -10,6 +10,7 @@ use App\Entity\Product;
 use App\Entity\Video;
 use App\Factory\BasketFactory;
 use App\Factory\BasketItemFactory;
+use App\Factory\OrderFactory;
 use App\Form\OrderFormType;
 use App\Form\ProductAddFormType;
 use App\Form\ProductDeleteFormType;
@@ -245,47 +246,29 @@ class IndexController extends AbstractController
 
     /**
      * @Route("/checkout", name="checkout")
+     * @param BasketFactory $factory
+     * @param OrderFactory $orderFactory
      * @param Request $request
-     * @param BasketFactory $factory
      * @return Response
      */
-    public function checkout(Request $request, BasketFactory $factory): Response
+    public function checkout(BasketFactory $factory, OrderFactory $orderFactory, Request $request): Response
     {
+        $order = $orderFactory->getOrder();
         $basket = $factory->getBasket();
-        $orderForm = $this->createForm(OrderFormType::class);
-        return $this->render('basket/checkout.html.twig', [
-            'title' => 'Оформить заказ',
-            'orderForm' => $orderForm->createView(),
-            'basketItems' => $basket->getBasketItems(),
-            'cost' => $basket->getTotal(),
-        ]);
-    }
-
-    /**
-     * @Route("/checkoutSend", name="checkoutSend")
-     * @param BasketFactory $factory
-     * @return Response
-     */
-    public function checkoutSend(BasketFactory $factory): Response
-    {
-        $basket = $factory->getBasket();
-        $orderForm = $this->createForm(OrderFormType::class);
+        $orderForm = $this->createForm(OrderFormType::class, $order);
+        $orderForm->handleRequest($request);
         if (!$basket) {
-            throw $this->createNotFoundException();
+            return $this->redirectToRoute('index');
         }
         if ($orderForm->isSubmitted() && $orderForm->isValid()) {
-//            $entityManager = $this->getDoctrine()->getManager();
-//            $product = $productRepository->findOneBy([
-//                'id' => $basketItem->getProduct()->getId()
-//            ]);
-//            $basketItem = $basketItemRepository->findOneBy([
-//                'basket' => $basket,
-//                'product' => $product
-//            ]);
-//            $entityManager->remove($basketItem);
-//            $entityManager->flush();
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($order);
+            $entityManager->remove($basket);
+            $entityManager->flush();
+            return $this->redirectToRoute('index');
         }
-        return $this->render('basket/checkoutForm.html.twig', [
+        return $this->render('basket/checkout.html.twig', [
+            'title' => 'Оформить заказ',
             'orderForm' => $orderForm->createView(),
             'basketItems' => $basket->getBasketItems(),
             'cost' => $basket->getTotal(),
