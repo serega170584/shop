@@ -40,21 +40,6 @@ class Basket
      */
     private $basketItems;
 
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $telephone;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $address;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $email;
-
     public function __construct()
     {
         $this->basketItems = new ArrayCollection();
@@ -159,42 +144,6 @@ class Basket
                 $basketItem->setBasket(null);
             }
         }
-
-        return $this;
-    }
-
-    public function getTelephone(): ?string
-    {
-        return $this->telephone;
-    }
-
-    public function setTelephone(string $telephone): self
-    {
-        $this->telephone = $telephone;
-
-        return $this;
-    }
-
-    public function getAddress(): ?string
-    {
-        return $this->address;
-    }
-
-    public function setAddress(string $address): self
-    {
-        $this->address = $address;
-
-        return $this;
-    }
-
-    public function getEmail(): ?string
-    {
-        return $this->email;
-    }
-
-    public function setEmail(string $email): self
-    {
-        $this->email = $email;
 
         return $this;
     }

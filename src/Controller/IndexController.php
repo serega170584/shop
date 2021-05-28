@@ -263,22 +263,17 @@ class IndexController extends AbstractController
 
     /**
      * @Route("/checkoutSend", name="checkoutSend")
-     * @param Request $request
      * @param BasketFactory $factory
-     * @param BasketRepository $repository
      * @return Response
      */
-    public function checkoutSend(Request $request, BasketFactory $factory, BasketRepository $repository): Response
+    public function checkoutSend(BasketFactory $factory): Response
     {
-        $sessionId = $request->getSession()->getId();
-        if (!($basket = $repository->findOneBy(['sessionId' => $sessionId]))) {
-            $basket = $factory->getBasket();
-        }
+        $basket = $factory->getBasket();
         $orderForm = $this->createForm(OrderFormType::class);
         if (!$basket) {
             throw $this->createNotFoundException();
         }
-//        if ($orderForm->isSubmitted() && $orderForm->isValid()) {
+        if ($orderForm->isSubmitted() && $orderForm->isValid()) {
 //            $entityManager = $this->getDoctrine()->getManager();
 //            $product = $productRepository->findOneBy([
 //                'id' => $basketItem->getProduct()->getId()
@@ -289,7 +284,7 @@ class IndexController extends AbstractController
 //            ]);
 //            $entityManager->remove($basketItem);
 //            $entityManager->flush();
-//        }
+        }
         return $this->render('basket/checkoutForm.html.twig', [
             'orderForm' => $orderForm->createView(),
             'basketItems' => $basket->getBasketItems(),

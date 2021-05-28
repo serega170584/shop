@@ -39,11 +39,6 @@ class OrderItem
     private $updatedAt;
 
     /**
-     * @ORM\Column(type="integer")
-     */
-    private $count;
-
-    /**
      * @ORM\ManyToOne(targetEntity=Order::class, inversedBy="orderItems")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -117,18 +112,6 @@ class OrderItem
     public function setUpdatedAtValue()
     {
         $this->updatedAt = new \DateTime();
-    }
-
-    public function getCount(): ?int
-    {
-        return $this->count;
-    }
-
-    public function setCount(int $count): self
-    {
-        $this->count = $count;
-
-        return $this;
     }
 
     public function getProductOrder(): ?Order
