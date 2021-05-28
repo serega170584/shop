@@ -30,7 +30,7 @@ $(function () {
     $(deleteProductIdInput).closest('form').submit(function (e) {
         e.preventDefault();
         let url = $(this).data('url');
-        let isBasket = $(this).data('basket');
+        let isBasket = $(this).data('reload');
         $.post($(this).attr('action'), $(this).serialize(), function (data) {
             let currentButton = $('.current');
             $(currentButton).closest('span').find('.buy').show();
