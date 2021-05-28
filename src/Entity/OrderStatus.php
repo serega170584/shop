@@ -48,6 +48,11 @@ class OrderStatus
      */
     private $orders;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isDefault;
+
     public function __construct()
     {
         $this->orders = new ArrayCollection();
@@ -163,6 +168,18 @@ class OrderStatus
     public function __toString()
     {
         return $this->title;
+    }
+
+    public function getIsDefault(): ?bool
+    {
+        return $this->isDefault;
+    }
+
+    public function setIsDefault(bool $isDefault): self
+    {
+        $this->isDefault = $isDefault;
+
+        return $this;
     }
 
 }
