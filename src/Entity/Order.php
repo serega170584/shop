@@ -44,16 +44,19 @@ class Order
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $email;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $telephone;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank
      */
     private $address;
 
