@@ -35,6 +35,7 @@ class Order
     /**
      * @ORM\ManyToOne(targetEntity=OrderStatus::class, inversedBy="productOrders")
      * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotBlank
      */
     private $orderStatus;
 

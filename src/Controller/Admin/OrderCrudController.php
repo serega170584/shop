@@ -9,6 +9,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
@@ -29,21 +30,20 @@ class OrderCrudController extends AbstractCrudController
             ->setPaginatorPageSize(30);
     }
 
+    public function configureActions(Actions $actions): Actions
+    {
+        $actions->remove(Crud::PAGE_INDEX, Action::NEW);
+        $actions->remove(Crud::PAGE_INDEX, Action::EDIT);
+        $actions->remove(Crud::PAGE_INDEX, Action::DELETE);
+    }
+
     public function configureFields(string $pageName): iterable
     {
         return [
-            TextField::new('title'),
-            TextField::new('image')
-                ->onlyOnForms()
-                ->addJsFiles('/js/author-uploader.js'),
-            ImageField::new('image')
-                ->onlyOnIndex()
-                ->setUploadDir('public/uploads/author')
-                ->setBasePath('uploads/author')
-                ->setRequired(false),
-            TextEditorField::new('preview'),
-            TextEditorField::new('description'),
-            TextField::new('subject')
+            TextField::new('email'),
+            TextEditorField::new('telephone'),
+            TextEditorField::new('address'),
+            AssociationField::new('orderStatus')
         ];
     }
 
