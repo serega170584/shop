@@ -1,7 +1,7 @@
 {% block productDeleteForm %}
     {% set attr = {'data-url': path('index')} %}
     {% if isReload is defined and isReload == true %}
-        {% attr['data-reload'] = '1' %}
+        {% set attr=attr|merge({'data-reload': '1'}) %}
     {% endif %}
     {{ form_start(productDeleteForm, {'action': path('productDelete'), 'attr': attr}) }}
     {{ form_row(productDeleteForm.product) }}
