@@ -6,6 +6,7 @@ use App\Entity\BasketItem;
 use App\Entity\Category;
 use App\Entity\Event;
 use App\Entity\News;
+use App\Entity\OrderStatus;
 use App\Entity\Product;
 use App\Entity\Video;
 use App\Factory\BasketFactory;
@@ -19,6 +20,7 @@ use App\Repository\BasketRepository;
 use App\Repository\CategoryRepository;
 use App\Repository\EventRepository;
 use App\Repository\NewsRepository;
+use App\Repository\OrderStatusRepository;
 use App\Repository\ProductRepository;
 use App\Repository\VideoRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -254,6 +256,13 @@ class IndexController extends AbstractController
     public function checkout(BasketFactory $factory, OrderFactory $orderFactory, Request $request): Response
     {
         $order = $orderFactory->getOrder();
+        /**
+         * @var OrderStatusRepository $defaultOrderStatusRepository
+         */
+        $defaultOrderStatusRepository = $this->getDoctrine()
+            ->getManager()
+            ->getRepository(OrderStatus::class);
+        $order->setOrderStatus($defaultOrderStatusRepository->findDefault());
         $basket = $factory->getBasket();
         $orderForm = $this->createForm(OrderFormType::class, $order);
         $orderForm->handleRequest($request);

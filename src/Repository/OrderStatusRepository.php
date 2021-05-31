@@ -19,6 +19,14 @@ class OrderStatusRepository extends ServiceEntityRepository
         parent::__construct($registry, OrderStatus::class);
     }
 
+    /**
+     * @return OrderStatus|null
+     */
+    public function findDefault()
+    {
+        return $this->findOneBy(['isDefault' => true]);
+    }
+
     // /**
     //  * @return OrderStatus[] Returns an array of OrderStatus objects
     //  */
