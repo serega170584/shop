@@ -40,6 +40,11 @@ class Basket
      */
     private $basketItems;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isActive;
+
     public function __construct()
     {
         $this->basketItems = new ArrayCollection();
@@ -156,5 +161,17 @@ class Basket
         return $this->basketItems->map(function (BasketItem $basketItem) {
             return $basketItem->getProduct();
         });
+    }
+
+    public function getIsActive(): ?bool
+    {
+        return $this->isActive;
+    }
+
+    public function setIsActive(bool $isActive): self
+    {
+        $this->isActive = $isActive;
+
+        return $this;
     }
 }
