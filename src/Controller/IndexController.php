@@ -167,7 +167,7 @@ class IndexController extends AbstractController
         $form = $this->createForm(ProductDeleteFormType::class, $basketItem);
         $form->handleRequest($request);
         $basket = $factory->getBasket();
-        if ($form->isSubmitted() && $form->isValid() && $basket->getBasketItems()->count()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $product = $productRepository->findOneBy([
                 'id' => $basketItem->getProduct()->getId()
