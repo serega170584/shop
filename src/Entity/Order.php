@@ -113,7 +113,7 @@ class Order
         $this->updatedAt = new \DateTime();
     }
 
-    public function getOrderStatus(): OrderStatus
+    public function getOrderStatus(): ?OrderStatus
     {
         return $this->orderStatus;
     }
