@@ -26,9 +26,7 @@ class OrderFormType extends AbstractType
             ->add('address', TextareaType::class);
 
         $builder
-            ->add('orderStatus', HiddenType::class, [
-                'data' => '123'
-            ]);
+            ->add('orderStatus', HiddenType::class);
 
     }
 }
