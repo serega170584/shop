@@ -124,6 +124,7 @@ class IndexController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $basket->setSessionId($sessionId);
+            $basket->setIsActive(true);
             $entityManager->persist($basket);
             $entityManager->flush();
             $product = $productRepository->findOneBy([
@@ -151,22 +152,22 @@ class IndexController extends AbstractController
     /**
      * @Route("/productDelete", name="productDelete")
      * @param Request $request
+     * @param BasketFactory $factory
      * @param BasketRepository $repository
      * @param BasketItemFactory $basketItemFactory
      * @param BasketItemRepository $basketItemRepository
      * @param ProductRepository $productRepository
      * @return JsonResponse
      */
-    public function productDelete(Request $request, BasketRepository $repository,
+    public function productDelete(Request $request, BasketFactory $factory, BasketRepository $repository,
                                   BasketItemFactory $basketItemFactory, BasketItemRepository $basketItemRepository,
                                   ProductRepository $productRepository): JsonResponse
     {
         $basketItem = $basketItemFactory->getBasketItem();
         $form = $this->createForm(ProductDeleteFormType::class, $basketItem);
         $form->handleRequest($request);
-        $sessionId = $request->getSession()->getId();
-        $basket = $repository->findOneBy(['sessionId' => $sessionId]);
-        if ($form->isSubmitted() && $form->isValid() && $basket) {
+        $basket = $factory->getBasket();
+        if ($form->isSubmitted() && $form->isValid() && $basket->getBasketItems()->count()) {
             $entityManager = $this->getDoctrine()->getManager();
             $product = $productRepository->findOneBy([
                 'id' => $basketItem->getProduct()->getId()

@@ -36,7 +36,8 @@ class BasketFactory
     {
         $id = $this->session->getId();
         if ($foundBasket = $this->basketRepository->findOneBy([
-            'sessionId' => $id
+            'sessionId' => $id,
+            'isActive' => true
         ])) {
             $this->basket = $foundBasket;
         } else {
