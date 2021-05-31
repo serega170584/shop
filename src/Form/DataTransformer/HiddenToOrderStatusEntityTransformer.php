@@ -5,7 +5,6 @@ namespace App\Form\DataTransformer;
 
 
 use App\Entity\OrderStatus;
-use App\Entity\Product;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Form\DataTransformerInterface;
 use Symfony\Component\Form\Exception\TransformationFailedException;
@@ -39,7 +38,7 @@ class HiddenToOrderStatusEntityTransformer implements DataTransformerInterface
      * @param mixed $value
      * @return OrderStatus|null
      */
-    public function reverseTransform($value): ?Product
+    public function reverseTransform($value): ?OrderStatus
     {
         if (!$value) {
             return null;
