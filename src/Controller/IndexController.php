@@ -266,7 +266,7 @@ class IndexController extends AbstractController
         $basket = $factory->getBasket();
         $orderForm = $this->createForm(OrderFormType::class, $order);
         $orderForm->handleRequest($request);
-        if (!$basket) {
+        if (!$basket->getBasketItems()->count()) {
             return $this->redirectToRoute('index');
         }
         if ($orderForm->isSubmitted() && $orderForm->isValid()) {
