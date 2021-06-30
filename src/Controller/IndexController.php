@@ -108,13 +108,11 @@ class IndexController extends AbstractController
      * @param Request $request
      * @param BasketFactory $factory
      * @param BasketItemFactory $basketItemFactory
-     * @param BasketItemRepository $basketItemRepository
-     * @param ProductRepository $productRepository
      * @return JsonResponse
      */
     public function productAdd(Request $request, BasketFactory $factory,
-                               BasketItemFactory $basketItemFactory, BasketItemRepository $basketItemRepository,
-                               ProductRepository $productRepository): JsonResponse
+                               BasketItemFactory $basketItemFactory
+    ): JsonResponse
     {
         $basketItem = $basketItemFactory->getBasketItem();
         $form = $this->createForm(ProductAddFormType::class, $basketItem);
@@ -127,9 +125,18 @@ class IndexController extends AbstractController
             $basket->setIsActive(true);
             $entityManager->persist($basket);
             $entityManager->flush();
+            $productRepository = $this->getDoctrine()
+                ->getManager()
+                ->getRepository(Product::class);
+            /**
+             * @var Product $product
+             */
             $product = $productRepository->findOneBy([
                 'id' => $basketItem->getProduct()->getId()
             ]);
+            $basketItemRepository = $this->getDoctrine()
+                ->getManager()
+                ->getRepository(BasketItem::class);
             if ($foundBasketItem = $basketItemRepository->findOneBy([
                 'basket' => $basket,
                 'product' => $product
