@@ -33,6 +33,7 @@ use Symfony\Component\HttpFoundation\Session\Storage\Handler\MigratingSessionHan
 use Symfony\Component\HttpFoundation\Session\Storage\NativeSessionStorage;
 use Symfony\Component\HttpFoundation\Session\Storage\SessionStorageInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use const http\Client\Curl\PROXY_HTTP;
 
 class IndexController extends AbstractController
 {
@@ -160,15 +161,10 @@ class IndexController extends AbstractController
      * @Route("/productDelete", name="productDelete")
      * @param Request $request
      * @param BasketFactory $factory
-     * @param BasketRepository $repository
      * @param BasketItemFactory $basketItemFactory
-     * @param BasketItemRepository $basketItemRepository
-     * @param ProductRepository $productRepository
      * @return JsonResponse
      */
-    public function productDelete(Request $request, BasketFactory $factory, BasketRepository $repository,
-                                  BasketItemFactory $basketItemFactory, BasketItemRepository $basketItemRepository,
-                                  ProductRepository $productRepository): JsonResponse
+    public function productDelete(Request $request, BasketFactory $factory, BasketItemFactory $basketItemFactory): JsonResponse
     {
         $basketItem = $basketItemFactory->getBasketItem();
         $form = $this->createForm(ProductDeleteFormType::class, $basketItem);
@@ -176,9 +172,21 @@ class IndexController extends AbstractController
         $basket = $factory->getBasket();
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+            $productRepository = $this->getDoctrine()
+                ->getManager()
+                ->getRepository(Product::class);
+            /**
+             * @var Product $product
+             */
             $product = $productRepository->findOneBy([
                 'id' => $basketItem->getProduct()->getId()
             ]);
+            $basketItemRepository = $this->getDoctrine()
+                ->getManager()
+                ->getRepository(BasketItem::class);
+            /**
+             * @var BasketItem $basketItem
+             */
             $basketItem = $basketItemRepository->findOneBy([
                 'basket' => $basket,
                 'product' => $product
