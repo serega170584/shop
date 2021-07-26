@@ -287,7 +287,6 @@ class IndexController extends AbstractController
             $basket->setIsActive(false);
             $entityManager->persist($basket);
             $entityManager->flush();
-//            $request->getSession()->start();
             $request->getSession()->migrate();
             return $this->redirectToRoute('index');
         }
