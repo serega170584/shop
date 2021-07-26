@@ -282,7 +282,10 @@ class IndexController extends AbstractController
         if ($orderForm->isSubmitted() && $orderForm->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($order);
-            $entityManager->remove($basket);
+            $sessionId = $request->getSession()->getId();
+            $basket->setSessionId($sessionId);
+            $basket->setIsActive(false);
+            $entityManager->persist($basket);
             $entityManager->flush();
             return $this->redirectToRoute('index');
         }
