@@ -15,8 +15,6 @@ use App\Factory\OrderFactory;
 use App\Form\OrderFormType;
 use App\Form\ProductAddFormType;
 use App\Form\ProductDeleteFormType;
-use App\Repository\BasketItemRepository;
-use App\Repository\BasketRepository;
 use App\Repository\CategoryRepository;
 use App\Repository\EventRepository;
 use App\Repository\NewsRepository;
@@ -24,16 +22,9 @@ use App\Repository\OrderStatusRepository;
 use App\Repository\ProductRepository;
 use App\Repository\VideoRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Cookie;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
-use Symfony\Component\HttpFoundation\Session\Storage\Handler\MigratingSessionHandler;
-use Symfony\Component\HttpFoundation\Session\Storage\NativeSessionStorage;
-use Symfony\Component\HttpFoundation\Session\Storage\SessionStorageInterface;
-use Symfony\Component\Routing\Annotation\Route;
-use const http\Client\Curl\PROXY_HTTP;
 
 class IndexController extends AbstractController
 {
