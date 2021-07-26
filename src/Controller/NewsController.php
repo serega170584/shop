@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\News;
-use App\Repository\NewsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -24,14 +23,16 @@ class NewsController extends AbstractController
 
     /**
      * @Route("/newsList", name="newsList")
-     * @param NewsRepository $newsRepository
      * @return Response
      */
-    public function newsList(NewsRepository $newsRepository): Response
+    public function newsList(): Response
     {
         return $this->render('news/list.html.twig', [
             'title'=> 'Новости',
-            'newsList' => $newsRepository->findAll()
+            'newsList' => $this->getDoctrine()
+                ->getManager()
+                ->getRepository(News::class)
+                ->findAll()
         ]);
     }
 }
