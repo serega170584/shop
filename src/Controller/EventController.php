@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Event;
-use App\Repository\EventRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -24,14 +23,16 @@ class EventController extends AbstractController
 
     /**
      * @Route("/events", name="events")
-     * @param EventRepository $eventRepository
      * @return Response
      */
-    public function events(EventRepository $eventRepository): Response
+    public function events(): Response
     {
         return $this->render('event/list.html.twig', [
             'title'=> 'События',
-            'events' => $eventRepository->findAll()
+            'events' => $this->getDoctrine()
+                ->getManager()
+                ->getRepository(Event::class)
+                ->findAll()
         ]);
     }
 }
