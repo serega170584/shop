@@ -287,6 +287,7 @@ class IndexController extends AbstractController
             $basket->setIsActive(false);
             $entityManager->persist($basket);
             $entityManager->flush();
+            $request->getSession()->migrate();
             return $this->redirectToRoute('index');
         }
         return $this->render('basket/checkout.html.twig', [
