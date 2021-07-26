@@ -38,7 +38,7 @@ $(function () {
             $('.studiare-cart-number').html(data.count);
             $('.cart-box').html(data.content);
             if (data.count) {
-                $('#order-total').html(data.count)
+                $('#order-total').html(data.total)
             } else {
                 $('.shopping-cart-box').hide();
                 $('.shop-icon').hide();

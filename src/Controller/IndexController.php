@@ -145,7 +145,8 @@ class IndexController extends AbstractController
             throw $this->createNotFoundException();
         }
         return $this->json([
-            'count' => $basket->getBasketItems()->count()
+            'count' => $basket->getBasketItems()->count(),
+            'total' => $basket->getTotal()
         ]);
     }
 
