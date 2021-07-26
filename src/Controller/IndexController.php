@@ -194,7 +194,8 @@ class IndexController extends AbstractController
         ]);
         return $this->json([
             'count' => $basket->getBasketItems()->count(),
-            'content' => $content
+            'content' => $content,
+            'total' => $basket->getTotal()
         ]);
     }
 
