@@ -25,6 +25,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\Storage\NativeSessionStorage;
 use Symfony\Component\Routing\Annotation\Route;
 
 class IndexController extends AbstractController
@@ -44,10 +45,8 @@ class IndexController extends AbstractController
      * @param BasketFactory $basketFactory
      * @return Response
      */
-    public function index(BasketFactory $basketFactory,Request $request): Response
+    public function index(BasketFactory $basketFactory): Response
     {
-        var_dump($request->getSession()->getMetadataBag()->getStorageKey());
-        die('asd');
         /**
          * @var CategoryRepository $repository
          */
