@@ -44,8 +44,10 @@ class IndexController extends AbstractController
      * @param BasketFactory $basketFactory
      * @return Response
      */
-    public function index(BasketFactory $basketFactory): Response
+    public function index(BasketFactory $basketFactory,Request $request): Response
     {
+        var_dump($request->getSession()->getMetadataBag()->getLifetime());
+        die('asd');
         /**
          * @var CategoryRepository $repository
          */
