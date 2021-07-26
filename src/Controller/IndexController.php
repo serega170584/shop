@@ -48,8 +48,6 @@ class IndexController extends AbstractController
      */
     public function index(BasketFactory $basketFactory): Response
     {
-        var_dump((new Session())->getId());
-die('asd');
         /**
          * @var CategoryRepository $repository
          */
