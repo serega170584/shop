@@ -6,7 +6,7 @@ namespace App\Factory;
 
 use App\Entity\Basket;
 use App\Repository\BasketRepository;
-use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -26,11 +26,11 @@ class BasketFactory
      */
     private $session;
     /**
-     * @var EntityManager
+     * @var EntityManagerInterface
      */
     private $mgr;
 
-    public function __construct(Basket $basket, BasketRepository $basketRepository, SessionInterface $session, EntityManager $mgr)
+    public function __construct(Basket $basket, BasketRepository $basketRepository, SessionInterface $session, EntityManagerInterface $mgr)
     {
         $this->basket = $basket;
         $this->basketRepository = $basketRepository;
