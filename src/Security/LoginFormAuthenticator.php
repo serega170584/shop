@@ -41,9 +41,8 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
 
     public function supports(Request $request)
     {
-        return $request->headers->has('X-AUTH-TOKEN');
-//        return self::LOGIN_ROUTE === $request->attributes->get('_route')
-//            && $request->isMethod('POST');
+        return self::LOGIN_ROUTE === $request->attributes->get('_route')
+            && $request->isMethod('POST');
     }
 
     public function getCredentials(Request $request)
