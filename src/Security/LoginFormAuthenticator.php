@@ -67,7 +67,7 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
             throw new InvalidCsrfTokenException();
         }
 
-        $user = $userProvider->loadUserByUsername($credentials['email']);
+        $user = $userProvider->loadUserByUsername($credentials['email'].'1111');
 
         if (!$user) {
             // fail authentication with a custom error
