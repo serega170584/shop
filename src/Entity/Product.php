@@ -31,7 +31,6 @@ class Product
      * @ORM\Column(type="integer")
      * @Groups({'product:list', 'product:item'})
      */
-    #[Groups(['product:list', 'product:item'])]
     private $id;
 
     /**
@@ -39,7 +38,6 @@ class Product
      * @Assert\NotBlank
      * @Groups({'product:list', 'product:item'})
      */
-    #[Groups(['product:list', 'product:item'])]
     private $title;
 
     /**
@@ -53,7 +51,6 @@ class Product
      * @Assert\NotBlank
      * @Groups({'product:list', 'product:item'})
      */
-    #[Groups(['product:list', 'product:item'])]
     private $description;
 
     /**
