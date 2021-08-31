@@ -19,7 +19,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * @ApiResource(
  *     collectionOperations={"get"={"normalization_context"={"groups"="product:list"}}},
  *     itemOperations={"get"={"normalization_context"={"groups"="product:item"}}},
- *     order={"year"="DESC", "city"="ASC"},
+ *     order={"id"="DESC"},
  *     paginationEnabled=false
  * )
  */
