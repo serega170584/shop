@@ -23,7 +23,6 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  *     paginationEnabled=false
  * )
  */
-#[ApiResource]
 class Product
 {
     /**
