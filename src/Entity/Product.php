@@ -29,7 +29,7 @@ class Product
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups({'product:list', 'product:item'})
+     * @Groups({"product:list", "product:item"})
      */
     private $id;
 
