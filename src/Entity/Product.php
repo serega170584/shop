@@ -36,8 +36,8 @@ class Product
     /**
      * @ORM\Column(type="string", length=255, unique=true)
      * @Assert\NotBlank
+     * @Groups({"product:list", "product:item"})
      */
-    #[Groups(['product:list', 'product:item'])]
     private $title;
 
     /**
@@ -49,8 +49,8 @@ class Product
     /**
      * @ORM\Column(type="text")
      * @Assert\NotBlank
+     * @Groups({"product:list", "product:item"})
      */
-    #[Groups(['product:list', 'product:item'])]
     private $description;
 
     /**
