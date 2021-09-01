@@ -24,9 +24,6 @@ class CategoryRepository extends ServiceEntityRepository
      */
     public function findLastRows($count = null)
     {
-        var_dump($this->getEntityName());
-        var_dump($this->_entityName);
-        die('asd');
         $builder = $this->createQueryBuilder('category');
         if ($count) {
             $builder->setMaxResults($count);
