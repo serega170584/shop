@@ -2,19 +2,22 @@
 
 namespace App\Controller;
 
+use App\Repository\DigitalLineTestGroupRepository;
+use App\Repository\DigitalLineTestRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
 
 class TestController extends AbstractController
 {
     /**
      * @Route("/test", name="test")
+     * @param DigitalLineTestRepository $digitalLineTestRepository
+     * @param DigitalLineTestGroupRepository $digitalLineTestGroupRepository
+     * @return Response
      */
-    public function index(Request $request): Response
+    public function index(DigitalLineTestRepository $digitalLineTestRepository, DigitalLineTestGroupRepository $digitalLineTestGroupRepository): Response
     {
-        file_put_contents($_SERVER['DOCUMENT_ROOT'] . '/test/1.png', $request->query->get('page'));
+        var_dump(get_class($digitalLineTestRepository->findAll()));
         die('asd');
         return $this->render('test/index.html.twig', [
             'controller_name' => 'TestController',

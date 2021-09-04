@@ -2,10 +2,9 @@
 
 namespace App\Entity;
 
-use App\Repository\DigitalLineTestGroupRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\Criteria;
 
 /**
  * @ORM\Entity(repositoryClass=DigitalLineTestGroupRepository::class)
@@ -57,6 +56,13 @@ class DigitalLineTestGroup
     public function getDigitalLineTestSubGroups(): Collection
     {
         return $this->digitalLineTestSubGroups;
+    }
+
+    public function getFiltered(DigitalLineTest $test)
+    {
+        $id = $test->getDigitalLineTestSubGroup()->getId();
+        $criteria = Criteria::create()->andWhere(Criteria::expr()->eq('id', $id));
+        return $this->digitalLineTestSubGroups->matching($criteria);
     }
 
     public function addDigitalLineTestSubGroup(DigitalLineTestSubGroup $digitalLineTestSubGroup): self
