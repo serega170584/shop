@@ -18,8 +18,7 @@ class TestController extends AbstractController
      */
     public function index(DigitalLineTestRepository $digitalLineTestRepository, DigitalLineTestGroupRepository $digitalLineTestGroupRepository): Response
     {
-        var_dump(get_class($digitalLineTestRepository->findAll()));
-        die('asd');
+        $digitalLineTestRepository->findAll();
         return $this->render('test/index.html.twig', [
             'controller_name' => 'TestController',
         ]);
