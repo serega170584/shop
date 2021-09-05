@@ -24,10 +24,7 @@ class TestController extends AbstractController
      */
     public function index(DigitalLineTestSubGroupRepository $digitalLineTestSubGroupRepository, DigitalLineTestRepository $digitalLineTestRepository, DigitalLineTestGroupRepository $digitalLineTestGroupRepository): Response
     {
-        $group = new DigitalLineTestGroup();
-        $group->setName('asdasd');
-        $this->getDoctrine()->getManager()->persist($group);
-        $this->getDoctrine()->getManager()->flush();
+        $group = $digitalLineTestGroupRepository->find(4);
         $subGroup = new DigitalLineTestSubGroup();
         $subGroup->setName('asdasd');
         $subGroup->setDigitalLineTestGroup($group);
