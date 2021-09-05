@@ -30,7 +30,7 @@ class DigitalLineTestSubGroup
     private $digitalLineTests;
 
     /**
-     * @ORM\ManyToOne(targetEntity=DigitalLineTestGroup::class, inversedBy="digitalLineTestSubGroups")
+     * @ORM\ManyToOne(targetEntity=DigitalLineTestGroup::class, inversedBy="digitalLineTestSubGroups", fetch="EAGER")
      * @ORM\JoinColumn(nullable=false)
      */
     private $digitalLineTestGroup;
