@@ -20,7 +20,7 @@ class TestController extends AbstractController
      */
     public function index(DigitalLineTestSubGroupRepository $digitalLineTestSubGroupRepository, DigitalLineTestRepository $digitalLineTestRepository, DigitalLineTestGroupRepository $digitalLineTestGroupRepository): Response
     {
-        $tests = $digitalLineTestSubGroupRepository->findAll();
+        $tests = $digitalLineTestRepository->findAll();
         return $this->render('test/index.html.twig', [
             'controller_name' => 'TestController',
         ]);
