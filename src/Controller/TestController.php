@@ -27,6 +27,7 @@ class TestController extends AbstractController
         $group = new DigitalLineTestGroup();
         $group->setName('asdasd');
         $this->getDoctrine()->getManager()->persist($group);
+        $this->getDoctrine()->getManager()->flush();
         $subGroup = new DigitalLineTestSubGroup();
         $subGroup->setName('asdasd');
         $subGroup->setDigitalLineTestGroup($group);
@@ -35,7 +36,7 @@ class TestController extends AbstractController
         $test->setName('adasdasd');
         $test->setDigitalLineTestSubGroup($subGroup);
         $this->getDoctrine()->getManager()->persist($test);
-        var_dump(count($subGroup->getDigitalLineTests()));
+        var_dump(count($group->getDigitalLineTestSubGroups()));
         return $this->render('test/index.html.twig', [
             'controller_name' => 'TestController',
         ]);
