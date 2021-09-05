@@ -29,6 +29,7 @@ class TestController extends AbstractController
         $subGroup->setName('asdasd');
         $subGroup->setDigitalLineTestGroup($group);
         $this->getDoctrine()->getManager()->persist($subGroup);
+        $this->getDoctrine()->getManager()->flush();
         $test = new DigitalLineTest();
         $test->setName('adasdasd');
         $test->setDigitalLineTestSubGroup($subGroup);
