@@ -3,14 +3,12 @@
 namespace App\Controller;
 
 use App\Entity\DigitalLineTest;
-use App\Entity\DigitalLineTestGroup;
 use App\Entity\DigitalLineTestSubGroup;
 use App\Repository\DigitalLineTestGroupRepository;
 use App\Repository\DigitalLineTestRepository;
 use App\Repository\DigitalLineTestSubGroupRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
 
 
 class TestController extends AbstractController
@@ -24,6 +22,7 @@ class TestController extends AbstractController
      */
     public function index(DigitalLineTestSubGroupRepository $digitalLineTestSubGroupRepository, DigitalLineTestRepository $digitalLineTestRepository, DigitalLineTestGroupRepository $digitalLineTestGroupRepository): Response
     {
+        var_dump(opcache_is_script_cached(__FILE__));
         $group = $digitalLineTestGroupRepository->find(4);
         $subGroup = new DigitalLineTestSubGroup();
         $subGroup->setName('asdasd');
