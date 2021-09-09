@@ -25,6 +25,7 @@ class TestController extends AbstractController
     {
         var_dump(opcache_is_script_cached(__FILE__));
         opcache_invalidate(__FILE__);
+        var_dump(opcache_is_script_cached(__FILE__));
         $group = $digitalLineTestGroupRepository->find(4);
         $subGroup = new DigitalLineTestSubGroup();
         $subGroup->setName('asdasd');
