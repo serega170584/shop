@@ -25,7 +25,7 @@ class TestController extends AbstractController
     {
         var_dump(file_exists(__DIR__.'/AuthorController.php'));
         var_dump(opcache_is_script_cached(__DIR__.'/AuthorController.php'));
-        opcache_invalidate(__DIR__.'/AuthorController.php', true);
+//        opcache_invalidate(__DIR__.'/AuthorController.php', true);
         var_dump(opcache_is_script_cached(__DIR__.'/AuthorController.php'));
         $group = $digitalLineTestGroupRepository->find(4);
         $subGroup = new DigitalLineTestSubGroup();
