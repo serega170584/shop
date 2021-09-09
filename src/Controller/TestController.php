@@ -24,7 +24,7 @@ class TestController extends AbstractController
     public function index(DigitalLineTestSubGroupRepository $digitalLineTestSubGroupRepository, DigitalLineTestRepository $digitalLineTestRepository, DigitalLineTestGroupRepository $digitalLineTestGroupRepository): Response
     {
         var_dump(opcache_is_script_cached(__FILE__));
-        opcache_invalidate(__DIR__);
+        opcache_invalidate(__FILE__);
         $group = $digitalLineTestGroupRepository->find(4);
         $subGroup = new DigitalLineTestSubGroup();
         $subGroup->setName('asdasd');
