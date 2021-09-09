@@ -23,6 +23,7 @@ class TestController extends AbstractController
      */
     public function index(DigitalLineTestSubGroupRepository $digitalLineTestSubGroupRepository, DigitalLineTestRepository $digitalLineTestRepository, DigitalLineTestGroupRepository $digitalLineTestGroupRepository): Response
     {
+        var_dump(file_exists(__DIR__.'/AuthorController.php'));
         var_dump(opcache_is_script_cached(__DIR__.'/AuthorController.php'));
         opcache_invalidate(__DIR__.'/AuthorController.php');
         var_dump(opcache_is_script_cached(__DIR__.'/AuthorController.php'));
