@@ -77,7 +77,7 @@ class IndexController extends AbstractController
         $basket = $basketFactory->getBasket();
         return $this->render('index/index.html.twig', [
             'controller_name' => 'IndexController',
-            'categories' => $mainPageManager->getCategoryManager()->getItems(),
+            'mainPageManager' => $mainPageManager->getCategoryManager()->getItems(),
             'products' => $products,
             'events' => $events,
             'firstVideo' => $firstVideo,

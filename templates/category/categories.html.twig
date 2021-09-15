@@ -4,10 +4,12 @@
             <div class="title-section">
                 <div class="left-part">
                     <span>Разделы</span>
-                    <h1>{{ categories[0].getTitle }}</h1>
+                    {% set categories = mainPageManager.getCategoryManager().getItems() %}
+                    {% set category = categories.current() %}
+                    <h1>{{ category.getTitle() }}</h1>
                 </div>
                 <div class="right-part">
-                    <a class="button-one" href="{{ path('category', { slug: categories[0].getSlug() }) }}">Все</a>
+                    <a class="button-one" href="{{ path('category', { slug: category.getSlug() }) }}">Все</a>
                 </div>
             </div>
             <div class="collection-box">
