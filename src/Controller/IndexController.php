@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Domain\PageManager\MainPageManager;
 use App\Domain\SubjectManager\CategoryManager;
 use App\Domain\SubjectManager\EventManager;
 use App\Domain\SubjectManager\NewsManager;
@@ -54,9 +55,11 @@ class IndexController extends AbstractController
                           EventManager $plainEventManager,
                           VideoManager $plainVideoManager,
                           NewsManager $plainNewsManager,
-                          FormFactoryInterface $formFactory
+                          FormFactoryInterface $formFactory,
+                          MainPageManager $mainPageManager
     ): Response
     {
+        $mainPageManager->inflate();
         $plainCategoryManager->inflate();
         $categories = $plainCategoryManager->getItems();
         $plainProductManager->inflate();
@@ -74,7 +77,7 @@ class IndexController extends AbstractController
         $basket = $basketFactory->getBasket();
         return $this->render('index/index.html.twig', [
             'controller_name' => 'IndexController',
-            'categories' => $categories,
+            'categories' => $mainPageManager->getCategoryManager()->getItems(),
             'products' => $products,
             'events' => $events,
             'firstVideo' => $firstVideo,
