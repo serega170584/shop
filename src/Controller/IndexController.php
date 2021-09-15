@@ -2,8 +2,8 @@
 
 namespace App\Controller;
 
+use App\Domain\PlainCategoryManager;
 use App\Entity\BasketItem;
-use App\Entity\Category;
 use App\Entity\Event;
 use App\Entity\News;
 use App\Entity\OrderStatus;
@@ -15,7 +15,6 @@ use App\Factory\OrderFactory;
 use App\Form\OrderFormType;
 use App\Form\ProductAddFormType;
 use App\Form\ProductDeleteFormType;
-use App\Repository\CategoryRepository;
 use App\Repository\EventRepository;
 use App\Repository\NewsRepository;
 use App\Repository\OrderStatusRepository;
@@ -44,40 +43,37 @@ class IndexController extends AbstractController
     /**
      * @Route("/", name="index")
      * @param BasketFactory $basketFactory
+     * @param PlainCategoryManager $plainCategoryManager
      * @return Response
      */
-    public function index(BasketFactory $basketFactory): Response
+    public function index(BasketFactory $basketFactory, PlainCategoryManager $plainCategoryManager): Response
     {
-        /**
-         * @var CategoryRepository $repository
-         */
-        $repository = $this->getDoctrine()->getManager()
-            ->getRepository(Category::class);
-        $categories = $repository->findLastRows(5);
+        $manager = $this->getDoctrine()->getManager();
+        $categories = $plainCategoryManager->getItems();
         /**
          * @var EventRepository $repository
          */
-        $repository = $this->getDoctrine()->getManager()
+        $repository = $manager
             ->getRepository(Event::class);
         $events = $repository->findLastRows(3);
         /**
          * @var VideoRepository $repository
          */
-        $repository = $this->getDoctrine()->getManager()
+        $repository = $manager
             ->getRepository(Video::class);
         $videos = $repository->findLastRows(3);
         $firstVideo = array_shift($videos);
         /**
          * @var ProductRepository $repository
          */
-        $repository = $this->getDoctrine()->getManager()
+        $repository = $manager
             ->getRepository(Product::class);
         $products = $repository->findPopular();
         $sliderProducts = $repository->findIsSlider();
         /**
          * @var NewsRepository $repository
          */
-        $repository = $this->getDoctrine()->getManager()
+        $repository = $manager
             ->getRepository(News::class);
         $news = $repository->findLastRows(4);
         $form = $this->createForm(ProductAddFormType::class);
