@@ -12,4 +12,9 @@ class PlainProductManager extends AbstractSubjectManager
     {
         parent::__construct($repository);
     }
+
+    public function inflate()
+    {
+        // TODO: Implement inflate() method.
+    }
 }

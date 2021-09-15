@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Category;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -17,21 +18,6 @@ class CategoryRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Category::class);
-    }
-
-    /**
-     * @return Category[]
-     */
-    public function findLastRows($count = null)
-    {
-        $builder = $this->createQueryBuilder('category');
-        if ($count) {
-            $builder->setMaxResults($count);
-        }
-        return $builder
-            ->orderBy('category.id', 'DESC')
-            ->getQuery()
-            ->getResult();
     }
 
     // /**
@@ -62,4 +48,13 @@ class CategoryRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    /**
+     * @param array $criteria
+     * @return Category[]|ArrayCollection
+     */
+    public function findLastRows(array $criteria)
+    {
+        return new ArrayCollection($this->findBy(...$criteria));
+    }
 }
