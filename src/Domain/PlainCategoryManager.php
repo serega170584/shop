@@ -5,8 +5,6 @@ namespace App\Domain;
 
 
 use App\Repository\CategoryRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Criteria;
 
 class PlainCategoryManager extends AbstractSubjectManager
 {

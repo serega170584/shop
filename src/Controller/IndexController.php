@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Domain\PlainCategoryManager;
 use App\Domain\PlainEventManager;
+use App\Domain\PlainNewsManager;
 use App\Domain\PlainProductManager;
 use App\Domain\PlainVideoManager;
 use App\Entity\BasketItem;
@@ -50,7 +51,8 @@ class IndexController extends AbstractController
                           PlainCategoryManager $plainCategoryManager,
                           PlainProductManager $plainProductManager,
                           PlainEventManager $plainEventManager,
-                          PlainVideoManager $plainVideoManager
+                          PlainVideoManager $plainVideoManager,
+                          PlainNewsManager $plainNewsManager
     ): Response
     {
         $manager = $this->getDoctrine()->getManager();
@@ -64,12 +66,8 @@ class IndexController extends AbstractController
         $plainVideoManager->inflate();
         $firstVideo = $plainVideoManager->getFirstItem();
         $videos = $plainVideoManager->getItems();
-        /**
-         * @var NewsRepository $repository
-         */
-        $repository = $manager
-            ->getRepository(News::class);
-        $news = $repository->findLastRows(4);
+        $plainNewsManager->inflate();
+        $news = $plainNewsManager->getItems();
         $form = $this->createForm(ProductAddFormType::class);
         $productDeleteForm = $this->createForm(ProductDeleteFormType::class);
         $basket = $basketFactory->getBasket();
