@@ -2,13 +2,12 @@
 
 namespace App\Controller;
 
-use App\Domain\PlainCategoryManager;
-use App\Domain\PlainEventManager;
-use App\Domain\PlainNewsManager;
-use App\Domain\PlainProductManager;
-use App\Domain\PlainVideoManager;
+use App\Domain\SubjectManager\PlainCategoryManager;
+use App\Domain\SubjectManager\PlainEventManager;
+use App\Domain\SubjectManager\PlainNewsManager;
+use App\Domain\SubjectManager\PlainProductManager;
+use App\Domain\SubjectManager\PlainVideoManager;
 use App\Entity\BasketItem;
-use App\Entity\News;
 use App\Entity\OrderStatus;
 use App\Entity\Product;
 use App\Factory\BasketFactory;
@@ -17,14 +16,12 @@ use App\Factory\OrderFactory;
 use App\Form\OrderFormType;
 use App\Form\ProductAddFormType;
 use App\Form\ProductDeleteFormType;
-use App\Repository\NewsRepository;
 use App\Repository\OrderStatusRepository;
 use App\Repository\ProductRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
 
 class IndexController extends AbstractController
 {
@@ -45,6 +42,7 @@ class IndexController extends AbstractController
      * @param PlainProductManager $plainProductManager
      * @param PlainEventManager $plainEventManager
      * @param PlainVideoManager $plainVideoManager
+     * @param PlainNewsManager $plainNewsManager
      * @return Response
      */
     public function index(BasketFactory $basketFactory,
@@ -55,7 +53,6 @@ class IndexController extends AbstractController
                           PlainNewsManager $plainNewsManager
     ): Response
     {
-        $manager = $this->getDoctrine()->getManager();
         $plainCategoryManager->inflate();
         $categories = $plainCategoryManager->getItems();
         $plainProductManager->inflate();

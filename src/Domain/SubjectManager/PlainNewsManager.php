@@ -1,17 +1,17 @@
 <?php
 
 
-namespace App\Domain;
+namespace App\Domain\SubjectManager;
 
 
 use App\Repository\EventRepository;
 
-class PlainEventManager extends AbstractSubjectManager
+class PlainNewsManager extends AbstractSubjectManager
 {
     use LastItemTrait;
 
     private const ID = 'id';
-    private const LIMIT = 3;
+    private const LIMIT = 4;
 
     public function __construct(EventRepository $repository)
     {

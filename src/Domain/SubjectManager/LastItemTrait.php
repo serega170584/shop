@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Domain;
+namespace App\Domain\SubjectManager;
 
 
 use Doctrine\Common\Collections\ArrayCollection;
