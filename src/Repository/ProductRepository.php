@@ -4,7 +4,8 @@ namespace App\Repository;
 
 use App\Entity\Product;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\ORM\AbstractQuery;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Criteria;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -15,6 +16,10 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class ProductRepository extends ServiceEntityRepository
 {
+    const ID = 'id';
+    const IS_POPULAR = 'isPopular';
+    const POPULAR_LIMIT = 4;
+
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Product::class);
@@ -35,16 +40,15 @@ class ProductRepository extends ServiceEntityRepository
     }
 
     /**
-     * @return Product[]
+     * @return Product[]|ArrayCollection
      */
     public function findPopular()
     {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.isPopular = :val')
-            ->setParameter('val', true)
-            ->orderBy('p.id', 'DESC')
-            ->setMaxResults(5)
-            ->getQuery()
-            ->getResult();
+        return new ArrayCollection($this->findBy([
+            self::IS_POPULAR => true
+        ], [
+            self::ID => Criteria::DESC
+        ], self::POPULAR_LIMIT
+        ));
     }
 }

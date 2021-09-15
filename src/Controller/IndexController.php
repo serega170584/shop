@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Domain\PlainCategoryManager;
+use App\Domain\PlainProductManager;
 use App\Entity\BasketItem;
 use App\Entity\Event;
 use App\Entity\News;
@@ -24,9 +25,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Session\Session;
-use Symfony\Component\HttpFoundation\Session\Storage\NativeSessionStorage;
-use Symfony\Component\Routing\Annotation\Route;
 
 class IndexController extends AbstractController
 {
@@ -46,11 +44,15 @@ class IndexController extends AbstractController
      * @param PlainCategoryManager $plainCategoryManager
      * @return Response
      */
-    public function index(BasketFactory $basketFactory, PlainCategoryManager $plainCategoryManager): Response
+    public function index(BasketFactory $basketFactory,
+                          PlainCategoryManager $plainCategoryManager,
+                          PlainProductManager $plainProductManager): Response
     {
         $manager = $this->getDoctrine()->getManager();
         $plainCategoryManager->inflate();
         $categories = $plainCategoryManager->getItems();
+        $plainProductManager->inflate();
+        $products = $plainProductManager->getItems();
         /**
          * @var EventRepository $repository
          */
@@ -69,7 +71,6 @@ class IndexController extends AbstractController
          */
         $repository = $manager
             ->getRepository(Product::class);
-        $products = $repository->findPopular();
         $sliderProducts = $repository->findIsSlider();
         /**
          * @var NewsRepository $repository
