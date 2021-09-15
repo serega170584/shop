@@ -10,21 +10,13 @@ use Doctrine\Common\Collections\Criteria;
 
 class PlainCategoryManager extends AbstractSubjectManager
 {
+    use LastItemTrait;
+
     private const ID = 'id';
     private const LIMIT = 5;
 
     public function __construct(CategoryRepository $repository)
     {
         parent::__construct($repository);
-    }
-
-    public function inflate(): self
-    {
-        $this->items = new ArrayCollection($this->repository->findBy(
-            [],
-            [
-                self::ID => Criteria::DESC
-            ], self::LIMIT));
-        return $this;
     }
 }
