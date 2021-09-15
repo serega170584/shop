@@ -41,10 +41,10 @@ class ProductRepository extends ServiceEntityRepository
     public function findPopular()
     {
         return new ArrayCollection($this->findBy([
-            self::IS_POPULAR => true
+            'isPopular' => true
         ], [
-            self::ID => Criteria::DESC
-        ], self::POPULAR_LIMIT
+            'id' => Criteria::DESC
+        ]
         ));
     }
 }
