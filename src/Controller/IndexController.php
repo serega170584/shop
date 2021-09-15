@@ -5,28 +5,24 @@ namespace App\Controller;
 use App\Domain\PlainCategoryManager;
 use App\Domain\PlainEventManager;
 use App\Domain\PlainProductManager;
+use App\Domain\PlainVideoManager;
 use App\Entity\BasketItem;
-use App\Entity\Event;
 use App\Entity\News;
 use App\Entity\OrderStatus;
 use App\Entity\Product;
-use App\Entity\Video;
 use App\Factory\BasketFactory;
 use App\Factory\BasketItemFactory;
 use App\Factory\OrderFactory;
 use App\Form\OrderFormType;
 use App\Form\ProductAddFormType;
 use App\Form\ProductDeleteFormType;
-use App\Repository\EventRepository;
 use App\Repository\NewsRepository;
 use App\Repository\OrderStatusRepository;
 use App\Repository\ProductRepository;
-use App\Repository\VideoRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
 
 class IndexController extends AbstractController
 {
@@ -46,12 +42,15 @@ class IndexController extends AbstractController
      * @param PlainCategoryManager $plainCategoryManager
      * @param PlainProductManager $plainProductManager
      * @param PlainEventManager $plainEventManager
+     * @param PlainVideoManager $plainVideoManager
      * @return Response
      */
     public function index(BasketFactory $basketFactory,
                           PlainCategoryManager $plainCategoryManager,
                           PlainProductManager $plainProductManager,
-                          PlainEventManager $plainEventManager): Response
+                          PlainEventManager $plainEventManager,
+                          PlainVideoManager $plainVideoManager
+    ): Response
     {
         $manager = $this->getDoctrine()->getManager();
         $plainCategoryManager->inflate();
@@ -61,13 +60,9 @@ class IndexController extends AbstractController
         $sliderProducts = $plainProductManager->getSliderItems();
         $plainEventManager->inflate();
         $events = $plainEventManager->getItems();
-        /**
-         * @var VideoRepository $repository
-         */
-        $repository = $manager
-            ->getRepository(Video::class);
-        $videos = $repository->findLastRows(3);
-        $firstVideo = array_shift($videos);
+        $plainVideoManager->inflate();
+        $firstVideo = $plainVideoManager->getFirstItem();
+        $videos = $plainVideoManager->getItems();
         /**
          * @var NewsRepository $repository
          */
