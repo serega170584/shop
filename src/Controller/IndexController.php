@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Domain\PlainCategoryManager;
+use App\Domain\PlainEventManager;
 use App\Domain\PlainProductManager;
 use App\Entity\BasketItem;
 use App\Entity\Event;
@@ -43,11 +44,14 @@ class IndexController extends AbstractController
      * @Route("/", name="index")
      * @param BasketFactory $basketFactory
      * @param PlainCategoryManager $plainCategoryManager
+     * @param PlainProductManager $plainProductManager
+     * @param PlainEventManager $plainEventManager
      * @return Response
      */
     public function index(BasketFactory $basketFactory,
                           PlainCategoryManager $plainCategoryManager,
-                          PlainProductManager $plainProductManager): Response
+                          PlainProductManager $plainProductManager,
+                          PlainEventManager $plainEventManager): Response
     {
         $manager = $this->getDoctrine()->getManager();
         $plainCategoryManager->inflate();
@@ -55,12 +59,8 @@ class IndexController extends AbstractController
         $plainProductManager->inflate();
         $products = $plainProductManager->getItems();
         $sliderProducts = $plainProductManager->getSliderItems();
-        /**
-         * @var EventRepository $repository
-         */
-        $repository = $manager
-            ->getRepository(Event::class);
-        $events = $repository->findLastRows(3);
+        $plainEventManager->inflate();
+        $events = $plainEventManager->getItems();
         /**
          * @var VideoRepository $repository
          */
