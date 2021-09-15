@@ -19,10 +19,10 @@ use App\Form\ProductDeleteFormType;
 use App\Repository\OrderStatusRepository;
 use App\Repository\ProductRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
 
 class IndexController extends AbstractController
 {
@@ -44,6 +44,7 @@ class IndexController extends AbstractController
      * @param EventManager $plainEventManager
      * @param VideoManager $plainVideoManager
      * @param NewsManager $plainNewsManager
+     * @param FormFactoryInterface $formFactory
      * @return Response
      */
     public function index(BasketFactory $basketFactory,
@@ -51,7 +52,8 @@ class IndexController extends AbstractController
                           ProductManager $plainProductManager,
                           EventManager $plainEventManager,
                           VideoManager $plainVideoManager,
-                          NewsManager $plainNewsManager
+                          NewsManager $plainNewsManager,
+                          FormFactoryInterface $formFactory
     ): Response
     {
         $plainCategoryManager->inflate();
