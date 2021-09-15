@@ -7,12 +7,12 @@ namespace App\Domain\SubjectManager;
 use App\Domain\InflatorInterface;
 use App\Repository\EventRepository;
 
-class PlainNewsManager extends AbstractSubjectManager implements InflatorInterface
+class EventManager extends AbstractSubjectManager implements InflatorInterface
 {
     use LastItemTrait;
 
     private const ID = 'id';
-    private const LIMIT = 4;
+    private const LIMIT = 3;
 
     public function __construct(EventRepository $repository)
     {

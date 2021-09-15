@@ -2,11 +2,11 @@
 
 namespace App\Controller;
 
-use App\Domain\SubjectManager\PlainCategoryManager;
-use App\Domain\SubjectManager\PlainEventManager;
-use App\Domain\SubjectManager\PlainNewsManager;
-use App\Domain\SubjectManager\PlainProductManager;
-use App\Domain\SubjectManager\PlainVideoManager;
+use App\Domain\SubjectManager\CategoryManager;
+use App\Domain\SubjectManager\EventManager;
+use App\Domain\SubjectManager\NewsManager;
+use App\Domain\SubjectManager\ProductManager;
+use App\Domain\SubjectManager\VideoManager;
 use App\Entity\BasketItem;
 use App\Entity\OrderStatus;
 use App\Entity\Product;
@@ -39,19 +39,19 @@ class IndexController extends AbstractController
     /**
      * @Route("/", name="index")
      * @param BasketFactory $basketFactory
-     * @param PlainCategoryManager $plainCategoryManager
-     * @param PlainProductManager $plainProductManager
-     * @param PlainEventManager $plainEventManager
-     * @param PlainVideoManager $plainVideoManager
-     * @param PlainNewsManager $plainNewsManager
+     * @param CategoryManager $plainCategoryManager
+     * @param ProductManager $plainProductManager
+     * @param EventManager $plainEventManager
+     * @param VideoManager $plainVideoManager
+     * @param NewsManager $plainNewsManager
      * @return Response
      */
     public function index(BasketFactory $basketFactory,
-                          PlainCategoryManager $plainCategoryManager,
-                          PlainProductManager $plainProductManager,
-                          PlainEventManager $plainEventManager,
-                          PlainVideoManager $plainVideoManager,
-                          PlainNewsManager $plainNewsManager
+                          CategoryManager $plainCategoryManager,
+                          ProductManager $plainProductManager,
+                          EventManager $plainEventManager,
+                          VideoManager $plainVideoManager,
+                          NewsManager $plainNewsManager
     ): Response
     {
         $plainCategoryManager->inflate();

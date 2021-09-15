@@ -10,7 +10,7 @@ use App\Repository\ProductRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Criteria;
 
-class PlainProductManager extends AbstractSubjectManager implements InflatorInterface
+class ProductManager extends AbstractSubjectManager implements InflatorInterface
 {
     const IS_POPULAR = 'isPopular';
     const ID = 'id';

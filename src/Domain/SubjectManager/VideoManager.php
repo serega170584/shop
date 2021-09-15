@@ -10,7 +10,7 @@ use App\Repository\VideoRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Criteria;
 
-class PlainVideoManager extends AbstractSubjectManager implements InflatorInterface
+class VideoManager extends AbstractSubjectManager implements InflatorInterface
 {
     private const ID = 'id';
     private const LIMIT = 3;

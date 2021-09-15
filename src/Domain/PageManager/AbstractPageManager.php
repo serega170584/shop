@@ -4,15 +4,17 @@
 namespace App\Domain\PageManager;
 
 
-use Doctrine\ORM\EntityManager;
+use App\Domain\SubjectManager\AbstractSubjectManager;
 
 abstract class AbstractPageManager
 {
+    /**
+     * @var AbstractSubjectManager
+     */
+    protected $subjectManager;
 
-    public function __construct(EntityManager $entityManager)
+    public function __construct(AbstractSubjectManager $subjectManager)
     {
-        $this->entityManager = $entityManager;
+        $this->subjectManager = $subjectManager;
     }
-
-    abstract public function inflate();
 }
