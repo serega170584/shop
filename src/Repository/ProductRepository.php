@@ -4,6 +4,8 @@ namespace App\Repository;
 
 use App\Entity\Product;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Criteria;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -32,5 +34,17 @@ class ProductRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
-}
 
+    /**
+     * @return Product[]|ArrayCollection
+     */
+    public function findPopular()
+    {
+        return new ArrayCollection($this->findBy([
+            self::IS_POPULAR => true
+        ], [
+            self::ID => Criteria::DESC
+        ], self::POPULAR_LIMIT
+        ));
+    }
+}
