@@ -4,7 +4,7 @@
 namespace App\Domain;
 
 
-class AbstractProductManager
+abstract class AbstractProductManager
 {
     /**
      * @var AbstractCategoryManager
@@ -16,8 +16,5 @@ class AbstractProductManager
         $this->categoryManager = $categoryManager;
     }
 
-    public function inflate()
-    {
-        $this->
-    }
+    abstract public function inflate();
 }
