@@ -54,6 +54,7 @@ class IndexController extends AbstractController
         $categories = $plainCategoryManager->getItems();
         $plainProductManager->inflate();
         $products = $plainProductManager->getItems();
+        $sliderProducts = $plainProductManager->getSliderItems();
         /**
          * @var EventRepository $repository
          */
@@ -67,12 +68,6 @@ class IndexController extends AbstractController
             ->getRepository(Video::class);
         $videos = $repository->findLastRows(3);
         $firstVideo = array_shift($videos);
-        /**
-         * @var ProductRepository $repository
-         */
-        $repository = $manager
-            ->getRepository(Product::class);
-        $sliderProducts = $repository->findIsSlider();
         /**
          * @var NewsRepository $repository
          */
