@@ -20,7 +20,7 @@ class PlainCategoryManager extends AbstractSubjectManager
 
     public function inflate(): self
     {
-        $this->items = new ArrayCollection($this->findBy(
+        $this->items = new ArrayCollection($this->repository->findBy(
             [],
             [
                 self::ID => Criteria::DESC
