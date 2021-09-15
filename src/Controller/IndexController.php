@@ -69,7 +69,7 @@ class IndexController extends AbstractController
         $videos = $plainVideoManager->getItems();
         $plainNewsManager->inflate();
         $news = $plainNewsManager->getItems();
-        $form = $this->createForm(ProductAddFormType::class);
+        $form = $formFactory->create(ProductAddFormType::class);
         $productDeleteForm = $this->createForm(ProductDeleteFormType::class);
         $basket = $basketFactory->getBasket();
         return $this->render('index/index.html.twig', [
