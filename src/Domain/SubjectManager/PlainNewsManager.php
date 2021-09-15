@@ -4,9 +4,10 @@
 namespace App\Domain\SubjectManager;
 
 
+use App\Domain\InflatorInterface;
 use App\Repository\EventRepository;
 
-class PlainNewsManager extends AbstractSubjectManager
+class PlainNewsManager extends AbstractSubjectManager implements InflatorInterface
 {
     use LastItemTrait;
 

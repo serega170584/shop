@@ -31,6 +31,4 @@ abstract class AbstractSubjectManager
     {
         return $this->items;
     }
-
-    abstract public function inflate();
 }

@@ -4,12 +4,13 @@
 namespace App\Domain\SubjectManager;
 
 
+use App\Domain\InflatorInterface;
 use App\Entity\Product;
 use App\Repository\ProductRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Criteria;
 
-class PlainProductManager extends AbstractSubjectManager
+class PlainProductManager extends AbstractSubjectManager implements InflatorInterface
 {
     const IS_POPULAR = 'isPopular';
     const ID = 'id';

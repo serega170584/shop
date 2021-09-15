@@ -4,12 +4,13 @@
 namespace App\Domain\SubjectManager;
 
 
+use App\Domain\InflatorInterface;
 use App\Entity\Video;
 use App\Repository\VideoRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Criteria;
 
-class PlainVideoManager extends AbstractSubjectManager
+class PlainVideoManager extends AbstractSubjectManager implements InflatorInterface
 {
     private const ID = 'id';
     private const LIMIT = 3;

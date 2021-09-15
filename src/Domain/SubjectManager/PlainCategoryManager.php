@@ -4,9 +4,10 @@
 namespace App\Domain\SubjectManager;
 
 
+use App\Domain\InflatorInterface;
 use App\Repository\CategoryRepository;
 
-class PlainCategoryManager extends AbstractSubjectManager
+class PlainCategoryManager extends AbstractSubjectManager implements InflatorInterface
 {
     use LastItemTrait;
 
