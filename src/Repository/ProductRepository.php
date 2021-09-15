@@ -16,10 +16,6 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class ProductRepository extends ServiceEntityRepository
 {
-    const ID = 'id';
-    const IS_POPULAR = 'isPopular';
-    const POPULAR_LIMIT = 4;
-
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Product::class);

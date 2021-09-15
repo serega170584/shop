@@ -5,6 +5,7 @@ namespace App\Domain;
 
 
 use App\Repository\CategoryRepository;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Criteria;
 
 class PlainCategoryManager extends AbstractSubjectManager
@@ -19,13 +20,11 @@ class PlainCategoryManager extends AbstractSubjectManager
 
     public function inflate(): self
     {
-        $this->items = $this->repository->findLastRows(
+        $this->items = new ArrayCollection($this->findBy(
             [],
             [
                 self::ID => Criteria::DESC
-            ],
-            self::LIMIT
-        );
+            ], self::LIMIT));
         return $this;
     }
 }
