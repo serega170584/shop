@@ -5,9 +5,11 @@ namespace App\Domain;
 
 
 use App\Repository\CategoryRepository;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Criteria;
 
-abstract class AbstractCategoryManager
+abstract class AbstractSubjectManager
 {
     protected const ID = 'id';
     protected const LIMIT = 5;
@@ -20,7 +22,7 @@ abstract class AbstractCategoryManager
      */
     protected $repository;
 
-    public function __construct(CategoryRepository $repository)
+    public function __construct(ServiceEntityRepository $repository)
     {
         $this->repository = $repository;
     }
@@ -33,5 +35,15 @@ abstract class AbstractCategoryManager
         return $this->items;
     }
 
-    abstract public function inflate();
+    public function inflate(): self
+    {
+        $this->items = new ArrayCollection($this->repository->findBy(
+            [],
+            [
+                self::ID => Criteria::DESC
+            ],
+            self::LIMIT
+        ));
+        return $this;
+    }
 }

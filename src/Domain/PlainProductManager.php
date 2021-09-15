@@ -4,7 +4,12 @@
 namespace App\Domain;
 
 
-class PlainProductManager
-{
+use App\Repository\ProductRepository;
 
+class PlainProductManager extends AbstractSubjectManager
+{
+    public function __construct(ProductRepository $repository)
+    {
+        parent::__construct($repository);
+    }
 }

@@ -4,20 +4,12 @@
 namespace App\Domain;
 
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Criteria;
+use App\Repository\CategoryRepository;
 
-class PlainCategoryManager extends AbstractCategoryManager
+class PlainCategoryManager extends AbstractSubjectManager
 {
-    public function inflate(): self
+    public function __construct(CategoryRepository $repository)
     {
-        $this->items = new ArrayCollection($this->repository->findBy(
-            [],
-            [
-                self::ID => Criteria::DESC
-            ],
-            self::LIMIT
-        ));
-        return $this;
+        parent::__construct($repository);
     }
 }
