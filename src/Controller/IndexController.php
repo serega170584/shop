@@ -47,6 +47,7 @@ class IndexController extends AbstractController
      * @param VideoManager $plainVideoManager
      * @param NewsManager $plainNewsManager
      * @param FormFactoryInterface $formFactory
+     * @param MainPageManager $mainPageManager
      * @return Response
      */
     public function index(BasketFactory $basketFactory,
@@ -77,7 +78,7 @@ class IndexController extends AbstractController
         $basket = $basketFactory->getBasket();
         return $this->render('index/index.html.twig', [
             'controller_name' => 'IndexController',
-            'mainPageManager' => $mainPageManager->getCategoryManager()->getItems(),
+            'mainPageManager' => $mainPageManager,
             'products' => $products,
             'events' => $events,
             'firstVideo' => $firstVideo,
