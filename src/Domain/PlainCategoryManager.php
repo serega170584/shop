@@ -19,13 +19,13 @@ class PlainCategoryManager extends AbstractSubjectManager
 
     public function inflate(): self
     {
-        $this->items = $this->repository->findLastRows([
+        $this->items = $this->repository->findLastRows(
             [],
             [
                 self::ID => Criteria::DESC
             ],
             self::LIMIT
-        ]);
+        );
         return $this;
     }
 }

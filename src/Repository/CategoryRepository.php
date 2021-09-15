@@ -53,8 +53,8 @@ class CategoryRepository extends ServiceEntityRepository
      * @param array $criteria
      * @return Category[]|ArrayCollection
      */
-    public function findLastRows(array $criteria)
+    public function findLastRows(array $criteria, array $orderBy = null, $limit = null, $offset = null)
     {
-        return new ArrayCollection($this->findBy(...$criteria));
+        return new ArrayCollection($this->findBy($criteria, $orderBy, $limit, $offset));
     }
 }
