@@ -49,6 +49,7 @@ class IndexController extends AbstractController
     public function index(BasketFactory $basketFactory, PlainCategoryManager $plainCategoryManager): Response
     {
         $manager = $this->getDoctrine()->getManager();
+        $plainCategoryManager->inflate();
         $categories = $plainCategoryManager->getItems();
         /**
          * @var EventRepository $repository
