@@ -41,23 +41,18 @@ class IndexController extends AbstractController
     /**
      * @Route("/", name="index")
      * @param BasketFactory $basketFactory
-     * @param VideoManager $plainVideoManager
      * @param NewsManager $plainNewsManager
      * @param FormFactoryInterface $formFactory
      * @param MainPageManager $mainPageManager
      * @return Response
      */
     public function index(BasketFactory $basketFactory,
-                          VideoManager $plainVideoManager,
                           NewsManager $plainNewsManager,
                           FormFactoryInterface $formFactory,
                           MainPageManager $mainPageManager
     ): Response
     {
         $mainPageManager->inflate();
-        $plainVideoManager->inflate();
-        $firstVideo = $plainVideoManager->getFirstItem();
-        $videos = $plainVideoManager->getItems();
         $plainNewsManager->inflate();
         $news = $plainNewsManager->getItems();
         $form = $formFactory->create(ProductAddFormType::class);
@@ -66,8 +61,6 @@ class IndexController extends AbstractController
         return $this->render('index/index.html.twig', [
             'controller_name' => 'IndexController',
             'mainPageManager' => $mainPageManager,
-            'firstVideo' => $firstVideo,
-            'videos' => $videos,
             'news' => $news,
             'form' => $form->createView(),
             'productDeleteForm' => $productDeleteForm->createView(),

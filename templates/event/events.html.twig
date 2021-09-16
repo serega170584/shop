@@ -45,6 +45,7 @@
                     </div>
 
                     <div class="video-box">
+                        {% set firstVideo = mainPageManager.getVideoManager().getFirstItem() %}
                         {% if (firstVideo) %}
                             <div class="video-post">
                                 <img src="{{ ['/uploads/video/', firstVideo.getImage()]|join('') }}" alt="">
@@ -58,6 +59,7 @@
                         {% endif %}
 
                         <div class="row">
+                            {% set videos = mainPageManager.getVideoManager().getItems() %}
                             {% for video in videos %}
                                 <div class="col-md-6">
                                     <div class="video-post small-post">
