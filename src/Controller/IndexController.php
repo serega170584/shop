@@ -14,11 +14,11 @@ use App\Form\ProductAddFormType;
 use App\Form\ProductDeleteFormType;
 use App\Repository\OrderStatusRepository;
 use App\Repository\ProductRepository;
+use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
 
 class IndexController extends AbstractController
 {
@@ -39,9 +39,11 @@ class IndexController extends AbstractController
      * @return Response
      */
     public function index(BasketFactory $basketFactory,
-                          MainPageManager $mainPageManager
+                          MainPageManager $mainPageManager,
+                          LoggerInterface $logger
     ): Response
     {
+        $logger->info('test');
         $mainPageManager->inflate();
         $basket = $basketFactory->getBasket();
         return $this->render('index/index.html.twig', [
