@@ -51,7 +51,6 @@ class IndexController extends AbstractController
         $mainPageManager->inflate();
         $basket = $basketFactory->getBasket();
         return $this->render('index/index.html.twig', [
-            'controller_name' => 'IndexController',
             'mainPageManager' => $mainPageManager,
             'basketProducts' => $basket->getBasketProducts()
         ]);
