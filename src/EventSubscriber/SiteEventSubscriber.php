@@ -47,6 +47,9 @@ class SiteEventSubscriber implements EventSubscriberInterface
         $this->twig->addGlobal('categories', $this->categoryRepository->findAll());
         $this->twig->addGlobal('popularProducts', $this->productRepository->findPopular());
         $this->twig->addGlobal('basket', $this->basketFactory->getBasket());
+        $request = $event->getRequest();
+        $session = $request->getSession();
+        dump($session->getMetadataBag()->getLastUsed());
     }
 
     public function onKernelRequest(RequestEvent $event)
