@@ -3,11 +3,6 @@
 namespace App\Controller;
 
 use App\Domain\PageManager\MainPageManager;
-use App\Domain\SubjectManager\CategoryManager;
-use App\Domain\SubjectManager\EventManager;
-use App\Domain\SubjectManager\NewsManager;
-use App\Domain\SubjectManager\ProductManager;
-use App\Domain\SubjectManager\VideoManager;
 use App\Entity\BasketItem;
 use App\Entity\OrderStatus;
 use App\Entity\Product;
@@ -20,7 +15,6 @@ use App\Form\ProductDeleteFormType;
 use App\Repository\OrderStatusRepository;
 use App\Repository\ProductRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
