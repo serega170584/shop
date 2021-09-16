@@ -48,6 +48,7 @@ class IndexController extends AbstractController
                           SessionInterface $session
     ): Response
     {
+        $session->start();
         $logger->info(time());
         $logger->info($session->getMetadataBag()->getLastUsed());
         $mainPageManager->inflate();
