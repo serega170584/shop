@@ -55,6 +55,7 @@ class SiteEventSubscriber implements EventSubscriberInterface
         $session = $request->getSession();
         $interval = time() - $session->getMetadataBag()->getLastUsed();
         if ($interval > 60) {
+            $this->logger($session->getMetadataBag()->getLastUsed());
             $this->logger->info($interval);
             $this->logger->info('redirect');
             $session->invalidate();
