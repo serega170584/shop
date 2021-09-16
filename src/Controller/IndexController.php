@@ -41,24 +41,21 @@ class IndexController extends AbstractController
     /**
      * @Route("/", name="index")
      * @param BasketFactory $basketFactory
-     * @param FormFactoryInterface $formFactory
      * @param MainPageManager $mainPageManager
      * @return Response
      */
     public function index(BasketFactory $basketFactory,
-                          FormFactoryInterface $formFactory,
+//                          FormFactoryInterface $formFactory,
                           MainPageManager $mainPageManager
     ): Response
     {
         $mainPageManager->inflate();
-        $form = $formFactory->create(ProductAddFormType::class);
-        $productDeleteForm = $formFactory->create(ProductDeleteFormType::class);
         $basket = $basketFactory->getBasket();
         return $this->render('index/index.html.twig', [
             'controller_name' => 'IndexController',
             'mainPageManager' => $mainPageManager,
-            'form' => $form->createView(),
-            'productDeleteForm' => $productDeleteForm->createView(),
+//            'form' => $form->createView(),
+//            'productDeleteForm' => $productDeleteForm->createView(),
             'basketProducts' => $basket->getBasketProducts()
         ]);
     }
