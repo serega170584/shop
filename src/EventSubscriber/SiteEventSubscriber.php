@@ -42,7 +42,7 @@ class SiteEventSubscriber implements EventSubscriberInterface
 
     public function onKernelController(ControllerEvent $event)
     {
-        $this->logger->info($event->getRequest()->getBaseUrl());
+        $this->logger->info($event->getRequest()->getRequestUri());
         $this->twig->addGlobal('categories', $this->categoryRepository->findAll());
         $this->twig->addGlobal('popularProducts', $this->productRepository->findPopular());
         $this->twig->addGlobal('basket', $this->basketFactory->getBasket());
