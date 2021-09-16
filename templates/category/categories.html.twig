@@ -50,7 +50,7 @@
                         <div class="inner-collection">
                             <img src="{{ category.getImage() ? ['uploads/category/', category.getImage()]|join(''): 'upload/collection/web-development.jpg' }}"
                                  alt="">
-                            <a href="{{ path('category', { slug: category.slug }) }}" class="hover-post">
+                            <a href="{{ path('category', { slug: category.getSlug() }) }}" class="hover-post">
                                 <span class="title">{{ category.getTitle() }}</span>
                                 <span class="numb-courses">{{ category.getProducts().count() }} курсов</span>
                             </a>

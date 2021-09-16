@@ -41,7 +41,6 @@ class IndexController extends AbstractController
     /**
      * @Route("/", name="index")
      * @param BasketFactory $basketFactory
-     * @param CategoryManager $plainCategoryManager
      * @param ProductManager $plainProductManager
      * @param EventManager $plainEventManager
      * @param VideoManager $plainVideoManager
@@ -51,7 +50,6 @@ class IndexController extends AbstractController
      * @return Response
      */
     public function index(BasketFactory $basketFactory,
-                          CategoryManager $plainCategoryManager,
                           ProductManager $plainProductManager,
                           EventManager $plainEventManager,
                           VideoManager $plainVideoManager,
@@ -61,8 +59,6 @@ class IndexController extends AbstractController
     ): Response
     {
         $mainPageManager->inflate();
-        $plainCategoryManager->inflate();
-        $categories = $plainCategoryManager->getItems();
         $plainProductManager->inflate();
         $products = $plainProductManager->getItems();
         $sliderProducts = $plainProductManager->getSliderItems();
