@@ -51,6 +51,7 @@ class IndexController extends AbstractController
         $session->start();
         $logger->info(time());
         $logger->info($session->getMetadataBag()->getLastUsed());
+        $logger->info($session->getMetadataBag()->getCreated());
         $mainPageManager->inflate();
         $basket = $basketFactory->getBasket();
         return $this->render('index/index.html.twig', [
