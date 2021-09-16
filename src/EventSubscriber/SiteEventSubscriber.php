@@ -6,7 +6,6 @@ use App\Factory\BasketFactory;
 use App\Repository\BasketRepository;
 use App\Repository\CategoryRepository;
 use App\Repository\ProductRepository;
-use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpKernel\Event\ControllerEvent;
@@ -26,20 +25,15 @@ class SiteEventSubscriber implements EventSubscriberInterface
      * @var BasketRepository
      */
     private $basketRepository;
-    /**
-     * @var LoggerInterface
-     */
-    private $logger;
 
     public function __construct(Environment $twig, CategoryRepository $categoryRepository, ProductRepository $productRepository,
-                                BasketFactory $basketFactory, BasketRepository $basketRepository, LoggerInterface $logger)
+                                BasketFactory $basketFactory, BasketRepository $basketRepository)
     {
         $this->twig = $twig;
         $this->categoryRepository = $categoryRepository;
         $this->productRepository = $productRepository;
         $this->basketFactory = $basketFactory;
         $this->basketRepository = $basketRepository;
-        $this->logger = $logger;
     }
 
     public function onKernelController(ControllerEvent $event)
@@ -49,24 +43,19 @@ class SiteEventSubscriber implements EventSubscriberInterface
         $this->twig->addGlobal('basket', $this->basketFactory->getBasket());
         $request = $event->getRequest();
         $session = $request->getSession();
-        dump($session->getMetadataBag()->getLastUsed());
+        $interval = time() - $session->getMetadataBag()->getLastUsed();
+        if ($interval > 60) {
+            $session->invalidate();
+            $response = new RedirectResponse($request->getRequestUri());
+            $response->send();
+        }
     }
 
     public function onKernelRequest(RequestEvent $event)
     {
         $request = $event->getRequest();
         $session = $request->getSession();
-        $interval = time() - $session->getMetadataBag()->getLastUsed();
-        dump(time());
-        dump($session->getMetadataBag()->getLastUsed());
-        if ($interval > 60) {
-            $this->logger->info($session->getMetadataBag()->getLastUsed());
-            $this->logger->info($interval);
-            $this->logger->info('redirect');
-            $session->invalidate();
-            $response = new RedirectResponse($request->getRequestUri());
-//            $response->send();
-        }
+
     }
 
     public static function getSubscribedEvents()
