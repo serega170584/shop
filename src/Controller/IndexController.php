@@ -19,7 +19,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class IndexController extends AbstractController
 {
@@ -37,14 +37,18 @@ class IndexController extends AbstractController
      * @Route("/", name="index")
      * @param BasketFactory $basketFactory
      * @param MainPageManager $mainPageManager
+     * @param LoggerInterface $logger
+     * @param SessionInterface $session
      * @return Response
      */
     public function index(BasketFactory $basketFactory,
                           MainPageManager $mainPageManager,
-                          LoggerInterface $logger
+                          LoggerInterface $logger,
+                          SessionInterface $session
     ): Response
     {
-        $logger->info('test');
+        $logger->info(time());
+        $logger->info($session->getMetadataBag()->getLastUsed());
         $mainPageManager->inflate();
         $basket = $basketFactory->getBasket();
         return $this->render('index/index.html.twig', [
