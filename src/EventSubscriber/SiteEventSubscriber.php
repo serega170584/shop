@@ -45,11 +45,11 @@ class SiteEventSubscriber implements EventSubscriberInterface
         $interval = time() - $session->getMetadataBag()->getLastUsed();
         dump($interval);
         dump($session->getMetadataBag()->getLastUsed());
-        if ($interval > 60) {
-            $session->invalidate();
-            $response = new RedirectResponse($request->getRequestUri());
+//        if ($interval > 60) {
+//            $session->invalidate();
+//            $response = new RedirectResponse($request->getRequestUri());
 //            $response->send();
-        }
+//        }
     }
 
     public static function getSubscribedEvents()
