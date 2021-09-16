@@ -11,7 +11,7 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\ControllerEvent;
 use Twig\Environment;
 
-class TwigEventSubscriber implements EventSubscriberInterface
+class SiteEventSubscriber implements EventSubscriberInterface
 {
     private $twig;
     private $categoryRepository;
@@ -37,7 +37,7 @@ class TwigEventSubscriber implements EventSubscriberInterface
 
     public function onKernelController(ControllerEvent $event)
     {
-//        $event->getRequest()->getSession()->start();
+        $event->getRequest()->getSession()->start();
         $this->twig->addGlobal('categories', $this->categoryRepository->findAll());
         $this->twig->addGlobal('popularProducts', $this->productRepository->findPopular());
         $this->twig->addGlobal('basket', $this->basketFactory->getBasket());
