@@ -10,7 +10,7 @@
              style="background-color:#000000;padding:0px;">
             <!-- START REVOLUTION SLIDER 5.1.1RC fullscreen mode -->
             <div id="rev_slider_202_1" class="rev_slider" data-version="5.1.1RC">
-                {% set sliderItems = mainPageManager.getProductManager().getSliderItems() %}
+                {% set sliderItems = mainPageManager.getSubjectManager().getSliderItems() %}
                 {% if (sliderItems.count()) %}
                     <ul>
                         {% for slider in sliderItems %}
