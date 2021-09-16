@@ -70,12 +70,10 @@ class IndexController extends AbstractController
         return $this->render('index/index.html.twig', [
             'controller_name' => 'IndexController',
             'mainPageManager' => $mainPageManager,
-            'products' => $products,
             'events' => $events,
             'firstVideo' => $firstVideo,
             'videos' => $videos,
             'news' => $news,
-            'sliderProducts' => $sliderProducts,
             'form' => $form->createView(),
             'productDeleteForm' => $productDeleteForm->createView(),
             'basketProducts' => $basket->getBasketProducts()
