@@ -58,7 +58,7 @@ class SiteEventSubscriber implements EventSubscriberInterface
             $this->logger->info('redirect');
             $session->invalidate();
             $response = new RedirectResponse($request->getRequestUri());
-            $response->send();
+//            $response->send();
         }
     }
 
