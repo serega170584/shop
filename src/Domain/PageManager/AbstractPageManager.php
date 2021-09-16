@@ -17,4 +17,12 @@ abstract class AbstractPageManager
     {
         $this->subjectManager = $subjectManager;
     }
+
+    /**
+     * @return AbstractSubjectManager
+     */
+    public function getSubjectManager(): AbstractSubjectManager
+    {
+        return $this->subjectManager;
+    }
 }
