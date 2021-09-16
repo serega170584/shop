@@ -49,11 +49,10 @@ class IndexController extends AbstractController
     ): Response
     {
         $session->start();
+        $logger->info($session->getMetadataBag()->getCreated());
         $logger->info($session->getMetadataBag()->getLastUsed());
         $mainPageManager->inflate();
         $basket = $basketFactory->getBasket();
-        $mainPageManager->getProductAddForm()->createView();
-        $logger->info($session->getMetadataBag()->getLastUsed());
         return $this->render('index/index.html.twig', [
             'mainPageManager' => $mainPageManager,
             'basketProducts' => $basket->getBasketProducts()
