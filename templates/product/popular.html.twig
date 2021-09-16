@@ -10,6 +10,7 @@
         </div>
         <div class="popular-courses-box">
             <div class="row">
+                {% set products = mainPageManager.getSubjectManager().getIems() %}
                 {% for product in products %}
                     <div class="col-lg-3 col-md-6">
                         <div class="course-post">
