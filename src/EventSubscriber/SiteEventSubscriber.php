@@ -57,7 +57,7 @@ class SiteEventSubscriber implements EventSubscriberInterface
         dump(time());
         dump($session->getMetadataBag()->getLastUsed());
         if ($interval > 60) {
-            $this->logger->($session->getMetadataBag()->getLastUsed());
+            $this->logger->info($session->getMetadataBag()->getLastUsed());
             $this->logger->info($interval);
             $this->logger->info('redirect');
             $session->invalidate();
