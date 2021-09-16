@@ -9,7 +9,6 @@ use App\Repository\ProductRepository;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpKernel\Event\ControllerEvent;
-use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Twig\Environment;
 
 class SiteEventSubscriber implements EventSubscriberInterface
@@ -44,25 +43,18 @@ class SiteEventSubscriber implements EventSubscriberInterface
         $request = $event->getRequest();
         $session = $request->getSession();
         $interval = time() - $session->getMetadataBag()->getLastUsed();
+        dump($interval);
         if ($interval > 60) {
             $session->invalidate();
             $response = new RedirectResponse($request->getRequestUri());
-            $response->send();
+//            $response->send();
         }
-    }
-
-    public function onKernelRequest(RequestEvent $event)
-    {
-        $request = $event->getRequest();
-        $session = $request->getSession();
-
     }
 
     public static function getSubscribedEvents()
     {
         return [
             'kernel.controller' => 'onKernelController',
-            'kernel.request' => 'onKernelRequest'
         ];
     }
 }
