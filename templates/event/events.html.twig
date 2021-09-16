@@ -10,7 +10,7 @@
                     </div>
 
                     <div class="events-box">
-                        {% for event in events %}
+                        {% for mainPageManager.getEventManager().getItems() in events %}
                             <div class="events-post">
                                 <div class="event-inner-content">
                                     <div class="top-part">
