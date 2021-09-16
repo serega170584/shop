@@ -45,7 +45,6 @@ class IndexController extends AbstractController
      * @return Response
      */
     public function index(BasketFactory $basketFactory,
-//                          FormFactoryInterface $formFactory,
                           MainPageManager $mainPageManager
     ): Response
     {
@@ -54,8 +53,6 @@ class IndexController extends AbstractController
         return $this->render('index/index.html.twig', [
             'controller_name' => 'IndexController',
             'mainPageManager' => $mainPageManager,
-//            'form' => $form->createView(),
-//            'productDeleteForm' => $productDeleteForm->createView(),
             'basketProducts' => $basket->getBasketProducts()
         ]);
     }
