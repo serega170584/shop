@@ -10,6 +10,7 @@ use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpKernel\Event\ControllerEvent;
+use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Twig\Environment;
 
 class SiteEventSubscriber implements EventSubscriberInterface
@@ -49,13 +50,13 @@ class SiteEventSubscriber implements EventSubscriberInterface
         $this->twig->addGlobal('basket', $this->basketFactory->getBasket());
     }
 
-    public function onKernelRequest(ControllerEvent $event)
+    public function onKernelRequest(RequestEvent $event)
     {
         $request = $event->getRequest();
         $session = $request->getSession();
         $interval = time() - $session->getMetadataBag()->getLastUsed();
         if ($interval > 60) {
-            new RedirectResponse($request->getRequestUri());
+            return new RedirectResponse($request->getRequestUri());
         }
     }
 
