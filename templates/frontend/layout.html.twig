@@ -229,7 +229,7 @@
     <script src="{{ asset('js/head.js') }}"></script>
     <script>
         $(function () {
-            $.actualizeSession();
+            setTimeout($.actualizeSession, 10);
         });
     </script>
 {% endblock %}
