@@ -9,6 +9,7 @@ use App\Repository\ProductRepository;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpKernel\Event\ControllerEvent;
+use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Twig\Environment;
 
 class SiteEventSubscriber implements EventSubscriberInterface
@@ -43,7 +44,7 @@ class SiteEventSubscriber implements EventSubscriberInterface
         dump('controller');
     }
 
-    public function onKernelRequest(ControllerEvent $event)
+    public function onKernelRequest(RequestEvent  $event)
     {
         $request = $event->getRequest();
         $session = $request->getSession();
