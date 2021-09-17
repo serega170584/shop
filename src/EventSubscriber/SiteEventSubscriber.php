@@ -52,6 +52,7 @@ class SiteEventSubscriber implements EventSubscriberInterface
         $session->start();
         $interval = time() - $session->getMetadataBag()->getLastUsed();
         if ($interval > self::SESSION_INTERVAL) {
+            dump('redirect');
             $session->invalidate();
             $response = new RedirectResponse($request->getRequestUri());
             $response->send();
