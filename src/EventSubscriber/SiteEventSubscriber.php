@@ -14,7 +14,7 @@ use Twig\Environment;
 
 class SiteEventSubscriber implements EventSubscriberInterface
 {
-    private const SESSION_INTERVAL = 60;
+    public const SESSION_INTERVAL = 60;
 
     private $twig;
     private $categoryRepository;
@@ -43,6 +43,7 @@ class SiteEventSubscriber implements EventSubscriberInterface
         $this->twig->addGlobal('categories', $this->categoryRepository->findAll());
         $this->twig->addGlobal('popularProducts', $this->productRepository->findPopular());
         $this->twig->addGlobal('basket', $this->basketFactory->getBasket());
+        $this->twig->addGlobal('sessionInterval', self::SESSION_INTERVAL);
     }
 
     public function onKernelRequest(RequestEvent $event)

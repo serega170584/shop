@@ -20,7 +20,6 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
-use Symfony\Component\Routing\Annotation\Route;
 
 class IndexController extends AbstractController
 {
@@ -259,5 +258,13 @@ class IndexController extends AbstractController
             'basketItems' => $basket->getBasketItems(),
             'cost' => $basket->getTotal(),
         ]);
+    }
+
+    /**
+     * @Route("/sessionActualization", name="sessionActualization")
+     */
+    public function checkSession(Request $request)
+    {
+        return $this->json(['interval' => time() - $request->getSession()->getMetadataBag()->getLastUsed()]);
     }
 }

@@ -14,7 +14,9 @@
 
 {% block body %}
     <!-- Container -->
-    <div id="container">
+    <div id="container"
+         data-actualize-session-uri="{{ path('sessionActualization') }}"
+         data-session-interval="{{ sessionInterval }}">
         <!-- Header
                 ================================================== -->
         <header class="clearfix">
@@ -224,4 +226,10 @@
     <script src="{{ asset('js/gmap3.min.js') }}"></script>
     <script src="{{ asset('js/script.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>
+    <script src="{{ asset('js/head.js') }}"></script>
+    <script>
+        $(function () {
+            $.actualizeSession();
+        });
+    </script>
 {% endblock %}
