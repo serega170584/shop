@@ -226,7 +226,8 @@
     <script src="{{ asset('js/custom.js') }}"></script>
     <script>
         $(function () {
-            let interval = {{ sessionInterval }}000 + 10000;
+            const clientInterval = 10000;
+            let interval = {{ sessionInterval }}000 + clientInterval;
             setTimeout($.proxy(window.location.reload, window.location), interval);
         });
     </script>
