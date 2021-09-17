@@ -1,4 +1,4 @@
-$.fn.actualizeSession = function () {
+$.actualizeSession = function () {
     $.ajax($('#container').data('actualizeSessionUri'))
         .done(function (data) {
             console.log(data);
