@@ -42,6 +42,7 @@ class SiteEventSubscriber implements EventSubscriberInterface
         $this->twig->addGlobal('basket', $this->basketFactory->getBasket());
         $request = $event->getRequest();
         $session = $request->getSession();
+        $session->start();
         $interval = time() - $session->getMetadataBag()->getLastUsed();
         dump($interval);
         dump($session->getMetadataBag()->getLastUsed());
