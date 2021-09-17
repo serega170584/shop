@@ -260,12 +260,4 @@ class IndexController extends AbstractController
             'cost' => $basket->getTotal(),
         ]);
     }
-
-    /**
-     * @Route("/sessionActualization", name="sessionActualization")
-     */
-    public function checkSession(Request $request)
-    {
-        return $this->json(['interval' => time() - $request->getSession()->getMetadataBag()->getLastUsed()]);
-    }
 }
