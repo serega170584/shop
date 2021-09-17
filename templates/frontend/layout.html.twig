@@ -227,7 +227,7 @@
     <script>
         $(function () {
             let interval = {{ sessionInterval }}000;
-            setTimeout(window.location.reload, interval);
+            setTimeout($.proxy(window.location.reload, window.location), interval);
         });
     </script>
 {% endblock %}
