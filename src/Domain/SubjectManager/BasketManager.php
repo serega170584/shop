@@ -31,6 +31,7 @@ class BasketManager extends AbstractSubjectManager
         $basket = $this->repository->findBasket($this->session->getId());
         $this->basket = $basket ?? $this->repository->createEntity();
         $this->items = $this->basket->getBasketProducts() ?? (new ArrayCollection());
+        dump($this->items);
     }
 
     /**
