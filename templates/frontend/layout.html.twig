@@ -1,16 +1,19 @@
 {% extends 'base.html.twig' %}
+{% set basketItemsCount = mainPageManager.getBasketManager().getItems().count() %}
+                                {% block stylesheets %}
+                                    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,400i,500,500i,600,700&display=swap"
+                                          rel="stylesheet">
 
-{% block stylesheets %}
-    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,400i,500,500i,600,700&display=swap"
-          rel="stylesheet">
-
-    <link rel="stylesheet" href="{{ asset('css/studiare-assets.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/fonts/font-awesome/font-awesome.min.css') }}"
-          media="screen">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/fonts/elegant-icons/style.css') }}" media="screen">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/fonts/iconfont/material-icons.css') }}" media="screen">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
-{% endblock %}
+                                    <link rel="stylesheet" href="{{ asset('css/studiare-assets.min.css') }}">
+                                    <link rel="stylesheet" type="text/css"
+                                          href="{{ asset('css/fonts/font-awesome/font-awesome.min.css') }}"
+                                          media="screen">
+                                    <link rel="stylesheet" type="text/css"
+                                          href="{{ asset('css/fonts/elegant-icons/style.css') }}" media="screen">
+                                    <link rel="stylesheet" type="text/css"
+                                          href="{{ asset('css/fonts/iconfont/material-icons.css') }}" media="screen">
+                                    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+                                {% endblock %}
 
 {% block body %}
     <!-- Container -->
@@ -37,9 +40,9 @@
                                     <i class="material-icons close-search">close</i>
                                 </button>
                                 <button class="shop-icon" data-url="{{ path('basket') }}"
-                                        {% if mainPageManager.getBasketManager().getItems().count() == 0 %}style="display:none"{% endif %}>
+                                        {% if basketItemsCount == 0 %}style="display:none"{% endif %}>
                                     <i class="material-icons">shopping_cart</i>
-                                    <span class="studiare-cart-number">{{ mainPageManager.getBasketManager().getItems().count() }}</span>
+                                    <span class="studiare-cart-number">{{ basketItemsCount }}</span>
                                 </button>
                             </div>
                         </div>
@@ -103,11 +106,11 @@
                     </form>
                 </div>
                 <div class="shopping-cart-box"
-                     {% if mainPageManager.getBasketManager().getItems().count() == 0 %}style="display:none"{% endif %}>
+                     {% if basketItemsCount == 0 %}style="display:none"{% endif %}>
                     <a class="shop-icon" href="{{ path('basket') }}">
                         <i class="material-icons">shopping_cart</i>
                         Cart
-                        <span class="studiare-cart-number">{{ mainPageManager.getBasketManager().getItems().count() }}</span>
+                        <span class="studiare-cart-number">{{ basketItemsCount }}</span>
                     </a>
                 </div>
                 <nav class="mobile-nav">
