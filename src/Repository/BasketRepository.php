@@ -58,7 +58,7 @@ class BasketRepository extends ServiceEntityRepository
      * @param $sessionId
      * @return Basket
      */
-    public function findBasket($sessionId): Basket
+    public function findBasket($sessionId): ?Basket
     {
         return $this->findOneBy([
             self::SESSION_ID => $sessionId,
