@@ -72,6 +72,7 @@ class MainPageManager extends AbstractPageManager implements InflatorInterface
         $this->eventManager->inflate();
         $this->videoManager->inflate();
         $this->newsManager->inflate();
+        $this->basketManager->inflate();
     }
 
     /**
