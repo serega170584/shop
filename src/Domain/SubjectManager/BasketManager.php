@@ -5,6 +5,7 @@ namespace App\Domain\SubjectManager;
 
 
 use App\Repository\BasketRepository;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class BasketManager extends AbstractSubjectManager
@@ -29,7 +30,7 @@ class BasketManager extends AbstractSubjectManager
     {
         $basket = $this->repository->findBasket($this->session->getId());
         $this->basket = $basket ?? $this->repository->createEntity();
-        $this->items = $this->basket->getBasketProducts();
+        $this->items = $this->basket->getBasketProducts() ?? new ArrayCollection();
     }
 
     /**
