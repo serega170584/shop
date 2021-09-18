@@ -8,6 +8,6 @@ trait RepositoryTrait
 {
     public function createEntity()
     {
-        return $this->_entityName;
+        return new $this->_entityName;
     }
 }
