@@ -160,7 +160,7 @@ class Basket
     {
         return $this->basketItems->map(function (BasketItem $basketItem) {
             return $basketItem->getProduct();
-        });
+        }) ?? (new ArrayCollection());
     }
 
     public function getIsActive(): ?bool
