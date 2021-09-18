@@ -20,7 +20,6 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
-use Symfony\Component\Routing\Annotation\Route;
 
 class IndexController extends AbstractController
 {
@@ -42,15 +41,11 @@ class IndexController extends AbstractController
      * @param SessionInterface $session
      * @return Response
      */
-    public function index(BasketFactory $basketFactory,
-                          MainPageManager $mainPageManager
-    ): Response
+    public function index(MainPageManager $mainPageManager): Response
     {
         $mainPageManager->inflate();
-        $basket = $basketFactory->getBasket();
         return $this->render('index/index.html.twig', [
             'mainPageManager' => $mainPageManager,
-            'basketProducts' => $basket->getBasketProducts()
         ]);
     }
 
