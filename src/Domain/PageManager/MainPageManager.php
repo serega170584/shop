@@ -5,6 +5,7 @@ namespace App\Domain\PageManager;
 
 
 use App\Domain\InflatorInterface;
+use App\Domain\SubjectManager\BasketManager;
 use App\Domain\SubjectManager\CategoryManager;
 use App\Domain\SubjectManager\EventManager;
 use App\Domain\SubjectManager\NewsManager;
@@ -13,7 +14,6 @@ use App\Domain\SubjectManager\VideoManager;
 use App\Form\ProductAddFormType;
 use App\Form\ProductDeleteFormType;
 use Symfony\Component\Form\FormFactoryInterface;
-use Symfony\Component\Form\Forms;
 
 class MainPageManager extends AbstractPageManager implements InflatorInterface
 {
@@ -41,13 +41,18 @@ class MainPageManager extends AbstractPageManager implements InflatorInterface
      * @var \Symfony\Component\Form\FormInterface
      */
     private $productDeleteForm;
+    /**
+     * @var BasketManager
+     */
+    private $basketManager;
 
     public function __construct(ProductManager $productManager,
                                 CategoryManager $categoryManager,
                                 EventManager $eventManager,
                                 VideoManager $videoManager,
                                 NewsManager $newsManager,
-                                FormFactoryInterface $formFactory
+                                FormFactoryInterface $formFactory,
+                                BasketManager $basketManager
     )
     {
         parent::__construct($productManager);
@@ -57,6 +62,7 @@ class MainPageManager extends AbstractPageManager implements InflatorInterface
         $this->newsManager = $newsManager;
         $this->productAddForm = $formFactory->create(ProductAddFormType::class);
         $this->productDeleteForm = $formFactory->create(ProductDeleteFormType::class);
+        $this->basketManager = $basketManager;
     }
 
     public function inflate()
@@ -114,5 +120,13 @@ class MainPageManager extends AbstractPageManager implements InflatorInterface
     public function getNewsManager(): NewsManager
     {
         return $this->newsManager;
+    }
+
+    /**
+     * @return BasketManager
+     */
+    public function getBasketManager(): BasketManager
+    {
+        return $this->basketManager;
     }
 }

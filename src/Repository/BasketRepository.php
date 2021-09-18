@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Domain\Repository\RepositoryTrait;
 use App\Entity\Basket;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -14,6 +15,11 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class BasketRepository extends ServiceEntityRepository
 {
+    use RepositoryTrait;
+
+    const SESSION_ID = 'sessionId';
+    const IS_ACTIVE = 'isActive';
+
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Basket::class);
@@ -47,4 +53,16 @@ class BasketRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    /**
+     * @param $sessionId
+     * @return Basket
+     */
+    public function findBasket($sessionId): Basket
+    {
+        return $this->findOneBy([
+            self::SESSION_ID => $sessionId,
+            self::IS_ACTIVE => true
+        ]);
+    }
 }

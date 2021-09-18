@@ -43,14 +43,9 @@ class IndexController extends AbstractController
      * @return Response
      */
     public function index(BasketFactory $basketFactory,
-                          MainPageManager $mainPageManager,
-                          LoggerInterface $logger,
-                          SessionInterface $session
+                          MainPageManager $mainPageManager
     ): Response
     {
-        $session->start();
-        $logger->info($session->getMetadataBag()->getCreated());
-        $logger->info($session->getMetadataBag()->getLastUsed());
         $mainPageManager->inflate();
         $basket = $basketFactory->getBasket();
         return $this->render('index/index.html.twig', [

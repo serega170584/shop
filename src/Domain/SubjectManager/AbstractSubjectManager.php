@@ -4,7 +4,6 @@
 namespace App\Domain\SubjectManager;
 
 
-use App\Repository\CategoryRepository;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 
@@ -15,7 +14,7 @@ abstract class AbstractSubjectManager
      */
     protected $items;
     /**
-     * @var CategoryRepository
+     * @var ServiceEntityRepository
      */
     protected $repository;
 

@@ -37,9 +37,9 @@
                                     <i class="material-icons close-search">close</i>
                                 </button>
                                 <button class="shop-icon" data-url="{{ path('basket') }}"
-                                        {% if basket.getBasketItems().count() == 0 %}style="display:none"{% endif %}>
+                                        {% if mainPageManager.getBasketManager().getItems() == 0 %}style="display:none"{% endif %}>
                                     <i class="material-icons">shopping_cart</i>
-                                    <span class="studiare-cart-number">{{ basket.getBasketItems().count() }}</span>
+                                    <span class="studiare-cart-number">{{ mainPageManager.getBasketManager().getItems().count() }}</span>
                                 </button>
                             </div>
                         </div>
@@ -103,11 +103,11 @@
                     </form>
                 </div>
                 <div class="shopping-cart-box"
-                     {% if basket.getBasketItems().count() == 0 %}style="display:none"{% endif %}>
+                     {% if mainPageManager.getBasketManager().getItems().count() == 0 %}style="display:none"{% endif %}>
                     <a class="shop-icon" href="{{ path('basket') }}">
                         <i class="material-icons">shopping_cart</i>
                         Cart
-                        <span class="studiare-cart-number">{{ basket.getBasketItems().count() }}</span>
+                        <span class="studiare-cart-number">{{ mainPageManager.getBasketManager().getItems().count() }}</span>
                     </a>
                 </div>
                 <nav class="mobile-nav">
