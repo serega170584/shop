@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-{% set basketItemsCount = mainPageManager.getBasketManager().getItems().count() %}
+{% set basketItemsCount = pageManager.getBasketManager().getItems().count() %}
                                 {% block stylesheets %}
                                     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,400i,500,500i,600,700&display=swap"
                                           rel="stylesheet">

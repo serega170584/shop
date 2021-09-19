@@ -46,7 +46,7 @@ class IndexController extends AbstractController
     {
         $mainPageManager->inflate();
         return $this->render('index/index.html.twig', [
-            'mainPageManager' => $mainPageManager,
+            'pageManager' => $mainPageManager,
         ]);
     }
 

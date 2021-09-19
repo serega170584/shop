@@ -1,5 +1,5 @@
 {% block popular %}
-    {% set basketProducts = mainPageManager.getBasketManager().getItems() %}
+    {% set basketProducts = pageManager.getBasketManager().getItems() %}
     <div class="container">
         <div class="title-section">
             <div class="left-part">
@@ -11,7 +11,7 @@
         </div>
         <div class="popular-courses-box">
             <div class="row">
-                {% set products = mainPageManager.getSubjectManager().getItems() %}
+                {% set products = pageManager.getSubjectManager().getItems() %}
                 {% for product in products %}
                     <div class="col-lg-3 col-md-6">
                         <div class="course-post">

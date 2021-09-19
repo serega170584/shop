@@ -10,7 +10,7 @@
              style="background-color:#000000;padding:0px;">
             <!-- START REVOLUTION SLIDER 5.1.1RC fullscreen mode -->
             <div id="rev_slider_202_1" class="rev_slider" data-version="5.1.1RC">
-                {% set sliderItems = mainPageManager.getSubjectManager().getSliderItems() %}
+                {% set sliderItems = pageManager.getSubjectManager().getSliderItems() %}
                 {% if (sliderItems.count()) %}
                     <ul>
                         {% for slider in sliderItems %}
@@ -196,8 +196,8 @@
 
     <!-- popular-courses-section
     ================================================== -->
-    {% set form = mainPageManager.getProductAddForm().createView() %}
-    {% set productDeleteForm = mainPageManager.getProductDeleteForm().createView() %}
+    {% set form = pageManager.getProductAddForm().createView() %}
+    {% set productDeleteForm = pageManager.getProductDeleteForm().createView() %}
     <section class="popular-courses-section" id="basket-update" data-add-id="{{ form.product.vars.id }}"
              data-delete-id="{{ productDeleteForm.product.vars.id }}">
         {{ block("popular", "product/popular.html.twig") }}
