@@ -1,5 +1,5 @@
 {% block form %}
-        {% set form = mainPageManager.getProductAddForm().createView() %}
+        {% set form = pageManager.getProductAddForm().createView() %}
     {{ form_start(form, {'action': path('productAdd')}) }}
     {{ form_row(form.product) }}
     {{ form_end(form) }}

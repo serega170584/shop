@@ -1,5 +1,5 @@
 {% block productDeleteForm %}
-    {% set productDeleteForm = mainPageManager.getProductDeleteForm().createView() %}
+    {% set productDeleteForm = pageManager.getProductDeleteForm().createView() %}
     {% set attr = {'data-url': path('index')} %}
     {% if isReload is defined and isReload == true %}
         {% set attr=attr|merge({'data-reload': '1'}) %}
