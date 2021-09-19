@@ -10,7 +10,7 @@
                     </div>
 
                     <div class="events-box">
-                        {% set events = mainPageManager.getEventManager().getItems() %}
+                        {% set events = pageManager.getEventManager().getItems() %}
                         {% for event in events %}
                             <div class="events-post">
                                 <div class="event-inner-content">
@@ -45,7 +45,7 @@
                     </div>
 
                     <div class="video-box">
-                        {% set firstVideo = mainPageManager.getVideoManager().getFirstItem() %}
+                        {% set firstVideo = pageManager.getVideoManager().getFirstItem() %}
                         {% if (firstVideo) %}
                             <div class="video-post">
                                 <img src="{{ ['/uploads/video/', firstVideo.getImage()]|join('') }}" alt="">
@@ -59,7 +59,7 @@
                         {% endif %}
 
                         <div class="row">
-                            {% set videos = mainPageManager.getVideoManager().getItems() %}
+                            {% set videos = pageManager.getVideoManager().getItems() %}
                             {% for video in videos %}
                                 <div class="col-md-6">
                                     <div class="video-post small-post">
