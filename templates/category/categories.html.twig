@@ -4,7 +4,7 @@
             <div class="title-section">
                 <div class="left-part">
                     <span>Разделы</span>
-                    {% set categories = mainPageManager.getCategoryManager().getItems() %}
+                    {% set categories = pageManager.getCategoryManager().getItems() %}
                     {% set category = categories.current() %}
                     <h1>{{ category.getTitle() }}</h1>
                 </div>
