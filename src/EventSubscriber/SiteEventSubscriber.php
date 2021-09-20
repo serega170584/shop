@@ -50,7 +50,9 @@ class SiteEventSubscriber implements EventSubscriberInterface
     {
         $request = $event->getRequest();
         $session = $request->getSession();
-        $session->start();
+        if (!$session->isStarted()) {
+            $session->start();
+        }
         $interval = time() - $session->getMetadataBag()->getLastUsed();
         if ($interval > self::SESSION_INTERVAL) {
             $session->invalidate();

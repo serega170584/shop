@@ -14,12 +14,10 @@ use App\Form\ProductAddFormType;
 use App\Form\ProductDeleteFormType;
 use App\Repository\OrderStatusRepository;
 use App\Repository\ProductRepository;
-use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 class IndexController extends AbstractController
@@ -36,10 +34,7 @@ class IndexController extends AbstractController
 
     /**
      * @Route("/", name="index")
-     * @param BasketFactory $basketFactory
      * @param MainPageManager $mainPageManager
-     * @param LoggerInterface $logger
-     * @param SessionInterface $session
      * @return Response
      */
     public function index(MainPageManager $mainPageManager): Response
