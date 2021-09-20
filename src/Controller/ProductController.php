@@ -21,4 +21,17 @@ class ProductController extends AbstractController
             'product' => $product,
         ]);
     }
+
+    /**
+     * @Route("/product/{slug}/buy", name="buy")
+     * @param Product $product
+     * @return Response
+     */
+    public function buy(Product $product): Response
+    {
+        dump($product->getTitle());
+        return $this->render('product/index.html.twig', [
+            'product' => $product,
+        ]);
+    }
 }
