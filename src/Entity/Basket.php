@@ -45,6 +45,11 @@ class Basket
      */
     private $isActive;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $total;
+
     public function __construct()
     {
         $this->basketItems = new ArrayCollection();
@@ -171,6 +176,13 @@ class Basket
     public function setIsActive(bool $isActive): self
     {
         $this->isActive = $isActive;
+
+        return $this;
+    }
+
+    public function setTotal(?int $total): self
+    {
+        $this->total = $total;
 
         return $this;
     }
