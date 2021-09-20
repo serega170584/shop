@@ -4,11 +4,12 @@
 namespace App\Domain\SubjectManager;
 
 
+use App\Domain\InflatorInterface;
 use App\Repository\BasketRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
-class BasketManager extends AbstractSubjectManager
+class BasketManager extends AbstractSubjectManager implements InflatorInterface
 {
     /**
      * @var SessionInterface
@@ -28,8 +29,11 @@ class BasketManager extends AbstractSubjectManager
 
     public function inflate()
     {
-        $basket = $this->repository->findBasket($this->session->getId());
-        $this->basket = $basket ?? $this->repository->createEntity();
+        $sessionId = $this->session->getId();
+        $basket = $this->repository->findBasket($sessionId);
+        $basket = $basket ?? $this->repository->createEntity();
+        $basket->setSessionId($sessionId);
+        $this->basket = $basket;
         $this->items = $this->basket->getBasketProducts() ?? (new ArrayCollection());
     }
 

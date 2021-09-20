@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Domain\Repository\RepositoryTrait;
 use App\Entity\BasketItem;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -14,6 +15,8 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class BasketItemRepository extends ServiceEntityRepository
 {
+    use RepositoryTrait;
+
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, BasketItem::class);

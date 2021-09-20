@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Domain\PageManager\MainPageManager;
+use App\Domain\SubjectManager\BasketManager;
 use App\Entity\BasketItem;
 use App\Entity\OrderStatus;
 use App\Entity\Product;
@@ -12,13 +13,13 @@ use App\Factory\OrderFactory;
 use App\Form\OrderFormType;
 use App\Form\ProductAddFormType;
 use App\Form\ProductDeleteFormType;
+use App\Repository\BasketItemRepository;
 use App\Repository\OrderStatusRepository;
 use App\Repository\ProductRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
 
 class IndexController extends AbstractController
 {
@@ -49,18 +50,21 @@ class IndexController extends AbstractController
      * @Route("/productAdd", name="productAdd")
      * @param Request $request
      * @param BasketFactory $factory
-     * @param BasketItemFactory $basketItemFactory
+     * @param BasketManager $basketManager
+     * @param BasketItemRepository $basketItemRepository
      * @return JsonResponse
      */
     public function productAdd(Request $request, BasketFactory $factory,
-                               BasketItemFactory $basketItemFactory
+                               BasketManager $basketManager,
+                               BasketItemRepository $basketItemRepository
     ): JsonResponse
     {
-        $basketItem = $basketItemFactory->getBasketItem();
+        $basketManager->inflate();
+        $basketItem = $basketItemRepository->createEntity();
         $form = $this->createForm(ProductAddFormType::class, $basketItem);
         $form->handleRequest($request);
         $sessionId = $request->getSession()->getId();
-        $basket = $factory->getBasket();
+        $basket = $basketManager->getBasket();
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $basket->setSessionId($sessionId);

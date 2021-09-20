@@ -16,6 +16,7 @@ class ProductController extends AbstractController
      */
     public function index(Product $product): Response
     {
+        dump($product->getTitle());
         return $this->render('product/index.html.twig', [
             'product' => $product,
         ]);
