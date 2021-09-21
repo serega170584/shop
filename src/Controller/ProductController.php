@@ -23,7 +23,7 @@ class ProductController extends AbstractController
     }
 
     /**
-     * @Route("/product/{slug}/buy", name="buy")
+     * @Route("/test/product/{slug}/buy", name="buy")
      * @param Product $product
      * @return Response
      */
