@@ -25,7 +25,7 @@ class ProductController extends AbstractController
     }
 
     /**
-     * @Route("/test/test/{slug}/product/author/{author_slug}/buy", name="buy")
+     * @Route("/test/test/{id}/product/author/{author_slug}/buy", name="buy")
      * @ParamConverter("author", options={"mapping": {"author_slug": "slug"}})
      * @param Product $product
      * @param Author $author
