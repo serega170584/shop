@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Author;
 use App\Entity\Product;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,11 +24,12 @@ class ProductController extends AbstractController
     }
 
     /**
-     * @Route("/test/test/{slug}/product/author/buy", name="buy")
+     * @Route("/test/test/{slug}/product/author/{slug}/buy", name="buy")
      * @param Product $product
+     * @param Author $author
      * @return Response
      */
-    public function buy(Product $product): Response
+    public function buy(Product $product, Author $author): Response
     {
         dump($product->getTitle());
         return $this->json(['test'=>123]);
