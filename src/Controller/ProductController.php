@@ -30,8 +30,9 @@ class ProductController extends AbstractController
     public function buy(Product $product): Response
     {
         dump($product->getTitle());
-        return $this->render('product/index.html.twig', [
-            'product' => $product,
-        ]);
+        return $this->json(['test'=>123]);
+//        return $this->render('product/index.html.twig', [
+//            'product' => $product,
+//        ]);
     }
 }
