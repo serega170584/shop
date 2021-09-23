@@ -9,6 +9,7 @@ use App\Domain\SubjectManager\BasketManager;
 use App\Entity\Product;
 use App\Form\ProductAddFormType;
 use App\Repository\BasketItemRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -31,7 +32,7 @@ class ProductAddFormManager extends AbstractFormManager implements FormPreloadIn
 
     public function __construct(FormFactoryInterface $formFactory,
                                 SessionInterface $session,
-                                ObjectManager $objectManager,
+                                EntityManagerInterface $objectManager,
                                 BasketManager $basketManager,
                                 BasketItemRepository $basketItemRepository
     )
