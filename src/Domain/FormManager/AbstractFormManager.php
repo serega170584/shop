@@ -8,6 +8,7 @@ use App\Domain\FormPreloadInterface;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 abstract class AbstractFormManager
 {
@@ -16,22 +17,22 @@ abstract class AbstractFormManager
      */
     protected $form;
     /**
-     * @var Request
+     * @var SessionInterface
      */
-    protected $request;
+    protected $session;
     /**
      * @var ObjectManager
      */
     protected $objectManager;
 
     public function __construct(FormFactoryInterface $formFactory,
-                                Request $request,
+                                SessionInterface $session,
                                 ObjectManager $objectManager,
                                 string $formTypeClass
     )
     {
         $this->form = $formFactory->create($formTypeClass);
-        $this->request = $request;
+        $this->session = $session;
         $this->objectManager = $objectManager;
     }
 

@@ -12,6 +12,7 @@ use App\Repository\BasketItemRepository;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class ProductAddFormManager extends AbstractFormManager implements FormPreloadInterface
 {
@@ -19,10 +20,6 @@ class ProductAddFormManager extends AbstractFormManager implements FormPreloadIn
      * @var BasketManager
      */
     private $basketManager;
-    /**
-     * @var string
-     */
-    private $sessionId;
     /**
      * @var \App\Entity\Basket
      */
@@ -33,20 +30,19 @@ class ProductAddFormManager extends AbstractFormManager implements FormPreloadIn
     private $basketItemRepository;
 
     public function __construct(FormFactoryInterface $formFactory,
-                                Request $request,
+                                SessionInterface $session,
                                 ObjectManager $objectManager,
                                 BasketManager $basketManager,
                                 BasketItemRepository $basketItemRepository
     )
     {
-        parent::__construct($formFactory, $request, $objectManager, ProductAddFormType::class);
+        parent::__construct($formFactory, $session, $objectManager, ProductAddFormType::class);
         $this->basketManager = $basketManager;
         $this->basketItemRepository = $basketItemRepository;
     }
 
     public function preload(): self
     {
-        $this->sessionId = $this->request->getSession()->getId();
         $this->basket = $this->basketManager->getBasket();
     }
 
@@ -54,7 +50,7 @@ class ProductAddFormManager extends AbstractFormManager implements FormPreloadIn
     {
         $entityManager = $this->objectManager;
         $basket = $this->basket;
-        $basket->setSessionId($this->sessionId);
+        $basket->setSessionId($this->session->getId());
         $basket->setIsActive(true);
         $entityManager->persist($basket);
         $entityManager->flush();
