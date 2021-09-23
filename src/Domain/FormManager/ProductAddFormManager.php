@@ -44,6 +44,7 @@ class ProductAddFormManager extends AbstractFormManager implements FormPreloadIn
     {
         $this->basketManager->inflate();
         $this->basket = $this->basketManager->getBasket();
+        return $this;
     }
 
     public function handle(): self
