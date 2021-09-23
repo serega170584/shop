@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Domain\FormManager\ProductAddFormManager;
 use App\Domain\PageManager\MainPageManager;
 use App\Domain\SubjectManager\BasketManager;
 use App\Entity\BasketItem;
@@ -11,7 +12,6 @@ use App\Factory\BasketFactory;
 use App\Factory\BasketItemFactory;
 use App\Factory\OrderFactory;
 use App\Form\OrderFormType;
-use App\Form\ProductAddFormType;
 use App\Form\ProductDeleteFormType;
 use App\Repository\BasketItemRepository;
 use App\Repository\OrderStatusRepository;
@@ -55,52 +55,14 @@ class IndexController extends AbstractController
      * @param BasketItemRepository $basketItemRepository
      * @return JsonResponse
      */
-    public function productAdd(Request $request, BasketFactory $factory,
-                               BasketManager $basketManager,
-                               BasketItemRepository $basketItemRepository
-    ): JsonResponse
+    public function productAdd(ProductAddFormManager $productAddFormManager): JsonResponse
     {
-        $basketManager->inflate();
-        $basketItem = $basketItemRepository->createEntity();
-        $form = $this->createForm(ProductAddFormType::class, $basketItem);
-        $form->handleRequest($request);
-        $sessionId = $request->getSession()->getId();
-        $basket = $basketManager->getBasket();
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $basket->setSessionId($sessionId);
-            $basket->setIsActive(true);
-            $entityManager->persist($basket);
-            $entityManager->flush();
-            $productRepository = $this->getDoctrine()
-                ->getManager()
-                ->getRepository(Product::class);
-            /**
-             * @var Product $product
-             */
-            $product = $productRepository->findOneBy([
-                'id' => $basketItem->getProduct()->getId()
-            ]);
-            $basketItemRepository = $this->getDoctrine()
-                ->getManager()
-                ->getRepository(BasketItem::class);
-            if ($foundBasketItem = $basketItemRepository->findOneBy([
-                'basket' => $basket,
-                'product' => $product
-            ])) {
-                $basketItem = $foundBasketItem;
-            }
-            $basket->addBasketItem($basketItem);
-            $basketItem->setProduct($product);
-            $basketItem->setBasket($basket);
-            $entityManager->persist($basketItem);
-            $entityManager->flush();
-        } else {
-            throw $this->createNotFoundException();
-        }
+        $productAddFormManager->execute();
         return $this->json([
-            'count' => $basket->getBasketItems()->count(),
-            'total' => $basket->getTotal()
+            'count' => 1,
+            'total' => 2
+//            'count' => $basket->getBasketItems()->count(),
+//            'total' => $basket->getTotal()
         ]);
     }
 
