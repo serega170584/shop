@@ -10,9 +10,7 @@ use App\Entity\Product;
 use App\Form\ProductAddFormType;
 use App\Repository\BasketItemRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\Form\FormFactoryInterface;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class ProductAddFormManager extends AbstractFormManager implements FormPreloadInterface
@@ -44,6 +42,7 @@ class ProductAddFormManager extends AbstractFormManager implements FormPreloadIn
 
     public function preload(): self
     {
+        $this->basketManager->inflate();
         $this->basket = $this->basketManager->getBasket();
     }
 

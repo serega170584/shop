@@ -27,14 +27,15 @@ class BasketManager extends AbstractSubjectManager implements InflatorInterface
         $this->session = $session;
     }
 
-    public function inflate()
+    public function inflate(): self
     {
         $sessionId = $this->session->getId();
         $basket = $this->repository->findBasket($sessionId);
         $basket = $basket ?? $this->repository->createEntity();
         $basket->setSessionId($sessionId);
+        $this->items = $basket->getBasketProducts() ?? (new ArrayCollection());
         $this->basket = $basket;
-        $this->items = $this->basket->getBasketProducts() ?? (new ArrayCollection());
+        return $this;
     }
 
     /**
