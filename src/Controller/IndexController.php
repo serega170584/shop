@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Domain\FormManager\ProductAddFormManager;
 use App\Domain\PageManager\MainPageManager;
-use App\Domain\SubjectManager\BasketManager;
 use App\Entity\BasketItem;
 use App\Entity\OrderStatus;
 use App\Entity\Product;
@@ -13,7 +12,6 @@ use App\Factory\BasketItemFactory;
 use App\Factory\OrderFactory;
 use App\Form\OrderFormType;
 use App\Form\ProductDeleteFormType;
-use App\Repository\BasketItemRepository;
 use App\Repository\OrderStatusRepository;
 use App\Repository\ProductRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
