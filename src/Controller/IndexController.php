@@ -18,7 +18,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
 
 class IndexController extends AbstractController
 {
@@ -54,10 +53,7 @@ class IndexController extends AbstractController
     {
         $productAddFormManager->execute();
         return $this->json([
-            'count' => 1,
-            'total' => 2
-//            'count' => $basket->getBasketItems()->count(),
-//            'total' => $basket->getTotal()
+            'count' => $productAddFormManager->getBasketManager()->getItems()->count()
         ]);
     }
 

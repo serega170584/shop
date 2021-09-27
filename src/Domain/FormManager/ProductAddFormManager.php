@@ -57,7 +57,6 @@ class ProductAddFormManager extends AbstractFormManager implements FormPreloadIn
         $entityManager->flush();
         $productRepository = $this->objectManager
             ->getRepository(Product::class);
-//        $basketItem = $entityManager->getRepository(BasketItemRepository::class);
         $basketItemRepository = $this->basketItemRepository;
         $basketItem = $basketItemRepository->createEntity();
         /**
@@ -78,5 +77,13 @@ class ProductAddFormManager extends AbstractFormManager implements FormPreloadIn
         $entityManager->persist($basketItem);
         $entityManager->flush();
         return $this;
+    }
+
+    /**
+     * @return BasketManager
+     */
+    public function getBasketManager(): BasketManager
+    {
+        return $this->basketManager;
     }
 }
