@@ -7,8 +7,6 @@ namespace App\Factory;
 use App\Entity\Basket;
 use App\Repository\BasketRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class BasketFactory
@@ -38,7 +36,7 @@ class BasketFactory
         $this->mgr = $mgr;
     }
 
-    public function getBasket()
+    public function getBasket(): Basket
     {
         $id = $this->session->getId();
         if ($foundBasket = $this->basketRepository->findOneBy([
