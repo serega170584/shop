@@ -49,10 +49,7 @@ class IndexController extends AbstractController
 
     /**
      * @Route("/productAdd", name="productAdd")
-     * @param Request $request
-     * @param BasketFactory $factory
-     * @param BasketManager $basketManager
-     * @param BasketItemRepository $basketItemRepository
+     * @param ProductAddFormManager $productAddFormManager
      * @return JsonResponse
      */
     public function productAdd(ProductAddFormManager $productAddFormManager): JsonResponse
