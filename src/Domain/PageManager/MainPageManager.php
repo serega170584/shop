@@ -14,6 +14,7 @@ use App\Domain\SubjectManager\VideoManager;
 use App\Form\ProductAddFormType;
 use App\Form\ProductDeleteFormType;
 use Symfony\Component\Form\FormFactoryInterface;
+use Symfony\Component\HttpFoundation\Request;
 
 class MainPageManager extends AbstractPageManager implements InflatorInterface
 {
@@ -52,7 +53,8 @@ class MainPageManager extends AbstractPageManager implements InflatorInterface
                                 VideoManager $videoManager,
                                 NewsManager $newsManager,
                                 FormFactoryInterface $formFactory,
-                                BasketManager $basketManager
+                                BasketManager $basketManager,
+                                Request $request
     )
     {
         parent::__construct($productManager);
