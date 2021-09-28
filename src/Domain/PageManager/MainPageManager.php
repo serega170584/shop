@@ -11,6 +11,7 @@ use App\Domain\SubjectManager\EventManager;
 use App\Domain\SubjectManager\NewsManager;
 use App\Domain\SubjectManager\ProductManager;
 use App\Domain\SubjectManager\VideoManager;
+use App\DTO\ProductDTO;
 use App\Form\ProductAddFormType;
 use App\Form\ProductDeleteFormType;
 use Symfony\Component\Form\FormFactoryInterface;
@@ -54,7 +55,7 @@ class MainPageManager extends AbstractPageManager implements InflatorInterface
                                 NewsManager $newsManager,
                                 FormFactoryInterface $formFactory,
                                 BasketManager $basketManager,
-                                Request $request
+                                ProductDTO $dto
     )
     {
         parent::__construct($productManager);
