@@ -7,8 +7,8 @@
         <div class="container">
             <h1>{{ news.getTitle() }}</h1>
             <ul class="page-depth">
-                <li><a href="{{ path('index') }}">Главная</a></li>
-                <li><a href="{{ path('newsList') }}">Новости</a></li>
+                <li><a href="{{ path('index') }}">Home</a></li>
+                <li><a href="{{ path('newsList') }}">News</a></li>
                 <li><a href="{{ path('news', { slug: news.getSlug() }) }}">{{ news.getTitle() }}</a></li>
             </ul>
         </div>

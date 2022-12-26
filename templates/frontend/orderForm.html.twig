@@ -1,12 +1,12 @@
 {% extends 'frontend/order.html.twig' %}
 {% block sidebar_content %}
     <div class="widget cart-widget">
-        <h2>Заказ</h2>
+        <h2>Order</h2>
         <table>
             <tbody>
             <tr>
-                <td>Курс</td>
-                <td>Стоимость</td>
+                <td>Course</td>
+                <td>Price</td>
             </tr>
             {% for item in basketItems %}
                 <tr>
@@ -17,11 +17,11 @@
                 </tr>
             {% endfor %}
             <tr class="order-total">
-                <th>Всего</th>
+                <th>Total</th>
                 <td class="total-price">{{ cost }}</td>
             </tr>
             </tbody>
         </table>
-        <a href="#" class="checkout-button" id="order-button">Оформить</a>
+        <a href="#" class="checkout-button" id="order-button">Apply for</a>
     </div>
 {% endblock %}

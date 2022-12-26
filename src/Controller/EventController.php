@@ -28,7 +28,7 @@ class EventController extends AbstractController
     public function events(): Response
     {
         return $this->render('event/list.html.twig', [
-            'title'=> 'События',
+            'title'=> 'Events',
             'events' => $this->getDoctrine()
                 ->getManager()
                 ->getRepository(Event::class)

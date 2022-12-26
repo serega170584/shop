@@ -7,8 +7,8 @@
         <div class="container">
             <h1>{{ author.getTitle() }}</h1>
             <ul class="page-depth">
-                <li><a href="{{ path('index') }}">Главная</a></li>
-                <li><a href="{{ path('authors') }}">Преподаватели</a></li>
+                <li><a href="{{ path('index') }}">Home</a></li>
+                <li><a href="{{ path('authors') }}">Teachers</a></li>
                 <li><a href="{{ path('about-author', { slug: author.getSlug() }) }}">{{ author.getTitle() }}</a></li>
             </ul>
         </div>
@@ -37,14 +37,14 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="profile-details">
-                            <h1>Краткое описание</h1>
+                            <h1>Excerpt</h1>
                             <p>{{ author.getPreview()|raw }}</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="teacher-content">
-                    <h1>Биография</h1>
+                    <h1>Biography</h1>
                     {{ author.getDescription()|raw }}
                 </div>
 

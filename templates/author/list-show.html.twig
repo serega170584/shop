@@ -2,7 +2,7 @@
 {% block title %}{{ author.getTitle() }}{% endblock %}
 {% block breadcrumbs %}
     <ul class="page-depth">
-        <li><a href="{{ path('index') }}">Главная</a></li>
+        <li><a href="{{ path('index') }}">Home</a></li>
         <li><a href="{{ path('author-list', { slug: author.getSlug() }) }}">{{ author.getTitle() }}</a></li>
     </ul>
 {% endblock %}

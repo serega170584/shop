@@ -77,7 +77,7 @@ class AuthorController extends AbstractController
     public function authors()
     {
         return $this->render('author/list.html.twig', [
-            'title' => 'Преподаватели',
+            'title' => 'Teachers',
             'authors' => $this->getDoctrine()
                 ->getManager()
                 ->getRepository(Author::class)

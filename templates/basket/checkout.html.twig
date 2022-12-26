@@ -2,8 +2,8 @@
 {% block title %}Оформить заказ{% endblock %}
 {% block breadcrumbs %}
     <ul class="page-depth">
-        <li><a href="{{ path('index') }}">Главная</a></li>
-        <li><a href="{{ path('checkout') }}">Оформить заказ</a></li>
+        <li><a href="{{ path('index') }}">Home</a></li>
+        <li><a href="{{ path('checkout') }}">Make an order</a></li>
     </ul>
 {% endblock %}
 {% block page_content %}
@@ -13,8 +13,8 @@
             {{ form_errors(orderForm) }}
         </div>
         {{ form_row(orderForm.email, {'label': 'Email*'}) }}
-        {{ form_row(orderForm.telephone, {'label': 'Телефон*'}) }}
-        {{ form_row(orderForm.address, {'label': 'Адрес*'}) }}
+        {{ form_row(orderForm.telephone, {'label': 'Telephone*'}) }}
+        {{ form_row(orderForm.address, {'label': 'Address*'}) }}
         {{ form_row(orderForm.orderStatus) }}
         {{ form_end(orderForm) }}
     </div>

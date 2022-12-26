@@ -2,7 +2,7 @@
 {% block title %}{{ category.getTitle() }}{% endblock %}
 {% block breadcrumbs %}
     <ul class="page-depth">
-        <li><a href="{{ path('index') }}">Главная</a></li>
+        <li><a href="{{ path('index') }}">Home</a></li>
         <li><a href="{{ path('category', { slug: category.getSlug() }) }}">{{ category.getTitle() }}</a></li>
     </ul>
 {% endblock %}
@@ -15,7 +15,7 @@
             <a href="{{ path('category-list', { slug: category.getSlug() }) }}" class="grid-btn">
                 <i class="fa fa-bars" aria-hidden="true"></i>
             </a>
-            <span>Найдено {{ products|length }} курса</span>
+            <span>Searched {{ products|length }} courses</span>
         </div>
         <form class="search-course">
             <input type="search" name="search" id="search_course" placeholder="Search Courses..."/>

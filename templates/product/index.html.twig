@@ -30,7 +30,7 @@
                                         <i class="material-icons">account_box</i>
                                     </div>
                                     <div class="info">
-                                        <span class="label">Преподаватель</span>
+                                        <span class="label">Teacher</span>
                                         <div class="value">
                                             <a href="{{ path('author', { slug: product.getAuthor().getSlug() }) }}">{{ product.getAuthor().getTitle() }}</a>
                                         </div>
@@ -41,7 +41,7 @@
                                         <i class="material-icons">bookmark_border</i>
                                     </div>
                                     <div class="info">
-                                        <span class="label">Раздел</span>
+                                        <span class="label">Branch</span>
                                         <div class="value">
                                             <a href="{{ path('category', { slug: product.getCategory().getSlug() }) }}">{{ product.getCategory().getTitle() }}
                                             </a>
@@ -50,7 +50,7 @@
                                 </div>
                                 <div class="course-rating before-gallery-unit">
                                     <div class="star-rating has-ratings">
-                                        <span class="rating">Нет голосов</span>
+                                        <span class="rating">No votes</span>
                                     </div>
                                 </div>
                             </div>
@@ -73,10 +73,10 @@
                     <div class="sidebar">
                         <div class="widget course-widget">
                             <p class="price">
-                                <span class="price-label">Цена</span>
+                                <span class="price-label">Price</span>
                                 <span class="amount">£{{ product.getPrice()|number_format(0) }}</span>
                             </p>
-                            <a class="button-one" href="#">Купить</a>
+                            <a class="button-one" href="#">Buy</a>
                             <ul class="share-list">
                                 <li><span>Поделиться:</span></li>
                                 <li><a href="#" class="facebook"><i class="fa fa-facebook-f"></i></a></li>
@@ -97,7 +97,7 @@
                             <div class="content">
                                 <p>{{ product.getAuthor().getPreview()|raw }}</p>
                                 <a href="{{ path('about-author', { slug: product.getAuthor().getSlug() }) }}"
-                                   class="text-link">Просмотреть</a>
+                                   class="text-link">View</a>
                             </div>
                         </div>
                     </div>

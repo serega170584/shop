@@ -3,7 +3,7 @@
         <div class="container">
             <div class="title-section">
                 <div class="left-part">
-                    <span>Разделы</span>
+                    <span>Branches</span>
                     {% set categories = pageManager.getCategoryManager().getItems() %}
                     {% set category = categories.current() %}
                     <h1>{{ category.getTitle() }}</h1>

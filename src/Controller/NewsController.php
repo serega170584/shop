@@ -28,7 +28,7 @@ class NewsController extends AbstractController
     public function newsList(): Response
     {
         return $this->render('news/list.html.twig', [
-            'title'=> 'Новости',
+            'title'=> 'News',
             'newsList' => $this->getDoctrine()
                 ->getManager()
                 ->getRepository(News::class)

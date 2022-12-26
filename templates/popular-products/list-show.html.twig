@@ -2,8 +2,8 @@
 {% block title %}Популярные курсы{% endblock %}
 {% block breadcrumbs %}
     <ul class="page-depth">
-        <li><a href="{{ path('index') }}">Главная</a></li>
-        <li><a href="{{ path('popular-products') }}">Популярные курсы</a></li>
+        <li><a href="{{ path('index') }}">Home</a></li>
+        <li><a href="{{ path('popular-products') }}">Popular courses</a></li>
     </ul>
 {% endblock %}
 {% block page_content %}
@@ -15,7 +15,7 @@
             <a href="{{ path('popular-products-list') }}" class="grid-btn active">
                 <i class="fa fa-bars" aria-hidden="true"></i>
             </a>
-            <span>Найдено {{ products|length }} курса</span>
+            <span>Searched {{ products|length }} courses</span>
         </div>
         <form class="search-course">
             <input type="search" name="search" id="search_course" placeholder="Search Courses..."/>

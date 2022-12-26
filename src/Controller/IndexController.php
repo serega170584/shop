@@ -119,7 +119,7 @@ class IndexController extends AbstractController
             ->getRepository(Product::class);
         $products = $repository->findPopular();
         return $this->render('popular-products/show.html.twig', [
-            'title' => 'Популярные курсы',
+            'title' => 'Popular courses',
             'controller_name' => 'IndexController',
             'products' => $products
         ]);
@@ -137,7 +137,7 @@ class IndexController extends AbstractController
             ->getRepository(Product::class);
         $products = $repository->findPopular();
         return $this->render('popular-products/list-show.html.twig', [
-            'title' => 'Популярные курсы',
+            'title' => 'Popular courses',
             'controller_name' => 'IndexController',
             'products' => $products
         ]);
@@ -156,7 +156,7 @@ class IndexController extends AbstractController
         }
         $productDeleteForm = $this->createForm(ProductDeleteFormType::class);
         return $this->render('basket/basket.html.twig', [
-            'title' => 'Корзина',
+            'title' => 'Basket',
             'basketItems' => $basket->getBasketItems(),
             'productDeleteForm' => $productDeleteForm->createView(),
             'cost' => $basket->getTotal(),
@@ -199,7 +199,7 @@ class IndexController extends AbstractController
             return $this->redirectToRoute('index');
         }
         return $this->render('basket/checkout.html.twig', [
-            'title' => 'Оформить заказ',
+            'title' => 'Make an order',
             'orderForm' => $orderForm->createView(),
             'basketItems' => $basket->getBasketItems(),
             'cost' => $basket->getTotal(),

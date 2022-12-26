@@ -3,10 +3,10 @@
     <div class="container">
         <div class="title-section">
             <div class="left-part">
-                <h1>Популярные курсы</h1>
+                <h1>Popular courses</h1>
             </div>
             <div class="right-part">
-                <a class="button-one" href="{{ path('popular-products') }}">Все</a>
+                <a class="button-one" href="{{ path('popular-products') }}">Total</a>
             </div>
         </div>
         <div class="popular-courses-box">
@@ -29,10 +29,10 @@
                                         <div class="star-rating has-ratings" title="Rated 5.00 out of 5">
 												<span style="width:100%">
 													<a class="button-one buy" href="#" data-id="{{ product.getId() }}"
-                                                       {% if basketProducts.contains(product) %}style="display:none"{% endif %}>Купить</a>
+                                                       {% if basketProducts.contains(product) %}style="display:none"{% endif %}>Buy</a>
                                                     <a class="button-one delete" href="#"
                                                        data-id="{{ product.getId() }}"
-                                                       {% if not basketProducts.contains(product) %}style="display:none"{% endif %}>Удалить</a>
+                                                       {% if not basketProducts.contains(product) %}style="display:none"{% endif %}>Delete</a>
 												</span>
                                         </div>
                                         <a href="{{ path('author', { slug: product.getAuthor().getSlug() }) }}"
